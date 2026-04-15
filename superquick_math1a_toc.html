@@ -215,7 +215,8 @@
                 if (hasSub) {
                     html += '<div class="subsection-list">';
                     ch.subsections.forEach(sub => {
-                        const link = `${viewerBase}&section=${ch.id}&page=${sub.page}`;
+                        const relativePage = sub.page - ch.start + 1;
+                        const link = `${viewerBase}&section=${ch.id}&page=${relativePage}`;
                         html += `<a href="${link}" class="sub-item">`;
                         html += `  <span style="display:flex;align-items:center">`;
                         html += `    <span class="sub-num">${sub.num}</span>`;
