@@ -680,6 +680,103 @@ document.addEventListener('DOMContentLoaded', () => {
         
         doc.close();
     }
+    // ===== Answer Modal =====
+    const answerBtn = document.getElementById('btn-answer');
+    const answerOverlay = document.getElementById('answer-modal-overlay');
+    const answerClose = document.getElementById('answer-close');
+    const answerPrev = document.getElementById('answer-prev');
+    const answerNext = document.getElementById('answer-next');
+    const answerTitle = document.getElementById('answer-title');
+    const answerImg = document.getElementById('answer-img');
+    const answerBody = document.getElementById('answer-modal-body');
+
+    // 解答ページ範囲
+    const ANSWER_START = 242;
+    const ANSWER_END = 288;
+    let answerCurrentPage = ANSWER_START;
+    let answerZoom = 1;
+
+    function estimateAnswerPage(viewPage) {
+        // 本編 p.6〜p.241 (236ページ) → 解答 p.242〜p.288 (47ページ)
+        // 比例的にマッピング
+        if (viewPage < 6) return ANSWER_START;
+        if (viewPage >= ANSWER_START) return viewPage; // 既に解答セクション
+        const ratio = (viewPage - 6) / (241 - 6);
+        return Math.min(ANSWER_END, Math.max(ANSWER_START, Math.round(ANSWER_START + ratio * (ANSWER_END - ANSWER_START))));
+    }
+
+    function loadAnswerPage(page) {
+        answerCurrentPage = Math.max(ANSWER_START, Math.min(ANSWER_END, page));
+        answerZoom = 1;
+        answerImg.style.transform = `scale(1)`;
+        answerImg.src = getImageSrc(answerCurrentPage);
+        answerTitle.textContent = `解答 P.${answerCurrentPage}`;
+        answerPrev.disabled = (answerCurrentPage <= ANSWER_START);
+        answerNext.disabled = (answerCurrentPage >= ANSWER_END);
+        // スクロール位置をリセット
+        if (answerBody) answerBody.scrollTop = 0;
+    }
+
+    function applyAnswerZoom(delta) {
+        answerZoom = Math.max(0.5, Math.min(4, answerZoom + delta));
+        answerImg.style.transform = `scale(${answerZoom})`;
+        answerImg.style.transformOrigin = 'top center';
+    }
+
+    if (answerBtn) {
+        answerBtn.addEventListener('click', () => {
+            const estimated = estimateAnswerPage(currentPage);
+            loadAnswerPage(estimated);
+            answerOverlay.style.display = 'flex';
+        });
+    }
+
+    if (answerClose) {
+        answerClose.addEventListener('click', () => {
+            answerOverlay.style.display = 'none';
+        });
+    }
+
+    if (answerOverlay) {
+        answerOverlay.addEventListener('click', (e) => {
+            if (e.target === answerOverlay) answerOverlay.style.display = 'none';
+        });
+    }
+
+    if (answerPrev) {
+        answerPrev.addEventListener('click', () => {
+            loadAnswerPage(answerCurrentPage - 1);
+        });
+    }
+
+    if (answerNext) {
+        answerNext.addEventListener('click', () => {
+            loadAnswerPage(answerCurrentPage + 1);
+        });
+    }
+
+    // Ctrl+Wheel でズーム（解答モーダル）
+    if (answerBody) {
+        answerBody.addEventListener('wheel', (e) => {
+            if (e.ctrlKey) {
+                e.preventDefault();
+                applyAnswerZoom(e.deltaY < 0 ? 0.15 : -0.15);
+            }
+        }, { passive: false });
+    }
+
+    // ダブルクリックでズームトグル
+    if (answerImg) {
+        answerImg.addEventListener('dblclick', () => {
+            if (answerZoom > 1.2) {
+                answerZoom = 1;
+            } else {
+                answerZoom = 2.5;
+            }
+            answerImg.style.transform = `scale(${answerZoom})`;
+            answerImg.style.transformOrigin = 'top center';
+        });
+    }
 
     // ===== Initial Load =====
     loadPage(currentPage);
