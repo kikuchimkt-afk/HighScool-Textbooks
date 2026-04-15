@@ -507,6 +507,81 @@ const hsData = {
             }));
         },
         pageQrs: {}
+    },
+
+    // スピードチェック 理論化学
+    speedcheck_chem: {
+        id: "speedcheck_chem",
+        title: "スピードチェック 理論化学",
+        totalPages: 152,
+        imagesPath: "images/speedcheck_chem/",
+        printImagesPath: "images/speedcheck_chem_bw/",
+        coverImage: "images/speedcheck_chem_cover.jpg",
+        qrBase: "",
+        chapters: [
+            {
+                id: "intro", title: "表紙・目次", start: 1, end: 3,
+                subsections: []
+            },
+            {
+                id: "part1", title: "物質の構成", start: 4, end: 44,
+                subsections: [
+                    { num: 1,  title: "原子の構造", page: 4 },
+                    { num: 2,  title: "原子の電子配置", page: 7 },
+                    { num: 3,  title: "元素の周期表と電子配置", page: 12 },
+                    { num: 4,  title: "化学結合", page: 18 },
+                    { num: 5,  title: "結晶の種類", page: 25 },
+                    { num: 6,  title: "原子量・分子量と物質量", page: 31 },
+                    { num: 7,  title: "化学反応式と量的関係", page: 37 },
+                    { num: 8,  title: "溶液の濃度", page: 41 }
+                ]
+            },
+            {
+                id: "part2", title: "物質の変化", start: 45, end: 85,
+                subsections: [
+                    { num: 9,  title: "酸・塩基とその量的関係", page: 45 },
+                    { num: 10, title: "pHと滴定曲線", page: 53 },
+                    { num: 11, title: "酸化還元反応", page: 60 },
+                    { num: 12, title: "金属のイオン化傾向と電池", page: 67 },
+                    { num: 13, title: "電気分解", page: 73 },
+                    { num: 14, title: "化学反応とエンタルピー", page: 78 }
+                ]
+            },
+            {
+                id: "part3", title: "物質の状態", start: 86, end: 119,
+                subsections: [
+                    { num: 15, title: "物質の三態", page: 86 },
+                    { num: 16, title: "気体の法則", page: 91 },
+                    { num: 17, title: "混合気体と全圧・分圧", page: 95 },
+                    { num: 18, title: "固体の溶解度", page: 100 },
+                    { num: 19, title: "気体の溶解度", page: 106 },
+                    { num: 20, title: "沸点上昇・凝固点降下", page: 109 },
+                    { num: 21, title: "浸透圧", page: 113 },
+                    { num: 22, title: "コロイド溶液", page: 115 }
+                ]
+            },
+            {
+                id: "part4", title: "反応の速さと化学平衡", start: 120, end: 141,
+                subsections: [
+                    { num: 23, title: "反応の速さと進み方", page: 120 },
+                    { num: 24, title: "化学平衡と移動", page: 124 },
+                    { num: 25, title: "平衡定数", page: 128 },
+                    { num: 26, title: "電離平衡", page: 132 },
+                    { num: 27, title: "2段階電離と溶解度積", page: 137 }
+                ]
+            },
+            {
+                id: "appendix", title: "索引・付録", start: 142, end: 152,
+                subsections: []
+            }
+        ],
+        get sections() {
+            return this.chapters.map(ch => ({
+                id: ch.id, title: ch.title, start: ch.start, end: ch.end,
+                pages: ch.end - ch.start + 1
+            }));
+        },
+        pageQrs: {}
     }
 };
 
