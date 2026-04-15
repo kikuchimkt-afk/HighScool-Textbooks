@@ -725,11 +725,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (answerBtn) {
-        answerBtn.addEventListener('click', () => {
-            const estimated = estimateAnswerPage(currentPage);
-            loadAnswerPage(estimated);
-            answerOverlay.style.display = 'flex';
-        });
+        if (!answersSection) {
+            // 解答セクションがない書籍ではボタンを非表示
+            answerBtn.style.display = 'none';
+        } else {
+            answerBtn.addEventListener('click', () => {
+                const estimated = estimateAnswerPage(currentPage);
+                loadAnswerPage(estimated);
+                answerOverlay.style.display = 'flex';
+            });
+        }
     }
 
     if (answerClose) {
