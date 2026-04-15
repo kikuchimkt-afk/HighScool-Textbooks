@@ -232,6 +232,281 @@ const hsData = {
             }));
         },
         pageQrs: {}
+    },
+
+    // SuperQuick 数IIBC
+    superquick_math2bc: {
+        id: "superquick_math2bc",
+        title: "SuperQuick 数IIBC",
+        totalPages: 368,
+        imagesPath: "images/superquick_math2bc/",
+        printImagesPath: "images/superquick_math2bc_bw/",
+        coverImage: "images/superquick_math2bc_cover.jpg",
+        qrBase: "",
+        chapters: [
+            {
+                id: "intro", title: "前書き・目次", start: 1, end: 5,
+                subsections: []
+            },
+            {
+                id: "chap1", title: "第1章 式と証明", start: 6, end: 27,
+                subsections: [
+                    { num: 1,  title: "3次式の展開", page: 6 },
+                    { num: 2,  title: "3次式の因数分解", page: 7 },
+                    { num: 3,  title: "二項定理, (a+b+c)^nの展開式", page: 8 },
+                    { num: 4,  title: "多項式の割り算", page: 10 },
+                    { num: 5,  title: "分数式の四則計算", page: 12 },
+                    { num: 6,  title: "繁分数式の計算", page: 13 },
+                    { num: 7,  title: "分数式の計算：分数式の差, 分子の次数下げ", page: 14 },
+                    { num: 8,  title: "恒等式の係数決定：係数比較法", page: 16 },
+                    { num: 9,  title: "恒等式の係数決定：数値代入法", page: 17 },
+                    { num: 10, title: "分数式の恒等式", page: 18 },
+                    { num: 11, title: "等式の証明", page: 19 },
+                    { num: 12, title: "条件つきの等式の証明", page: 20 },
+                    { num: 13, title: "比例式の値", page: 21 },
+                    { num: 14, title: "不等式の証明：実数の平方と大小関係", page: 22 },
+                    { num: 15, title: "不等式の証明：絶対値と不等式", page: 24 },
+                    { num: 16, title: "不等式の証明：3文字の不等式", page: 25 },
+                    { num: 17, title: "相加平均と相乗平均", page: 26 }
+                ]
+            },
+            {
+                id: "chap2", title: "第2章 複素数と方程式", start: 28, end: 48,
+                subsections: [
+                    { num: 18, title: "複素数の計算", page: 28 },
+                    { num: 19, title: "複素数の相等", page: 29 },
+                    { num: 20, title: "2次方程式の解", page: 30 },
+                    { num: 21, title: "2次方程式の解の種類の判別", page: 31 },
+                    { num: 22, title: "虚数を係数とする2次方程式", page: 32 },
+                    { num: 23, title: "解と係数の関係：対称式の値", page: 34 },
+                    { num: 24, title: "2数α,βを解とする2次方程式", page: 35 },
+                    { num: 25, title: "2次方程式の解の存在範囲", page: 36 },
+                    { num: 26, title: "剰余の定理", page: 37 },
+                    { num: 27, title: "2次式で割った余り：剰余の定理の利用", page: 38 },
+                    { num: 28, title: "高次式の値", page: 39 },
+                    { num: 29, title: "高次方程式の解法：因数定理の利用", page: 40 },
+                    { num: 30, title: "1の3乗根とその性質", page: 42 },
+                    { num: 31, title: "高次方程式の係数決定：実数解", page: 43 },
+                    { num: 32, title: "高次方程式の係数決定：虚数解", page: 44 },
+                    { num: 33, title: "2重解をもつ条件", page: 46 },
+                    { num: 34, title: "3次方程式の解と係数の関係", page: 48 }
+                ]
+            },
+            {
+                id: "chap3", title: "第3章 図形と方程式", start: 49, end: 80,
+                subsections: [
+                    { num: 35, title: "座標平面上の2点間の距離", page: 49 },
+                    { num: 36, title: "座標を利用した証明", page: 50 },
+                    { num: 37, title: "平行四辺形の頂点の座標", page: 51 },
+                    { num: 38, title: "内分点・外分点の座標", page: 52 },
+                    { num: 39, title: "直線の方程式", page: 54 },
+                    { num: 40, title: "2直線の平行・垂直", page: 55 },
+                    { num: 41, title: "直線に関して対称な点", page: 56 },
+                    { num: 42, title: "定点を通る直線の方程式", page: 58 },
+                    { num: 43, title: "点と直線の距離", page: 59 },
+                    { num: 44, title: "円の方程式", page: 60 },
+                    { num: 45, title: "円と直線の位置関係", page: 62 },
+                    { num: 46, title: "円の接線の方程式", page: 64 },
+                    { num: 47, title: "2つの円の交点を通る図形", page: 66 },
+                    { num: 48, title: "2つの円の共通接線", page: 68 },
+                    { num: 49, title: "座標平面上の点の軌跡", page: 69 },
+                    { num: 50, title: "直線に関して対称な点の軌跡", page: 70 },
+                    { num: 51, title: "放物線の頂点の軌跡", page: 71 },
+                    { num: 52, title: "放物線の弦の中点の軌跡", page: 72 },
+                    { num: 53, title: "2直線の交点の軌跡", page: 74 },
+                    { num: 54, title: "不等式の表す領域", page: 76 },
+                    { num: 55, title: "領域と最大・最小", page: 78 },
+                    { num: 56, title: "領域の利用：文章題", page: 80 }
+                ]
+            },
+            {
+                id: "chap4", title: "第4章 三角関数", start: 81, end: 105,
+                subsections: [
+                    { num: 57, title: "弧度法と扇形", page: 81 },
+                    { num: 58, title: "三角関数の値", page: 82 },
+                    { num: 59, title: "三角関数の相互関係", page: 84 },
+                    { num: 60, title: "三角関数の対称式の値", page: 85 },
+                    { num: 61, title: "三角関数を解とする2次方程式", page: 86 },
+                    { num: 62, title: "三角関数のグラフ", page: 88 },
+                    { num: 63, title: "三角方程式・不等式：角のおき換え", page: 90 },
+                    { num: 64, title: "正弦, 余弦の加法定理", page: 92 },
+                    { num: 65, title: "正接の加法定理と2直線のなす角", page: 93 },
+                    { num: 66, title: "2倍角, 半角, 3倍角の公式", page: 94 },
+                    { num: 67, title: "三角関数の合成", page: 96 },
+                    { num: 68, title: "三角方程式・不等式：2倍角, 合成利用", page: 98 },
+                    { num: 69, title: "三角関数を含む関数の最大・最小(1)", page: 100 },
+                    { num: 70, title: "三角関数を含む関数の最大・最小(2)", page: 102 },
+                    { num: 71, title: "和と積の公式", page: 104 }
+                ]
+            },
+            {
+                id: "chap5", title: "第5章 指数関数と対数関数", start: 106, end: 133,
+                subsections: [
+                    { num: 72, title: "指数法則と累乗根の計算", page: 106 },
+                    { num: 73, title: "指数の計算と式の値", page: 107 },
+                    { num: 74, title: "指数関数 y=a^x のグラフ", page: 108 },
+                    { num: 75, title: "指数関数を含む方程式・不等式", page: 110 },
+                    { num: 76, title: "指数関数を含む関数の最大値, 最小値", page: 112 },
+                    { num: 77, title: "対数の性質", page: 114 },
+                    { num: 78, title: "底の変換公式", page: 115 },
+                    { num: 79, title: "底の変換公式の利用", page: 116 },
+                    { num: 80, title: "対数を利用した等式の証明", page: 117 },
+                    { num: 81, title: "対数関数 y=log_a x のグラフ", page: 118 },
+                    { num: 82, title: "対数関数を含む方程式", page: 120 },
+                    { num: 83, title: "対数関数を含む不等式", page: 122 },
+                    { num: 84, title: "対数関数を含む関数の最大値, 最小値", page: 124 },
+                    { num: 85, title: "対数関数を含む2変数関数の最大値, 最小値", page: 125 },
+                    { num: 86, title: "累乗・対数の大小比較", page: 126 },
+                    { num: 87, title: "対数不等式と領域の図示", page: 128 },
+                    { num: 88, title: "常用対数を利用した桁数, 小数首位", page: 130 },
+                    { num: 89, title: "最高位の数字", page: 132 },
+                    { num: 90, title: "常用対数を利用する文章題", page: 133 }
+                ]
+            },
+            {
+                id: "chap6", title: "第6章 微分法と積分法", start: 134, end: 177,
+                subsections: [
+                    { num: 91,  title: "平均変化率と微分係数", page: 134 },
+                    { num: 92,  title: "導関数の計算", page: 136 },
+                    { num: 93,  title: "導関数と微分係数", page: 138 },
+                    { num: 94,  title: "関数の極限値と微分係数", page: 139 },
+                    { num: 95,  title: "曲線上の点における接線", page: 140 },
+                    { num: 96,  title: "曲線上にない点から引いた接線", page: 141 },
+                    { num: 97,  title: "共通接線", page: 142 },
+                    { num: 98,  title: "2曲線が接する条件", page: 144 },
+                    { num: 99,  title: "3次関数の極値とグラフ", page: 146 },
+                    { num: 100, title: "4次関数の極値とグラフ", page: 148 },
+                    { num: 101, title: "極値から3次関数の係数決定", page: 149 },
+                    { num: 102, title: "3次関数が極値をもつ条件", page: 150 },
+                    { num: 103, title: "関数の最大値, 最小値", page: 152 },
+                    { num: 104, title: "関数の最大値, 最小値：文章題", page: 153 },
+                    { num: 105, title: "文字係数の関数の最大値, 最小値", page: 154 },
+                    { num: 106, title: "3次方程式の実数解の個数", page: 156 },
+                    { num: 107, title: "導関数を利用した不等式の証明", page: 158 },
+                    { num: 108, title: "不等式が成り立つ条件", page: 159 },
+                    { num: 109, title: "3次関数のグラフに引ける接線の本数", page: 160 },
+                    { num: 110, title: "不定積分の計算", page: 162 },
+                    { num: 111, title: "導関数から関数の決定", page: 164 },
+                    { num: 112, title: "定積分の計算", page: 165 },
+                    { num: 113, title: "定積分の計算：∫(x-α)(x-β)dx", page: 166 },
+                    { num: 114, title: "定積分で表された関数", page: 168 },
+                    { num: 115, title: "定積分と微分法", page: 169 },
+                    { num: 116, title: "絶対値のついた関数の定積分", page: 170 },
+                    { num: 117, title: "定積分と恒等式", page: 171 },
+                    { num: 118, title: "曲線とx軸の間の面積", page: 172 },
+                    { num: 119, title: "2つの曲線の間の面積", page: 173 },
+                    { num: 120, title: "曲線と接線で囲まれた図形の面積", page: 174 },
+                    { num: 121, title: "放物線と直線で囲まれた図形の面積の最小値", page: 176 }
+                ]
+            },
+            {
+                id: "chap7", title: "第7章 数列", start: 178, end: 217,
+                subsections: [
+                    { num: 122, title: "等差数列の一般項", page: 178 },
+                    { num: 123, title: "等差数列の和とその最大", page: 180 },
+                    { num: 124, title: "等比数列の一般項", page: 182 },
+                    { num: 125, title: "等比数列の和", page: 184 },
+                    { num: 126, title: "複利計算", page: 186 },
+                    { num: 127, title: "Σの計算", page: 188 },
+                    { num: 128, title: "階差数列", page: 190 },
+                    { num: 129, title: "分数の数列の和", page: 192 },
+                    { num: 130, title: "数列の和と一般項", page: 194 },
+                    { num: 131, title: "(等差)×(等比)型の数列の和", page: 195 },
+                    { num: 132, title: "群数列", page: 196 },
+                    { num: 133, title: "格子点の個数", page: 198 },
+                    { num: 134, title: "漸化式の基本", page: 200 },
+                    { num: 135, title: "a_{n+1}=pa_n+(nの1次式)型の漸化式", page: 202 },
+                    { num: 136, title: "a_{n+1}=pa_n+q^n型の漸化式", page: 204 },
+                    { num: 137, title: "分数型の漸化式", page: 206 },
+                    { num: 138, title: "和S_nを含む漸化式", page: 207 },
+                    { num: 139, title: "隣接3項間の漸化式", page: 208 },
+                    { num: 140, title: "図形と漸化式", page: 210 },
+                    { num: 141, title: "確率と漸化式", page: 212 },
+                    { num: 142, title: "数学的帰納法と等式の証明", page: 214 },
+                    { num: 143, title: "数学的帰納法と整数の性質", page: 215 },
+                    { num: 144, title: "数学的帰納法と不等式の証明", page: 216 },
+                    { num: 145, title: "数列の一般項と数学的帰納法", page: 217 }
+                ]
+            },
+            {
+                id: "chap8", title: "第8章 統計的な推測", start: 218, end: 251,
+                subsections: [
+                    { num: 146, title: "確率変数, 確率分布と期待値", page: 218 },
+                    { num: 147, title: "確率変数の分散, 標準偏差", page: 221 },
+                    { num: 148, title: "確率変数の変換", page: 222 },
+                    { num: 149, title: "独立な確率変数と期待値, 分散", page: 224 },
+                    { num: 150, title: "二項分布", page: 226 },
+                    { num: 151, title: "確率密度関数", page: 228 },
+                    { num: 152, title: "正規分布と確率", page: 230 },
+                    { num: 153, title: "正規分布の利用", page: 232 },
+                    { num: 154, title: "二項分布の正規分布による近似", page: 234 },
+                    { num: 155, title: "標本平均の期待値と標準偏差", page: 236 },
+                    { num: 156, title: "標本平均と正規分布", page: 239 },
+                    { num: 157, title: "標本比率と正規分布", page: 240 },
+                    { num: 158, title: "母平均の推定", page: 242 },
+                    { num: 159, title: "母比率の推定", page: 244 },
+                    { num: 160, title: "信頼区間の幅と標本の大きさ", page: 245 },
+                    { num: 161, title: "母比率の検定（両側検定）", page: 246 },
+                    { num: 162, title: "母比率の検定（片側検定）", page: 249 },
+                    { num: 163, title: "母平均の検定", page: 250 }
+                ]
+            },
+            {
+                id: "chap9", title: "第9章 平面上のベクトル", start: 252, end: 283,
+                subsections: [
+                    { num: 164, title: "ベクトルの演算", page: 252 },
+                    { num: 165, title: "ベクトルの成分", page: 254 },
+                    { num: 166, title: "ベクトルの内積（定義）", page: 256 },
+                    { num: 167, title: "ベクトルの内積（成分）", page: 257 },
+                    { num: 168, title: "内積の性質", page: 258 },
+                    { num: 169, title: "ベクトルの平行条件・垂直条件", page: 260 },
+                    { num: 170, title: "ベクトルの内積と垂直", page: 262 },
+                    { num: 171, title: "ベクトルの大きさと垂直", page: 263 },
+                    { num: 172, title: "三角形の面積", page: 264 },
+                    { num: 173, title: "ベクトルの大きさの最小値", page: 266 },
+                    { num: 174, title: "位置ベクトル", page: 268 },
+                    { num: 175, title: "内心の位置ベクトル", page: 270 },
+                    { num: 176, title: "共線条件", page: 271 },
+                    { num: 177, title: "ベクトルの等式と三角形の面積比", page: 272 },
+                    { num: 178, title: "直線のベクトル方程式", page: 274 },
+                    { num: 179, title: "交点の位置ベクトル", page: 276 },
+                    { num: 180, title: "垂心の位置ベクトル", page: 278 },
+                    { num: 181, title: "ベクトルの条件と三角形の形状", page: 279 },
+                    { num: 182, title: "平面上の点の存在範囲", page: 280 },
+                    { num: 183, title: "円のベクトル方程式", page: 282 }
+                ]
+            },
+            {
+                id: "chap10", title: "第10章 空間のベクトル", start: 284, end: 303,
+                subsections: [
+                    { num: 184, title: "空間の点の座標, 2点間の距離", page: 284 },
+                    { num: 185, title: "空間のベクトルの成分", page: 286 },
+                    { num: 186, title: "空間のベクトルの内積となす角", page: 287 },
+                    { num: 187, title: "空間のベクトルの垂直", page: 288 },
+                    { num: 188, title: "三角形の面積（空間）", page: 289 },
+                    { num: 189, title: "交点の位置ベクトル（空間）", page: 290 },
+                    { num: 190, title: "同じ平面上にある条件", page: 292 },
+                    { num: 191, title: "直線と平面の交点の位置ベクトル", page: 294 },
+                    { num: 192, title: "分点の座標（空間）", page: 296 },
+                    { num: 193, title: "座標平面に平行な平面", page: 297 },
+                    { num: 194, title: "球面の方程式", page: 298 },
+                    { num: 195, title: "球面とその切り口", page: 300 },
+                    { num: 196, title: "直線のベクトル方程式（空間）", page: 301 },
+                    { num: 197, title: "座標空間における四面体の体積", page: 302 }
+                ]
+            },
+            {
+                id: "answers", title: "練習の解答", start: 304, end: 368,
+                subsections: []
+            }
+        ],
+        get sections() {
+            return this.chapters.map(ch => ({
+                id: ch.id, title: ch.title, start: ch.start, end: ch.end,
+                pages: ch.end - ch.start + 1
+            }));
+        },
+        pageQrs: {}
     }
 };
 

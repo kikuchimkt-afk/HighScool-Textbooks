@@ -690,18 +690,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const answerImg = document.getElementById('answer-img');
     const answerBody = document.getElementById('answer-modal-body');
 
-    // 解答ページ範囲
-    const ANSWER_START = 242;
-    const ANSWER_END = 288;
+    // 解答ページ範囲（bookDataから動的取得）
+    const answersSection = bookData.chapters ? bookData.chapters.find(ch => ch.id === 'answers') : null;
+    const ANSWER_START = answersSection ? answersSection.start : TOTAL_PAGES;
+    const ANSWER_END = answersSection ? answersSection.end : TOTAL_PAGES;
+    const CONTENT_END = ANSWER_START - 1; // 本編最終ページ
     let answerCurrentPage = ANSWER_START;
     let answerZoom = 1;
 
     function estimateAnswerPage(viewPage) {
-        // 本編 p.6〜p.241 (236ページ) → 解答 p.242〜p.288 (47ページ)
-        // 比例的にマッピング
+        // 本編 p.6〜p.CONTENT_END → 解答 p.ANSWER_START〜p.ANSWER_END
         if (viewPage < 6) return ANSWER_START;
-        if (viewPage >= ANSWER_START) return viewPage; // 既に解答セクション
-        const ratio = (viewPage - 6) / (241 - 6);
+        if (viewPage >= ANSWER_START) return viewPage;
+        const ratio = (viewPage - 6) / (CONTENT_END - 6);
         return Math.min(ANSWER_END, Math.max(ANSWER_START, Math.round(ANSWER_START + ratio * (ANSWER_END - ANSWER_START))));
     }
 
