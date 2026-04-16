@@ -1,6 +1,6 @@
-﻿{
-    "name": "闍ｱ隱樣聞譁・・繝ｩ繝ｪ繧ｹ1 繝薙Η繝ｼ繧｢",
-    "short_name": "繝昴Λ繝ｪ繧ｹ1",
+{
+    "name": "英語長文ポラリス2 ビューア",
+    "short_name": "ポラリス2",
     "start_url": "./polaris2_toc.html",
     "display": "standalone",
     "background_color": "#000000",
@@ -10,4 +10,3 @@
         { "src": "icons/polaris2_512.png", "sizes": "512x512", "type": "image/png" }
     ]
 }
-

@@ -69,6 +69,11 @@
             box-shadow: 0 2px 12px rgba(0,0,0,0.15),
                         inset 0 1px 0 rgba(255,255,255,0.05);
         }
+        /* --- Accordion --- */
+        .toc-accordion { border: none; }
+        .toc-accordion summary { list-style: none; cursor: pointer; }
+        .toc-accordion summary::-webkit-details-marker { display: none; }
+        .toc-accordion summary::marker { display: none; content: ''; }
         .toc-chapter-link {
             display: flex; justify-content: space-between; align-items: center;
             padding: 0.85rem 1.2rem; text-decoration: none; color: #f5f5f7;
@@ -79,6 +84,17 @@
         .toc-chapter-link:hover {
             background: rgba(255,255,255,0.06);
         }
+        .toc-chapter-meta {
+            display: flex; align-items: center; gap: 8px;
+        }
+        .toc-chevron {
+            font-size: 0.65rem; color: rgba(255,255,255,0.3);
+            transition: transform 0.3s ease;
+            display: inline-block;
+        }
+        .toc-accordion[open] .toc-chevron {
+            transform: rotate(90deg);
+        }
         .toc-chapter-pages {
             font-size: 0.75rem; color: rgba(255,255,255,0.3);
             font-weight: 400; white-space: nowrap;
@@ -86,6 +102,11 @@
         .toc-subsections {
             border-top: 1px solid rgba(255,255,255,0.06);
             padding: 0.2rem 0;
+            animation: tocSlideDown 0.25s ease;
+        }
+        @keyframes tocSlideDown {
+            from { opacity: 0; max-height: 0; }
+            to { opacity: 1; max-height: 2000px; }
         }
         .toc-sub-link {
             display: flex; align-items: center; gap: 8px;
@@ -135,907 +156,947 @@
             <img src="images/superquick_math1a_cover.jpg" alt="SuperQuick 数IA 表紙" class="toc-cover">
             
         <div class="toc-chapter">
-            <a href="superquick_math1a_viewer.html?book=superquick_math1a&section=intro&page=1" class="toc-chapter-link">
+            <a href="superquick_math1a_viewer.html?book=superquick_math1a&section=intro&page=1" class="toc-chapter-link toc-chapter-link-plain">
                 <span class="toc-chapter-title">前書き・目次</span>
                 <span class="toc-chapter-pages">p.1–5</span>
             </a>
         </div>
         <div class="toc-chapter">
-            <a href="superquick_math1a_viewer.html?book=superquick_math1a&section=chap1&page=1" class="toc-chapter-link">
-                <span class="toc-chapter-title">第1章 数と式</span>
-                <span class="toc-chapter-pages">p.6–31</span>
-            </a>
-            <div class="toc-subsections">
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=6" class="toc-sub-link">
-                    <span class="toc-sub-num">1</span>
-                    <span class="toc-sub-title">多項式の加法と減法</span>
-                    <span class="toc-sub-page">p.6</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=7" class="toc-sub-link">
-                    <span class="toc-sub-num">2</span>
-                    <span class="toc-sub-title">多項式の乗法</span>
-                    <span class="toc-sub-page">p.7</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=8" class="toc-sub-link">
-                    <span class="toc-sub-num">3</span>
-                    <span class="toc-sub-title">式の展開</span>
-                    <span class="toc-sub-page">p.8</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=10" class="toc-sub-link">
-                    <span class="toc-sub-num">4</span>
-                    <span class="toc-sub-title">式の展開の工夫</span>
-                    <span class="toc-sub-page">p.10</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=11" class="toc-sub-link">
-                    <span class="toc-sub-num">5</span>
-                    <span class="toc-sub-title">因数分解（たすき掛け, 3次式の公式）</span>
-                    <span class="toc-sub-page">p.11</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=12" class="toc-sub-link">
-                    <span class="toc-sub-num">6</span>
-                    <span class="toc-sub-title">因数分解（おき換え, ある文字について整理）</span>
-                    <span class="toc-sub-page">p.12</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=14" class="toc-sub-link">
-                    <span class="toc-sub-num">7</span>
-                    <span class="toc-sub-title">やや複雑な因数分解</span>
-                    <span class="toc-sub-page">p.14</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=15" class="toc-sub-link">
-                    <span class="toc-sub-num">8</span>
-                    <span class="toc-sub-title">循環小数と分数</span>
-                    <span class="toc-sub-page">p.15</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=16" class="toc-sub-link">
-                    <span class="toc-sub-num">9</span>
-                    <span class="toc-sub-title">文字式の平方根</span>
-                    <span class="toc-sub-page">p.16</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=17" class="toc-sub-link">
-                    <span class="toc-sub-num">10</span>
-                    <span class="toc-sub-title">分母の有理化</span>
-                    <span class="toc-sub-page">p.17</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=18" class="toc-sub-link">
-                    <span class="toc-sub-num">11</span>
-                    <span class="toc-sub-title">平方根と式の値（対称式）</span>
-                    <span class="toc-sub-page">p.18</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=19" class="toc-sub-link">
-                    <span class="toc-sub-num">12</span>
-                    <span class="toc-sub-title">平方根と式の値（x^n+1/x^nの値, 次数下げ）</span>
-                    <span class="toc-sub-page">p.19</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=20" class="toc-sub-link">
-                    <span class="toc-sub-num">13</span>
-                    <span class="toc-sub-title">整数部分, 小数部分</span>
-                    <span class="toc-sub-page">p.20</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=21" class="toc-sub-link">
-                    <span class="toc-sub-num">14</span>
-                    <span class="toc-sub-title">2重根号</span>
-                    <span class="toc-sub-page">p.21</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=22" class="toc-sub-link">
-                    <span class="toc-sub-num">15</span>
-                    <span class="toc-sub-title">1次不等式の解法</span>
-                    <span class="toc-sub-page">p.22</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=23" class="toc-sub-link">
-                    <span class="toc-sub-num">16</span>
-                    <span class="toc-sub-title">連立不等式の解法</span>
-                    <span class="toc-sub-page">p.23</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=24" class="toc-sub-link">
-                    <span class="toc-sub-num">17</span>
-                    <span class="toc-sub-title">文字係数の不等式</span>
-                    <span class="toc-sub-page">p.24</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=25" class="toc-sub-link">
-                    <span class="toc-sub-num">18</span>
-                    <span class="toc-sub-title">不等式を満たす自然数</span>
-                    <span class="toc-sub-page">p.25</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=26" class="toc-sub-link">
-                    <span class="toc-sub-num">19</span>
-                    <span class="toc-sub-title">不等式の解の条件を満たす定数</span>
-                    <span class="toc-sub-page">p.26</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=27" class="toc-sub-link">
-                    <span class="toc-sub-num">20</span>
-                    <span class="toc-sub-title">1次不等式の文章題</span>
-                    <span class="toc-sub-page">p.27</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=28" class="toc-sub-link">
-                    <span class="toc-sub-num">21</span>
-                    <span class="toc-sub-title">絶対値を含む方程式</span>
-                    <span class="toc-sub-page">p.28</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=30" class="toc-sub-link">
-                    <span class="toc-sub-num">22</span>
-                    <span class="toc-sub-title">絶対値を含む不等式</span>
-                    <span class="toc-sub-page">p.30</span>
-                </a>
-            </div>
+            <details class="toc-accordion">
+                <summary class="toc-chapter-link">
+                    <span class="toc-chapter-title">第1章 数と式</span>
+                    <span class="toc-chapter-meta">
+                        <span class="toc-chapter-pages">p.6–31</span>
+                        <span class="toc-chevron">▶</span>
+                    </span>
+                </summary>
+                <div class="toc-subsections">
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=6" class="toc-sub-link">
+                        <span class="toc-sub-num">1</span>
+                        <span class="toc-sub-title">多項式の加法と減法</span>
+                        <span class="toc-sub-page">p.6</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=7" class="toc-sub-link">
+                        <span class="toc-sub-num">2</span>
+                        <span class="toc-sub-title">多項式の乗法</span>
+                        <span class="toc-sub-page">p.7</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=8" class="toc-sub-link">
+                        <span class="toc-sub-num">3</span>
+                        <span class="toc-sub-title">式の展開</span>
+                        <span class="toc-sub-page">p.8</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=10" class="toc-sub-link">
+                        <span class="toc-sub-num">4</span>
+                        <span class="toc-sub-title">式の展開の工夫</span>
+                        <span class="toc-sub-page">p.10</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=11" class="toc-sub-link">
+                        <span class="toc-sub-num">5</span>
+                        <span class="toc-sub-title">因数分解（たすき掛け, 3次式の公式）</span>
+                        <span class="toc-sub-page">p.11</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=12" class="toc-sub-link">
+                        <span class="toc-sub-num">6</span>
+                        <span class="toc-sub-title">因数分解（おき換え, ある文字について整理）</span>
+                        <span class="toc-sub-page">p.12</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=14" class="toc-sub-link">
+                        <span class="toc-sub-num">7</span>
+                        <span class="toc-sub-title">やや複雑な因数分解</span>
+                        <span class="toc-sub-page">p.14</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=15" class="toc-sub-link">
+                        <span class="toc-sub-num">8</span>
+                        <span class="toc-sub-title">循環小数と分数</span>
+                        <span class="toc-sub-page">p.15</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=16" class="toc-sub-link">
+                        <span class="toc-sub-num">9</span>
+                        <span class="toc-sub-title">文字式の平方根</span>
+                        <span class="toc-sub-page">p.16</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=17" class="toc-sub-link">
+                        <span class="toc-sub-num">10</span>
+                        <span class="toc-sub-title">分母の有理化</span>
+                        <span class="toc-sub-page">p.17</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=18" class="toc-sub-link">
+                        <span class="toc-sub-num">11</span>
+                        <span class="toc-sub-title">平方根と式の値（対称式）</span>
+                        <span class="toc-sub-page">p.18</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=19" class="toc-sub-link">
+                        <span class="toc-sub-num">12</span>
+                        <span class="toc-sub-title">平方根と式の値（x^n+1/x^nの値, 次数下げ）</span>
+                        <span class="toc-sub-page">p.19</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=20" class="toc-sub-link">
+                        <span class="toc-sub-num">13</span>
+                        <span class="toc-sub-title">整数部分, 小数部分</span>
+                        <span class="toc-sub-page">p.20</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=21" class="toc-sub-link">
+                        <span class="toc-sub-num">14</span>
+                        <span class="toc-sub-title">2重根号</span>
+                        <span class="toc-sub-page">p.21</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=22" class="toc-sub-link">
+                        <span class="toc-sub-num">15</span>
+                        <span class="toc-sub-title">1次不等式の解法</span>
+                        <span class="toc-sub-page">p.22</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=23" class="toc-sub-link">
+                        <span class="toc-sub-num">16</span>
+                        <span class="toc-sub-title">連立不等式の解法</span>
+                        <span class="toc-sub-page">p.23</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=24" class="toc-sub-link">
+                        <span class="toc-sub-num">17</span>
+                        <span class="toc-sub-title">文字係数の不等式</span>
+                        <span class="toc-sub-page">p.24</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=25" class="toc-sub-link">
+                        <span class="toc-sub-num">18</span>
+                        <span class="toc-sub-title">不等式を満たす自然数</span>
+                        <span class="toc-sub-page">p.25</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=26" class="toc-sub-link">
+                        <span class="toc-sub-num">19</span>
+                        <span class="toc-sub-title">不等式の解の条件を満たす定数</span>
+                        <span class="toc-sub-page">p.26</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=27" class="toc-sub-link">
+                        <span class="toc-sub-num">20</span>
+                        <span class="toc-sub-title">1次不等式の文章題</span>
+                        <span class="toc-sub-page">p.27</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=28" class="toc-sub-link">
+                        <span class="toc-sub-num">21</span>
+                        <span class="toc-sub-title">絶対値を含む方程式</span>
+                        <span class="toc-sub-page">p.28</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=30" class="toc-sub-link">
+                        <span class="toc-sub-num">22</span>
+                        <span class="toc-sub-title">絶対値を含む不等式</span>
+                        <span class="toc-sub-page">p.30</span>
+                    </a>
+                </div>
+            </details>
         </div>
         <div class="toc-chapter">
-            <a href="superquick_math1a_viewer.html?book=superquick_math1a&section=chap2&page=1" class="toc-chapter-link">
-                <span class="toc-chapter-title">第2章 集合と命題</span>
-                <span class="toc-chapter-pages">p.32–41</span>
-            </a>
-            <div class="toc-subsections">
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=32" class="toc-sub-link">
-                    <span class="toc-sub-num">23</span>
-                    <span class="toc-sub-title">集合と要素</span>
-                    <span class="toc-sub-page">p.32</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=34" class="toc-sub-link">
-                    <span class="toc-sub-num">24</span>
-                    <span class="toc-sub-title">実数の集合</span>
-                    <span class="toc-sub-page">p.34</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=35" class="toc-sub-link">
-                    <span class="toc-sub-num">25</span>
-                    <span class="toc-sub-title">命題の真偽</span>
-                    <span class="toc-sub-page">p.35</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=36" class="toc-sub-link">
-                    <span class="toc-sub-num">26</span>
-                    <span class="toc-sub-title">必要条件と十分条件</span>
-                    <span class="toc-sub-page">p.36</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=38" class="toc-sub-link">
-                    <span class="toc-sub-num">27</span>
-                    <span class="toc-sub-title">条件の否定, 命題の逆・対偶・裏</span>
-                    <span class="toc-sub-page">p.38</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=39" class="toc-sub-link">
-                    <span class="toc-sub-num">28</span>
-                    <span class="toc-sub-title">対偶を利用した命題の証明</span>
-                    <span class="toc-sub-page">p.39</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=40" class="toc-sub-link">
-                    <span class="toc-sub-num">29</span>
-                    <span class="toc-sub-title">背理法による命題の証明</span>
-                    <span class="toc-sub-page">p.40</span>
-                </a>
-            </div>
+            <details class="toc-accordion">
+                <summary class="toc-chapter-link">
+                    <span class="toc-chapter-title">第2章 集合と命題</span>
+                    <span class="toc-chapter-meta">
+                        <span class="toc-chapter-pages">p.32–41</span>
+                        <span class="toc-chevron">▶</span>
+                    </span>
+                </summary>
+                <div class="toc-subsections">
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=32" class="toc-sub-link">
+                        <span class="toc-sub-num">23</span>
+                        <span class="toc-sub-title">集合と要素</span>
+                        <span class="toc-sub-page">p.32</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=34" class="toc-sub-link">
+                        <span class="toc-sub-num">24</span>
+                        <span class="toc-sub-title">実数の集合</span>
+                        <span class="toc-sub-page">p.34</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=35" class="toc-sub-link">
+                        <span class="toc-sub-num">25</span>
+                        <span class="toc-sub-title">命題の真偽</span>
+                        <span class="toc-sub-page">p.35</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=36" class="toc-sub-link">
+                        <span class="toc-sub-num">26</span>
+                        <span class="toc-sub-title">必要条件と十分条件</span>
+                        <span class="toc-sub-page">p.36</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=38" class="toc-sub-link">
+                        <span class="toc-sub-num">27</span>
+                        <span class="toc-sub-title">条件の否定, 命題の逆・対偶・裏</span>
+                        <span class="toc-sub-page">p.38</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=39" class="toc-sub-link">
+                        <span class="toc-sub-num">28</span>
+                        <span class="toc-sub-title">対偶を利用した命題の証明</span>
+                        <span class="toc-sub-page">p.39</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=40" class="toc-sub-link">
+                        <span class="toc-sub-num">29</span>
+                        <span class="toc-sub-title">背理法による命題の証明</span>
+                        <span class="toc-sub-page">p.40</span>
+                    </a>
+                </div>
+            </details>
         </div>
         <div class="toc-chapter">
-            <a href="superquick_math1a_viewer.html?book=superquick_math1a&section=chap3&page=1" class="toc-chapter-link">
-                <span class="toc-chapter-title">第3章 2次関数</span>
-                <span class="toc-chapter-pages">p.42–81</span>
-            </a>
-            <div class="toc-subsections">
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=42" class="toc-sub-link">
-                    <span class="toc-sub-num">30</span>
-                    <span class="toc-sub-title">関数の値域, 最大値, 最小値</span>
-                    <span class="toc-sub-page">p.42</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=43" class="toc-sub-link">
-                    <span class="toc-sub-num">31</span>
-                    <span class="toc-sub-title">2次関数 y=a(x-p)²+q のグラフ</span>
-                    <span class="toc-sub-page">p.43</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=44" class="toc-sub-link">
-                    <span class="toc-sub-num">32</span>
-                    <span class="toc-sub-title">2次関数 y=ax²+bx+c のグラフ</span>
-                    <span class="toc-sub-page">p.44</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=46" class="toc-sub-link">
-                    <span class="toc-sub-num">33</span>
-                    <span class="toc-sub-title">グラフの平行移動</span>
-                    <span class="toc-sub-page">p.46</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=47" class="toc-sub-link">
-                    <span class="toc-sub-num">34</span>
-                    <span class="toc-sub-title">グラフの対称移動</span>
-                    <span class="toc-sub-page">p.47</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=48" class="toc-sub-link">
-                    <span class="toc-sub-num">35</span>
-                    <span class="toc-sub-title">2次関数の係数の符号とグラフ</span>
-                    <span class="toc-sub-page">p.48</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=49" class="toc-sub-link">
-                    <span class="toc-sub-num">36</span>
-                    <span class="toc-sub-title">2次関数の最大・最小</span>
-                    <span class="toc-sub-page">p.49</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=50" class="toc-sub-link">
-                    <span class="toc-sub-num">37</span>
-                    <span class="toc-sub-title">定義域に制限がある場合の最大と最小</span>
-                    <span class="toc-sub-page">p.50</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=51" class="toc-sub-link">
-                    <span class="toc-sub-num">38</span>
-                    <span class="toc-sub-title">最大と最小の応用</span>
-                    <span class="toc-sub-page">p.51</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=52" class="toc-sub-link">
-                    <span class="toc-sub-num">39</span>
-                    <span class="toc-sub-title">定義域が動く場合の最大と最小</span>
-                    <span class="toc-sub-page">p.52</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=54" class="toc-sub-link">
-                    <span class="toc-sub-num">40</span>
-                    <span class="toc-sub-title">グラフが動く場合の最大と最小</span>
-                    <span class="toc-sub-page">p.54</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=56" class="toc-sub-link">
-                    <span class="toc-sub-num">41</span>
-                    <span class="toc-sub-title">4次関数の最大と最小</span>
-                    <span class="toc-sub-page">p.56</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=57" class="toc-sub-link">
-                    <span class="toc-sub-num">42</span>
-                    <span class="toc-sub-title">2変数関数の最大と最小</span>
-                    <span class="toc-sub-page">p.57</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=58" class="toc-sub-link">
-                    <span class="toc-sub-num">43</span>
-                    <span class="toc-sub-title">条件つきの2変数関数の最大と最小</span>
-                    <span class="toc-sub-page">p.58</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=60" class="toc-sub-link">
-                    <span class="toc-sub-num">44</span>
-                    <span class="toc-sub-title">2次関数の決定</span>
-                    <span class="toc-sub-page">p.60</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=62" class="toc-sub-link">
-                    <span class="toc-sub-num">45</span>
-                    <span class="toc-sub-title">2次関数の決定（放物線の平行移動）</span>
-                    <span class="toc-sub-page">p.62</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=63" class="toc-sub-link">
-                    <span class="toc-sub-num">46</span>
-                    <span class="toc-sub-title">2次方程式の解法</span>
-                    <span class="toc-sub-page">p.63</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=64" class="toc-sub-link">
-                    <span class="toc-sub-num">47</span>
-                    <span class="toc-sub-title">2次不等式の解法</span>
-                    <span class="toc-sub-page">p.64</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=66" class="toc-sub-link">
-                    <span class="toc-sub-num">48</span>
-                    <span class="toc-sub-title">連立不等式の解法（2次）</span>
-                    <span class="toc-sub-page">p.66</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=67" class="toc-sub-link">
-                    <span class="toc-sub-num">49</span>
-                    <span class="toc-sub-title">文字係数の2次不等式の解</span>
-                    <span class="toc-sub-page">p.67</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=68" class="toc-sub-link">
-                    <span class="toc-sub-num">50</span>
-                    <span class="toc-sub-title">2次方程式が実数解をもつ条件</span>
-                    <span class="toc-sub-page">p.68</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=69" class="toc-sub-link">
-                    <span class="toc-sub-num">51</span>
-                    <span class="toc-sub-title">2つの2次方程式の実数解の条件</span>
-                    <span class="toc-sub-page">p.69</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=70" class="toc-sub-link">
-                    <span class="toc-sub-num">52</span>
-                    <span class="toc-sub-title">2次関数のグラフとx軸の共有点</span>
-                    <span class="toc-sub-page">p.70</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=72" class="toc-sub-link">
-                    <span class="toc-sub-num">53</span>
-                    <span class="toc-sub-title">放物線と直線の共有点</span>
-                    <span class="toc-sub-page">p.72</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=74" class="toc-sub-link">
-                    <span class="toc-sub-num">54</span>
-                    <span class="toc-sub-title">不等式が常に成り立つ条件</span>
-                    <span class="toc-sub-page">p.74</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=75" class="toc-sub-link">
-                    <span class="toc-sub-num">55</span>
-                    <span class="toc-sub-title">ある変域で不等式が常に成り立つ条件</span>
-                    <span class="toc-sub-page">p.75</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=76" class="toc-sub-link">
-                    <span class="toc-sub-num">56</span>
-                    <span class="toc-sub-title">2次方程式の解の存在範囲</span>
-                    <span class="toc-sub-page">p.76</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=78" class="toc-sub-link">
-                    <span class="toc-sub-num">57</span>
-                    <span class="toc-sub-title">絶対値を含む関数のグラフ</span>
-                    <span class="toc-sub-page">p.78</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=80" class="toc-sub-link">
-                    <span class="toc-sub-num">58</span>
-                    <span class="toc-sub-title">絶対値を含む2次不等式</span>
-                    <span class="toc-sub-page">p.80</span>
-                </a>
-            </div>
+            <details class="toc-accordion">
+                <summary class="toc-chapter-link">
+                    <span class="toc-chapter-title">第3章 2次関数</span>
+                    <span class="toc-chapter-meta">
+                        <span class="toc-chapter-pages">p.42–81</span>
+                        <span class="toc-chevron">▶</span>
+                    </span>
+                </summary>
+                <div class="toc-subsections">
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=42" class="toc-sub-link">
+                        <span class="toc-sub-num">30</span>
+                        <span class="toc-sub-title">関数の値域, 最大値, 最小値</span>
+                        <span class="toc-sub-page">p.42</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=43" class="toc-sub-link">
+                        <span class="toc-sub-num">31</span>
+                        <span class="toc-sub-title">2次関数 y=a(x-p)²+q のグラフ</span>
+                        <span class="toc-sub-page">p.43</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=44" class="toc-sub-link">
+                        <span class="toc-sub-num">32</span>
+                        <span class="toc-sub-title">2次関数 y=ax²+bx+c のグラフ</span>
+                        <span class="toc-sub-page">p.44</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=46" class="toc-sub-link">
+                        <span class="toc-sub-num">33</span>
+                        <span class="toc-sub-title">グラフの平行移動</span>
+                        <span class="toc-sub-page">p.46</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=47" class="toc-sub-link">
+                        <span class="toc-sub-num">34</span>
+                        <span class="toc-sub-title">グラフの対称移動</span>
+                        <span class="toc-sub-page">p.47</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=48" class="toc-sub-link">
+                        <span class="toc-sub-num">35</span>
+                        <span class="toc-sub-title">2次関数の係数の符号とグラフ</span>
+                        <span class="toc-sub-page">p.48</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=49" class="toc-sub-link">
+                        <span class="toc-sub-num">36</span>
+                        <span class="toc-sub-title">2次関数の最大・最小</span>
+                        <span class="toc-sub-page">p.49</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=50" class="toc-sub-link">
+                        <span class="toc-sub-num">37</span>
+                        <span class="toc-sub-title">定義域に制限がある場合の最大と最小</span>
+                        <span class="toc-sub-page">p.50</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=51" class="toc-sub-link">
+                        <span class="toc-sub-num">38</span>
+                        <span class="toc-sub-title">最大と最小の応用</span>
+                        <span class="toc-sub-page">p.51</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=52" class="toc-sub-link">
+                        <span class="toc-sub-num">39</span>
+                        <span class="toc-sub-title">定義域が動く場合の最大と最小</span>
+                        <span class="toc-sub-page">p.52</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=54" class="toc-sub-link">
+                        <span class="toc-sub-num">40</span>
+                        <span class="toc-sub-title">グラフが動く場合の最大と最小</span>
+                        <span class="toc-sub-page">p.54</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=56" class="toc-sub-link">
+                        <span class="toc-sub-num">41</span>
+                        <span class="toc-sub-title">4次関数の最大と最小</span>
+                        <span class="toc-sub-page">p.56</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=57" class="toc-sub-link">
+                        <span class="toc-sub-num">42</span>
+                        <span class="toc-sub-title">2変数関数の最大と最小</span>
+                        <span class="toc-sub-page">p.57</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=58" class="toc-sub-link">
+                        <span class="toc-sub-num">43</span>
+                        <span class="toc-sub-title">条件つきの2変数関数の最大と最小</span>
+                        <span class="toc-sub-page">p.58</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=60" class="toc-sub-link">
+                        <span class="toc-sub-num">44</span>
+                        <span class="toc-sub-title">2次関数の決定</span>
+                        <span class="toc-sub-page">p.60</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=62" class="toc-sub-link">
+                        <span class="toc-sub-num">45</span>
+                        <span class="toc-sub-title">2次関数の決定（放物線の平行移動）</span>
+                        <span class="toc-sub-page">p.62</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=63" class="toc-sub-link">
+                        <span class="toc-sub-num">46</span>
+                        <span class="toc-sub-title">2次方程式の解法</span>
+                        <span class="toc-sub-page">p.63</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=64" class="toc-sub-link">
+                        <span class="toc-sub-num">47</span>
+                        <span class="toc-sub-title">2次不等式の解法</span>
+                        <span class="toc-sub-page">p.64</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=66" class="toc-sub-link">
+                        <span class="toc-sub-num">48</span>
+                        <span class="toc-sub-title">連立不等式の解法（2次）</span>
+                        <span class="toc-sub-page">p.66</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=67" class="toc-sub-link">
+                        <span class="toc-sub-num">49</span>
+                        <span class="toc-sub-title">文字係数の2次不等式の解</span>
+                        <span class="toc-sub-page">p.67</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=68" class="toc-sub-link">
+                        <span class="toc-sub-num">50</span>
+                        <span class="toc-sub-title">2次方程式が実数解をもつ条件</span>
+                        <span class="toc-sub-page">p.68</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=69" class="toc-sub-link">
+                        <span class="toc-sub-num">51</span>
+                        <span class="toc-sub-title">2つの2次方程式の実数解の条件</span>
+                        <span class="toc-sub-page">p.69</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=70" class="toc-sub-link">
+                        <span class="toc-sub-num">52</span>
+                        <span class="toc-sub-title">2次関数のグラフとx軸の共有点</span>
+                        <span class="toc-sub-page">p.70</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=72" class="toc-sub-link">
+                        <span class="toc-sub-num">53</span>
+                        <span class="toc-sub-title">放物線と直線の共有点</span>
+                        <span class="toc-sub-page">p.72</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=74" class="toc-sub-link">
+                        <span class="toc-sub-num">54</span>
+                        <span class="toc-sub-title">不等式が常に成り立つ条件</span>
+                        <span class="toc-sub-page">p.74</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=75" class="toc-sub-link">
+                        <span class="toc-sub-num">55</span>
+                        <span class="toc-sub-title">ある変域で不等式が常に成り立つ条件</span>
+                        <span class="toc-sub-page">p.75</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=76" class="toc-sub-link">
+                        <span class="toc-sub-num">56</span>
+                        <span class="toc-sub-title">2次方程式の解の存在範囲</span>
+                        <span class="toc-sub-page">p.76</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=78" class="toc-sub-link">
+                        <span class="toc-sub-num">57</span>
+                        <span class="toc-sub-title">絶対値を含む関数のグラフ</span>
+                        <span class="toc-sub-page">p.78</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=80" class="toc-sub-link">
+                        <span class="toc-sub-num">58</span>
+                        <span class="toc-sub-title">絶対値を含む2次不等式</span>
+                        <span class="toc-sub-page">p.80</span>
+                    </a>
+                </div>
+            </details>
         </div>
         <div class="toc-chapter">
-            <a href="superquick_math1a_viewer.html?book=superquick_math1a&section=chap4&page=1" class="toc-chapter-link">
-                <span class="toc-chapter-title">第4章 図形と計量</span>
-                <span class="toc-chapter-pages">p.82–113</span>
-            </a>
-            <div class="toc-subsections">
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=82" class="toc-sub-link">
-                    <span class="toc-sub-num">59</span>
-                    <span class="toc-sub-title">直角三角形と三角比</span>
-                    <span class="toc-sub-page">p.82</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=84" class="toc-sub-link">
-                    <span class="toc-sub-num">60</span>
-                    <span class="toc-sub-title">三角比の拡張</span>
-                    <span class="toc-sub-page">p.84</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=86" class="toc-sub-link">
-                    <span class="toc-sub-num">61</span>
-                    <span class="toc-sub-title">三角比の相互関係</span>
-                    <span class="toc-sub-page">p.86</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=88" class="toc-sub-link">
-                    <span class="toc-sub-num">62</span>
-                    <span class="toc-sub-title">三角比の式の計算</span>
-                    <span class="toc-sub-page">p.88</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=89" class="toc-sub-link">
-                    <span class="toc-sub-num">63</span>
-                    <span class="toc-sub-title">三角比の対称式の値</span>
-                    <span class="toc-sub-page">p.89</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=90" class="toc-sub-link">
-                    <span class="toc-sub-num">64</span>
-                    <span class="toc-sub-title">三角比を含む方程式</span>
-                    <span class="toc-sub-page">p.90</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=92" class="toc-sub-link">
-                    <span class="toc-sub-num">65</span>
-                    <span class="toc-sub-title">三角比を含む方程式（2次）</span>
-                    <span class="toc-sub-page">p.92</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=93" class="toc-sub-link">
-                    <span class="toc-sub-num">66</span>
-                    <span class="toc-sub-title">三角比を含む不等式</span>
-                    <span class="toc-sub-page">p.93</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=94" class="toc-sub-link">
-                    <span class="toc-sub-num">67</span>
-                    <span class="toc-sub-title">三角比を含む不等式（2次）</span>
-                    <span class="toc-sub-page">p.94</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=95" class="toc-sub-link">
-                    <span class="toc-sub-num">68</span>
-                    <span class="toc-sub-title">三角比の2次関数の最大と最小</span>
-                    <span class="toc-sub-page">p.95</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=96" class="toc-sub-link">
-                    <span class="toc-sub-num">69</span>
-                    <span class="toc-sub-title">正弦定理</span>
-                    <span class="toc-sub-page">p.96</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=97" class="toc-sub-link">
-                    <span class="toc-sub-num">70</span>
-                    <span class="toc-sub-title">余弦定理</span>
-                    <span class="toc-sub-page">p.97</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=98" class="toc-sub-link">
-                    <span class="toc-sub-num">71</span>
-                    <span class="toc-sub-title">三角形の辺と角の決定</span>
-                    <span class="toc-sub-page">p.98</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=100" class="toc-sub-link">
-                    <span class="toc-sub-num">72</span>
-                    <span class="toc-sub-title">三角形の内角の二等分線の長さ（余弦定理の利用）</span>
-                    <span class="toc-sub-page">p.100</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=101" class="toc-sub-link">
-                    <span class="toc-sub-num">73</span>
-                    <span class="toc-sub-title">三角形の最大角</span>
-                    <span class="toc-sub-page">p.101</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=102" class="toc-sub-link">
-                    <span class="toc-sub-num">74</span>
-                    <span class="toc-sub-title">鈍角三角形となる条件</span>
-                    <span class="toc-sub-page">p.102</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=104" class="toc-sub-link">
-                    <span class="toc-sub-num">75</span>
-                    <span class="toc-sub-title">三角形の形状決定</span>
-                    <span class="toc-sub-page">p.104</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=105" class="toc-sub-link">
-                    <span class="toc-sub-num">76</span>
-                    <span class="toc-sub-title">三角形の面積</span>
-                    <span class="toc-sub-page">p.105</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=106" class="toc-sub-link">
-                    <span class="toc-sub-num">77</span>
-                    <span class="toc-sub-title">三角形の内角の二等分線の長さ（面積の利用）</span>
-                    <span class="toc-sub-page">p.106</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=107" class="toc-sub-link">
-                    <span class="toc-sub-num">78</span>
-                    <span class="toc-sub-title">三角形と内接円の半径</span>
-                    <span class="toc-sub-page">p.107</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=108" class="toc-sub-link">
-                    <span class="toc-sub-num">79</span>
-                    <span class="toc-sub-title">円に内接する四角形の面積</span>
-                    <span class="toc-sub-page">p.108</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=110" class="toc-sub-link">
-                    <span class="toc-sub-num">80</span>
-                    <span class="toc-sub-title">測量の問題</span>
-                    <span class="toc-sub-page">p.110</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=111" class="toc-sub-link">
-                    <span class="toc-sub-num">81</span>
-                    <span class="toc-sub-title">正四面体の体積</span>
-                    <span class="toc-sub-page">p.111</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=112" class="toc-sub-link">
-                    <span class="toc-sub-num">82</span>
-                    <span class="toc-sub-title">正四面体と球</span>
-                    <span class="toc-sub-page">p.112</span>
-                </a>
-            </div>
+            <details class="toc-accordion">
+                <summary class="toc-chapter-link">
+                    <span class="toc-chapter-title">第4章 図形と計量</span>
+                    <span class="toc-chapter-meta">
+                        <span class="toc-chapter-pages">p.82–113</span>
+                        <span class="toc-chevron">▶</span>
+                    </span>
+                </summary>
+                <div class="toc-subsections">
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=82" class="toc-sub-link">
+                        <span class="toc-sub-num">59</span>
+                        <span class="toc-sub-title">直角三角形と三角比</span>
+                        <span class="toc-sub-page">p.82</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=84" class="toc-sub-link">
+                        <span class="toc-sub-num">60</span>
+                        <span class="toc-sub-title">三角比の拡張</span>
+                        <span class="toc-sub-page">p.84</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=86" class="toc-sub-link">
+                        <span class="toc-sub-num">61</span>
+                        <span class="toc-sub-title">三角比の相互関係</span>
+                        <span class="toc-sub-page">p.86</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=88" class="toc-sub-link">
+                        <span class="toc-sub-num">62</span>
+                        <span class="toc-sub-title">三角比の式の計算</span>
+                        <span class="toc-sub-page">p.88</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=89" class="toc-sub-link">
+                        <span class="toc-sub-num">63</span>
+                        <span class="toc-sub-title">三角比の対称式の値</span>
+                        <span class="toc-sub-page">p.89</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=90" class="toc-sub-link">
+                        <span class="toc-sub-num">64</span>
+                        <span class="toc-sub-title">三角比を含む方程式</span>
+                        <span class="toc-sub-page">p.90</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=92" class="toc-sub-link">
+                        <span class="toc-sub-num">65</span>
+                        <span class="toc-sub-title">三角比を含む方程式（2次）</span>
+                        <span class="toc-sub-page">p.92</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=93" class="toc-sub-link">
+                        <span class="toc-sub-num">66</span>
+                        <span class="toc-sub-title">三角比を含む不等式</span>
+                        <span class="toc-sub-page">p.93</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=94" class="toc-sub-link">
+                        <span class="toc-sub-num">67</span>
+                        <span class="toc-sub-title">三角比を含む不等式（2次）</span>
+                        <span class="toc-sub-page">p.94</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=95" class="toc-sub-link">
+                        <span class="toc-sub-num">68</span>
+                        <span class="toc-sub-title">三角比の2次関数の最大と最小</span>
+                        <span class="toc-sub-page">p.95</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=96" class="toc-sub-link">
+                        <span class="toc-sub-num">69</span>
+                        <span class="toc-sub-title">正弦定理</span>
+                        <span class="toc-sub-page">p.96</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=97" class="toc-sub-link">
+                        <span class="toc-sub-num">70</span>
+                        <span class="toc-sub-title">余弦定理</span>
+                        <span class="toc-sub-page">p.97</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=98" class="toc-sub-link">
+                        <span class="toc-sub-num">71</span>
+                        <span class="toc-sub-title">三角形の辺と角の決定</span>
+                        <span class="toc-sub-page">p.98</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=100" class="toc-sub-link">
+                        <span class="toc-sub-num">72</span>
+                        <span class="toc-sub-title">三角形の内角の二等分線の長さ（余弦定理の利用）</span>
+                        <span class="toc-sub-page">p.100</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=101" class="toc-sub-link">
+                        <span class="toc-sub-num">73</span>
+                        <span class="toc-sub-title">三角形の最大角</span>
+                        <span class="toc-sub-page">p.101</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=102" class="toc-sub-link">
+                        <span class="toc-sub-num">74</span>
+                        <span class="toc-sub-title">鈍角三角形となる条件</span>
+                        <span class="toc-sub-page">p.102</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=104" class="toc-sub-link">
+                        <span class="toc-sub-num">75</span>
+                        <span class="toc-sub-title">三角形の形状決定</span>
+                        <span class="toc-sub-page">p.104</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=105" class="toc-sub-link">
+                        <span class="toc-sub-num">76</span>
+                        <span class="toc-sub-title">三角形の面積</span>
+                        <span class="toc-sub-page">p.105</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=106" class="toc-sub-link">
+                        <span class="toc-sub-num">77</span>
+                        <span class="toc-sub-title">三角形の内角の二等分線の長さ（面積の利用）</span>
+                        <span class="toc-sub-page">p.106</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=107" class="toc-sub-link">
+                        <span class="toc-sub-num">78</span>
+                        <span class="toc-sub-title">三角形と内接円の半径</span>
+                        <span class="toc-sub-page">p.107</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=108" class="toc-sub-link">
+                        <span class="toc-sub-num">79</span>
+                        <span class="toc-sub-title">円に内接する四角形の面積</span>
+                        <span class="toc-sub-page">p.108</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=110" class="toc-sub-link">
+                        <span class="toc-sub-num">80</span>
+                        <span class="toc-sub-title">測量の問題</span>
+                        <span class="toc-sub-page">p.110</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=111" class="toc-sub-link">
+                        <span class="toc-sub-num">81</span>
+                        <span class="toc-sub-title">正四面体の体積</span>
+                        <span class="toc-sub-page">p.111</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=112" class="toc-sub-link">
+                        <span class="toc-sub-num">82</span>
+                        <span class="toc-sub-title">正四面体と球</span>
+                        <span class="toc-sub-page">p.112</span>
+                    </a>
+                </div>
+            </details>
         </div>
         <div class="toc-chapter">
-            <a href="superquick_math1a_viewer.html?book=superquick_math1a&section=chap5&page=1" class="toc-chapter-link">
-                <span class="toc-chapter-title">第5章 データの分析</span>
-                <span class="toc-chapter-pages">p.114–135</span>
-            </a>
-            <div class="toc-subsections">
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=114" class="toc-sub-link">
-                    <span class="toc-sub-num">83</span>
-                    <span class="toc-sub-title">データの代表値</span>
-                    <span class="toc-sub-page">p.114</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=116" class="toc-sub-link">
-                    <span class="toc-sub-num">84</span>
-                    <span class="toc-sub-title">データの散らばりと四分位範囲</span>
-                    <span class="toc-sub-page">p.116</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=118" class="toc-sub-link">
-                    <span class="toc-sub-num">85</span>
-                    <span class="toc-sub-title">箱ひげ図の読み取り</span>
-                    <span class="toc-sub-page">p.118</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=119" class="toc-sub-link">
-                    <span class="toc-sub-num">86</span>
-                    <span class="toc-sub-title">箱ひげ図とヒストグラム</span>
-                    <span class="toc-sub-page">p.119</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=120" class="toc-sub-link">
-                    <span class="toc-sub-num">87</span>
-                    <span class="toc-sub-title">分散と標準偏差</span>
-                    <span class="toc-sub-page">p.120</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=122" class="toc-sub-link">
-                    <span class="toc-sub-num">88</span>
-                    <span class="toc-sub-title">分散と平均値の関係</span>
-                    <span class="toc-sub-page">p.122</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=124" class="toc-sub-link">
-                    <span class="toc-sub-num">89</span>
-                    <span class="toc-sub-title">データの修正による平均値, 分散の変化</span>
-                    <span class="toc-sub-page">p.124</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=126" class="toc-sub-link">
-                    <span class="toc-sub-num">90</span>
-                    <span class="toc-sub-title">変量の変換</span>
-                    <span class="toc-sub-page">p.126</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=128" class="toc-sub-link">
-                    <span class="toc-sub-num">91</span>
-                    <span class="toc-sub-title">散布図と相関関係</span>
-                    <span class="toc-sub-page">p.128</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=130" class="toc-sub-link">
-                    <span class="toc-sub-num">92</span>
-                    <span class="toc-sub-title">共分散, 相関係数</span>
-                    <span class="toc-sub-page">p.130</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=132" class="toc-sub-link">
-                    <span class="toc-sub-num">93</span>
-                    <span class="toc-sub-title">変量の変換と共分散, 相関係数</span>
-                    <span class="toc-sub-page">p.132</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=134" class="toc-sub-link">
-                    <span class="toc-sub-num">94</span>
-                    <span class="toc-sub-title">仮説検定の考え方</span>
-                    <span class="toc-sub-page">p.134</span>
-                </a>
-            </div>
+            <details class="toc-accordion">
+                <summary class="toc-chapter-link">
+                    <span class="toc-chapter-title">第5章 データの分析</span>
+                    <span class="toc-chapter-meta">
+                        <span class="toc-chapter-pages">p.114–135</span>
+                        <span class="toc-chevron">▶</span>
+                    </span>
+                </summary>
+                <div class="toc-subsections">
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=114" class="toc-sub-link">
+                        <span class="toc-sub-num">83</span>
+                        <span class="toc-sub-title">データの代表値</span>
+                        <span class="toc-sub-page">p.114</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=116" class="toc-sub-link">
+                        <span class="toc-sub-num">84</span>
+                        <span class="toc-sub-title">データの散らばりと四分位範囲</span>
+                        <span class="toc-sub-page">p.116</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=118" class="toc-sub-link">
+                        <span class="toc-sub-num">85</span>
+                        <span class="toc-sub-title">箱ひげ図の読み取り</span>
+                        <span class="toc-sub-page">p.118</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=119" class="toc-sub-link">
+                        <span class="toc-sub-num">86</span>
+                        <span class="toc-sub-title">箱ひげ図とヒストグラム</span>
+                        <span class="toc-sub-page">p.119</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=120" class="toc-sub-link">
+                        <span class="toc-sub-num">87</span>
+                        <span class="toc-sub-title">分散と標準偏差</span>
+                        <span class="toc-sub-page">p.120</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=122" class="toc-sub-link">
+                        <span class="toc-sub-num">88</span>
+                        <span class="toc-sub-title">分散と平均値の関係</span>
+                        <span class="toc-sub-page">p.122</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=124" class="toc-sub-link">
+                        <span class="toc-sub-num">89</span>
+                        <span class="toc-sub-title">データの修正による平均値, 分散の変化</span>
+                        <span class="toc-sub-page">p.124</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=126" class="toc-sub-link">
+                        <span class="toc-sub-num">90</span>
+                        <span class="toc-sub-title">変量の変換</span>
+                        <span class="toc-sub-page">p.126</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=128" class="toc-sub-link">
+                        <span class="toc-sub-num">91</span>
+                        <span class="toc-sub-title">散布図と相関関係</span>
+                        <span class="toc-sub-page">p.128</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=130" class="toc-sub-link">
+                        <span class="toc-sub-num">92</span>
+                        <span class="toc-sub-title">共分散, 相関係数</span>
+                        <span class="toc-sub-page">p.130</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=132" class="toc-sub-link">
+                        <span class="toc-sub-num">93</span>
+                        <span class="toc-sub-title">変量の変換と共分散, 相関係数</span>
+                        <span class="toc-sub-page">p.132</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=134" class="toc-sub-link">
+                        <span class="toc-sub-num">94</span>
+                        <span class="toc-sub-title">仮説検定の考え方</span>
+                        <span class="toc-sub-page">p.134</span>
+                    </a>
+                </div>
+            </details>
         </div>
         <div class="toc-chapter">
-            <a href="superquick_math1a_viewer.html?book=superquick_math1a&section=chap6&page=1" class="toc-chapter-link">
-                <span class="toc-chapter-title">第6章 場合の数と確率</span>
-                <span class="toc-chapter-pages">p.136–187</span>
-            </a>
-            <div class="toc-subsections">
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=136" class="toc-sub-link">
-                    <span class="toc-sub-num">95</span>
-                    <span class="toc-sub-title">集合の要素の個数</span>
-                    <span class="toc-sub-page">p.136</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=138" class="toc-sub-link">
-                    <span class="toc-sub-num">96</span>
-                    <span class="toc-sub-title">樹形図</span>
-                    <span class="toc-sub-page">p.138</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=139" class="toc-sub-link">
-                    <span class="toc-sub-num">97</span>
-                    <span class="toc-sub-title">和の法則</span>
-                    <span class="toc-sub-page">p.139</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=140" class="toc-sub-link">
-                    <span class="toc-sub-num">98</span>
-                    <span class="toc-sub-title">積の法則</span>
-                    <span class="toc-sub-page">p.140</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=141" class="toc-sub-link">
-                    <span class="toc-sub-num">99</span>
-                    <span class="toc-sub-title">約数の個数と総和</span>
-                    <span class="toc-sub-page">p.141</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=142" class="toc-sub-link">
-                    <span class="toc-sub-num">100</span>
-                    <span class="toc-sub-title">支払いに関する場合の数</span>
-                    <span class="toc-sub-page">p.142</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=143" class="toc-sub-link">
-                    <span class="toc-sub-num">101</span>
-                    <span class="toc-sub-title">順列の総数</span>
-                    <span class="toc-sub-page">p.143</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=144" class="toc-sub-link">
-                    <span class="toc-sub-num">102</span>
-                    <span class="toc-sub-title">順列（人の並び）</span>
-                    <span class="toc-sub-page">p.144</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=146" class="toc-sub-link">
-                    <span class="toc-sub-num">103</span>
-                    <span class="toc-sub-title">順列（数字の並び）</span>
-                    <span class="toc-sub-page">p.146</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=148" class="toc-sub-link">
-                    <span class="toc-sub-num">104</span>
-                    <span class="toc-sub-title">円順列</span>
-                    <span class="toc-sub-page">p.148</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=150" class="toc-sub-link">
-                    <span class="toc-sub-num">105</span>
-                    <span class="toc-sub-title">重複順列</span>
-                    <span class="toc-sub-page">p.150</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=152" class="toc-sub-link">
-                    <span class="toc-sub-num">106</span>
-                    <span class="toc-sub-title">組合せの総数</span>
-                    <span class="toc-sub-page">p.152</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=154" class="toc-sub-link">
-                    <span class="toc-sub-num">107</span>
-                    <span class="toc-sub-title">図形と組合せ</span>
-                    <span class="toc-sub-page">p.154</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=155" class="toc-sub-link">
-                    <span class="toc-sub-num">108</span>
-                    <span class="toc-sub-title">組合せと和の法則・積の法則</span>
-                    <span class="toc-sub-page">p.155</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=156" class="toc-sub-link">
-                    <span class="toc-sub-num">109</span>
-                    <span class="toc-sub-title">組分けの総数</span>
-                    <span class="toc-sub-page">p.156</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=158" class="toc-sub-link">
-                    <span class="toc-sub-num">110</span>
-                    <span class="toc-sub-title">同じものを含む順列</span>
-                    <span class="toc-sub-page">p.158</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=160" class="toc-sub-link">
-                    <span class="toc-sub-num">111</span>
-                    <span class="toc-sub-title">最短経路</span>
-                    <span class="toc-sub-page">p.160</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=162" class="toc-sub-link">
-                    <span class="toc-sub-num">112</span>
-                    <span class="toc-sub-title">重複組合せ</span>
-                    <span class="toc-sub-page">p.162</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=164" class="toc-sub-link">
-                    <span class="toc-sub-num">113</span>
-                    <span class="toc-sub-title">重複組合せの応用</span>
-                    <span class="toc-sub-page">p.164</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=165" class="toc-sub-link">
-                    <span class="toc-sub-num">114</span>
-                    <span class="toc-sub-title">確率の考え方</span>
-                    <span class="toc-sub-page">p.165</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=166" class="toc-sub-link">
-                    <span class="toc-sub-num">115</span>
-                    <span class="toc-sub-title">確率と順列・組合せ</span>
-                    <span class="toc-sub-page">p.166</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=167" class="toc-sub-link">
-                    <span class="toc-sub-num">116</span>
-                    <span class="toc-sub-title">確率の加法定理（排反）</span>
-                    <span class="toc-sub-page">p.167</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=168" class="toc-sub-link">
-                    <span class="toc-sub-num">117</span>
-                    <span class="toc-sub-title">余事象の確率</span>
-                    <span class="toc-sub-page">p.168</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=169" class="toc-sub-link">
-                    <span class="toc-sub-num">118</span>
-                    <span class="toc-sub-title">一般の和事象の確率</span>
-                    <span class="toc-sub-page">p.169</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=170" class="toc-sub-link">
-                    <span class="toc-sub-num">119</span>
-                    <span class="toc-sub-title">さいころの出る目の最大値</span>
-                    <span class="toc-sub-page">p.170</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=171" class="toc-sub-link">
-                    <span class="toc-sub-num">120</span>
-                    <span class="toc-sub-title">独立な試行の確率</span>
-                    <span class="toc-sub-page">p.171</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=172" class="toc-sub-link">
-                    <span class="toc-sub-num">121</span>
-                    <span class="toc-sub-title">反復試行の確率</span>
-                    <span class="toc-sub-page">p.172</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=174" class="toc-sub-link">
-                    <span class="toc-sub-num">122</span>
-                    <span class="toc-sub-title">点の移動</span>
-                    <span class="toc-sub-page">p.174</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=175" class="toc-sub-link">
-                    <span class="toc-sub-num">123</span>
-                    <span class="toc-sub-title">ゲームが終わる確率</span>
-                    <span class="toc-sub-page">p.175</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=176" class="toc-sub-link">
-                    <span class="toc-sub-num">124</span>
-                    <span class="toc-sub-title">反復試行の確率 pn を最大にする n</span>
-                    <span class="toc-sub-page">p.176</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=178" class="toc-sub-link">
-                    <span class="toc-sub-num">125</span>
-                    <span class="toc-sub-title">条件付き確率</span>
-                    <span class="toc-sub-page">p.178</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=180" class="toc-sub-link">
-                    <span class="toc-sub-num">126</span>
-                    <span class="toc-sub-title">確率の乗法定理</span>
-                    <span class="toc-sub-page">p.180</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=182" class="toc-sub-link">
-                    <span class="toc-sub-num">127</span>
-                    <span class="toc-sub-title">じゃんけんの確率</span>
-                    <span class="toc-sub-page">p.182</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=184" class="toc-sub-link">
-                    <span class="toc-sub-num">128</span>
-                    <span class="toc-sub-title">原因の確率</span>
-                    <span class="toc-sub-page">p.184</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=185" class="toc-sub-link">
-                    <span class="toc-sub-num">129</span>
-                    <span class="toc-sub-title">期待値</span>
-                    <span class="toc-sub-page">p.185</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=186" class="toc-sub-link">
-                    <span class="toc-sub-num">130</span>
-                    <span class="toc-sub-title">期待値の利用</span>
-                    <span class="toc-sub-page">p.186</span>
-                </a>
-            </div>
+            <details class="toc-accordion">
+                <summary class="toc-chapter-link">
+                    <span class="toc-chapter-title">第6章 場合の数と確率</span>
+                    <span class="toc-chapter-meta">
+                        <span class="toc-chapter-pages">p.136–187</span>
+                        <span class="toc-chevron">▶</span>
+                    </span>
+                </summary>
+                <div class="toc-subsections">
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=136" class="toc-sub-link">
+                        <span class="toc-sub-num">95</span>
+                        <span class="toc-sub-title">集合の要素の個数</span>
+                        <span class="toc-sub-page">p.136</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=138" class="toc-sub-link">
+                        <span class="toc-sub-num">96</span>
+                        <span class="toc-sub-title">樹形図</span>
+                        <span class="toc-sub-page">p.138</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=139" class="toc-sub-link">
+                        <span class="toc-sub-num">97</span>
+                        <span class="toc-sub-title">和の法則</span>
+                        <span class="toc-sub-page">p.139</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=140" class="toc-sub-link">
+                        <span class="toc-sub-num">98</span>
+                        <span class="toc-sub-title">積の法則</span>
+                        <span class="toc-sub-page">p.140</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=141" class="toc-sub-link">
+                        <span class="toc-sub-num">99</span>
+                        <span class="toc-sub-title">約数の個数と総和</span>
+                        <span class="toc-sub-page">p.141</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=142" class="toc-sub-link">
+                        <span class="toc-sub-num">100</span>
+                        <span class="toc-sub-title">支払いに関する場合の数</span>
+                        <span class="toc-sub-page">p.142</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=143" class="toc-sub-link">
+                        <span class="toc-sub-num">101</span>
+                        <span class="toc-sub-title">順列の総数</span>
+                        <span class="toc-sub-page">p.143</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=144" class="toc-sub-link">
+                        <span class="toc-sub-num">102</span>
+                        <span class="toc-sub-title">順列（人の並び）</span>
+                        <span class="toc-sub-page">p.144</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=146" class="toc-sub-link">
+                        <span class="toc-sub-num">103</span>
+                        <span class="toc-sub-title">順列（数字の並び）</span>
+                        <span class="toc-sub-page">p.146</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=148" class="toc-sub-link">
+                        <span class="toc-sub-num">104</span>
+                        <span class="toc-sub-title">円順列</span>
+                        <span class="toc-sub-page">p.148</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=150" class="toc-sub-link">
+                        <span class="toc-sub-num">105</span>
+                        <span class="toc-sub-title">重複順列</span>
+                        <span class="toc-sub-page">p.150</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=152" class="toc-sub-link">
+                        <span class="toc-sub-num">106</span>
+                        <span class="toc-sub-title">組合せの総数</span>
+                        <span class="toc-sub-page">p.152</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=154" class="toc-sub-link">
+                        <span class="toc-sub-num">107</span>
+                        <span class="toc-sub-title">図形と組合せ</span>
+                        <span class="toc-sub-page">p.154</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=155" class="toc-sub-link">
+                        <span class="toc-sub-num">108</span>
+                        <span class="toc-sub-title">組合せと和の法則・積の法則</span>
+                        <span class="toc-sub-page">p.155</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=156" class="toc-sub-link">
+                        <span class="toc-sub-num">109</span>
+                        <span class="toc-sub-title">組分けの総数</span>
+                        <span class="toc-sub-page">p.156</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=158" class="toc-sub-link">
+                        <span class="toc-sub-num">110</span>
+                        <span class="toc-sub-title">同じものを含む順列</span>
+                        <span class="toc-sub-page">p.158</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=160" class="toc-sub-link">
+                        <span class="toc-sub-num">111</span>
+                        <span class="toc-sub-title">最短経路</span>
+                        <span class="toc-sub-page">p.160</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=162" class="toc-sub-link">
+                        <span class="toc-sub-num">112</span>
+                        <span class="toc-sub-title">重複組合せ</span>
+                        <span class="toc-sub-page">p.162</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=164" class="toc-sub-link">
+                        <span class="toc-sub-num">113</span>
+                        <span class="toc-sub-title">重複組合せの応用</span>
+                        <span class="toc-sub-page">p.164</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=165" class="toc-sub-link">
+                        <span class="toc-sub-num">114</span>
+                        <span class="toc-sub-title">確率の考え方</span>
+                        <span class="toc-sub-page">p.165</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=166" class="toc-sub-link">
+                        <span class="toc-sub-num">115</span>
+                        <span class="toc-sub-title">確率と順列・組合せ</span>
+                        <span class="toc-sub-page">p.166</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=167" class="toc-sub-link">
+                        <span class="toc-sub-num">116</span>
+                        <span class="toc-sub-title">確率の加法定理（排反）</span>
+                        <span class="toc-sub-page">p.167</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=168" class="toc-sub-link">
+                        <span class="toc-sub-num">117</span>
+                        <span class="toc-sub-title">余事象の確率</span>
+                        <span class="toc-sub-page">p.168</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=169" class="toc-sub-link">
+                        <span class="toc-sub-num">118</span>
+                        <span class="toc-sub-title">一般の和事象の確率</span>
+                        <span class="toc-sub-page">p.169</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=170" class="toc-sub-link">
+                        <span class="toc-sub-num">119</span>
+                        <span class="toc-sub-title">さいころの出る目の最大値</span>
+                        <span class="toc-sub-page">p.170</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=171" class="toc-sub-link">
+                        <span class="toc-sub-num">120</span>
+                        <span class="toc-sub-title">独立な試行の確率</span>
+                        <span class="toc-sub-page">p.171</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=172" class="toc-sub-link">
+                        <span class="toc-sub-num">121</span>
+                        <span class="toc-sub-title">反復試行の確率</span>
+                        <span class="toc-sub-page">p.172</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=174" class="toc-sub-link">
+                        <span class="toc-sub-num">122</span>
+                        <span class="toc-sub-title">点の移動</span>
+                        <span class="toc-sub-page">p.174</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=175" class="toc-sub-link">
+                        <span class="toc-sub-num">123</span>
+                        <span class="toc-sub-title">ゲームが終わる確率</span>
+                        <span class="toc-sub-page">p.175</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=176" class="toc-sub-link">
+                        <span class="toc-sub-num">124</span>
+                        <span class="toc-sub-title">反復試行の確率 pn を最大にする n</span>
+                        <span class="toc-sub-page">p.176</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=178" class="toc-sub-link">
+                        <span class="toc-sub-num">125</span>
+                        <span class="toc-sub-title">条件付き確率</span>
+                        <span class="toc-sub-page">p.178</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=180" class="toc-sub-link">
+                        <span class="toc-sub-num">126</span>
+                        <span class="toc-sub-title">確率の乗法定理</span>
+                        <span class="toc-sub-page">p.180</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=182" class="toc-sub-link">
+                        <span class="toc-sub-num">127</span>
+                        <span class="toc-sub-title">じゃんけんの確率</span>
+                        <span class="toc-sub-page">p.182</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=184" class="toc-sub-link">
+                        <span class="toc-sub-num">128</span>
+                        <span class="toc-sub-title">原因の確率</span>
+                        <span class="toc-sub-page">p.184</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=185" class="toc-sub-link">
+                        <span class="toc-sub-num">129</span>
+                        <span class="toc-sub-title">期待値</span>
+                        <span class="toc-sub-page">p.185</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=186" class="toc-sub-link">
+                        <span class="toc-sub-num">130</span>
+                        <span class="toc-sub-title">期待値の利用</span>
+                        <span class="toc-sub-page">p.186</span>
+                    </a>
+                </div>
+            </details>
         </div>
         <div class="toc-chapter">
-            <a href="superquick_math1a_viewer.html?book=superquick_math1a&section=chap7&page=1" class="toc-chapter-link">
-                <span class="toc-chapter-title">第7章 図形の性質</span>
-                <span class="toc-chapter-pages">p.188–217</span>
-            </a>
-            <div class="toc-subsections">
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=188" class="toc-sub-link">
-                    <span class="toc-sub-num">131</span>
-                    <span class="toc-sub-title">線分の内分・外分</span>
-                    <span class="toc-sub-page">p.188</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=189" class="toc-sub-link">
-                    <span class="toc-sub-num">132</span>
-                    <span class="toc-sub-title">平行線と線分の比</span>
-                    <span class="toc-sub-page">p.189</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=190" class="toc-sub-link">
-                    <span class="toc-sub-num">133</span>
-                    <span class="toc-sub-title">三角形の角の二等分線と比</span>
-                    <span class="toc-sub-page">p.190</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=192" class="toc-sub-link">
-                    <span class="toc-sub-num">134</span>
-                    <span class="toc-sub-title">三角形の外心・内心</span>
-                    <span class="toc-sub-page">p.192</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=194" class="toc-sub-link">
-                    <span class="toc-sub-num">135</span>
-                    <span class="toc-sub-title">三角形の重心・垂心</span>
-                    <span class="toc-sub-page">p.194</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=196" class="toc-sub-link">
-                    <span class="toc-sub-num">136</span>
-                    <span class="toc-sub-title">三角形の面積比</span>
-                    <span class="toc-sub-page">p.196</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=198" class="toc-sub-link">
-                    <span class="toc-sub-num">137</span>
-                    <span class="toc-sub-title">三角形の垂心などに関する証明</span>
-                    <span class="toc-sub-page">p.198</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=200" class="toc-sub-link">
-                    <span class="toc-sub-num">138</span>
-                    <span class="toc-sub-title">チェバの定理</span>
-                    <span class="toc-sub-page">p.200</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=201" class="toc-sub-link">
-                    <span class="toc-sub-num">139</span>
-                    <span class="toc-sub-title">メネラウスの定理</span>
-                    <span class="toc-sub-page">p.201</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=202" class="toc-sub-link">
-                    <span class="toc-sub-num">140</span>
-                    <span class="toc-sub-title">円周角の定理とその逆</span>
-                    <span class="toc-sub-page">p.202</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=203" class="toc-sub-link">
-                    <span class="toc-sub-num">141</span>
-                    <span class="toc-sub-title">円に内接する四角形</span>
-                    <span class="toc-sub-page">p.203</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=204" class="toc-sub-link">
-                    <span class="toc-sub-num">142</span>
-                    <span class="toc-sub-title">円の接線</span>
-                    <span class="toc-sub-page">p.204</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=206" class="toc-sub-link">
-                    <span class="toc-sub-num">143</span>
-                    <span class="toc-sub-title">円の接線と弦の作る角（接弦定理）</span>
-                    <span class="toc-sub-page">p.206</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=208" class="toc-sub-link">
-                    <span class="toc-sub-num">144</span>
-                    <span class="toc-sub-title">方べきの定理とその逆</span>
-                    <span class="toc-sub-page">p.208</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=210" class="toc-sub-link">
-                    <span class="toc-sub-num">145</span>
-                    <span class="toc-sub-title">2つの円の位置関係, 共通接線</span>
-                    <span class="toc-sub-page">p.210</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=212" class="toc-sub-link">
-                    <span class="toc-sub-num">146</span>
-                    <span class="toc-sub-title">作図</span>
-                    <span class="toc-sub-page">p.212</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=214" class="toc-sub-link">
-                    <span class="toc-sub-num">147</span>
-                    <span class="toc-sub-title">直線と平面</span>
-                    <span class="toc-sub-page">p.214</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=216" class="toc-sub-link">
-                    <span class="toc-sub-num">148</span>
-                    <span class="toc-sub-title">多面体</span>
-                    <span class="toc-sub-page">p.216</span>
-                </a>
-            </div>
+            <details class="toc-accordion">
+                <summary class="toc-chapter-link">
+                    <span class="toc-chapter-title">第7章 図形の性質</span>
+                    <span class="toc-chapter-meta">
+                        <span class="toc-chapter-pages">p.188–217</span>
+                        <span class="toc-chevron">▶</span>
+                    </span>
+                </summary>
+                <div class="toc-subsections">
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=188" class="toc-sub-link">
+                        <span class="toc-sub-num">131</span>
+                        <span class="toc-sub-title">線分の内分・外分</span>
+                        <span class="toc-sub-page">p.188</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=189" class="toc-sub-link">
+                        <span class="toc-sub-num">132</span>
+                        <span class="toc-sub-title">平行線と線分の比</span>
+                        <span class="toc-sub-page">p.189</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=190" class="toc-sub-link">
+                        <span class="toc-sub-num">133</span>
+                        <span class="toc-sub-title">三角形の角の二等分線と比</span>
+                        <span class="toc-sub-page">p.190</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=192" class="toc-sub-link">
+                        <span class="toc-sub-num">134</span>
+                        <span class="toc-sub-title">三角形の外心・内心</span>
+                        <span class="toc-sub-page">p.192</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=194" class="toc-sub-link">
+                        <span class="toc-sub-num">135</span>
+                        <span class="toc-sub-title">三角形の重心・垂心</span>
+                        <span class="toc-sub-page">p.194</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=196" class="toc-sub-link">
+                        <span class="toc-sub-num">136</span>
+                        <span class="toc-sub-title">三角形の面積比</span>
+                        <span class="toc-sub-page">p.196</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=198" class="toc-sub-link">
+                        <span class="toc-sub-num">137</span>
+                        <span class="toc-sub-title">三角形の垂心などに関する証明</span>
+                        <span class="toc-sub-page">p.198</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=200" class="toc-sub-link">
+                        <span class="toc-sub-num">138</span>
+                        <span class="toc-sub-title">チェバの定理</span>
+                        <span class="toc-sub-page">p.200</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=201" class="toc-sub-link">
+                        <span class="toc-sub-num">139</span>
+                        <span class="toc-sub-title">メネラウスの定理</span>
+                        <span class="toc-sub-page">p.201</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=202" class="toc-sub-link">
+                        <span class="toc-sub-num">140</span>
+                        <span class="toc-sub-title">円周角の定理とその逆</span>
+                        <span class="toc-sub-page">p.202</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=203" class="toc-sub-link">
+                        <span class="toc-sub-num">141</span>
+                        <span class="toc-sub-title">円に内接する四角形</span>
+                        <span class="toc-sub-page">p.203</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=204" class="toc-sub-link">
+                        <span class="toc-sub-num">142</span>
+                        <span class="toc-sub-title">円の接線</span>
+                        <span class="toc-sub-page">p.204</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=206" class="toc-sub-link">
+                        <span class="toc-sub-num">143</span>
+                        <span class="toc-sub-title">円の接線と弦の作る角（接弦定理）</span>
+                        <span class="toc-sub-page">p.206</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=208" class="toc-sub-link">
+                        <span class="toc-sub-num">144</span>
+                        <span class="toc-sub-title">方べきの定理とその逆</span>
+                        <span class="toc-sub-page">p.208</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=210" class="toc-sub-link">
+                        <span class="toc-sub-num">145</span>
+                        <span class="toc-sub-title">2つの円の位置関係, 共通接線</span>
+                        <span class="toc-sub-page">p.210</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=212" class="toc-sub-link">
+                        <span class="toc-sub-num">146</span>
+                        <span class="toc-sub-title">作図</span>
+                        <span class="toc-sub-page">p.212</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=214" class="toc-sub-link">
+                        <span class="toc-sub-num">147</span>
+                        <span class="toc-sub-title">直線と平面</span>
+                        <span class="toc-sub-page">p.214</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=216" class="toc-sub-link">
+                        <span class="toc-sub-num">148</span>
+                        <span class="toc-sub-title">多面体</span>
+                        <span class="toc-sub-page">p.216</span>
+                    </a>
+                </div>
+            </details>
         </div>
         <div class="toc-chapter">
-            <a href="superquick_math1a_viewer.html?book=superquick_math1a&section=chap8&page=1" class="toc-chapter-link">
-                <span class="toc-chapter-title">第8章 整数の性質</span>
-                <span class="toc-chapter-pages">p.218–241</span>
-            </a>
-            <div class="toc-subsections">
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=218" class="toc-sub-link">
-                    <span class="toc-sub-num">149</span>
-                    <span class="toc-sub-title">倍数であることの証明</span>
-                    <span class="toc-sub-page">p.218</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=219" class="toc-sub-link">
-                    <span class="toc-sub-num">150</span>
-                    <span class="toc-sub-title">倍数の判定法</span>
-                    <span class="toc-sub-page">p.219</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=220" class="toc-sub-link">
-                    <span class="toc-sub-num">151</span>
-                    <span class="toc-sub-title">nを含む式が自然数となる条件</span>
-                    <span class="toc-sub-page">p.220</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=221" class="toc-sub-link">
-                    <span class="toc-sub-num">152</span>
-                    <span class="toc-sub-title">正の約数の個数と総和</span>
-                    <span class="toc-sub-page">p.221</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=222" class="toc-sub-link">
-                    <span class="toc-sub-num">153</span>
-                    <span class="toc-sub-title">最大公約数, 最小公倍数の性質</span>
-                    <span class="toc-sub-page">p.222</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=224" class="toc-sub-link">
-                    <span class="toc-sub-num">154</span>
-                    <span class="toc-sub-title">自然数の積の末尾に並ぶ0の個数</span>
-                    <span class="toc-sub-page">p.224</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=225" class="toc-sub-link">
-                    <span class="toc-sub-num">155</span>
-                    <span class="toc-sub-title">互いに素であることの証明</span>
-                    <span class="toc-sub-page">p.225</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=226" class="toc-sub-link">
-                    <span class="toc-sub-num">156</span>
-                    <span class="toc-sub-title">余りによる整数の分類</span>
-                    <span class="toc-sub-page">p.226</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=228" class="toc-sub-link">
-                    <span class="toc-sub-num">157</span>
-                    <span class="toc-sub-title">連続する整数の積</span>
-                    <span class="toc-sub-page">p.228</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=229" class="toc-sub-link">
-                    <span class="toc-sub-num">158</span>
-                    <span class="toc-sub-title">等式 a²+b²=c² に関する証明問題</span>
-                    <span class="toc-sub-page">p.229</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=230" class="toc-sub-link">
-                    <span class="toc-sub-num">159</span>
-                    <span class="toc-sub-title">積が素数となる条件</span>
-                    <span class="toc-sub-page">p.230</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=231" class="toc-sub-link">
-                    <span class="toc-sub-num">160</span>
-                    <span class="toc-sub-title">方程式の整数解</span>
-                    <span class="toc-sub-page">p.231</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=232" class="toc-sub-link">
-                    <span class="toc-sub-num">161</span>
-                    <span class="toc-sub-title">分数方程式の自然数解（2文字）</span>
-                    <span class="toc-sub-page">p.232</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=233" class="toc-sub-link">
-                    <span class="toc-sub-num">162</span>
-                    <span class="toc-sub-title">1次不定方程式の自然数解</span>
-                    <span class="toc-sub-page">p.233</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=234" class="toc-sub-link">
-                    <span class="toc-sub-num">163</span>
-                    <span class="toc-sub-title">分数方程式の自然数解（3文字）</span>
-                    <span class="toc-sub-page">p.234</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=236" class="toc-sub-link">
-                    <span class="toc-sub-num">164</span>
-                    <span class="toc-sub-title">ユークリッドの互除法</span>
-                    <span class="toc-sub-page">p.236</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=238" class="toc-sub-link">
-                    <span class="toc-sub-num">165</span>
-                    <span class="toc-sub-title">1次不定方程式の整数解</span>
-                    <span class="toc-sub-page">p.238</span>
-                </a>
-                <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=240" class="toc-sub-link">
-                    <span class="toc-sub-num">166</span>
-                    <span class="toc-sub-title">n進法とその計算</span>
-                    <span class="toc-sub-page">p.240</span>
-                </a>
-            </div>
+            <details class="toc-accordion">
+                <summary class="toc-chapter-link">
+                    <span class="toc-chapter-title">第8章 整数の性質</span>
+                    <span class="toc-chapter-meta">
+                        <span class="toc-chapter-pages">p.218–241</span>
+                        <span class="toc-chevron">▶</span>
+                    </span>
+                </summary>
+                <div class="toc-subsections">
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=218" class="toc-sub-link">
+                        <span class="toc-sub-num">149</span>
+                        <span class="toc-sub-title">倍数であることの証明</span>
+                        <span class="toc-sub-page">p.218</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=219" class="toc-sub-link">
+                        <span class="toc-sub-num">150</span>
+                        <span class="toc-sub-title">倍数の判定法</span>
+                        <span class="toc-sub-page">p.219</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=220" class="toc-sub-link">
+                        <span class="toc-sub-num">151</span>
+                        <span class="toc-sub-title">nを含む式が自然数となる条件</span>
+                        <span class="toc-sub-page">p.220</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=221" class="toc-sub-link">
+                        <span class="toc-sub-num">152</span>
+                        <span class="toc-sub-title">正の約数の個数と総和</span>
+                        <span class="toc-sub-page">p.221</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=222" class="toc-sub-link">
+                        <span class="toc-sub-num">153</span>
+                        <span class="toc-sub-title">最大公約数, 最小公倍数の性質</span>
+                        <span class="toc-sub-page">p.222</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=224" class="toc-sub-link">
+                        <span class="toc-sub-num">154</span>
+                        <span class="toc-sub-title">自然数の積の末尾に並ぶ0の個数</span>
+                        <span class="toc-sub-page">p.224</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=225" class="toc-sub-link">
+                        <span class="toc-sub-num">155</span>
+                        <span class="toc-sub-title">互いに素であることの証明</span>
+                        <span class="toc-sub-page">p.225</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=226" class="toc-sub-link">
+                        <span class="toc-sub-num">156</span>
+                        <span class="toc-sub-title">余りによる整数の分類</span>
+                        <span class="toc-sub-page">p.226</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=228" class="toc-sub-link">
+                        <span class="toc-sub-num">157</span>
+                        <span class="toc-sub-title">連続する整数の積</span>
+                        <span class="toc-sub-page">p.228</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=229" class="toc-sub-link">
+                        <span class="toc-sub-num">158</span>
+                        <span class="toc-sub-title">等式 a²+b²=c² に関する証明問題</span>
+                        <span class="toc-sub-page">p.229</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=230" class="toc-sub-link">
+                        <span class="toc-sub-num">159</span>
+                        <span class="toc-sub-title">積が素数となる条件</span>
+                        <span class="toc-sub-page">p.230</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=231" class="toc-sub-link">
+                        <span class="toc-sub-num">160</span>
+                        <span class="toc-sub-title">方程式の整数解</span>
+                        <span class="toc-sub-page">p.231</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=232" class="toc-sub-link">
+                        <span class="toc-sub-num">161</span>
+                        <span class="toc-sub-title">分数方程式の自然数解（2文字）</span>
+                        <span class="toc-sub-page">p.232</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=233" class="toc-sub-link">
+                        <span class="toc-sub-num">162</span>
+                        <span class="toc-sub-title">1次不定方程式の自然数解</span>
+                        <span class="toc-sub-page">p.233</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=234" class="toc-sub-link">
+                        <span class="toc-sub-num">163</span>
+                        <span class="toc-sub-title">分数方程式の自然数解（3文字）</span>
+                        <span class="toc-sub-page">p.234</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=236" class="toc-sub-link">
+                        <span class="toc-sub-num">164</span>
+                        <span class="toc-sub-title">ユークリッドの互除法</span>
+                        <span class="toc-sub-page">p.236</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=238" class="toc-sub-link">
+                        <span class="toc-sub-num">165</span>
+                        <span class="toc-sub-title">1次不定方程式の整数解</span>
+                        <span class="toc-sub-page">p.238</span>
+                    </a>
+                    <a href="superquick_math1a_viewer.html?book=superquick_math1a&page=240" class="toc-sub-link">
+                        <span class="toc-sub-num">166</span>
+                        <span class="toc-sub-title">n進法とその計算</span>
+                        <span class="toc-sub-page">p.240</span>
+                    </a>
+                </div>
+            </details>
         </div>
         <div class="toc-chapter">
-            <a href="superquick_math1a_viewer.html?book=superquick_math1a&section=answers&page=1" class="toc-chapter-link">
+            <a href="superquick_math1a_viewer.html?book=superquick_math1a&section=answers&page=1" class="toc-chapter-link toc-chapter-link-plain">
                 <span class="toc-chapter-title">練習の解答</span>
                 <span class="toc-chapter-pages">p.242–288</span>
             </a>
@@ -1043,5 +1104,17 @@
         </div>
         <div class="toc-footer">© 2026 ECCベストワン藍住・北島中央</div>
     </div>
+    <script>
+        // 同時に1つだけ開くアコーディオン制御
+        document.querySelectorAll('.toc-accordion').forEach(det => {
+            det.addEventListener('toggle', () => {
+                if (det.open) {
+                    document.querySelectorAll('.toc-accordion').forEach(other => {
+                        if (other !== det) other.open = false;
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>

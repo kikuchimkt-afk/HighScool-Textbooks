@@ -69,6 +69,11 @@
             box-shadow: 0 2px 12px rgba(0,0,0,0.15),
                         inset 0 1px 0 rgba(255,255,255,0.05);
         }
+        /* --- Accordion --- */
+        .toc-accordion { border: none; }
+        .toc-accordion summary { list-style: none; cursor: pointer; }
+        .toc-accordion summary::-webkit-details-marker { display: none; }
+        .toc-accordion summary::marker { display: none; content: ''; }
         .toc-chapter-link {
             display: flex; justify-content: space-between; align-items: center;
             padding: 0.85rem 1.2rem; text-decoration: none; color: #f5f5f7;
@@ -79,6 +84,17 @@
         .toc-chapter-link:hover {
             background: rgba(255,255,255,0.06);
         }
+        .toc-chapter-meta {
+            display: flex; align-items: center; gap: 8px;
+        }
+        .toc-chevron {
+            font-size: 0.65rem; color: rgba(255,255,255,0.3);
+            transition: transform 0.3s ease;
+            display: inline-block;
+        }
+        .toc-accordion[open] .toc-chevron {
+            transform: rotate(90deg);
+        }
         .toc-chapter-pages {
             font-size: 0.75rem; color: rgba(255,255,255,0.3);
             font-weight: 400; white-space: nowrap;
@@ -86,6 +102,11 @@
         .toc-subsections {
             border-top: 1px solid rgba(255,255,255,0.06);
             padding: 0.2rem 0;
+            animation: tocSlideDown 0.25s ease;
+        }
+        @keyframes tocSlideDown {
+            from { opacity: 0; max-height: 0; }
+            to { opacity: 1; max-height: 2000px; }
         }
         .toc-sub-link {
             display: flex; align-items: center; gap: 8px;
@@ -135,149 +156,171 @@
             <img src="images/polaris1_cover.jpg" alt="英語長文ポラリス1 表紙" class="toc-cover">
             
         <div class="toc-chapter">
-            <a href="polaris1_viewer.html?book=polaris1&section=intro&page=1" class="toc-chapter-link">
+            <a href="polaris1_viewer.html?book=polaris1&section=intro&page=1" class="toc-chapter-link toc-chapter-link-plain">
                 <span class="toc-chapter-title">はじめに・目次</span>
                 <span class="toc-chapter-pages">p.1–1</span>
             </a>
         </div>
         <div class="toc-chapter">
-            <a href="polaris1_viewer.html?book=polaris1&section=chap1&page=1" class="toc-chapter-link">
-                <span class="toc-chapter-title">問題</span>
-                <span class="toc-chapter-pages">p.2–60</span>
-            </a>
-            <div class="toc-subsections">
-                <a href="polaris1_viewer.html?book=polaris1&page=2" class="toc-sub-link">
-                    <span class="toc-sub-num">1</span>
-                    <span class="toc-sub-title">Lesson 1</span>
-                    <span class="toc-sub-page">p.2</span>
-                </a>
-                <a href="polaris1_viewer.html?book=polaris1&page=6" class="toc-sub-link">
-                    <span class="toc-sub-num">2</span>
-                    <span class="toc-sub-title">Lesson 2</span>
-                    <span class="toc-sub-page">p.6</span>
-                </a>
-                <a href="polaris1_viewer.html?book=polaris1&page=14" class="toc-sub-link">
-                    <span class="toc-sub-num">3</span>
-                    <span class="toc-sub-title">Lesson 3</span>
-                    <span class="toc-sub-page">p.14</span>
-                </a>
-                <a href="polaris1_viewer.html?book=polaris1&page=20" class="toc-sub-link">
-                    <span class="toc-sub-num">4</span>
-                    <span class="toc-sub-title">Lesson 4</span>
-                    <span class="toc-sub-page">p.20</span>
-                </a>
-                <a href="polaris1_viewer.html?book=polaris1&page=24" class="toc-sub-link">
-                    <span class="toc-sub-num">5</span>
-                    <span class="toc-sub-title">Lesson 5</span>
-                    <span class="toc-sub-page">p.24</span>
-                </a>
-                <a href="polaris1_viewer.html?book=polaris1&page=28" class="toc-sub-link">
-                    <span class="toc-sub-num">6</span>
-                    <span class="toc-sub-title">Lesson 6</span>
-                    <span class="toc-sub-page">p.28</span>
-                </a>
-                <a href="polaris1_viewer.html?book=polaris1&page=34" class="toc-sub-link">
-                    <span class="toc-sub-num">7</span>
-                    <span class="toc-sub-title">Lesson 7</span>
-                    <span class="toc-sub-page">p.34</span>
-                </a>
-                <a href="polaris1_viewer.html?book=polaris1&page=38" class="toc-sub-link">
-                    <span class="toc-sub-num">8</span>
-                    <span class="toc-sub-title">Lesson 8</span>
-                    <span class="toc-sub-page">p.38</span>
-                </a>
-                <a href="polaris1_viewer.html?book=polaris1&page=42" class="toc-sub-link">
-                    <span class="toc-sub-num">9</span>
-                    <span class="toc-sub-title">Lesson 9</span>
-                    <span class="toc-sub-page">p.42</span>
-                </a>
-                <a href="polaris1_viewer.html?book=polaris1&page=48" class="toc-sub-link">
-                    <span class="toc-sub-num">10</span>
-                    <span class="toc-sub-title">Lesson 10</span>
-                    <span class="toc-sub-page">p.48</span>
-                </a>
-                <a href="polaris1_viewer.html?book=polaris1&page=52" class="toc-sub-link">
-                    <span class="toc-sub-num">11</span>
-                    <span class="toc-sub-title">Lesson 11</span>
-                    <span class="toc-sub-page">p.52</span>
-                </a>
-                <a href="polaris1_viewer.html?book=polaris1&page=58" class="toc-sub-link">
-                    <span class="toc-sub-num">12</span>
-                    <span class="toc-sub-title">Lesson 12</span>
-                    <span class="toc-sub-page">p.58</span>
-                </a>
-            </div>
+            <details class="toc-accordion">
+                <summary class="toc-chapter-link">
+                    <span class="toc-chapter-title">問題</span>
+                    <span class="toc-chapter-meta">
+                        <span class="toc-chapter-pages">p.2–60</span>
+                        <span class="toc-chevron">▶</span>
+                    </span>
+                </summary>
+                <div class="toc-subsections">
+                    <a href="polaris1_viewer.html?book=polaris1&page=2" class="toc-sub-link">
+                        <span class="toc-sub-num">1</span>
+                        <span class="toc-sub-title">Lesson 1</span>
+                        <span class="toc-sub-page">p.2</span>
+                    </a>
+                    <a href="polaris1_viewer.html?book=polaris1&page=6" class="toc-sub-link">
+                        <span class="toc-sub-num">2</span>
+                        <span class="toc-sub-title">Lesson 2</span>
+                        <span class="toc-sub-page">p.6</span>
+                    </a>
+                    <a href="polaris1_viewer.html?book=polaris1&page=14" class="toc-sub-link">
+                        <span class="toc-sub-num">3</span>
+                        <span class="toc-sub-title">Lesson 3</span>
+                        <span class="toc-sub-page">p.14</span>
+                    </a>
+                    <a href="polaris1_viewer.html?book=polaris1&page=20" class="toc-sub-link">
+                        <span class="toc-sub-num">4</span>
+                        <span class="toc-sub-title">Lesson 4</span>
+                        <span class="toc-sub-page">p.20</span>
+                    </a>
+                    <a href="polaris1_viewer.html?book=polaris1&page=24" class="toc-sub-link">
+                        <span class="toc-sub-num">5</span>
+                        <span class="toc-sub-title">Lesson 5</span>
+                        <span class="toc-sub-page">p.24</span>
+                    </a>
+                    <a href="polaris1_viewer.html?book=polaris1&page=28" class="toc-sub-link">
+                        <span class="toc-sub-num">6</span>
+                        <span class="toc-sub-title">Lesson 6</span>
+                        <span class="toc-sub-page">p.28</span>
+                    </a>
+                    <a href="polaris1_viewer.html?book=polaris1&page=34" class="toc-sub-link">
+                        <span class="toc-sub-num">7</span>
+                        <span class="toc-sub-title">Lesson 7</span>
+                        <span class="toc-sub-page">p.34</span>
+                    </a>
+                    <a href="polaris1_viewer.html?book=polaris1&page=38" class="toc-sub-link">
+                        <span class="toc-sub-num">8</span>
+                        <span class="toc-sub-title">Lesson 8</span>
+                        <span class="toc-sub-page">p.38</span>
+                    </a>
+                    <a href="polaris1_viewer.html?book=polaris1&page=42" class="toc-sub-link">
+                        <span class="toc-sub-num">9</span>
+                        <span class="toc-sub-title">Lesson 9</span>
+                        <span class="toc-sub-page">p.42</span>
+                    </a>
+                    <a href="polaris1_viewer.html?book=polaris1&page=48" class="toc-sub-link">
+                        <span class="toc-sub-num">10</span>
+                        <span class="toc-sub-title">Lesson 10</span>
+                        <span class="toc-sub-page">p.48</span>
+                    </a>
+                    <a href="polaris1_viewer.html?book=polaris1&page=52" class="toc-sub-link">
+                        <span class="toc-sub-num">11</span>
+                        <span class="toc-sub-title">Lesson 11</span>
+                        <span class="toc-sub-page">p.52</span>
+                    </a>
+                    <a href="polaris1_viewer.html?book=polaris1&page=58" class="toc-sub-link">
+                        <span class="toc-sub-num">12</span>
+                        <span class="toc-sub-title">Lesson 12</span>
+                        <span class="toc-sub-page">p.58</span>
+                    </a>
+                </div>
+            </details>
         </div>
         <div class="toc-chapter">
-            <a href="polaris1_viewer.html?book=polaris1&section=answers&page=1" class="toc-chapter-link">
-                <span class="toc-chapter-title">解答・解説</span>
-                <span class="toc-chapter-pages">p.61–252</span>
-            </a>
-            <div class="toc-subsections">
-                <a href="polaris1_viewer.html?book=polaris1&page=74" class="toc-sub-link">
-                    <span class="toc-sub-num">1</span>
-                    <span class="toc-sub-title">Lesson 1</span>
-                    <span class="toc-sub-page">p.74</span>
-                </a>
-                <a href="polaris1_viewer.html?book=polaris1&page=86" class="toc-sub-link">
-                    <span class="toc-sub-num">2</span>
-                    <span class="toc-sub-title">Lesson 2</span>
-                    <span class="toc-sub-page">p.86</span>
-                </a>
-                <a href="polaris1_viewer.html?book=polaris1&page=107" class="toc-sub-link">
-                    <span class="toc-sub-num">3</span>
-                    <span class="toc-sub-title">Lesson 3</span>
-                    <span class="toc-sub-page">p.107</span>
-                </a>
-                <a href="polaris1_viewer.html?book=polaris1&page=124" class="toc-sub-link">
-                    <span class="toc-sub-num">4</span>
-                    <span class="toc-sub-title">Lesson 4</span>
-                    <span class="toc-sub-page">p.124</span>
-                </a>
-                <a href="polaris1_viewer.html?book=polaris1&page=139" class="toc-sub-link">
-                    <span class="toc-sub-num">5</span>
-                    <span class="toc-sub-title">Lesson 5</span>
-                    <span class="toc-sub-page">p.139</span>
-                </a>
-                <a href="polaris1_viewer.html?book=polaris1&page=150" class="toc-sub-link">
-                    <span class="toc-sub-num">6</span>
-                    <span class="toc-sub-title">Lesson 6</span>
-                    <span class="toc-sub-page">p.150</span>
-                </a>
-                <a href="polaris1_viewer.html?book=polaris1&page=164" class="toc-sub-link">
-                    <span class="toc-sub-num">7</span>
-                    <span class="toc-sub-title">Lesson 7</span>
-                    <span class="toc-sub-page">p.164</span>
-                </a>
-                <a href="polaris1_viewer.html?book=polaris1&page=178" class="toc-sub-link">
-                    <span class="toc-sub-num">8</span>
-                    <span class="toc-sub-title">Lesson 8</span>
-                    <span class="toc-sub-page">p.178</span>
-                </a>
-                <a href="polaris1_viewer.html?book=polaris1&page=188" class="toc-sub-link">
-                    <span class="toc-sub-num">9</span>
-                    <span class="toc-sub-title">Lesson 9</span>
-                    <span class="toc-sub-page">p.188</span>
-                </a>
-                <a href="polaris1_viewer.html?book=polaris1&page=209" class="toc-sub-link">
-                    <span class="toc-sub-num">10</span>
-                    <span class="toc-sub-title">Lesson 10</span>
-                    <span class="toc-sub-page">p.209</span>
-                </a>
-                <a href="polaris1_viewer.html?book=polaris1&page=224" class="toc-sub-link">
-                    <span class="toc-sub-num">11</span>
-                    <span class="toc-sub-title">Lesson 11</span>
-                    <span class="toc-sub-page">p.224</span>
-                </a>
-                <a href="polaris1_viewer.html?book=polaris1&page=243" class="toc-sub-link">
-                    <span class="toc-sub-num">12</span>
-                    <span class="toc-sub-title">Lesson 12</span>
-                    <span class="toc-sub-page">p.243</span>
-                </a>
-            </div>
+            <details class="toc-accordion">
+                <summary class="toc-chapter-link">
+                    <span class="toc-chapter-title">解答・解説</span>
+                    <span class="toc-chapter-meta">
+                        <span class="toc-chapter-pages">p.61–252</span>
+                        <span class="toc-chevron">▶</span>
+                    </span>
+                </summary>
+                <div class="toc-subsections">
+                    <a href="polaris1_viewer.html?book=polaris1&page=74" class="toc-sub-link">
+                        <span class="toc-sub-num">1</span>
+                        <span class="toc-sub-title">Lesson 1</span>
+                        <span class="toc-sub-page">p.74</span>
+                    </a>
+                    <a href="polaris1_viewer.html?book=polaris1&page=86" class="toc-sub-link">
+                        <span class="toc-sub-num">2</span>
+                        <span class="toc-sub-title">Lesson 2</span>
+                        <span class="toc-sub-page">p.86</span>
+                    </a>
+                    <a href="polaris1_viewer.html?book=polaris1&page=107" class="toc-sub-link">
+                        <span class="toc-sub-num">3</span>
+                        <span class="toc-sub-title">Lesson 3</span>
+                        <span class="toc-sub-page">p.107</span>
+                    </a>
+                    <a href="polaris1_viewer.html?book=polaris1&page=124" class="toc-sub-link">
+                        <span class="toc-sub-num">4</span>
+                        <span class="toc-sub-title">Lesson 4</span>
+                        <span class="toc-sub-page">p.124</span>
+                    </a>
+                    <a href="polaris1_viewer.html?book=polaris1&page=139" class="toc-sub-link">
+                        <span class="toc-sub-num">5</span>
+                        <span class="toc-sub-title">Lesson 5</span>
+                        <span class="toc-sub-page">p.139</span>
+                    </a>
+                    <a href="polaris1_viewer.html?book=polaris1&page=150" class="toc-sub-link">
+                        <span class="toc-sub-num">6</span>
+                        <span class="toc-sub-title">Lesson 6</span>
+                        <span class="toc-sub-page">p.150</span>
+                    </a>
+                    <a href="polaris1_viewer.html?book=polaris1&page=164" class="toc-sub-link">
+                        <span class="toc-sub-num">7</span>
+                        <span class="toc-sub-title">Lesson 7</span>
+                        <span class="toc-sub-page">p.164</span>
+                    </a>
+                    <a href="polaris1_viewer.html?book=polaris1&page=178" class="toc-sub-link">
+                        <span class="toc-sub-num">8</span>
+                        <span class="toc-sub-title">Lesson 8</span>
+                        <span class="toc-sub-page">p.178</span>
+                    </a>
+                    <a href="polaris1_viewer.html?book=polaris1&page=188" class="toc-sub-link">
+                        <span class="toc-sub-num">9</span>
+                        <span class="toc-sub-title">Lesson 9</span>
+                        <span class="toc-sub-page">p.188</span>
+                    </a>
+                    <a href="polaris1_viewer.html?book=polaris1&page=209" class="toc-sub-link">
+                        <span class="toc-sub-num">10</span>
+                        <span class="toc-sub-title">Lesson 10</span>
+                        <span class="toc-sub-page">p.209</span>
+                    </a>
+                    <a href="polaris1_viewer.html?book=polaris1&page=224" class="toc-sub-link">
+                        <span class="toc-sub-num">11</span>
+                        <span class="toc-sub-title">Lesson 11</span>
+                        <span class="toc-sub-page">p.224</span>
+                    </a>
+                    <a href="polaris1_viewer.html?book=polaris1&page=243" class="toc-sub-link">
+                        <span class="toc-sub-num">12</span>
+                        <span class="toc-sub-title">Lesson 12</span>
+                        <span class="toc-sub-page">p.243</span>
+                    </a>
+                </div>
+            </details>
         </div>
         </div>
         <div class="toc-footer">© 2026 ECCベストワン藍住・北島中央</div>
     </div>
+    <script>
+        // 同時に1つだけ開くアコーディオン制御
+        document.querySelectorAll('.toc-accordion').forEach(det => {
+            det.addEventListener('toggle', () => {
+                if (det.open) {
+                    document.querySelectorAll('.toc-accordion').forEach(other => {
+                        if (other !== det) other.open = false;
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
