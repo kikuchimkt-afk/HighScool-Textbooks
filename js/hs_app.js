@@ -743,7 +743,34 @@ document.addEventListener('DOMContentLoaded', () => {
     let answerZoom = 1;
 
     function estimateAnswerPage(viewPage) {
-        // 本編 p.6 (または設定) 〜 p.CONTENT_END → 解答 p.ANSWER_START 〜 p.ANSWER_END
+        // 詳細なサブセクション（Lessonごとのページ指定）がある場合はそれを利用
+        if (bookData.chapters) {
+            const mainChap = bookData.chapters.find(ch => viewPage >= ch.start && viewPage <= ch.end);
+            const ansChap = bookData.chapters.find(ch => ch.id === 'answers');
+            
+            if (mainChap && mainChap.subsections && ansChap && ansChap.subsections) {
+                // 現在のページがどのサブセクション（Lesson等）に属するか特定
+                let qSubIdx = -1;
+                for (let i = 0; i < mainChap.subsections.length; i++) {
+                    if (viewPage >= mainChap.subsections[i].page) {
+                        qSubIdx = i;
+                    } else {
+                        break;
+                    }
+                }
+                
+                if (qSubIdx !== -1) {
+                    const qSub = mainChap.subsections[qSubIdx];
+                    // 解答側の対応するサブセクションを番号で検索
+                    const aSub = ansChap.subsections.find(s => s.num === qSub.num);
+                    if (aSub) {
+                        return aSub.page; // 正確な解答ページへ直接ジャンプ！
+                    }
+                }
+            }
+        }
+
+        // サブセクションがない従来の本（数学など）用：比率計算による推測
         const questionStart = bookData.id === 'polaris1' ? 2 : 6;
         if (viewPage < questionStart) return ANSWER_START;
         if (viewPage >= ANSWER_START) return viewPage;
