@@ -1,4 +1,40 @@
 const hsData = {
+    // 英語長文ポラリス1
+    polaris1: {
+        id: "polaris1",
+        title: "英語長文ポラリス1",
+        totalPages: 250,
+        imagesPath: "images/polaris1/",
+        printImagesPath: "images/polaris1_bw/",
+        coverImage: "images/polaris1_cover.jpg",
+        qrBase: "",
+        chapters: [
+            { id: "intro", title: "はじめに・目次", start: 1, end: 5, subsections: [] },
+            { id: "chap1", title: "問題", start: 6, end: 58, subsections: [
+                { num: 1, title: "問題1", page: 6 },
+                { num: 2, title: "問題2", page: 10 },
+                { num: 3, title: "問題3", page: 14 },
+                { num: 4, title: "問題4", page: 18 },
+                { num: 5, title: "問題5", page: 22 },
+                { num: 6, title: "問題6", page: 26 },
+                { num: 7, title: "問題7", page: 30 },
+                { num: 8, title: "問題8", page: 34 },
+                { num: 9, title: "問題9", page: 38 },
+                { num: 10, title: "問題10", page: 42 },
+                { num: 11, title: "問題11", page: 46 },
+                { num: 12, title: "問題12", page: 50 },
+            ]},
+            { id: "answers", title: "解答・解説", start: 59, end: 250, subsections: [] }
+        ],
+        get sections() {
+            return this.chapters.map(ch => ({
+                id: ch.id, title: ch.title, start: ch.start, end: ch.end,
+                pages: ch.end - ch.start + 1
+            }));
+        },
+        pageQrs: {}
+    },
+
     // SuperQuick 数IA
     superquick_math1a: {
         id: "superquick_math1a",
