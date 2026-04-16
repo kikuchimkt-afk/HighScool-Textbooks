@@ -236,6 +236,50 @@ const hsData = {
         pageQrs: {}
     },
 
+    solution2: {
+        id: "solution2",
+        title: "肘井学の読解のための英文法 Solution 2",
+        totalPages: 148,
+        imagesPath: "images/solution2/",
+        printImagesPath: "images/solution2_bw/",
+        coverImage: "images/solution2_cover.jpg",
+        qrBase: "",
+        chapters: [
+            { id: "intro", title: "はじめに・目次", start: 1, end: 3, subsections: [] },
+            { id: "chap1", title: "問題", start: 4, end: 31, subsections: [
+                { num: 1, title: "Lesson 1", page: 4 },
+                { num: 2, title: "Lesson 2", page: 6 },
+                { num: 3, title: "Lesson 3", page: 8 },
+                { num: 4, title: "Lesson 4", page: 10 },
+                { num: 5, title: "Lesson 5", page: 12 },
+                { num: 6, title: "Lesson 6", page: 14 },
+                { num: 7, title: "Lesson 7", page: 16 },
+                { num: 8, title: "Lesson 8", page: 18 },
+                { num: 9, title: "Lesson 9", page: 20 },
+                { num: 10, title: "Lesson 10", page: 22 }
+            ]},
+            { id: "answers", title: "解答・解説", start: 32, end: 148, subsections: [
+                { num: 1, title: "Lesson 1", page: 14 + 31 },
+                { num: 2, title: "Lesson 2", page: 26 + 31 },
+                { num: 3, title: "Lesson 3", page: 38 + 31 },
+                { num: 4, title: "Lesson 4", page: 50 + 31 },
+                { num: 5, title: "Lesson 5", page: 62 + 31 },
+                { num: 6, title: "Lesson 6", page: 74 + 31 },
+                { num: 7, title: "Lesson 7", page: 86 + 31 },
+                { num: 8, title: "Lesson 8", page: 98 + 31 },
+                { num: 9, title: "Lesson 9", page: 110 + 31 },
+                { num: 10, title: "Lesson 10", page: 122 + 31 }
+            ]}
+        ],
+        get sections() {
+            return this.chapters.map(ch => ({
+                id: ch.id, title: ch.title, start: ch.start, end: ch.end,
+                pages: ch.end - ch.start + 1
+            }));
+        },
+        pageQrs: {}
+    },
+
     // SuperQuick 数IA
     superquick_math1a: {
         id: "superquick_math1a",
