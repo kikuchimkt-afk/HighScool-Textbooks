@@ -1,0 +1,156 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>闍ｱ隱樣聞譁・・繝ｩ繝ｪ繧ｹ1 | 繝薙Η繝ｼ繧｢</title>
+    <meta name="description" content="鬮俶｡蜿り・嶌・郁恭隱樣聞譁・・繝ｩ繝ｪ繧ｹ1・峨ン繝･繝ｼ繧｢">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/viewer.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/polaris2_32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="icons/polaris2_180.png">
+    <link rel="manifest" href="manifest_polaris2.json">
+    <meta name="theme-color" content="#1e3c72">
+</head>
+<body class="viewer-body">
+    <header class="viewer-header">
+        <a id="back-link" href="polaris2_toc.html" class="back-link" style="color:#fff;">
+            <svg style="width:24px;height:24px;margin-right:5px;vertical-align:middle" viewBox="0 0 24 24">
+                <path fill="currentColor" d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" />
+            </svg>
+            逶ｮ谺｡
+        </a>
+        <h1 id="chapter-title">闍ｱ隱樣聞譁・・繝ｩ繝ｪ繧ｹ1</h1>
+        <div class="header-actions">
+            <div class="view-mode-switcher" id="view-mode-switcher">
+                <button class="mode-tab active" data-mode="viewer" id="tab-viewer" title="繝壹・繧ｸ髢ｲ隕ｧ">
+                    <span class="mode-tab-icon">塘</span><span class="mode-tab-label">繝薙Η繝ｼ繧｢</span>
+                </button>
+                <button class="mode-tab" data-mode="spread" id="tab-spread" title="隕矩幕縺崎｡ｨ遉ｺ">
+                    <span class="mode-tab-icon">当</span><span class="mode-tab-label">隕矩幕縺・/span>
+                </button>
+            </div>
+        </div>
+        <div class="page-controls">
+            <button id="btn-fullscreen" class="btn-fullscreen" title="蜈ｨ逕ｻ髱｢陦ｨ遉ｺ" style="display:none">
+                <span id="fs-icon">銅</span>
+                <span id="fs-label">蜈ｨ逕ｻ髱｢</span>
+            </button>
+            <button id="btn-answer" class="btn-answer" title="邱ｴ鄙偵・隗｣遲斐ｒ陦ｨ遉ｺ">統 隗｣遲・/button>
+            <button id="btn-print" class="btn-icon" title="迴ｾ蝨ｨ縺ｮ繝壹・繧ｸ繧貞魂蛻ｷ・医Δ繝弱け繝ｭ・・ style="margin-right:15px; font-size:1.2rem;">蜜・・/button>
+            <button id="btn-prev" class="btn-icon" title="蜑阪・繝壹・繧ｸ">笳</button>
+            <span id="page-indicator" class="page-indicator-btn" title="繝壹・繧ｸ繧ｸ繝｣繝ｳ繝・>p.--</span>
+            <button id="btn-next" class="btn-icon" title="谺｡縺ｮ繝壹・繧ｸ">笆ｶ</button>
+        </div>
+    </header>
+    
+    <main class="viewer-container" id="viewer-container">
+        <section class="pane left-pane" id="image-pane">
+            <div class="zoom-controls" id="zoom-controls">
+                <button id="btn-zoom-out" title="邵ｮ蟆・>竏・/button>
+                <button id="btn-zoom-reset" title="繝ｪ繧ｻ繝・ヨ">筺ｳ</button>
+                <button id="btn-zoom-in" title="諡｡螟ｧ">+</button>
+            </div>
+            <div class="image-wrapper" id="image-wrapper">
+                <img id="textbook-img" src="" alt="Textbook Page" draggable="false">
+                <img id="textbook-img-right" src="" alt="Textbook Page Right" draggable="false" style="display:none">
+            </div>
+            <!-- QR繝ｪ繝ｳ繧ｯ繝舌・ -->
+            <div class="qr-bar" id="qr-bar" style="display:none">
+                <a id="qr-link" href="#" target="_blank" rel="noopener" class="qr-bar-link">
+                    <span class="qr-bar-icon">導</span>
+                    <span id="qr-link-label">髻ｳ螢ｰ繝ｻ蜍慕判</span>
+                    <span class="qr-bar-arrow">竊・/span>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- 繝輔Ο繝ｼ繝・ぅ繝ｳ繧ｰ繝翫ン (隕矩幕縺阪Δ繝ｼ繝臥畑) -->
+    <div class="floating-nav" id="floating-nav" style="display:none">
+        <button class="float-btn float-prev" id="float-prev">笶ｮ</button>
+        <button class="float-btn float-next" id="float-next">笶ｯ</button>
+        <div class="float-page" id="float-page">p.--</div>
+        <button class="float-btn float-exit-fs" id="float-exit-fs" style="display:none">笨・蜈ｨ逕ｻ髱｢隗｣髯､</button>
+    </div>
+
+    <!-- 繝壹・繧ｸ繧ｸ繝｣繝ｳ繝励Δ繝ｼ繝繝ｫ -->
+    <div class="page-jump-overlay" id="page-jump-overlay">
+        <div class="page-jump-modal">
+            <h3>繝壹・繧ｸ繧ｸ繝｣繝ｳ繝・/h3>
+            <div class="page-jump-input-row">
+                <span>p.</span>
+                <input type="number" id="page-jump-input" min="1" placeholder="1縲・>
+                <button id="page-jump-go">遘ｻ蜍・/button>
+            </div>
+            <div class="page-jump-chapters" id="page-jump-chapters">
+                <!-- Populated by JS -->
+            </div>
+            <button class="page-jump-close" id="page-jump-close">髢峨§繧・/button>
+        </div>
+    </div>
+
+    <!-- 蜊ｰ蛻ｷ繝｢繝ｼ繝繝ｫ -->
+    <div class="iframe-modal-overlay" id="print-modal-overlay" style="display:none">
+        <div class="iframe-modal print-modal" id="print-modal">
+            <div class="iframe-modal-header" id="print-modal-header">
+                <span id="print-modal-title">蜊ｰ蛻ｷ繝励Ξ繝薙Η繝ｼ (繝｢繝弱け繝ｭ繝ｻ隗｣遲斐↑縺・</span>
+                <div style="display:flex; gap:8px;">
+                    <button class="iframe-modal-close" id="print-modal-close" title="髢峨§繧・>笨・/button>
+                </div>
+            </div>
+            <div class="print-modal-controls">
+                <button id="print-range-prev" class="print-range-btn" title="蜑阪・繝壹・繧ｸ繧りｿｽ蜉">笳 蜑阪∈蠎・￡繧・/button>
+                <span id="print-range-label">陦ｨ遉ｺ遽・峇</span>
+                <button id="print-range-next" class="print-range-btn" title="谺｡縺ｮ繝壹・繧ｸ繧りｿｽ蜉">蠕後∈蠎・￡繧・笆ｶ</button>
+            </div>
+            <div class="print-modal-body" id="print-modal-body">
+                <!-- JS縺ｧ蜍慕噪逕滓・ -->
+            </div>
+            <div class="print-modal-footer">
+                <span id="print-selected-count" style="color:#666; font-size:0.9rem; margin-right:auto;">驕ｸ謚・ 0繝壹・繧ｸ</span>
+                <button id="btn-execute-print" class="btn-primary">驕ｸ謚槭＠縺溘・繝ｼ繧ｸ繧貞魂蛻ｷ</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 蜊ｰ蛻ｷ逕ｨ諡｡螟ｧ繝励Ξ繝薙Η繝ｼ -->
+    <div id="print-zoom-overlay" style="display:none; position:fixed; inset:0; z-index:500; background:rgba(0,0,0,0.85); cursor:zoom-out; display:none; align-items:center; justify-content:center;">
+        <img id="print-zoom-img" src="" style="max-width:95vw; max-height:95vh; object-fit:contain; border-radius:4px; box-shadow:0 0 40px rgba(0,0,0,0.5);">
+    </div>
+
+    <!-- 隗｣遲斐Δ繝ｼ繝繝ｫ -->
+    <div id="answer-modal-overlay" class="answer-modal-overlay" style="display:none">
+        <div class="answer-modal">
+            <div class="answer-modal-header">
+                <button id="answer-prev" class="answer-nav-btn">笳</button>
+                <span id="answer-title">隗｣遲・P.---</span>
+                <button id="answer-next" class="answer-nav-btn">笆ｶ</button>
+                <button id="answer-close" class="answer-close-btn">笨・/button>
+            </div>
+            <div class="answer-modal-body" id="answer-modal-body">
+                <img id="answer-img" src="" class="answer-img">
+            </div>
+        </div>
+    </div>
+
+    <!-- Iframe 繝｢繝ｼ繝繝ｫ -->
+    <div class="iframe-modal-overlay" id="iframe-modal-overlay" style="display:none">
+        <div class="iframe-modal">
+            <div class="iframe-modal-header" id="iframe-modal-header">
+                <span id="iframe-modal-title">髻ｳ螢ｰ繝ｻ蜍慕判繧ｳ繝ｳ繝・Φ繝・/span>
+                <div style="display:flex; gap:8px;">
+                    <button class="iframe-modal-resize" id="iframe-modal-resize" title="繧ｵ繧､繧ｺ蛻・崛">覧</button>
+                    <button class="iframe-modal-close" id="iframe-modal-close" title="髢峨§繧・>笨・/button>
+                </div>
+            </div>
+            <iframe id="iframe-modal-frame" src=""></iframe>
+        </div>
+    </div>
+
+    <script src="js/hs_data.js"></script>
+    <script src="js/hs_app.js"></script>
+</body>
+</html>
+

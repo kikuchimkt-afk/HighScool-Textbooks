@@ -48,6 +48,54 @@ const hsData = {
         pageQrs: {}
     },
 
+    polaris2: {
+        id: "polaris2",
+        title: "英語長文ポラリス2",
+        totalPages: 286,
+        imagesPath: "images/polaris2/",
+        printImagesPath: "images/polaris2_bw/",
+        coverImage: "images/polaris2_cover.jpg",
+        qrBase: "",
+        chapters: [
+            { id: "intro", title: "はじめに・目次", start: 1, end: 1, subsections: [] },
+            { id: "chap1", title: "問題", start: 2, end: 62, subsections: [
+                { num: 1, title: "Lesson 1", page: 2 },
+                { num: 2, title: "Lesson 2", page: 10 },
+                { num: 3, title: "Lesson 3", page: 14 },
+                { num: 4, title: "Lesson 4", page: 20 },
+                { num: 5, title: "Lesson 5", page: 24 },
+                { num: 6, title: "Lesson 6", page: 30 },
+                { num: 7, title: "Lesson 7", page: 34 },
+                { num: 8, title: "Lesson 8", page: 38 },
+                { num: 9, title: "Lesson 9", page: 44 },
+                { num: 10, title: "Lesson 10", page: 50 },
+                { num: 11, title: "Lesson 11", page: 56 },
+                { num: 12, title: "Lesson 12", page: 60 },
+            ]},
+            { id: "answers", title: "解答・解説", start: 63, end: 286, subsections: [
+                { num: 1, title: "Lesson 1", page: 14 + 62 },
+                { num: 2, title: "Lesson 2", page: 40 + 62 },
+                { num: 3, title: "Lesson 3", page: 54 + 62 },
+                { num: 4, title: "Lesson 4", page: 72 + 62 },
+                { num: 5, title: "Lesson 5", page: 88 + 62 },
+                { num: 6, title: "Lesson 6", page: 106 + 62 },
+                { num: 7, title: "Lesson 7", page: 122 + 62 },
+                { num: 8, title: "Lesson 8", page: 142 + 62 },
+                { num: 9, title: "Lesson 9", page: 162 + 62 },
+                { num: 10, title: "Lesson 10", page: 180 + 62 },
+                { num: 11, title: "Lesson 11", page: 198 + 62 },
+                { num: 12, title: "Lesson 12", page: 210 + 62 },
+            ]}
+        ],
+        get sections() {
+            return this.chapters.map(ch => ({
+                id: ch.id, title: ch.title, start: ch.start, end: ch.end,
+                pages: ch.end - ch.start + 1
+            }));
+        },
+        pageQrs: {}
+    },
+
     // SuperQuick 数IA
     superquick_math1a: {
         id: "superquick_math1a",
