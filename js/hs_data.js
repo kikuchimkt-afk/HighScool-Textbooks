@@ -144,6 +144,54 @@ const hsData = {
         pageQrs: {}
     },
 
+    rules2: {
+        id: "rules2",
+        title: "関正生の英語長文 Rules 2",
+        totalPages: 274,
+        imagesPath: "images/rules2/",
+        printImagesPath: "images/rules2_bw/",
+        coverImage: "images/rules2_cover.jpg",
+        qrBase: "",
+        chapters: [
+            { id: "intro", title: "はじめに・目次", start: 1, end: 2, subsections: [] },
+            { id: "chap1", title: "問題", start: 3, end: 52, subsections: [
+                { num: 1, title: "Lesson 1", page: 3 },
+                { num: 2, title: "Lesson 2", page: 7 },
+                { num: 3, title: "Lesson 3", page: 11 },
+                { num: 4, title: "Lesson 4", page: 15 },
+                { num: 5, title: "Lesson 5", page: 19 },
+                { num: 6, title: "Lesson 6", page: 23 },
+                { num: 7, title: "Lesson 7", page: 27 },
+                { num: 8, title: "Lesson 8", page: 31 },
+                { num: 9, title: "Lesson 9", page: 35 },
+                { num: 10, title: "Lesson 10", page: 39 },
+                { num: 11, title: "Lesson 11", page: 43 },
+                { num: 12, title: "Lesson 12", page: 47 }
+            ]},
+            { id: "answers", title: "解答・解説", start: 53, end: 274, subsections: [
+                { num: 1, title: "Lesson 1", page: 14 + 52 },
+                { num: 2, title: "Lesson 2", page: 40 + 52 },
+                { num: 3, title: "Lesson 3", page: 54 + 52 },
+                { num: 4, title: "Lesson 4", page: 72 + 52 },
+                { num: 5, title: "Lesson 5", page: 88 + 52 },
+                { num: 6, title: "Lesson 6", page: 106 + 52 },
+                { num: 7, title: "Lesson 7", page: 122 + 52 },
+                { num: 8, title: "Lesson 8", page: 142 + 52 },
+                { num: 9, title: "Lesson 9", page: 162 + 52 },
+                { num: 10, title: "Lesson 10", page: 180 + 52 },
+                { num: 11, title: "Lesson 11", page: 198 + 52 },
+                { num: 12, title: "Lesson 12", page: 210 + 52 }
+            ]}
+        ],
+        get sections() {
+            return this.chapters.map(ch => ({
+                id: ch.id, title: ch.title, start: ch.start, end: ch.end,
+                pages: ch.end - ch.start + 1
+            }));
+        },
+        pageQrs: {}
+    },
+
     // SuperQuick 数IA
     superquick_math1a: {
         id: "superquick_math1a",
