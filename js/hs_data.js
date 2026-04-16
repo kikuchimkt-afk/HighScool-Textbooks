@@ -24,7 +24,20 @@ const hsData = {
                 { num: 11, title: "Lesson 11", page: 52 },
                 { num: 12, title: "Lesson 12", page: 58 },
             ]},
-            { id: "answers", title: "解答・解説", start: 61, end: 252, subsections: [] }
+            { id: "answers", title: "解答・解説", start: 61, end: 252, subsections: [
+                { num: 1, title: "Lesson 1", page: 14 + 60 },
+                { num: 2, title: "Lesson 2", page: 26 + 60 },
+                { num: 3, title: "Lesson 3", page: 47 + 60 },
+                { num: 4, title: "Lesson 4", page: 64 + 60 },
+                { num: 5, title: "Lesson 5", page: 79 + 60 },
+                { num: 6, title: "Lesson 6", page: 90 + 60 },
+                { num: 7, title: "Lesson 7", page: 104 + 60 },
+                { num: 8, title: "Lesson 8", page: 118 + 60 },
+                { num: 9, title: "Lesson 9", page: 128 + 60 },
+                { num: 10, title: "Lesson 10", page: 149 + 60 },
+                { num: 11, title: "Lesson 11", page: 164 + 60 },
+                { num: 12, title: "Lesson 12", page: 183 + 60 },
+            ]}
         ],
         get sections() {
             return this.chapters.map(ch => ({
