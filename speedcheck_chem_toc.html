@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>スピードチェック 理論化学 | 目次</title>
+    <meta name="description" content="スピードチェック 理論化学 目次一覧">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/speedcheck_chem_32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="icons/speedcheck_chem_180.png">
+    <link rel="manifest" href="manifest_speedcheck_chem.json">
+    <meta name="theme-color" content="#1e3c72">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            min-height: 100vh; color: #fff;
+        }
+        .toc-header {
+            text-align: center; padding: 2rem 1rem 1rem;
+        }
+        .toc-header h1 {
+            font-size: 1.8rem; margin-bottom: 0.3rem;
+        }
+        .toc-header p {
+            font-size: 0.95rem; opacity: 0.7;
+        }
+        .toc-back {
+            display: inline-flex; align-items: center; gap: 6px;
+            color: rgba(255,255,255,0.7); text-decoration: none;
+            font-size: 0.9rem; margin-bottom: 1rem; transition: color 0.2s;
+        }
+        .toc-back:hover { color: #fff; }
+        .toc-container {
+            max-width: 800px; margin: 0 auto; padding: 0 1rem 3rem;
+        }
+        .toc-cover {
+            display: block; max-width: 200px; margin: 0 auto 1.5rem;
+            border-radius: 12px; box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+        .toc-chapter {
+            margin-bottom: 0.5rem;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 12px; overflow: hidden;
+        }
+        .toc-chapter-link {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 0.8rem 1.2rem; text-decoration: none; color: #fff;
+            font-weight: 700; font-size: 1.05rem;
+            transition: background 0.2s;
+        }
+        .toc-chapter-link:hover {
+            background: rgba(255,255,255,0.1);
+        }
+        .toc-chapter-pages {
+            font-size: 0.8rem; opacity: 0.6; font-weight: 400; white-space: nowrap;
+        }
+        .toc-subsections {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding: 0.3rem 0;
+        }
+        .toc-sub-link {
+            display: flex; align-items: center; gap: 8px;
+            padding: 0.4rem 1.2rem 0.4rem 1.8rem;
+            text-decoration: none; color: rgba(255,255,255,0.85);
+            font-size: 0.88rem; transition: background 0.2s;
+        }
+        .toc-sub-link:hover {
+            background: rgba(255,255,255,0.08); color: #fff;
+        }
+        .toc-sub-num {
+            min-width: 28px; text-align: right; font-weight: 600;
+            color: rgba(79,172,254,0.9); font-size: 0.85rem;
+        }
+        .toc-sub-title { flex: 1; }
+        .toc-sub-page {
+            font-size: 0.78rem; opacity: 0.5; white-space: nowrap;
+        }
+        .toc-footer {
+            text-align: center; padding: 2rem 1rem;
+            font-size: 0.8rem; opacity: 0.4;
+        }
+        @media (max-width: 600px) {
+            .toc-header h1 { font-size: 1.4rem; }
+            .toc-sub-link { padding-left: 1.2rem; font-size: 0.82rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="toc-header">
+        <a href="index.html" class="toc-back">← ポータルに戻る</a>
+        <h1>📖 スピードチェック 理論化学</h1>
+        <p>全152ページ ─ 目次</p>
+    </div>
+    <div class="toc-container">
+        <img src="images/speedcheck_chem_cover.jpg" alt="スピードチェック 理論化学 表紙" class="toc-cover">
+        
+        <div class="toc-chapter">
+            <a href="speedcheck_chem_viewer.html?book=speedcheck_chem&section=intro&page=1" class="toc-chapter-link">
+                <span class="toc-chapter-title">表紙・目次</span>
+                <span class="toc-chapter-pages">p.1–3</span>
+            </a>
+        </div>
+        <div class="toc-chapter">
+            <a href="speedcheck_chem_viewer.html?book=speedcheck_chem&section=part1&page=1" class="toc-chapter-link">
+                <span class="toc-chapter-title">物質の構成</span>
+                <span class="toc-chapter-pages">p.4–44</span>
+            </a>
+            <div class="toc-subsections">
+                <a href="speedcheck_chem_viewer.html?book=speedcheck_chem&page=4" class="toc-sub-link">
+                    <span class="toc-sub-num">1</span>
+                    <span class="toc-sub-title">原子の構造</span>
+                    <span class="toc-sub-page">p.4</span>
+                </a>
+                <a href="speedcheck_chem_viewer.html?book=speedcheck_chem&page=7" class="toc-sub-link">
+                    <span class="toc-sub-num">2</span>
+                    <span class="toc-sub-title">原子の電子配置</span>
+                    <span class="toc-sub-page">p.7</span>
+                </a>
+                <a href="speedcheck_chem_viewer.html?book=speedcheck_chem&page=12" class="toc-sub-link">
+                    <span class="toc-sub-num">3</span>
+                    <span class="toc-sub-title">元素の周期表と電子配置</span>
+                    <span class="toc-sub-page">p.12</span>
+                </a>
+                <a href="speedcheck_chem_viewer.html?book=speedcheck_chem&page=18" class="toc-sub-link">
+                    <span class="toc-sub-num">4</span>
+                    <span class="toc-sub-title">化学結合</span>
+                    <span class="toc-sub-page">p.18</span>
+                </a>
+                <a href="speedcheck_chem_viewer.html?book=speedcheck_chem&page=25" class="toc-sub-link">
+                    <span class="toc-sub-num">5</span>
+                    <span class="toc-sub-title">結晶の種類</span>
+                    <span class="toc-sub-page">p.25</span>
+                </a>
+                <a href="speedcheck_chem_viewer.html?book=speedcheck_chem&page=31" class="toc-sub-link">
+                    <span class="toc-sub-num">6</span>
+                    <span class="toc-sub-title">原子量・分子量と物質量</span>
+                    <span class="toc-sub-page">p.31</span>
+                </a>
+                <a href="speedcheck_chem_viewer.html?book=speedcheck_chem&page=37" class="toc-sub-link">
+                    <span class="toc-sub-num">7</span>
+                    <span class="toc-sub-title">化学反応式と量的関係</span>
+                    <span class="toc-sub-page">p.37</span>
+                </a>
+                <a href="speedcheck_chem_viewer.html?book=speedcheck_chem&page=41" class="toc-sub-link">
+                    <span class="toc-sub-num">8</span>
+                    <span class="toc-sub-title">溶液の濃度</span>
+                    <span class="toc-sub-page">p.41</span>
+                </a>
+            </div>
+        </div>
+        <div class="toc-chapter">
+            <a href="speedcheck_chem_viewer.html?book=speedcheck_chem&section=part2&page=1" class="toc-chapter-link">
+                <span class="toc-chapter-title">物質の変化</span>
+                <span class="toc-chapter-pages">p.45–85</span>
+            </a>
+            <div class="toc-subsections">
+                <a href="speedcheck_chem_viewer.html?book=speedcheck_chem&page=45" class="toc-sub-link">
+                    <span class="toc-sub-num">9</span>
+                    <span class="toc-sub-title">酸・塩基とその量的関係</span>
+                    <span class="toc-sub-page">p.45</span>
+                </a>
+                <a href="speedcheck_chem_viewer.html?book=speedcheck_chem&page=53" class="toc-sub-link">
+                    <span class="toc-sub-num">10</span>
+                    <span class="toc-sub-title">pHと滴定曲線</span>
+                    <span class="toc-sub-page">p.53</span>
+                </a>
+                <a href="speedcheck_chem_viewer.html?book=speedcheck_chem&page=60" class="toc-sub-link">
+                    <span class="toc-sub-num">11</span>
+                    <span class="toc-sub-title">酸化還元反応</span>
+                    <span class="toc-sub-page">p.60</span>
+                </a>
+                <a href="speedcheck_chem_viewer.html?book=speedcheck_chem&page=67" class="toc-sub-link">
+                    <span class="toc-sub-num">12</span>
+                    <span class="toc-sub-title">金属のイオン化傾向と電池</span>
+                    <span class="toc-sub-page">p.67</span>
+                </a>
+                <a href="speedcheck_chem_viewer.html?book=speedcheck_chem&page=73" class="toc-sub-link">
+                    <span class="toc-sub-num">13</span>
+                    <span class="toc-sub-title">電気分解</span>
+                    <span class="toc-sub-page">p.73</span>
+                </a>
+                <a href="speedcheck_chem_viewer.html?book=speedcheck_chem&page=78" class="toc-sub-link">
+                    <span class="toc-sub-num">14</span>
+                    <span class="toc-sub-title">化学反応とエンタルピー</span>
+                    <span class="toc-sub-page">p.78</span>
+                </a>
+            </div>
+        </div>
+        <div class="toc-chapter">
+            <a href="speedcheck_chem_viewer.html?book=speedcheck_chem&section=part3&page=1" class="toc-chapter-link">
+                <span class="toc-chapter-title">物質の状態</span>
+                <span class="toc-chapter-pages">p.86–119</span>
+            </a>
+            <div class="toc-subsections">
+                <a href="speedcheck_chem_viewer.html?book=speedcheck_chem&page=86" class="toc-sub-link">
+                    <span class="toc-sub-num">15</span>
+                    <span class="toc-sub-title">物質の三態</span>
+                    <span class="toc-sub-page">p.86</span>
+                </a>
+                <a href="speedcheck_chem_viewer.html?book=speedcheck_chem&page=91" class="toc-sub-link">
+                    <span class="toc-sub-num">16</span>
+                    <span class="toc-sub-title">気体の法則</span>
+                    <span class="toc-sub-page">p.91</span>
+                </a>
+                <a href="speedcheck_chem_viewer.html?book=speedcheck_chem&page=95" class="toc-sub-link">
+                    <span class="toc-sub-num">17</span>
+                    <span class="toc-sub-title">混合気体と全圧・分圧</span>
+                    <span class="toc-sub-page">p.95</span>
+                </a>
+                <a href="speedcheck_chem_viewer.html?book=speedcheck_chem&page=100" class="toc-sub-link">
+                    <span class="toc-sub-num">18</span>
+                    <span class="toc-sub-title">固体の溶解度</span>
+                    <span class="toc-sub-page">p.100</span>
+                </a>
+                <a href="speedcheck_chem_viewer.html?book=speedcheck_chem&page=106" class="toc-sub-link">
+                    <span class="toc-sub-num">19</span>
+                    <span class="toc-sub-title">気体の溶解度</span>
+                    <span class="toc-sub-page">p.106</span>
+                </a>
+                <a href="speedcheck_chem_viewer.html?book=speedcheck_chem&page=109" class="toc-sub-link">
+                    <span class="toc-sub-num">20</span>
+                    <span class="toc-sub-title">沸点上昇・凝固点降下</span>
+                    <span class="toc-sub-page">p.109</span>
+                </a>
+                <a href="speedcheck_chem_viewer.html?book=speedcheck_chem&page=113" class="toc-sub-link">
+                    <span class="toc-sub-num">21</span>
+                    <span class="toc-sub-title">浸透圧</span>
+                    <span class="toc-sub-page">p.113</span>
+                </a>
+                <a href="speedcheck_chem_viewer.html?book=speedcheck_chem&page=115" class="toc-sub-link">
+                    <span class="toc-sub-num">22</span>
+                    <span class="toc-sub-title">コロイド溶液</span>
+                    <span class="toc-sub-page">p.115</span>
+                </a>
+            </div>
+        </div>
+        <div class="toc-chapter">
+            <a href="speedcheck_chem_viewer.html?book=speedcheck_chem&section=part4&page=1" class="toc-chapter-link">
+                <span class="toc-chapter-title">反応の速さと化学平衡</span>
+                <span class="toc-chapter-pages">p.120–141</span>
+            </a>
+            <div class="toc-subsections">
+                <a href="speedcheck_chem_viewer.html?book=speedcheck_chem&page=120" class="toc-sub-link">
+                    <span class="toc-sub-num">23</span>
+                    <span class="toc-sub-title">反応の速さと進み方</span>
+                    <span class="toc-sub-page">p.120</span>
+                </a>
+                <a href="speedcheck_chem_viewer.html?book=speedcheck_chem&page=124" class="toc-sub-link">
+                    <span class="toc-sub-num">24</span>
+                    <span class="toc-sub-title">化学平衡と移動</span>
+                    <span class="toc-sub-page">p.124</span>
+                </a>
+                <a href="speedcheck_chem_viewer.html?book=speedcheck_chem&page=128" class="toc-sub-link">
+                    <span class="toc-sub-num">25</span>
+                    <span class="toc-sub-title">平衡定数</span>
+                    <span class="toc-sub-page">p.128</span>
+                </a>
+                <a href="speedcheck_chem_viewer.html?book=speedcheck_chem&page=132" class="toc-sub-link">
+                    <span class="toc-sub-num">26</span>
+                    <span class="toc-sub-title">電離平衡</span>
+                    <span class="toc-sub-page">p.132</span>
+                </a>
+                <a href="speedcheck_chem_viewer.html?book=speedcheck_chem&page=137" class="toc-sub-link">
+                    <span class="toc-sub-num">27</span>
+                    <span class="toc-sub-title">2段階電離と溶解度積</span>
+                    <span class="toc-sub-page">p.137</span>
+                </a>
+            </div>
+        </div>
+        <div class="toc-chapter">
+            <a href="speedcheck_chem_viewer.html?book=speedcheck_chem&section=appendix&page=1" class="toc-chapter-link">
+                <span class="toc-chapter-title">索引・付録</span>
+                <span class="toc-chapter-pages">p.142–152</span>
+            </a>
+        </div>
+    </div>
+    <div class="toc-footer">© 2026 ECCベストワン藍住・北島中央</div>
+</body>
+</html>
