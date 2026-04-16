@@ -195,36 +195,36 @@ const hsData = {
     solution1: {
         id: "solution1",
         title: "肘井学の読解のための英文法 Solution 1",
-        totalPages: 145,
+        totalPages: 154,
         imagesPath: "images/solution1/",
         printImagesPath: "images/solution1_bw/",
         coverImage: "images/solution1_cover.jpg",
         qrBase: "",
         chapters: [
-            { id: "intro", title: "はじめに・目次", start: 1, end: 3, subsections: [] },
-            { id: "chap1", title: "問題", start: 4, end: 32, subsections: [
-                { num: 1, title: "Lesson 1", page: 4 },
-                { num: 2, title: "Lesson 2", page: 6 },
+            { id: "intro", title: "はじめに・目次", start: 1, end: 1, subsections: [] },
+            { id: "chap1", title: "問題", start: 2, end: 37, subsections: [
+                { num: 1, title: "Lesson 1", page: 2 },
+                { num: 2, title: "Lesson 2", page: 4 },
                 { num: 3, title: "Lesson 3", page: 8 },
-                { num: 4, title: "Lesson 4", page: 10 },
-                { num: 5, title: "Lesson 5", page: 12 },
-                { num: 6, title: "Lesson 6", page: 14 },
-                { num: 7, title: "Lesson 7", page: 16 },
-                { num: 8, title: "Lesson 8", page: 18 },
-                { num: 9, title: "Lesson 9", page: 20 },
-                { num: 10, title: "Lesson 10", page: 22 }
+                { num: 4, title: "Lesson 4", page: 12 },
+                { num: 5, title: "Lesson 5", page: 16 },
+                { num: 6, title: "Lesson 6", page: 18 },
+                { num: 7, title: "Lesson 7", page: 22 },
+                { num: 8, title: "Lesson 8", page: 26 },
+                { num: 9, title: "Lesson 9", page: 30 },
+                { num: 10, title: "Lesson 10", page: 34 }
             ]},
-            { id: "answers", title: "解答・解説", start: 33, end: 145, subsections: [
-                { num: 1, title: "Lesson 1", page: 14 + 32 },
-                { num: 2, title: "Lesson 2", page: 26 + 32 },
-                { num: 3, title: "Lesson 3", page: 38 + 32 },
-                { num: 4, title: "Lesson 4", page: 50 + 32 },
-                { num: 5, title: "Lesson 5", page: 62 + 32 },
-                { num: 6, title: "Lesson 6", page: 74 + 32 },
-                { num: 7, title: "Lesson 7", page: 86 + 32 },
-                { num: 8, title: "Lesson 8", page: 98 + 32 },
-                { num: 9, title: "Lesson 9", page: 110 + 32 },
-                { num: 10, title: "Lesson 10", page: 122 + 32 }
+            { id: "answers", title: "解答・解説", start: 38, end: 154, subsections: [
+                { num: 1, title: "Lesson 1", page: 16 + 37 },
+                { num: 2, title: "Lesson 2", page: 26 + 37 },
+                { num: 3, title: "Lesson 3", page: 34 + 37 },
+                { num: 4, title: "Lesson 4", page: 44 + 37 },
+                { num: 5, title: "Lesson 5", page: 54 + 37 },
+                { num: 6, title: "Lesson 6", page: 64 + 37 },
+                { num: 7, title: "Lesson 7", page: 76 + 37 },
+                { num: 8, title: "Lesson 8", page: 86 + 37 },
+                { num: 9, title: "Lesson 9", page: 96 + 37 },
+                { num: 10, title: "Lesson 10", page: 106 + 37 }
             ]}
         ],
         get sections() {
