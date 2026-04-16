@@ -675,6 +675,34 @@ const hsData = {
             }));
         },
         pageQrs: {}
+    },
+
+    // 化学図録
+    kagaku_zuroku: {
+        id: "kagaku_zuroku",
+        title: "化学図録",
+        totalPages: 141,
+        imagesPath: "images/kagaku_zuroku/",
+        printImagesPath: null, // 印刷非対応
+        coverImage: "images/kagaku_zuroku_cover.jpg",
+        qrBase: "",
+        chapters: [
+            { id: "chap0", title: "元素・実験の基本操作", start: 1, end: 14, subsections: [] },
+            { id: "chap1", title: "物質の構成", start: 15, end: 30, subsections: [] },
+            { id: "chap2", title: "物質の状態", start: 31, end: 40, subsections: [] },
+            { id: "chap3", title: "物質の反応", start: 41, end: 59, subsections: [] },
+            { id: "chap4", title: "無機化合物", start: 60, end: 86, subsections: [] },
+            { id: "chap5", title: "有機化合物", start: 87, end: 106, subsections: [] },
+            { id: "chap6", title: "人間生活と物質", start: 107, end: 123, subsections: [] },
+            { id: "chap7", title: "資料・索引", start: 124, end: 141, subsections: [] }
+        ],
+        get sections() {
+            return this.chapters.map(ch => ({
+                id: ch.id, title: ch.title, start: ch.start, end: ch.end,
+                pages: ch.end - ch.start + 1
+            }));
+        },
+        pageQrs: {}
     }
 };
 
