@@ -186,7 +186,7 @@ const hsData = {
             }));
         },
         pageQrs: {}
-    },,
+    },
 
     polaris2: {
         id: "polaris2",
@@ -374,7 +374,7 @@ const hsData = {
             }));
         },
         pageQrs: {}
-    },,
+    },
 
     rules1: {
         id: "rules1",
@@ -562,7 +562,7 @@ const hsData = {
             }));
         },
         pageQrs: {}
-    },,
+    },
 
     rules2: {
         id: "rules2",
@@ -750,7 +750,7 @@ const hsData = {
             }));
         },
         pageQrs: {}
-    },,
+    },
 
     jyuko_jo: {
         id: "jyuko_jo",
@@ -950,7 +950,7 @@ const hsData = {
             }));
         },
         pageQrs: {}
-    },,
+    },
 
     jyuko_ge: {
         id: "jyuko_ge",
@@ -1150,7 +1150,7 @@ const hsData = {
             }));
         },
         pageQrs: {}
-    },,
+    },
 
     solution1: {
         id: "solution1",
@@ -1334,7 +1334,7 @@ const hsData = {
             }));
         },
         pageQrs: {}
-    },,
+    },
 
     solution2: {
         id: "solution2",
@@ -1518,7 +1518,7 @@ const hsData = {
             }));
         },
         pageQrs: {}
-    },,
+    },
 
     // SuperQuick 数IA
     superquick_math1a: {
@@ -1893,7 +1893,7 @@ const hsData = {
             }));
         },
         pageQrs: {}
-    },,
+    },
 
     // SuperQuick 数IIBC
     superquick_math2bc: {
@@ -2308,7 +2308,7 @@ const hsData = {
             }));
         },
         pageQrs: {}
-    },,
+    },
 
     // スピードチェック 理論化学
     speedcheck_chem: {
@@ -2523,7 +2523,7 @@ const hsData = {
             }));
         },
         pageQrs: {}
-    },,
+    },
 
     // スピードチェック 化学基礎
     speedcheck_chem_basic: {
@@ -2724,7 +2724,7 @@ const hsData = {
             }));
         },
         pageQrs: {}
-    },,
+    },
 
     // 理解しやすい化学・化学基礎
     rikeishiyasui_chem: {
@@ -2896,7 +2896,7 @@ const hsData = {
             }));
         },
         pageQrs: {}
-    },,
+    },
 
     // 化学図録
     kagaku_zuroku: {
