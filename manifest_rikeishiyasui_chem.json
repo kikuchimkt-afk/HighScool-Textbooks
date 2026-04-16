@@ -1,0 +1,20 @@
+{
+  "name": "理解しやすい化学・化学基礎",
+  "short_name": "理解しやすい化学・化学基",
+  "start_url": "rikeishiyasui_chem_toc.html",
+  "display": "standalone",
+  "background_color": "#1e3c72",
+  "theme_color": "#1e3c72",
+  "icons": [
+    {
+      "src": "icons/rikeishiyasui_chem_192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/rikeishiyasui_chem_512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

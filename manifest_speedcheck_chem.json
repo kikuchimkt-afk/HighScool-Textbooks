@@ -1,0 +1,20 @@
+{
+  "name": "スピードチェック 理論化学",
+  "short_name": "スピードチェック 理論化",
+  "start_url": "speedcheck_chem_toc.html",
+  "display": "standalone",
+  "background_color": "#1e3c72",
+  "theme_color": "#1e3c72",
+  "icons": [
+    {
+      "src": "icons/speedcheck_chem_192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/speedcheck_chem_512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
