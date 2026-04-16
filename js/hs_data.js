@@ -48,6 +48,146 @@ const hsData = {
         pageQrs: {}
     },
 
+    hijii_dokkai: {
+        id: "hijii_dokkai",
+        title: "読解のための英文法が面白いほどわかる本",
+        totalPages: 303,
+        imagesPath: "images/hijii_dokkai/",
+        printImagesPath: "images/hijii_dokkai_bw/",
+        coverImage: "images/hijii_dokkai_cover.jpg",
+        qrBase: "",
+        chapters: [
+            { id: "intro", title: "はじめに・目次", start: 1, end: 10, subsections: [] },
+            { id: "ch0", title: "序章: SVの発見編", start: 11, end: 24, subsections: [
+                { num: 1, title: "テーマ 01(1) SVの発見", page: 12 },
+                { num: 2, title: "テーマ 01(2) SVの発見", page: 18 }
+            ]},
+            { id: "ch1", title: "第1章: 意味のカタマリ編", start: 25, end: 62, subsections: [
+                { num: 3, title: "テーマ 02 名詞句", page: 26 },
+                { num: 4, title: "テーマ 03 名詞節", page: 32 },
+                { num: 5, title: "テーマ 04 形容詞句", page: 38 },
+                { num: 6, title: "テーマ 05 形容詞節", page: 44 },
+                { num: 7, title: "テーマ 06 副詞句", page: 48 },
+                { num: 8, title: "テーマ 07 副詞節", page: 52 }
+            ]},
+            { id: "ch2", title: "第2章: 識別編", start: 63, end: 104, subsections: [
+                { num: 9, title: "テーマ 08 to do の識別", page: 64 },
+                { num: 10, title: "テーマ 09 -ing の識別", page: 70 },
+                { num: 11, title: "テーマ 10 過去分詞の識別", page: 76 },
+                { num: 12, title: "テーマ 11 that の識別", page: 80 },
+                { num: 13, title: "テーマ 12 it の識別", page: 92 },
+                { num: 14, title: "テーマ 13 as の識別", page: 98 }
+            ]},
+            { id: "ch3", title: "第3章: 構文編", start: 105, end: 156, subsections: [
+                { num: 15, title: "テーマ 14 接続詞", page: 106 },
+                { num: 16, title: "テーマ 15 倒置", page: 110 },
+                { num: 17, title: "テーマ 16 省略", page: 118 },
+                { num: 18, title: "テーマ 17 強調構文", page: 122 },
+                { num: 19, title: "テーマ 18 呼応", page: 126 },
+                { num: 20, title: "テーマ 19 ネクサス", page: 130 },
+                { num: 21, title: "テーマ 20 挿入", page: 136 },
+                { num: 22, title: "テーマ 21 比較", page: 142 },
+                { num: 23, title: "テーマ 22 複合関係詞", page: 152 }
+            ]},
+            { id: "ch4", title: "第4章: 動詞の型編", start: 157, end: 224, subsections: [
+                { num: 24, title: "テーマ 23-25 第4・第5文型", page: 158 },
+                { num: 25, title: "テーマ 26-32 イディオム型", page: 176 },
+                { num: 26, title: "テーマ 33 受動態", page: 206 }
+            ]},
+            { id: "ans", title: "解答・解説編", start: 225, end: 303, subsections: [
+                { num: 1, title: "序章 解答①", page: 2 + 224 },
+                { num: 2, title: "序章 解答②", page: 2 + 224 },
+                { num: 3, title: "第1章 解答①", page: 6 + 224 },
+                { num: 4, title: "第1章 解答②", page: 6 + 224 },
+                { num: 5, title: "第1章 解答③", page: 6 + 224 },
+                { num: 6, title: "第1章 解答④", page: 6 + 224 },
+                { num: 7, title: "第1章 解答⑤", page: 6 + 224 },
+                { num: 8, title: "第1章 解答⑥", page: 6 + 224 },
+                { num: 9, title: "第2章 解答①", page: 20 + 224 },
+                { num: 10, title: "第2章 解答②", page: 20 + 224 },
+                { num: 11, title: "第2章 解答③", page: 20 + 224 },
+                { num: 12, title: "第2章 解答④", page: 20 + 224 },
+                { num: 13, title: "第2章 解答⑤", page: 20 + 224 },
+                { num: 14, title: "第2章 解答⑥", page: 20 + 224 },
+                { num: 15, title: "第3章 解答①", page: 34 + 224 },
+                { num: 16, title: "第3章 解答②", page: 34 + 224 },
+                { num: 17, title: "第3章 解答③", page: 34 + 224 },
+                { num: 18, title: "第3章 解答④", page: 34 + 224 },
+                { num: 19, title: "第3章 解答⑤", page: 34 + 224 },
+                { num: 20, title: "第3章 解答⑥", page: 34 + 224 },
+                { num: 21, title: "第3章 解答⑦", page: 34 + 224 },
+                { num: 22, title: "第3章 解答⑧", page: 34 + 224 },
+                { num: 23, title: "第3章 解答⑨", page: 34 + 224 },
+                { num: 24, title: "第4章 解答①", page: 56 + 224 },
+                { num: 25, title: "第4章 解答②", page: 56 + 224 },
+                { num: 26, title: "第4章 解答③", page: 76 + 224 }
+            ]}
+        ],
+        get sections() {
+            return this.chapters.map(ch => ({
+                id: ch.id, title: ch.title, start: ch.start, end: ch.end,
+                pages: ch.end - ch.start + 1
+            }));
+        },
+        pageQrs: {}
+    },
+
+    hijii_zero: {
+        id: "hijii_zero",
+        title: "ゼロから英語長文が面白いほどわかる本",
+        totalPages: 240,
+        imagesPath: "images/hijii_zero/",
+        printImagesPath: "images/hijii_zero_bw/",
+        coverImage: "images/hijii_zero_cover.jpg",
+        qrBase: "",
+        chapters: [
+            { id: "intro", title: "はじめに・目次", start: 1, end: 1, subsections: [] },
+            { id: "prob", title: "問題編", start: 2, end: 55, subsections: [
+                { num: 1, title: "問題 01", page: 2 },
+                { num: 2, title: "問題 02", page: 5 },
+                { num: 3, title: "問題 03", page: 8 },
+                { num: 4, title: "問題 04", page: 11 },
+                { num: 5, title: "問題 05", page: 14 },
+                { num: 6, title: "問題 06", page: 17 },
+                { num: 7, title: "問題 07", page: 20 },
+                { num: 8, title: "問題 08", page: 23 },
+                { num: 9, title: "問題 09", page: 27 },
+                { num: 10, title: "問題 10", page: 31 },
+                { num: 11, title: "問題 11", page: 35 },
+                { num: 12, title: "問題 12", page: 38 },
+                { num: 13, title: "問題 13", page: 42 },
+                { num: 14, title: "問題 14", page: 46 },
+                { num: 15, title: "問題 15", page: 50 },
+                { num: 16, title: "問題 16", page: 53 }
+            ]},
+            { id: "ans", title: "解答・解説編", start: 56, end: 240, subsections: [
+                { num: 1, title: "解説 01", page: 15 + 55 },
+                { num: 2, title: "解説 02", page: 25 + 55 },
+                { num: 3, title: "解説 03", page: 33 + 55 },
+                { num: 4, title: "解説 04", page: 43 + 55 },
+                { num: 5, title: "解説 05", page: 53 + 55 },
+                { num: 6, title: "解説 06", page: 63 + 55 },
+                { num: 7, title: "解説 07", page: 73 + 55 },
+                { num: 8, title: "解説 08", page: 83 + 55 },
+                { num: 9, title: "解説 09", page: 93 + 55 },
+                { num: 10, title: "解説 10", page: 104 + 55 },
+                { num: 11, title: "解説 11", page: 116 + 55 },
+                { num: 12, title: "解説 12", page: 126 + 55 },
+                { num: 13, title: "解説 13", page: 139 + 55 },
+                { num: 14, title: "解説 14", page: 151 + 55 },
+                { num: 15, title: "解説 15", page: 163 + 55 },
+                { num: 16, title: "解説 16", page: 173 + 55 }
+            ]}
+        ],
+        get sections() {
+            return this.chapters.map(ch => ({
+                id: ch.id, title: ch.title, start: ch.start, end: ch.end,
+                pages: ch.end - ch.start + 1
+            }));
+        },
+        pageQrs: {}
+    },,
+
     polaris2: {
         id: "polaris2",
         title: "英語長文ポラリス2",
@@ -95,6 +235,146 @@ const hsData = {
         },
         pageQrs: {}
     },
+
+    hijii_dokkai: {
+        id: "hijii_dokkai",
+        title: "読解のための英文法が面白いほどわかる本",
+        totalPages: 303,
+        imagesPath: "images/hijii_dokkai/",
+        printImagesPath: "images/hijii_dokkai_bw/",
+        coverImage: "images/hijii_dokkai_cover.jpg",
+        qrBase: "",
+        chapters: [
+            { id: "intro", title: "はじめに・目次", start: 1, end: 10, subsections: [] },
+            { id: "ch0", title: "序章: SVの発見編", start: 11, end: 24, subsections: [
+                { num: 1, title: "テーマ 01(1) SVの発見", page: 12 },
+                { num: 2, title: "テーマ 01(2) SVの発見", page: 18 }
+            ]},
+            { id: "ch1", title: "第1章: 意味のカタマリ編", start: 25, end: 62, subsections: [
+                { num: 3, title: "テーマ 02 名詞句", page: 26 },
+                { num: 4, title: "テーマ 03 名詞節", page: 32 },
+                { num: 5, title: "テーマ 04 形容詞句", page: 38 },
+                { num: 6, title: "テーマ 05 形容詞節", page: 44 },
+                { num: 7, title: "テーマ 06 副詞句", page: 48 },
+                { num: 8, title: "テーマ 07 副詞節", page: 52 }
+            ]},
+            { id: "ch2", title: "第2章: 識別編", start: 63, end: 104, subsections: [
+                { num: 9, title: "テーマ 08 to do の識別", page: 64 },
+                { num: 10, title: "テーマ 09 -ing の識別", page: 70 },
+                { num: 11, title: "テーマ 10 過去分詞の識別", page: 76 },
+                { num: 12, title: "テーマ 11 that の識別", page: 80 },
+                { num: 13, title: "テーマ 12 it の識別", page: 92 },
+                { num: 14, title: "テーマ 13 as の識別", page: 98 }
+            ]},
+            { id: "ch3", title: "第3章: 構文編", start: 105, end: 156, subsections: [
+                { num: 15, title: "テーマ 14 接続詞", page: 106 },
+                { num: 16, title: "テーマ 15 倒置", page: 110 },
+                { num: 17, title: "テーマ 16 省略", page: 118 },
+                { num: 18, title: "テーマ 17 強調構文", page: 122 },
+                { num: 19, title: "テーマ 18 呼応", page: 126 },
+                { num: 20, title: "テーマ 19 ネクサス", page: 130 },
+                { num: 21, title: "テーマ 20 挿入", page: 136 },
+                { num: 22, title: "テーマ 21 比較", page: 142 },
+                { num: 23, title: "テーマ 22 複合関係詞", page: 152 }
+            ]},
+            { id: "ch4", title: "第4章: 動詞の型編", start: 157, end: 224, subsections: [
+                { num: 24, title: "テーマ 23-25 第4・第5文型", page: 158 },
+                { num: 25, title: "テーマ 26-32 イディオム型", page: 176 },
+                { num: 26, title: "テーマ 33 受動態", page: 206 }
+            ]},
+            { id: "ans", title: "解答・解説編", start: 225, end: 303, subsections: [
+                { num: 1, title: "序章 解答①", page: 2 + 224 },
+                { num: 2, title: "序章 解答②", page: 2 + 224 },
+                { num: 3, title: "第1章 解答①", page: 6 + 224 },
+                { num: 4, title: "第1章 解答②", page: 6 + 224 },
+                { num: 5, title: "第1章 解答③", page: 6 + 224 },
+                { num: 6, title: "第1章 解答④", page: 6 + 224 },
+                { num: 7, title: "第1章 解答⑤", page: 6 + 224 },
+                { num: 8, title: "第1章 解答⑥", page: 6 + 224 },
+                { num: 9, title: "第2章 解答①", page: 20 + 224 },
+                { num: 10, title: "第2章 解答②", page: 20 + 224 },
+                { num: 11, title: "第2章 解答③", page: 20 + 224 },
+                { num: 12, title: "第2章 解答④", page: 20 + 224 },
+                { num: 13, title: "第2章 解答⑤", page: 20 + 224 },
+                { num: 14, title: "第2章 解答⑥", page: 20 + 224 },
+                { num: 15, title: "第3章 解答①", page: 34 + 224 },
+                { num: 16, title: "第3章 解答②", page: 34 + 224 },
+                { num: 17, title: "第3章 解答③", page: 34 + 224 },
+                { num: 18, title: "第3章 解答④", page: 34 + 224 },
+                { num: 19, title: "第3章 解答⑤", page: 34 + 224 },
+                { num: 20, title: "第3章 解答⑥", page: 34 + 224 },
+                { num: 21, title: "第3章 解答⑦", page: 34 + 224 },
+                { num: 22, title: "第3章 解答⑧", page: 34 + 224 },
+                { num: 23, title: "第3章 解答⑨", page: 34 + 224 },
+                { num: 24, title: "第4章 解答①", page: 56 + 224 },
+                { num: 25, title: "第4章 解答②", page: 56 + 224 },
+                { num: 26, title: "第4章 解答③", page: 76 + 224 }
+            ]}
+        ],
+        get sections() {
+            return this.chapters.map(ch => ({
+                id: ch.id, title: ch.title, start: ch.start, end: ch.end,
+                pages: ch.end - ch.start + 1
+            }));
+        },
+        pageQrs: {}
+    },
+
+    hijii_zero: {
+        id: "hijii_zero",
+        title: "ゼロから英語長文が面白いほどわかる本",
+        totalPages: 240,
+        imagesPath: "images/hijii_zero/",
+        printImagesPath: "images/hijii_zero_bw/",
+        coverImage: "images/hijii_zero_cover.jpg",
+        qrBase: "",
+        chapters: [
+            { id: "intro", title: "はじめに・目次", start: 1, end: 1, subsections: [] },
+            { id: "prob", title: "問題編", start: 2, end: 55, subsections: [
+                { num: 1, title: "問題 01", page: 2 },
+                { num: 2, title: "問題 02", page: 5 },
+                { num: 3, title: "問題 03", page: 8 },
+                { num: 4, title: "問題 04", page: 11 },
+                { num: 5, title: "問題 05", page: 14 },
+                { num: 6, title: "問題 06", page: 17 },
+                { num: 7, title: "問題 07", page: 20 },
+                { num: 8, title: "問題 08", page: 23 },
+                { num: 9, title: "問題 09", page: 27 },
+                { num: 10, title: "問題 10", page: 31 },
+                { num: 11, title: "問題 11", page: 35 },
+                { num: 12, title: "問題 12", page: 38 },
+                { num: 13, title: "問題 13", page: 42 },
+                { num: 14, title: "問題 14", page: 46 },
+                { num: 15, title: "問題 15", page: 50 },
+                { num: 16, title: "問題 16", page: 53 }
+            ]},
+            { id: "ans", title: "解答・解説編", start: 56, end: 240, subsections: [
+                { num: 1, title: "解説 01", page: 15 + 55 },
+                { num: 2, title: "解説 02", page: 25 + 55 },
+                { num: 3, title: "解説 03", page: 33 + 55 },
+                { num: 4, title: "解説 04", page: 43 + 55 },
+                { num: 5, title: "解説 05", page: 53 + 55 },
+                { num: 6, title: "解説 06", page: 63 + 55 },
+                { num: 7, title: "解説 07", page: 73 + 55 },
+                { num: 8, title: "解説 08", page: 83 + 55 },
+                { num: 9, title: "解説 09", page: 93 + 55 },
+                { num: 10, title: "解説 10", page: 104 + 55 },
+                { num: 11, title: "解説 11", page: 116 + 55 },
+                { num: 12, title: "解説 12", page: 126 + 55 },
+                { num: 13, title: "解説 13", page: 139 + 55 },
+                { num: 14, title: "解説 14", page: 151 + 55 },
+                { num: 15, title: "解説 15", page: 163 + 55 },
+                { num: 16, title: "解説 16", page: 173 + 55 }
+            ]}
+        ],
+        get sections() {
+            return this.chapters.map(ch => ({
+                id: ch.id, title: ch.title, start: ch.start, end: ch.end,
+                pages: ch.end - ch.start + 1
+            }));
+        },
+        pageQrs: {}
+    },,
 
     rules1: {
         id: "rules1",
@@ -144,6 +424,146 @@ const hsData = {
         pageQrs: {}
     },
 
+    hijii_dokkai: {
+        id: "hijii_dokkai",
+        title: "読解のための英文法が面白いほどわかる本",
+        totalPages: 303,
+        imagesPath: "images/hijii_dokkai/",
+        printImagesPath: "images/hijii_dokkai_bw/",
+        coverImage: "images/hijii_dokkai_cover.jpg",
+        qrBase: "",
+        chapters: [
+            { id: "intro", title: "はじめに・目次", start: 1, end: 10, subsections: [] },
+            { id: "ch0", title: "序章: SVの発見編", start: 11, end: 24, subsections: [
+                { num: 1, title: "テーマ 01(1) SVの発見", page: 12 },
+                { num: 2, title: "テーマ 01(2) SVの発見", page: 18 }
+            ]},
+            { id: "ch1", title: "第1章: 意味のカタマリ編", start: 25, end: 62, subsections: [
+                { num: 3, title: "テーマ 02 名詞句", page: 26 },
+                { num: 4, title: "テーマ 03 名詞節", page: 32 },
+                { num: 5, title: "テーマ 04 形容詞句", page: 38 },
+                { num: 6, title: "テーマ 05 形容詞節", page: 44 },
+                { num: 7, title: "テーマ 06 副詞句", page: 48 },
+                { num: 8, title: "テーマ 07 副詞節", page: 52 }
+            ]},
+            { id: "ch2", title: "第2章: 識別編", start: 63, end: 104, subsections: [
+                { num: 9, title: "テーマ 08 to do の識別", page: 64 },
+                { num: 10, title: "テーマ 09 -ing の識別", page: 70 },
+                { num: 11, title: "テーマ 10 過去分詞の識別", page: 76 },
+                { num: 12, title: "テーマ 11 that の識別", page: 80 },
+                { num: 13, title: "テーマ 12 it の識別", page: 92 },
+                { num: 14, title: "テーマ 13 as の識別", page: 98 }
+            ]},
+            { id: "ch3", title: "第3章: 構文編", start: 105, end: 156, subsections: [
+                { num: 15, title: "テーマ 14 接続詞", page: 106 },
+                { num: 16, title: "テーマ 15 倒置", page: 110 },
+                { num: 17, title: "テーマ 16 省略", page: 118 },
+                { num: 18, title: "テーマ 17 強調構文", page: 122 },
+                { num: 19, title: "テーマ 18 呼応", page: 126 },
+                { num: 20, title: "テーマ 19 ネクサス", page: 130 },
+                { num: 21, title: "テーマ 20 挿入", page: 136 },
+                { num: 22, title: "テーマ 21 比較", page: 142 },
+                { num: 23, title: "テーマ 22 複合関係詞", page: 152 }
+            ]},
+            { id: "ch4", title: "第4章: 動詞の型編", start: 157, end: 224, subsections: [
+                { num: 24, title: "テーマ 23-25 第4・第5文型", page: 158 },
+                { num: 25, title: "テーマ 26-32 イディオム型", page: 176 },
+                { num: 26, title: "テーマ 33 受動態", page: 206 }
+            ]},
+            { id: "ans", title: "解答・解説編", start: 225, end: 303, subsections: [
+                { num: 1, title: "序章 解答①", page: 2 + 224 },
+                { num: 2, title: "序章 解答②", page: 2 + 224 },
+                { num: 3, title: "第1章 解答①", page: 6 + 224 },
+                { num: 4, title: "第1章 解答②", page: 6 + 224 },
+                { num: 5, title: "第1章 解答③", page: 6 + 224 },
+                { num: 6, title: "第1章 解答④", page: 6 + 224 },
+                { num: 7, title: "第1章 解答⑤", page: 6 + 224 },
+                { num: 8, title: "第1章 解答⑥", page: 6 + 224 },
+                { num: 9, title: "第2章 解答①", page: 20 + 224 },
+                { num: 10, title: "第2章 解答②", page: 20 + 224 },
+                { num: 11, title: "第2章 解答③", page: 20 + 224 },
+                { num: 12, title: "第2章 解答④", page: 20 + 224 },
+                { num: 13, title: "第2章 解答⑤", page: 20 + 224 },
+                { num: 14, title: "第2章 解答⑥", page: 20 + 224 },
+                { num: 15, title: "第3章 解答①", page: 34 + 224 },
+                { num: 16, title: "第3章 解答②", page: 34 + 224 },
+                { num: 17, title: "第3章 解答③", page: 34 + 224 },
+                { num: 18, title: "第3章 解答④", page: 34 + 224 },
+                { num: 19, title: "第3章 解答⑤", page: 34 + 224 },
+                { num: 20, title: "第3章 解答⑥", page: 34 + 224 },
+                { num: 21, title: "第3章 解答⑦", page: 34 + 224 },
+                { num: 22, title: "第3章 解答⑧", page: 34 + 224 },
+                { num: 23, title: "第3章 解答⑨", page: 34 + 224 },
+                { num: 24, title: "第4章 解答①", page: 56 + 224 },
+                { num: 25, title: "第4章 解答②", page: 56 + 224 },
+                { num: 26, title: "第4章 解答③", page: 76 + 224 }
+            ]}
+        ],
+        get sections() {
+            return this.chapters.map(ch => ({
+                id: ch.id, title: ch.title, start: ch.start, end: ch.end,
+                pages: ch.end - ch.start + 1
+            }));
+        },
+        pageQrs: {}
+    },
+
+    hijii_zero: {
+        id: "hijii_zero",
+        title: "ゼロから英語長文が面白いほどわかる本",
+        totalPages: 240,
+        imagesPath: "images/hijii_zero/",
+        printImagesPath: "images/hijii_zero_bw/",
+        coverImage: "images/hijii_zero_cover.jpg",
+        qrBase: "",
+        chapters: [
+            { id: "intro", title: "はじめに・目次", start: 1, end: 1, subsections: [] },
+            { id: "prob", title: "問題編", start: 2, end: 55, subsections: [
+                { num: 1, title: "問題 01", page: 2 },
+                { num: 2, title: "問題 02", page: 5 },
+                { num: 3, title: "問題 03", page: 8 },
+                { num: 4, title: "問題 04", page: 11 },
+                { num: 5, title: "問題 05", page: 14 },
+                { num: 6, title: "問題 06", page: 17 },
+                { num: 7, title: "問題 07", page: 20 },
+                { num: 8, title: "問題 08", page: 23 },
+                { num: 9, title: "問題 09", page: 27 },
+                { num: 10, title: "問題 10", page: 31 },
+                { num: 11, title: "問題 11", page: 35 },
+                { num: 12, title: "問題 12", page: 38 },
+                { num: 13, title: "問題 13", page: 42 },
+                { num: 14, title: "問題 14", page: 46 },
+                { num: 15, title: "問題 15", page: 50 },
+                { num: 16, title: "問題 16", page: 53 }
+            ]},
+            { id: "ans", title: "解答・解説編", start: 56, end: 240, subsections: [
+                { num: 1, title: "解説 01", page: 15 + 55 },
+                { num: 2, title: "解説 02", page: 25 + 55 },
+                { num: 3, title: "解説 03", page: 33 + 55 },
+                { num: 4, title: "解説 04", page: 43 + 55 },
+                { num: 5, title: "解説 05", page: 53 + 55 },
+                { num: 6, title: "解説 06", page: 63 + 55 },
+                { num: 7, title: "解説 07", page: 73 + 55 },
+                { num: 8, title: "解説 08", page: 83 + 55 },
+                { num: 9, title: "解説 09", page: 93 + 55 },
+                { num: 10, title: "解説 10", page: 104 + 55 },
+                { num: 11, title: "解説 11", page: 116 + 55 },
+                { num: 12, title: "解説 12", page: 126 + 55 },
+                { num: 13, title: "解説 13", page: 139 + 55 },
+                { num: 14, title: "解説 14", page: 151 + 55 },
+                { num: 15, title: "解説 15", page: 163 + 55 },
+                { num: 16, title: "解説 16", page: 173 + 55 }
+            ]}
+        ],
+        get sections() {
+            return this.chapters.map(ch => ({
+                id: ch.id, title: ch.title, start: ch.start, end: ch.end,
+                pages: ch.end - ch.start + 1
+            }));
+        },
+        pageQrs: {}
+    },,
+
     rules2: {
         id: "rules2",
         title: "関正生の英語長文 Rules 2",
@@ -191,6 +611,146 @@ const hsData = {
         },
         pageQrs: {}
     },
+
+    hijii_dokkai: {
+        id: "hijii_dokkai",
+        title: "読解のための英文法が面白いほどわかる本",
+        totalPages: 303,
+        imagesPath: "images/hijii_dokkai/",
+        printImagesPath: "images/hijii_dokkai_bw/",
+        coverImage: "images/hijii_dokkai_cover.jpg",
+        qrBase: "",
+        chapters: [
+            { id: "intro", title: "はじめに・目次", start: 1, end: 10, subsections: [] },
+            { id: "ch0", title: "序章: SVの発見編", start: 11, end: 24, subsections: [
+                { num: 1, title: "テーマ 01(1) SVの発見", page: 12 },
+                { num: 2, title: "テーマ 01(2) SVの発見", page: 18 }
+            ]},
+            { id: "ch1", title: "第1章: 意味のカタマリ編", start: 25, end: 62, subsections: [
+                { num: 3, title: "テーマ 02 名詞句", page: 26 },
+                { num: 4, title: "テーマ 03 名詞節", page: 32 },
+                { num: 5, title: "テーマ 04 形容詞句", page: 38 },
+                { num: 6, title: "テーマ 05 形容詞節", page: 44 },
+                { num: 7, title: "テーマ 06 副詞句", page: 48 },
+                { num: 8, title: "テーマ 07 副詞節", page: 52 }
+            ]},
+            { id: "ch2", title: "第2章: 識別編", start: 63, end: 104, subsections: [
+                { num: 9, title: "テーマ 08 to do の識別", page: 64 },
+                { num: 10, title: "テーマ 09 -ing の識別", page: 70 },
+                { num: 11, title: "テーマ 10 過去分詞の識別", page: 76 },
+                { num: 12, title: "テーマ 11 that の識別", page: 80 },
+                { num: 13, title: "テーマ 12 it の識別", page: 92 },
+                { num: 14, title: "テーマ 13 as の識別", page: 98 }
+            ]},
+            { id: "ch3", title: "第3章: 構文編", start: 105, end: 156, subsections: [
+                { num: 15, title: "テーマ 14 接続詞", page: 106 },
+                { num: 16, title: "テーマ 15 倒置", page: 110 },
+                { num: 17, title: "テーマ 16 省略", page: 118 },
+                { num: 18, title: "テーマ 17 強調構文", page: 122 },
+                { num: 19, title: "テーマ 18 呼応", page: 126 },
+                { num: 20, title: "テーマ 19 ネクサス", page: 130 },
+                { num: 21, title: "テーマ 20 挿入", page: 136 },
+                { num: 22, title: "テーマ 21 比較", page: 142 },
+                { num: 23, title: "テーマ 22 複合関係詞", page: 152 }
+            ]},
+            { id: "ch4", title: "第4章: 動詞の型編", start: 157, end: 224, subsections: [
+                { num: 24, title: "テーマ 23-25 第4・第5文型", page: 158 },
+                { num: 25, title: "テーマ 26-32 イディオム型", page: 176 },
+                { num: 26, title: "テーマ 33 受動態", page: 206 }
+            ]},
+            { id: "ans", title: "解答・解説編", start: 225, end: 303, subsections: [
+                { num: 1, title: "序章 解答①", page: 2 + 224 },
+                { num: 2, title: "序章 解答②", page: 2 + 224 },
+                { num: 3, title: "第1章 解答①", page: 6 + 224 },
+                { num: 4, title: "第1章 解答②", page: 6 + 224 },
+                { num: 5, title: "第1章 解答③", page: 6 + 224 },
+                { num: 6, title: "第1章 解答④", page: 6 + 224 },
+                { num: 7, title: "第1章 解答⑤", page: 6 + 224 },
+                { num: 8, title: "第1章 解答⑥", page: 6 + 224 },
+                { num: 9, title: "第2章 解答①", page: 20 + 224 },
+                { num: 10, title: "第2章 解答②", page: 20 + 224 },
+                { num: 11, title: "第2章 解答③", page: 20 + 224 },
+                { num: 12, title: "第2章 解答④", page: 20 + 224 },
+                { num: 13, title: "第2章 解答⑤", page: 20 + 224 },
+                { num: 14, title: "第2章 解答⑥", page: 20 + 224 },
+                { num: 15, title: "第3章 解答①", page: 34 + 224 },
+                { num: 16, title: "第3章 解答②", page: 34 + 224 },
+                { num: 17, title: "第3章 解答③", page: 34 + 224 },
+                { num: 18, title: "第3章 解答④", page: 34 + 224 },
+                { num: 19, title: "第3章 解答⑤", page: 34 + 224 },
+                { num: 20, title: "第3章 解答⑥", page: 34 + 224 },
+                { num: 21, title: "第3章 解答⑦", page: 34 + 224 },
+                { num: 22, title: "第3章 解答⑧", page: 34 + 224 },
+                { num: 23, title: "第3章 解答⑨", page: 34 + 224 },
+                { num: 24, title: "第4章 解答①", page: 56 + 224 },
+                { num: 25, title: "第4章 解答②", page: 56 + 224 },
+                { num: 26, title: "第4章 解答③", page: 76 + 224 }
+            ]}
+        ],
+        get sections() {
+            return this.chapters.map(ch => ({
+                id: ch.id, title: ch.title, start: ch.start, end: ch.end,
+                pages: ch.end - ch.start + 1
+            }));
+        },
+        pageQrs: {}
+    },
+
+    hijii_zero: {
+        id: "hijii_zero",
+        title: "ゼロから英語長文が面白いほどわかる本",
+        totalPages: 240,
+        imagesPath: "images/hijii_zero/",
+        printImagesPath: "images/hijii_zero_bw/",
+        coverImage: "images/hijii_zero_cover.jpg",
+        qrBase: "",
+        chapters: [
+            { id: "intro", title: "はじめに・目次", start: 1, end: 1, subsections: [] },
+            { id: "prob", title: "問題編", start: 2, end: 55, subsections: [
+                { num: 1, title: "問題 01", page: 2 },
+                { num: 2, title: "問題 02", page: 5 },
+                { num: 3, title: "問題 03", page: 8 },
+                { num: 4, title: "問題 04", page: 11 },
+                { num: 5, title: "問題 05", page: 14 },
+                { num: 6, title: "問題 06", page: 17 },
+                { num: 7, title: "問題 07", page: 20 },
+                { num: 8, title: "問題 08", page: 23 },
+                { num: 9, title: "問題 09", page: 27 },
+                { num: 10, title: "問題 10", page: 31 },
+                { num: 11, title: "問題 11", page: 35 },
+                { num: 12, title: "問題 12", page: 38 },
+                { num: 13, title: "問題 13", page: 42 },
+                { num: 14, title: "問題 14", page: 46 },
+                { num: 15, title: "問題 15", page: 50 },
+                { num: 16, title: "問題 16", page: 53 }
+            ]},
+            { id: "ans", title: "解答・解説編", start: 56, end: 240, subsections: [
+                { num: 1, title: "解説 01", page: 15 + 55 },
+                { num: 2, title: "解説 02", page: 25 + 55 },
+                { num: 3, title: "解説 03", page: 33 + 55 },
+                { num: 4, title: "解説 04", page: 43 + 55 },
+                { num: 5, title: "解説 05", page: 53 + 55 },
+                { num: 6, title: "解説 06", page: 63 + 55 },
+                { num: 7, title: "解説 07", page: 73 + 55 },
+                { num: 8, title: "解説 08", page: 83 + 55 },
+                { num: 9, title: "解説 09", page: 93 + 55 },
+                { num: 10, title: "解説 10", page: 104 + 55 },
+                { num: 11, title: "解説 11", page: 116 + 55 },
+                { num: 12, title: "解説 12", page: 126 + 55 },
+                { num: 13, title: "解説 13", page: 139 + 55 },
+                { num: 14, title: "解説 14", page: 151 + 55 },
+                { num: 15, title: "解説 15", page: 163 + 55 },
+                { num: 16, title: "解説 16", page: 173 + 55 }
+            ]}
+        ],
+        get sections() {
+            return this.chapters.map(ch => ({
+                id: ch.id, title: ch.title, start: ch.start, end: ch.end,
+                pages: ch.end - ch.start + 1
+            }));
+        },
+        pageQrs: {}
+    },,
 
     jyuko_jo: {
         id: "jyuko_jo",
@@ -252,6 +812,146 @@ const hsData = {
         pageQrs: {}
     },
 
+    hijii_dokkai: {
+        id: "hijii_dokkai",
+        title: "読解のための英文法が面白いほどわかる本",
+        totalPages: 303,
+        imagesPath: "images/hijii_dokkai/",
+        printImagesPath: "images/hijii_dokkai_bw/",
+        coverImage: "images/hijii_dokkai_cover.jpg",
+        qrBase: "",
+        chapters: [
+            { id: "intro", title: "はじめに・目次", start: 1, end: 10, subsections: [] },
+            { id: "ch0", title: "序章: SVの発見編", start: 11, end: 24, subsections: [
+                { num: 1, title: "テーマ 01(1) SVの発見", page: 12 },
+                { num: 2, title: "テーマ 01(2) SVの発見", page: 18 }
+            ]},
+            { id: "ch1", title: "第1章: 意味のカタマリ編", start: 25, end: 62, subsections: [
+                { num: 3, title: "テーマ 02 名詞句", page: 26 },
+                { num: 4, title: "テーマ 03 名詞節", page: 32 },
+                { num: 5, title: "テーマ 04 形容詞句", page: 38 },
+                { num: 6, title: "テーマ 05 形容詞節", page: 44 },
+                { num: 7, title: "テーマ 06 副詞句", page: 48 },
+                { num: 8, title: "テーマ 07 副詞節", page: 52 }
+            ]},
+            { id: "ch2", title: "第2章: 識別編", start: 63, end: 104, subsections: [
+                { num: 9, title: "テーマ 08 to do の識別", page: 64 },
+                { num: 10, title: "テーマ 09 -ing の識別", page: 70 },
+                { num: 11, title: "テーマ 10 過去分詞の識別", page: 76 },
+                { num: 12, title: "テーマ 11 that の識別", page: 80 },
+                { num: 13, title: "テーマ 12 it の識別", page: 92 },
+                { num: 14, title: "テーマ 13 as の識別", page: 98 }
+            ]},
+            { id: "ch3", title: "第3章: 構文編", start: 105, end: 156, subsections: [
+                { num: 15, title: "テーマ 14 接続詞", page: 106 },
+                { num: 16, title: "テーマ 15 倒置", page: 110 },
+                { num: 17, title: "テーマ 16 省略", page: 118 },
+                { num: 18, title: "テーマ 17 強調構文", page: 122 },
+                { num: 19, title: "テーマ 18 呼応", page: 126 },
+                { num: 20, title: "テーマ 19 ネクサス", page: 130 },
+                { num: 21, title: "テーマ 20 挿入", page: 136 },
+                { num: 22, title: "テーマ 21 比較", page: 142 },
+                { num: 23, title: "テーマ 22 複合関係詞", page: 152 }
+            ]},
+            { id: "ch4", title: "第4章: 動詞の型編", start: 157, end: 224, subsections: [
+                { num: 24, title: "テーマ 23-25 第4・第5文型", page: 158 },
+                { num: 25, title: "テーマ 26-32 イディオム型", page: 176 },
+                { num: 26, title: "テーマ 33 受動態", page: 206 }
+            ]},
+            { id: "ans", title: "解答・解説編", start: 225, end: 303, subsections: [
+                { num: 1, title: "序章 解答①", page: 2 + 224 },
+                { num: 2, title: "序章 解答②", page: 2 + 224 },
+                { num: 3, title: "第1章 解答①", page: 6 + 224 },
+                { num: 4, title: "第1章 解答②", page: 6 + 224 },
+                { num: 5, title: "第1章 解答③", page: 6 + 224 },
+                { num: 6, title: "第1章 解答④", page: 6 + 224 },
+                { num: 7, title: "第1章 解答⑤", page: 6 + 224 },
+                { num: 8, title: "第1章 解答⑥", page: 6 + 224 },
+                { num: 9, title: "第2章 解答①", page: 20 + 224 },
+                { num: 10, title: "第2章 解答②", page: 20 + 224 },
+                { num: 11, title: "第2章 解答③", page: 20 + 224 },
+                { num: 12, title: "第2章 解答④", page: 20 + 224 },
+                { num: 13, title: "第2章 解答⑤", page: 20 + 224 },
+                { num: 14, title: "第2章 解答⑥", page: 20 + 224 },
+                { num: 15, title: "第3章 解答①", page: 34 + 224 },
+                { num: 16, title: "第3章 解答②", page: 34 + 224 },
+                { num: 17, title: "第3章 解答③", page: 34 + 224 },
+                { num: 18, title: "第3章 解答④", page: 34 + 224 },
+                { num: 19, title: "第3章 解答⑤", page: 34 + 224 },
+                { num: 20, title: "第3章 解答⑥", page: 34 + 224 },
+                { num: 21, title: "第3章 解答⑦", page: 34 + 224 },
+                { num: 22, title: "第3章 解答⑧", page: 34 + 224 },
+                { num: 23, title: "第3章 解答⑨", page: 34 + 224 },
+                { num: 24, title: "第4章 解答①", page: 56 + 224 },
+                { num: 25, title: "第4章 解答②", page: 56 + 224 },
+                { num: 26, title: "第4章 解答③", page: 76 + 224 }
+            ]}
+        ],
+        get sections() {
+            return this.chapters.map(ch => ({
+                id: ch.id, title: ch.title, start: ch.start, end: ch.end,
+                pages: ch.end - ch.start + 1
+            }));
+        },
+        pageQrs: {}
+    },
+
+    hijii_zero: {
+        id: "hijii_zero",
+        title: "ゼロから英語長文が面白いほどわかる本",
+        totalPages: 240,
+        imagesPath: "images/hijii_zero/",
+        printImagesPath: "images/hijii_zero_bw/",
+        coverImage: "images/hijii_zero_cover.jpg",
+        qrBase: "",
+        chapters: [
+            { id: "intro", title: "はじめに・目次", start: 1, end: 1, subsections: [] },
+            { id: "prob", title: "問題編", start: 2, end: 55, subsections: [
+                { num: 1, title: "問題 01", page: 2 },
+                { num: 2, title: "問題 02", page: 5 },
+                { num: 3, title: "問題 03", page: 8 },
+                { num: 4, title: "問題 04", page: 11 },
+                { num: 5, title: "問題 05", page: 14 },
+                { num: 6, title: "問題 06", page: 17 },
+                { num: 7, title: "問題 07", page: 20 },
+                { num: 8, title: "問題 08", page: 23 },
+                { num: 9, title: "問題 09", page: 27 },
+                { num: 10, title: "問題 10", page: 31 },
+                { num: 11, title: "問題 11", page: 35 },
+                { num: 12, title: "問題 12", page: 38 },
+                { num: 13, title: "問題 13", page: 42 },
+                { num: 14, title: "問題 14", page: 46 },
+                { num: 15, title: "問題 15", page: 50 },
+                { num: 16, title: "問題 16", page: 53 }
+            ]},
+            { id: "ans", title: "解答・解説編", start: 56, end: 240, subsections: [
+                { num: 1, title: "解説 01", page: 15 + 55 },
+                { num: 2, title: "解説 02", page: 25 + 55 },
+                { num: 3, title: "解説 03", page: 33 + 55 },
+                { num: 4, title: "解説 04", page: 43 + 55 },
+                { num: 5, title: "解説 05", page: 53 + 55 },
+                { num: 6, title: "解説 06", page: 63 + 55 },
+                { num: 7, title: "解説 07", page: 73 + 55 },
+                { num: 8, title: "解説 08", page: 83 + 55 },
+                { num: 9, title: "解説 09", page: 93 + 55 },
+                { num: 10, title: "解説 10", page: 104 + 55 },
+                { num: 11, title: "解説 11", page: 116 + 55 },
+                { num: 12, title: "解説 12", page: 126 + 55 },
+                { num: 13, title: "解説 13", page: 139 + 55 },
+                { num: 14, title: "解説 14", page: 151 + 55 },
+                { num: 15, title: "解説 15", page: 163 + 55 },
+                { num: 16, title: "解説 16", page: 173 + 55 }
+            ]}
+        ],
+        get sections() {
+            return this.chapters.map(ch => ({
+                id: ch.id, title: ch.title, start: ch.start, end: ch.end,
+                pages: ch.end - ch.start + 1
+            }));
+        },
+        pageQrs: {}
+    },,
+
     jyuko_ge: {
         id: "jyuko_ge",
         title: "英文熟考［改訂版］下",
@@ -312,6 +1012,146 @@ const hsData = {
         pageQrs: {}
     },
 
+    hijii_dokkai: {
+        id: "hijii_dokkai",
+        title: "読解のための英文法が面白いほどわかる本",
+        totalPages: 303,
+        imagesPath: "images/hijii_dokkai/",
+        printImagesPath: "images/hijii_dokkai_bw/",
+        coverImage: "images/hijii_dokkai_cover.jpg",
+        qrBase: "",
+        chapters: [
+            { id: "intro", title: "はじめに・目次", start: 1, end: 10, subsections: [] },
+            { id: "ch0", title: "序章: SVの発見編", start: 11, end: 24, subsections: [
+                { num: 1, title: "テーマ 01(1) SVの発見", page: 12 },
+                { num: 2, title: "テーマ 01(2) SVの発見", page: 18 }
+            ]},
+            { id: "ch1", title: "第1章: 意味のカタマリ編", start: 25, end: 62, subsections: [
+                { num: 3, title: "テーマ 02 名詞句", page: 26 },
+                { num: 4, title: "テーマ 03 名詞節", page: 32 },
+                { num: 5, title: "テーマ 04 形容詞句", page: 38 },
+                { num: 6, title: "テーマ 05 形容詞節", page: 44 },
+                { num: 7, title: "テーマ 06 副詞句", page: 48 },
+                { num: 8, title: "テーマ 07 副詞節", page: 52 }
+            ]},
+            { id: "ch2", title: "第2章: 識別編", start: 63, end: 104, subsections: [
+                { num: 9, title: "テーマ 08 to do の識別", page: 64 },
+                { num: 10, title: "テーマ 09 -ing の識別", page: 70 },
+                { num: 11, title: "テーマ 10 過去分詞の識別", page: 76 },
+                { num: 12, title: "テーマ 11 that の識別", page: 80 },
+                { num: 13, title: "テーマ 12 it の識別", page: 92 },
+                { num: 14, title: "テーマ 13 as の識別", page: 98 }
+            ]},
+            { id: "ch3", title: "第3章: 構文編", start: 105, end: 156, subsections: [
+                { num: 15, title: "テーマ 14 接続詞", page: 106 },
+                { num: 16, title: "テーマ 15 倒置", page: 110 },
+                { num: 17, title: "テーマ 16 省略", page: 118 },
+                { num: 18, title: "テーマ 17 強調構文", page: 122 },
+                { num: 19, title: "テーマ 18 呼応", page: 126 },
+                { num: 20, title: "テーマ 19 ネクサス", page: 130 },
+                { num: 21, title: "テーマ 20 挿入", page: 136 },
+                { num: 22, title: "テーマ 21 比較", page: 142 },
+                { num: 23, title: "テーマ 22 複合関係詞", page: 152 }
+            ]},
+            { id: "ch4", title: "第4章: 動詞の型編", start: 157, end: 224, subsections: [
+                { num: 24, title: "テーマ 23-25 第4・第5文型", page: 158 },
+                { num: 25, title: "テーマ 26-32 イディオム型", page: 176 },
+                { num: 26, title: "テーマ 33 受動態", page: 206 }
+            ]},
+            { id: "ans", title: "解答・解説編", start: 225, end: 303, subsections: [
+                { num: 1, title: "序章 解答①", page: 2 + 224 },
+                { num: 2, title: "序章 解答②", page: 2 + 224 },
+                { num: 3, title: "第1章 解答①", page: 6 + 224 },
+                { num: 4, title: "第1章 解答②", page: 6 + 224 },
+                { num: 5, title: "第1章 解答③", page: 6 + 224 },
+                { num: 6, title: "第1章 解答④", page: 6 + 224 },
+                { num: 7, title: "第1章 解答⑤", page: 6 + 224 },
+                { num: 8, title: "第1章 解答⑥", page: 6 + 224 },
+                { num: 9, title: "第2章 解答①", page: 20 + 224 },
+                { num: 10, title: "第2章 解答②", page: 20 + 224 },
+                { num: 11, title: "第2章 解答③", page: 20 + 224 },
+                { num: 12, title: "第2章 解答④", page: 20 + 224 },
+                { num: 13, title: "第2章 解答⑤", page: 20 + 224 },
+                { num: 14, title: "第2章 解答⑥", page: 20 + 224 },
+                { num: 15, title: "第3章 解答①", page: 34 + 224 },
+                { num: 16, title: "第3章 解答②", page: 34 + 224 },
+                { num: 17, title: "第3章 解答③", page: 34 + 224 },
+                { num: 18, title: "第3章 解答④", page: 34 + 224 },
+                { num: 19, title: "第3章 解答⑤", page: 34 + 224 },
+                { num: 20, title: "第3章 解答⑥", page: 34 + 224 },
+                { num: 21, title: "第3章 解答⑦", page: 34 + 224 },
+                { num: 22, title: "第3章 解答⑧", page: 34 + 224 },
+                { num: 23, title: "第3章 解答⑨", page: 34 + 224 },
+                { num: 24, title: "第4章 解答①", page: 56 + 224 },
+                { num: 25, title: "第4章 解答②", page: 56 + 224 },
+                { num: 26, title: "第4章 解答③", page: 76 + 224 }
+            ]}
+        ],
+        get sections() {
+            return this.chapters.map(ch => ({
+                id: ch.id, title: ch.title, start: ch.start, end: ch.end,
+                pages: ch.end - ch.start + 1
+            }));
+        },
+        pageQrs: {}
+    },
+
+    hijii_zero: {
+        id: "hijii_zero",
+        title: "ゼロから英語長文が面白いほどわかる本",
+        totalPages: 240,
+        imagesPath: "images/hijii_zero/",
+        printImagesPath: "images/hijii_zero_bw/",
+        coverImage: "images/hijii_zero_cover.jpg",
+        qrBase: "",
+        chapters: [
+            { id: "intro", title: "はじめに・目次", start: 1, end: 1, subsections: [] },
+            { id: "prob", title: "問題編", start: 2, end: 55, subsections: [
+                { num: 1, title: "問題 01", page: 2 },
+                { num: 2, title: "問題 02", page: 5 },
+                { num: 3, title: "問題 03", page: 8 },
+                { num: 4, title: "問題 04", page: 11 },
+                { num: 5, title: "問題 05", page: 14 },
+                { num: 6, title: "問題 06", page: 17 },
+                { num: 7, title: "問題 07", page: 20 },
+                { num: 8, title: "問題 08", page: 23 },
+                { num: 9, title: "問題 09", page: 27 },
+                { num: 10, title: "問題 10", page: 31 },
+                { num: 11, title: "問題 11", page: 35 },
+                { num: 12, title: "問題 12", page: 38 },
+                { num: 13, title: "問題 13", page: 42 },
+                { num: 14, title: "問題 14", page: 46 },
+                { num: 15, title: "問題 15", page: 50 },
+                { num: 16, title: "問題 16", page: 53 }
+            ]},
+            { id: "ans", title: "解答・解説編", start: 56, end: 240, subsections: [
+                { num: 1, title: "解説 01", page: 15 + 55 },
+                { num: 2, title: "解説 02", page: 25 + 55 },
+                { num: 3, title: "解説 03", page: 33 + 55 },
+                { num: 4, title: "解説 04", page: 43 + 55 },
+                { num: 5, title: "解説 05", page: 53 + 55 },
+                { num: 6, title: "解説 06", page: 63 + 55 },
+                { num: 7, title: "解説 07", page: 73 + 55 },
+                { num: 8, title: "解説 08", page: 83 + 55 },
+                { num: 9, title: "解説 09", page: 93 + 55 },
+                { num: 10, title: "解説 10", page: 104 + 55 },
+                { num: 11, title: "解説 11", page: 116 + 55 },
+                { num: 12, title: "解説 12", page: 126 + 55 },
+                { num: 13, title: "解説 13", page: 139 + 55 },
+                { num: 14, title: "解説 14", page: 151 + 55 },
+                { num: 15, title: "解説 15", page: 163 + 55 },
+                { num: 16, title: "解説 16", page: 173 + 55 }
+            ]}
+        ],
+        get sections() {
+            return this.chapters.map(ch => ({
+                id: ch.id, title: ch.title, start: ch.start, end: ch.end,
+                pages: ch.end - ch.start + 1
+            }));
+        },
+        pageQrs: {}
+    },,
+
     solution1: {
         id: "solution1",
         title: "肘井学の読解のための英文法 Solution 1",
@@ -356,6 +1196,146 @@ const hsData = {
         pageQrs: {}
     },
 
+    hijii_dokkai: {
+        id: "hijii_dokkai",
+        title: "読解のための英文法が面白いほどわかる本",
+        totalPages: 303,
+        imagesPath: "images/hijii_dokkai/",
+        printImagesPath: "images/hijii_dokkai_bw/",
+        coverImage: "images/hijii_dokkai_cover.jpg",
+        qrBase: "",
+        chapters: [
+            { id: "intro", title: "はじめに・目次", start: 1, end: 10, subsections: [] },
+            { id: "ch0", title: "序章: SVの発見編", start: 11, end: 24, subsections: [
+                { num: 1, title: "テーマ 01(1) SVの発見", page: 12 },
+                { num: 2, title: "テーマ 01(2) SVの発見", page: 18 }
+            ]},
+            { id: "ch1", title: "第1章: 意味のカタマリ編", start: 25, end: 62, subsections: [
+                { num: 3, title: "テーマ 02 名詞句", page: 26 },
+                { num: 4, title: "テーマ 03 名詞節", page: 32 },
+                { num: 5, title: "テーマ 04 形容詞句", page: 38 },
+                { num: 6, title: "テーマ 05 形容詞節", page: 44 },
+                { num: 7, title: "テーマ 06 副詞句", page: 48 },
+                { num: 8, title: "テーマ 07 副詞節", page: 52 }
+            ]},
+            { id: "ch2", title: "第2章: 識別編", start: 63, end: 104, subsections: [
+                { num: 9, title: "テーマ 08 to do の識別", page: 64 },
+                { num: 10, title: "テーマ 09 -ing の識別", page: 70 },
+                { num: 11, title: "テーマ 10 過去分詞の識別", page: 76 },
+                { num: 12, title: "テーマ 11 that の識別", page: 80 },
+                { num: 13, title: "テーマ 12 it の識別", page: 92 },
+                { num: 14, title: "テーマ 13 as の識別", page: 98 }
+            ]},
+            { id: "ch3", title: "第3章: 構文編", start: 105, end: 156, subsections: [
+                { num: 15, title: "テーマ 14 接続詞", page: 106 },
+                { num: 16, title: "テーマ 15 倒置", page: 110 },
+                { num: 17, title: "テーマ 16 省略", page: 118 },
+                { num: 18, title: "テーマ 17 強調構文", page: 122 },
+                { num: 19, title: "テーマ 18 呼応", page: 126 },
+                { num: 20, title: "テーマ 19 ネクサス", page: 130 },
+                { num: 21, title: "テーマ 20 挿入", page: 136 },
+                { num: 22, title: "テーマ 21 比較", page: 142 },
+                { num: 23, title: "テーマ 22 複合関係詞", page: 152 }
+            ]},
+            { id: "ch4", title: "第4章: 動詞の型編", start: 157, end: 224, subsections: [
+                { num: 24, title: "テーマ 23-25 第4・第5文型", page: 158 },
+                { num: 25, title: "テーマ 26-32 イディオム型", page: 176 },
+                { num: 26, title: "テーマ 33 受動態", page: 206 }
+            ]},
+            { id: "ans", title: "解答・解説編", start: 225, end: 303, subsections: [
+                { num: 1, title: "序章 解答①", page: 2 + 224 },
+                { num: 2, title: "序章 解答②", page: 2 + 224 },
+                { num: 3, title: "第1章 解答①", page: 6 + 224 },
+                { num: 4, title: "第1章 解答②", page: 6 + 224 },
+                { num: 5, title: "第1章 解答③", page: 6 + 224 },
+                { num: 6, title: "第1章 解答④", page: 6 + 224 },
+                { num: 7, title: "第1章 解答⑤", page: 6 + 224 },
+                { num: 8, title: "第1章 解答⑥", page: 6 + 224 },
+                { num: 9, title: "第2章 解答①", page: 20 + 224 },
+                { num: 10, title: "第2章 解答②", page: 20 + 224 },
+                { num: 11, title: "第2章 解答③", page: 20 + 224 },
+                { num: 12, title: "第2章 解答④", page: 20 + 224 },
+                { num: 13, title: "第2章 解答⑤", page: 20 + 224 },
+                { num: 14, title: "第2章 解答⑥", page: 20 + 224 },
+                { num: 15, title: "第3章 解答①", page: 34 + 224 },
+                { num: 16, title: "第3章 解答②", page: 34 + 224 },
+                { num: 17, title: "第3章 解答③", page: 34 + 224 },
+                { num: 18, title: "第3章 解答④", page: 34 + 224 },
+                { num: 19, title: "第3章 解答⑤", page: 34 + 224 },
+                { num: 20, title: "第3章 解答⑥", page: 34 + 224 },
+                { num: 21, title: "第3章 解答⑦", page: 34 + 224 },
+                { num: 22, title: "第3章 解答⑧", page: 34 + 224 },
+                { num: 23, title: "第3章 解答⑨", page: 34 + 224 },
+                { num: 24, title: "第4章 解答①", page: 56 + 224 },
+                { num: 25, title: "第4章 解答②", page: 56 + 224 },
+                { num: 26, title: "第4章 解答③", page: 76 + 224 }
+            ]}
+        ],
+        get sections() {
+            return this.chapters.map(ch => ({
+                id: ch.id, title: ch.title, start: ch.start, end: ch.end,
+                pages: ch.end - ch.start + 1
+            }));
+        },
+        pageQrs: {}
+    },
+
+    hijii_zero: {
+        id: "hijii_zero",
+        title: "ゼロから英語長文が面白いほどわかる本",
+        totalPages: 240,
+        imagesPath: "images/hijii_zero/",
+        printImagesPath: "images/hijii_zero_bw/",
+        coverImage: "images/hijii_zero_cover.jpg",
+        qrBase: "",
+        chapters: [
+            { id: "intro", title: "はじめに・目次", start: 1, end: 1, subsections: [] },
+            { id: "prob", title: "問題編", start: 2, end: 55, subsections: [
+                { num: 1, title: "問題 01", page: 2 },
+                { num: 2, title: "問題 02", page: 5 },
+                { num: 3, title: "問題 03", page: 8 },
+                { num: 4, title: "問題 04", page: 11 },
+                { num: 5, title: "問題 05", page: 14 },
+                { num: 6, title: "問題 06", page: 17 },
+                { num: 7, title: "問題 07", page: 20 },
+                { num: 8, title: "問題 08", page: 23 },
+                { num: 9, title: "問題 09", page: 27 },
+                { num: 10, title: "問題 10", page: 31 },
+                { num: 11, title: "問題 11", page: 35 },
+                { num: 12, title: "問題 12", page: 38 },
+                { num: 13, title: "問題 13", page: 42 },
+                { num: 14, title: "問題 14", page: 46 },
+                { num: 15, title: "問題 15", page: 50 },
+                { num: 16, title: "問題 16", page: 53 }
+            ]},
+            { id: "ans", title: "解答・解説編", start: 56, end: 240, subsections: [
+                { num: 1, title: "解説 01", page: 15 + 55 },
+                { num: 2, title: "解説 02", page: 25 + 55 },
+                { num: 3, title: "解説 03", page: 33 + 55 },
+                { num: 4, title: "解説 04", page: 43 + 55 },
+                { num: 5, title: "解説 05", page: 53 + 55 },
+                { num: 6, title: "解説 06", page: 63 + 55 },
+                { num: 7, title: "解説 07", page: 73 + 55 },
+                { num: 8, title: "解説 08", page: 83 + 55 },
+                { num: 9, title: "解説 09", page: 93 + 55 },
+                { num: 10, title: "解説 10", page: 104 + 55 },
+                { num: 11, title: "解説 11", page: 116 + 55 },
+                { num: 12, title: "解説 12", page: 126 + 55 },
+                { num: 13, title: "解説 13", page: 139 + 55 },
+                { num: 14, title: "解説 14", page: 151 + 55 },
+                { num: 15, title: "解説 15", page: 163 + 55 },
+                { num: 16, title: "解説 16", page: 173 + 55 }
+            ]}
+        ],
+        get sections() {
+            return this.chapters.map(ch => ({
+                id: ch.id, title: ch.title, start: ch.start, end: ch.end,
+                pages: ch.end - ch.start + 1
+            }));
+        },
+        pageQrs: {}
+    },,
+
     solution2: {
         id: "solution2",
         title: "肘井学の読解のための英文法 Solution 2",
@@ -399,6 +1379,146 @@ const hsData = {
         },
         pageQrs: {}
     },
+
+    hijii_dokkai: {
+        id: "hijii_dokkai",
+        title: "読解のための英文法が面白いほどわかる本",
+        totalPages: 303,
+        imagesPath: "images/hijii_dokkai/",
+        printImagesPath: "images/hijii_dokkai_bw/",
+        coverImage: "images/hijii_dokkai_cover.jpg",
+        qrBase: "",
+        chapters: [
+            { id: "intro", title: "はじめに・目次", start: 1, end: 10, subsections: [] },
+            { id: "ch0", title: "序章: SVの発見編", start: 11, end: 24, subsections: [
+                { num: 1, title: "テーマ 01(1) SVの発見", page: 12 },
+                { num: 2, title: "テーマ 01(2) SVの発見", page: 18 }
+            ]},
+            { id: "ch1", title: "第1章: 意味のカタマリ編", start: 25, end: 62, subsections: [
+                { num: 3, title: "テーマ 02 名詞句", page: 26 },
+                { num: 4, title: "テーマ 03 名詞節", page: 32 },
+                { num: 5, title: "テーマ 04 形容詞句", page: 38 },
+                { num: 6, title: "テーマ 05 形容詞節", page: 44 },
+                { num: 7, title: "テーマ 06 副詞句", page: 48 },
+                { num: 8, title: "テーマ 07 副詞節", page: 52 }
+            ]},
+            { id: "ch2", title: "第2章: 識別編", start: 63, end: 104, subsections: [
+                { num: 9, title: "テーマ 08 to do の識別", page: 64 },
+                { num: 10, title: "テーマ 09 -ing の識別", page: 70 },
+                { num: 11, title: "テーマ 10 過去分詞の識別", page: 76 },
+                { num: 12, title: "テーマ 11 that の識別", page: 80 },
+                { num: 13, title: "テーマ 12 it の識別", page: 92 },
+                { num: 14, title: "テーマ 13 as の識別", page: 98 }
+            ]},
+            { id: "ch3", title: "第3章: 構文編", start: 105, end: 156, subsections: [
+                { num: 15, title: "テーマ 14 接続詞", page: 106 },
+                { num: 16, title: "テーマ 15 倒置", page: 110 },
+                { num: 17, title: "テーマ 16 省略", page: 118 },
+                { num: 18, title: "テーマ 17 強調構文", page: 122 },
+                { num: 19, title: "テーマ 18 呼応", page: 126 },
+                { num: 20, title: "テーマ 19 ネクサス", page: 130 },
+                { num: 21, title: "テーマ 20 挿入", page: 136 },
+                { num: 22, title: "テーマ 21 比較", page: 142 },
+                { num: 23, title: "テーマ 22 複合関係詞", page: 152 }
+            ]},
+            { id: "ch4", title: "第4章: 動詞の型編", start: 157, end: 224, subsections: [
+                { num: 24, title: "テーマ 23-25 第4・第5文型", page: 158 },
+                { num: 25, title: "テーマ 26-32 イディオム型", page: 176 },
+                { num: 26, title: "テーマ 33 受動態", page: 206 }
+            ]},
+            { id: "ans", title: "解答・解説編", start: 225, end: 303, subsections: [
+                { num: 1, title: "序章 解答①", page: 2 + 224 },
+                { num: 2, title: "序章 解答②", page: 2 + 224 },
+                { num: 3, title: "第1章 解答①", page: 6 + 224 },
+                { num: 4, title: "第1章 解答②", page: 6 + 224 },
+                { num: 5, title: "第1章 解答③", page: 6 + 224 },
+                { num: 6, title: "第1章 解答④", page: 6 + 224 },
+                { num: 7, title: "第1章 解答⑤", page: 6 + 224 },
+                { num: 8, title: "第1章 解答⑥", page: 6 + 224 },
+                { num: 9, title: "第2章 解答①", page: 20 + 224 },
+                { num: 10, title: "第2章 解答②", page: 20 + 224 },
+                { num: 11, title: "第2章 解答③", page: 20 + 224 },
+                { num: 12, title: "第2章 解答④", page: 20 + 224 },
+                { num: 13, title: "第2章 解答⑤", page: 20 + 224 },
+                { num: 14, title: "第2章 解答⑥", page: 20 + 224 },
+                { num: 15, title: "第3章 解答①", page: 34 + 224 },
+                { num: 16, title: "第3章 解答②", page: 34 + 224 },
+                { num: 17, title: "第3章 解答③", page: 34 + 224 },
+                { num: 18, title: "第3章 解答④", page: 34 + 224 },
+                { num: 19, title: "第3章 解答⑤", page: 34 + 224 },
+                { num: 20, title: "第3章 解答⑥", page: 34 + 224 },
+                { num: 21, title: "第3章 解答⑦", page: 34 + 224 },
+                { num: 22, title: "第3章 解答⑧", page: 34 + 224 },
+                { num: 23, title: "第3章 解答⑨", page: 34 + 224 },
+                { num: 24, title: "第4章 解答①", page: 56 + 224 },
+                { num: 25, title: "第4章 解答②", page: 56 + 224 },
+                { num: 26, title: "第4章 解答③", page: 76 + 224 }
+            ]}
+        ],
+        get sections() {
+            return this.chapters.map(ch => ({
+                id: ch.id, title: ch.title, start: ch.start, end: ch.end,
+                pages: ch.end - ch.start + 1
+            }));
+        },
+        pageQrs: {}
+    },
+
+    hijii_zero: {
+        id: "hijii_zero",
+        title: "ゼロから英語長文が面白いほどわかる本",
+        totalPages: 240,
+        imagesPath: "images/hijii_zero/",
+        printImagesPath: "images/hijii_zero_bw/",
+        coverImage: "images/hijii_zero_cover.jpg",
+        qrBase: "",
+        chapters: [
+            { id: "intro", title: "はじめに・目次", start: 1, end: 1, subsections: [] },
+            { id: "prob", title: "問題編", start: 2, end: 55, subsections: [
+                { num: 1, title: "問題 01", page: 2 },
+                { num: 2, title: "問題 02", page: 5 },
+                { num: 3, title: "問題 03", page: 8 },
+                { num: 4, title: "問題 04", page: 11 },
+                { num: 5, title: "問題 05", page: 14 },
+                { num: 6, title: "問題 06", page: 17 },
+                { num: 7, title: "問題 07", page: 20 },
+                { num: 8, title: "問題 08", page: 23 },
+                { num: 9, title: "問題 09", page: 27 },
+                { num: 10, title: "問題 10", page: 31 },
+                { num: 11, title: "問題 11", page: 35 },
+                { num: 12, title: "問題 12", page: 38 },
+                { num: 13, title: "問題 13", page: 42 },
+                { num: 14, title: "問題 14", page: 46 },
+                { num: 15, title: "問題 15", page: 50 },
+                { num: 16, title: "問題 16", page: 53 }
+            ]},
+            { id: "ans", title: "解答・解説編", start: 56, end: 240, subsections: [
+                { num: 1, title: "解説 01", page: 15 + 55 },
+                { num: 2, title: "解説 02", page: 25 + 55 },
+                { num: 3, title: "解説 03", page: 33 + 55 },
+                { num: 4, title: "解説 04", page: 43 + 55 },
+                { num: 5, title: "解説 05", page: 53 + 55 },
+                { num: 6, title: "解説 06", page: 63 + 55 },
+                { num: 7, title: "解説 07", page: 73 + 55 },
+                { num: 8, title: "解説 08", page: 83 + 55 },
+                { num: 9, title: "解説 09", page: 93 + 55 },
+                { num: 10, title: "解説 10", page: 104 + 55 },
+                { num: 11, title: "解説 11", page: 116 + 55 },
+                { num: 12, title: "解説 12", page: 126 + 55 },
+                { num: 13, title: "解説 13", page: 139 + 55 },
+                { num: 14, title: "解説 14", page: 151 + 55 },
+                { num: 15, title: "解説 15", page: 163 + 55 },
+                { num: 16, title: "解説 16", page: 173 + 55 }
+            ]}
+        ],
+        get sections() {
+            return this.chapters.map(ch => ({
+                id: ch.id, title: ch.title, start: ch.start, end: ch.end,
+                pages: ch.end - ch.start + 1
+            }));
+        },
+        pageQrs: {}
+    },,
 
     // SuperQuick 数IA
     superquick_math1a: {
@@ -634,6 +1754,146 @@ const hsData = {
         },
         pageQrs: {}
     },
+
+    hijii_dokkai: {
+        id: "hijii_dokkai",
+        title: "読解のための英文法が面白いほどわかる本",
+        totalPages: 303,
+        imagesPath: "images/hijii_dokkai/",
+        printImagesPath: "images/hijii_dokkai_bw/",
+        coverImage: "images/hijii_dokkai_cover.jpg",
+        qrBase: "",
+        chapters: [
+            { id: "intro", title: "はじめに・目次", start: 1, end: 10, subsections: [] },
+            { id: "ch0", title: "序章: SVの発見編", start: 11, end: 24, subsections: [
+                { num: 1, title: "テーマ 01(1) SVの発見", page: 12 },
+                { num: 2, title: "テーマ 01(2) SVの発見", page: 18 }
+            ]},
+            { id: "ch1", title: "第1章: 意味のカタマリ編", start: 25, end: 62, subsections: [
+                { num: 3, title: "テーマ 02 名詞句", page: 26 },
+                { num: 4, title: "テーマ 03 名詞節", page: 32 },
+                { num: 5, title: "テーマ 04 形容詞句", page: 38 },
+                { num: 6, title: "テーマ 05 形容詞節", page: 44 },
+                { num: 7, title: "テーマ 06 副詞句", page: 48 },
+                { num: 8, title: "テーマ 07 副詞節", page: 52 }
+            ]},
+            { id: "ch2", title: "第2章: 識別編", start: 63, end: 104, subsections: [
+                { num: 9, title: "テーマ 08 to do の識別", page: 64 },
+                { num: 10, title: "テーマ 09 -ing の識別", page: 70 },
+                { num: 11, title: "テーマ 10 過去分詞の識別", page: 76 },
+                { num: 12, title: "テーマ 11 that の識別", page: 80 },
+                { num: 13, title: "テーマ 12 it の識別", page: 92 },
+                { num: 14, title: "テーマ 13 as の識別", page: 98 }
+            ]},
+            { id: "ch3", title: "第3章: 構文編", start: 105, end: 156, subsections: [
+                { num: 15, title: "テーマ 14 接続詞", page: 106 },
+                { num: 16, title: "テーマ 15 倒置", page: 110 },
+                { num: 17, title: "テーマ 16 省略", page: 118 },
+                { num: 18, title: "テーマ 17 強調構文", page: 122 },
+                { num: 19, title: "テーマ 18 呼応", page: 126 },
+                { num: 20, title: "テーマ 19 ネクサス", page: 130 },
+                { num: 21, title: "テーマ 20 挿入", page: 136 },
+                { num: 22, title: "テーマ 21 比較", page: 142 },
+                { num: 23, title: "テーマ 22 複合関係詞", page: 152 }
+            ]},
+            { id: "ch4", title: "第4章: 動詞の型編", start: 157, end: 224, subsections: [
+                { num: 24, title: "テーマ 23-25 第4・第5文型", page: 158 },
+                { num: 25, title: "テーマ 26-32 イディオム型", page: 176 },
+                { num: 26, title: "テーマ 33 受動態", page: 206 }
+            ]},
+            { id: "ans", title: "解答・解説編", start: 225, end: 303, subsections: [
+                { num: 1, title: "序章 解答①", page: 2 + 224 },
+                { num: 2, title: "序章 解答②", page: 2 + 224 },
+                { num: 3, title: "第1章 解答①", page: 6 + 224 },
+                { num: 4, title: "第1章 解答②", page: 6 + 224 },
+                { num: 5, title: "第1章 解答③", page: 6 + 224 },
+                { num: 6, title: "第1章 解答④", page: 6 + 224 },
+                { num: 7, title: "第1章 解答⑤", page: 6 + 224 },
+                { num: 8, title: "第1章 解答⑥", page: 6 + 224 },
+                { num: 9, title: "第2章 解答①", page: 20 + 224 },
+                { num: 10, title: "第2章 解答②", page: 20 + 224 },
+                { num: 11, title: "第2章 解答③", page: 20 + 224 },
+                { num: 12, title: "第2章 解答④", page: 20 + 224 },
+                { num: 13, title: "第2章 解答⑤", page: 20 + 224 },
+                { num: 14, title: "第2章 解答⑥", page: 20 + 224 },
+                { num: 15, title: "第3章 解答①", page: 34 + 224 },
+                { num: 16, title: "第3章 解答②", page: 34 + 224 },
+                { num: 17, title: "第3章 解答③", page: 34 + 224 },
+                { num: 18, title: "第3章 解答④", page: 34 + 224 },
+                { num: 19, title: "第3章 解答⑤", page: 34 + 224 },
+                { num: 20, title: "第3章 解答⑥", page: 34 + 224 },
+                { num: 21, title: "第3章 解答⑦", page: 34 + 224 },
+                { num: 22, title: "第3章 解答⑧", page: 34 + 224 },
+                { num: 23, title: "第3章 解答⑨", page: 34 + 224 },
+                { num: 24, title: "第4章 解答①", page: 56 + 224 },
+                { num: 25, title: "第4章 解答②", page: 56 + 224 },
+                { num: 26, title: "第4章 解答③", page: 76 + 224 }
+            ]}
+        ],
+        get sections() {
+            return this.chapters.map(ch => ({
+                id: ch.id, title: ch.title, start: ch.start, end: ch.end,
+                pages: ch.end - ch.start + 1
+            }));
+        },
+        pageQrs: {}
+    },
+
+    hijii_zero: {
+        id: "hijii_zero",
+        title: "ゼロから英語長文が面白いほどわかる本",
+        totalPages: 240,
+        imagesPath: "images/hijii_zero/",
+        printImagesPath: "images/hijii_zero_bw/",
+        coverImage: "images/hijii_zero_cover.jpg",
+        qrBase: "",
+        chapters: [
+            { id: "intro", title: "はじめに・目次", start: 1, end: 1, subsections: [] },
+            { id: "prob", title: "問題編", start: 2, end: 55, subsections: [
+                { num: 1, title: "問題 01", page: 2 },
+                { num: 2, title: "問題 02", page: 5 },
+                { num: 3, title: "問題 03", page: 8 },
+                { num: 4, title: "問題 04", page: 11 },
+                { num: 5, title: "問題 05", page: 14 },
+                { num: 6, title: "問題 06", page: 17 },
+                { num: 7, title: "問題 07", page: 20 },
+                { num: 8, title: "問題 08", page: 23 },
+                { num: 9, title: "問題 09", page: 27 },
+                { num: 10, title: "問題 10", page: 31 },
+                { num: 11, title: "問題 11", page: 35 },
+                { num: 12, title: "問題 12", page: 38 },
+                { num: 13, title: "問題 13", page: 42 },
+                { num: 14, title: "問題 14", page: 46 },
+                { num: 15, title: "問題 15", page: 50 },
+                { num: 16, title: "問題 16", page: 53 }
+            ]},
+            { id: "ans", title: "解答・解説編", start: 56, end: 240, subsections: [
+                { num: 1, title: "解説 01", page: 15 + 55 },
+                { num: 2, title: "解説 02", page: 25 + 55 },
+                { num: 3, title: "解説 03", page: 33 + 55 },
+                { num: 4, title: "解説 04", page: 43 + 55 },
+                { num: 5, title: "解説 05", page: 53 + 55 },
+                { num: 6, title: "解説 06", page: 63 + 55 },
+                { num: 7, title: "解説 07", page: 73 + 55 },
+                { num: 8, title: "解説 08", page: 83 + 55 },
+                { num: 9, title: "解説 09", page: 93 + 55 },
+                { num: 10, title: "解説 10", page: 104 + 55 },
+                { num: 11, title: "解説 11", page: 116 + 55 },
+                { num: 12, title: "解説 12", page: 126 + 55 },
+                { num: 13, title: "解説 13", page: 139 + 55 },
+                { num: 14, title: "解説 14", page: 151 + 55 },
+                { num: 15, title: "解説 15", page: 163 + 55 },
+                { num: 16, title: "解説 16", page: 173 + 55 }
+            ]}
+        ],
+        get sections() {
+            return this.chapters.map(ch => ({
+                id: ch.id, title: ch.title, start: ch.start, end: ch.end,
+                pages: ch.end - ch.start + 1
+            }));
+        },
+        pageQrs: {}
+    },,
 
     // SuperQuick 数IIBC
     superquick_math2bc: {
@@ -910,6 +2170,146 @@ const hsData = {
         pageQrs: {}
     },
 
+    hijii_dokkai: {
+        id: "hijii_dokkai",
+        title: "読解のための英文法が面白いほどわかる本",
+        totalPages: 303,
+        imagesPath: "images/hijii_dokkai/",
+        printImagesPath: "images/hijii_dokkai_bw/",
+        coverImage: "images/hijii_dokkai_cover.jpg",
+        qrBase: "",
+        chapters: [
+            { id: "intro", title: "はじめに・目次", start: 1, end: 10, subsections: [] },
+            { id: "ch0", title: "序章: SVの発見編", start: 11, end: 24, subsections: [
+                { num: 1, title: "テーマ 01(1) SVの発見", page: 12 },
+                { num: 2, title: "テーマ 01(2) SVの発見", page: 18 }
+            ]},
+            { id: "ch1", title: "第1章: 意味のカタマリ編", start: 25, end: 62, subsections: [
+                { num: 3, title: "テーマ 02 名詞句", page: 26 },
+                { num: 4, title: "テーマ 03 名詞節", page: 32 },
+                { num: 5, title: "テーマ 04 形容詞句", page: 38 },
+                { num: 6, title: "テーマ 05 形容詞節", page: 44 },
+                { num: 7, title: "テーマ 06 副詞句", page: 48 },
+                { num: 8, title: "テーマ 07 副詞節", page: 52 }
+            ]},
+            { id: "ch2", title: "第2章: 識別編", start: 63, end: 104, subsections: [
+                { num: 9, title: "テーマ 08 to do の識別", page: 64 },
+                { num: 10, title: "テーマ 09 -ing の識別", page: 70 },
+                { num: 11, title: "テーマ 10 過去分詞の識別", page: 76 },
+                { num: 12, title: "テーマ 11 that の識別", page: 80 },
+                { num: 13, title: "テーマ 12 it の識別", page: 92 },
+                { num: 14, title: "テーマ 13 as の識別", page: 98 }
+            ]},
+            { id: "ch3", title: "第3章: 構文編", start: 105, end: 156, subsections: [
+                { num: 15, title: "テーマ 14 接続詞", page: 106 },
+                { num: 16, title: "テーマ 15 倒置", page: 110 },
+                { num: 17, title: "テーマ 16 省略", page: 118 },
+                { num: 18, title: "テーマ 17 強調構文", page: 122 },
+                { num: 19, title: "テーマ 18 呼応", page: 126 },
+                { num: 20, title: "テーマ 19 ネクサス", page: 130 },
+                { num: 21, title: "テーマ 20 挿入", page: 136 },
+                { num: 22, title: "テーマ 21 比較", page: 142 },
+                { num: 23, title: "テーマ 22 複合関係詞", page: 152 }
+            ]},
+            { id: "ch4", title: "第4章: 動詞の型編", start: 157, end: 224, subsections: [
+                { num: 24, title: "テーマ 23-25 第4・第5文型", page: 158 },
+                { num: 25, title: "テーマ 26-32 イディオム型", page: 176 },
+                { num: 26, title: "テーマ 33 受動態", page: 206 }
+            ]},
+            { id: "ans", title: "解答・解説編", start: 225, end: 303, subsections: [
+                { num: 1, title: "序章 解答①", page: 2 + 224 },
+                { num: 2, title: "序章 解答②", page: 2 + 224 },
+                { num: 3, title: "第1章 解答①", page: 6 + 224 },
+                { num: 4, title: "第1章 解答②", page: 6 + 224 },
+                { num: 5, title: "第1章 解答③", page: 6 + 224 },
+                { num: 6, title: "第1章 解答④", page: 6 + 224 },
+                { num: 7, title: "第1章 解答⑤", page: 6 + 224 },
+                { num: 8, title: "第1章 解答⑥", page: 6 + 224 },
+                { num: 9, title: "第2章 解答①", page: 20 + 224 },
+                { num: 10, title: "第2章 解答②", page: 20 + 224 },
+                { num: 11, title: "第2章 解答③", page: 20 + 224 },
+                { num: 12, title: "第2章 解答④", page: 20 + 224 },
+                { num: 13, title: "第2章 解答⑤", page: 20 + 224 },
+                { num: 14, title: "第2章 解答⑥", page: 20 + 224 },
+                { num: 15, title: "第3章 解答①", page: 34 + 224 },
+                { num: 16, title: "第3章 解答②", page: 34 + 224 },
+                { num: 17, title: "第3章 解答③", page: 34 + 224 },
+                { num: 18, title: "第3章 解答④", page: 34 + 224 },
+                { num: 19, title: "第3章 解答⑤", page: 34 + 224 },
+                { num: 20, title: "第3章 解答⑥", page: 34 + 224 },
+                { num: 21, title: "第3章 解答⑦", page: 34 + 224 },
+                { num: 22, title: "第3章 解答⑧", page: 34 + 224 },
+                { num: 23, title: "第3章 解答⑨", page: 34 + 224 },
+                { num: 24, title: "第4章 解答①", page: 56 + 224 },
+                { num: 25, title: "第4章 解答②", page: 56 + 224 },
+                { num: 26, title: "第4章 解答③", page: 76 + 224 }
+            ]}
+        ],
+        get sections() {
+            return this.chapters.map(ch => ({
+                id: ch.id, title: ch.title, start: ch.start, end: ch.end,
+                pages: ch.end - ch.start + 1
+            }));
+        },
+        pageQrs: {}
+    },
+
+    hijii_zero: {
+        id: "hijii_zero",
+        title: "ゼロから英語長文が面白いほどわかる本",
+        totalPages: 240,
+        imagesPath: "images/hijii_zero/",
+        printImagesPath: "images/hijii_zero_bw/",
+        coverImage: "images/hijii_zero_cover.jpg",
+        qrBase: "",
+        chapters: [
+            { id: "intro", title: "はじめに・目次", start: 1, end: 1, subsections: [] },
+            { id: "prob", title: "問題編", start: 2, end: 55, subsections: [
+                { num: 1, title: "問題 01", page: 2 },
+                { num: 2, title: "問題 02", page: 5 },
+                { num: 3, title: "問題 03", page: 8 },
+                { num: 4, title: "問題 04", page: 11 },
+                { num: 5, title: "問題 05", page: 14 },
+                { num: 6, title: "問題 06", page: 17 },
+                { num: 7, title: "問題 07", page: 20 },
+                { num: 8, title: "問題 08", page: 23 },
+                { num: 9, title: "問題 09", page: 27 },
+                { num: 10, title: "問題 10", page: 31 },
+                { num: 11, title: "問題 11", page: 35 },
+                { num: 12, title: "問題 12", page: 38 },
+                { num: 13, title: "問題 13", page: 42 },
+                { num: 14, title: "問題 14", page: 46 },
+                { num: 15, title: "問題 15", page: 50 },
+                { num: 16, title: "問題 16", page: 53 }
+            ]},
+            { id: "ans", title: "解答・解説編", start: 56, end: 240, subsections: [
+                { num: 1, title: "解説 01", page: 15 + 55 },
+                { num: 2, title: "解説 02", page: 25 + 55 },
+                { num: 3, title: "解説 03", page: 33 + 55 },
+                { num: 4, title: "解説 04", page: 43 + 55 },
+                { num: 5, title: "解説 05", page: 53 + 55 },
+                { num: 6, title: "解説 06", page: 63 + 55 },
+                { num: 7, title: "解説 07", page: 73 + 55 },
+                { num: 8, title: "解説 08", page: 83 + 55 },
+                { num: 9, title: "解説 09", page: 93 + 55 },
+                { num: 10, title: "解説 10", page: 104 + 55 },
+                { num: 11, title: "解説 11", page: 116 + 55 },
+                { num: 12, title: "解説 12", page: 126 + 55 },
+                { num: 13, title: "解説 13", page: 139 + 55 },
+                { num: 14, title: "解説 14", page: 151 + 55 },
+                { num: 15, title: "解説 15", page: 163 + 55 },
+                { num: 16, title: "解説 16", page: 173 + 55 }
+            ]}
+        ],
+        get sections() {
+            return this.chapters.map(ch => ({
+                id: ch.id, title: ch.title, start: ch.start, end: ch.end,
+                pages: ch.end - ch.start + 1
+            }));
+        },
+        pageQrs: {}
+    },,
+
     // スピードチェック 理論化学
     speedcheck_chem: {
         id: "speedcheck_chem",
@@ -985,6 +2385,146 @@ const hsData = {
         pageQrs: {}
     },
 
+    hijii_dokkai: {
+        id: "hijii_dokkai",
+        title: "読解のための英文法が面白いほどわかる本",
+        totalPages: 303,
+        imagesPath: "images/hijii_dokkai/",
+        printImagesPath: "images/hijii_dokkai_bw/",
+        coverImage: "images/hijii_dokkai_cover.jpg",
+        qrBase: "",
+        chapters: [
+            { id: "intro", title: "はじめに・目次", start: 1, end: 10, subsections: [] },
+            { id: "ch0", title: "序章: SVの発見編", start: 11, end: 24, subsections: [
+                { num: 1, title: "テーマ 01(1) SVの発見", page: 12 },
+                { num: 2, title: "テーマ 01(2) SVの発見", page: 18 }
+            ]},
+            { id: "ch1", title: "第1章: 意味のカタマリ編", start: 25, end: 62, subsections: [
+                { num: 3, title: "テーマ 02 名詞句", page: 26 },
+                { num: 4, title: "テーマ 03 名詞節", page: 32 },
+                { num: 5, title: "テーマ 04 形容詞句", page: 38 },
+                { num: 6, title: "テーマ 05 形容詞節", page: 44 },
+                { num: 7, title: "テーマ 06 副詞句", page: 48 },
+                { num: 8, title: "テーマ 07 副詞節", page: 52 }
+            ]},
+            { id: "ch2", title: "第2章: 識別編", start: 63, end: 104, subsections: [
+                { num: 9, title: "テーマ 08 to do の識別", page: 64 },
+                { num: 10, title: "テーマ 09 -ing の識別", page: 70 },
+                { num: 11, title: "テーマ 10 過去分詞の識別", page: 76 },
+                { num: 12, title: "テーマ 11 that の識別", page: 80 },
+                { num: 13, title: "テーマ 12 it の識別", page: 92 },
+                { num: 14, title: "テーマ 13 as の識別", page: 98 }
+            ]},
+            { id: "ch3", title: "第3章: 構文編", start: 105, end: 156, subsections: [
+                { num: 15, title: "テーマ 14 接続詞", page: 106 },
+                { num: 16, title: "テーマ 15 倒置", page: 110 },
+                { num: 17, title: "テーマ 16 省略", page: 118 },
+                { num: 18, title: "テーマ 17 強調構文", page: 122 },
+                { num: 19, title: "テーマ 18 呼応", page: 126 },
+                { num: 20, title: "テーマ 19 ネクサス", page: 130 },
+                { num: 21, title: "テーマ 20 挿入", page: 136 },
+                { num: 22, title: "テーマ 21 比較", page: 142 },
+                { num: 23, title: "テーマ 22 複合関係詞", page: 152 }
+            ]},
+            { id: "ch4", title: "第4章: 動詞の型編", start: 157, end: 224, subsections: [
+                { num: 24, title: "テーマ 23-25 第4・第5文型", page: 158 },
+                { num: 25, title: "テーマ 26-32 イディオム型", page: 176 },
+                { num: 26, title: "テーマ 33 受動態", page: 206 }
+            ]},
+            { id: "ans", title: "解答・解説編", start: 225, end: 303, subsections: [
+                { num: 1, title: "序章 解答①", page: 2 + 224 },
+                { num: 2, title: "序章 解答②", page: 2 + 224 },
+                { num: 3, title: "第1章 解答①", page: 6 + 224 },
+                { num: 4, title: "第1章 解答②", page: 6 + 224 },
+                { num: 5, title: "第1章 解答③", page: 6 + 224 },
+                { num: 6, title: "第1章 解答④", page: 6 + 224 },
+                { num: 7, title: "第1章 解答⑤", page: 6 + 224 },
+                { num: 8, title: "第1章 解答⑥", page: 6 + 224 },
+                { num: 9, title: "第2章 解答①", page: 20 + 224 },
+                { num: 10, title: "第2章 解答②", page: 20 + 224 },
+                { num: 11, title: "第2章 解答③", page: 20 + 224 },
+                { num: 12, title: "第2章 解答④", page: 20 + 224 },
+                { num: 13, title: "第2章 解答⑤", page: 20 + 224 },
+                { num: 14, title: "第2章 解答⑥", page: 20 + 224 },
+                { num: 15, title: "第3章 解答①", page: 34 + 224 },
+                { num: 16, title: "第3章 解答②", page: 34 + 224 },
+                { num: 17, title: "第3章 解答③", page: 34 + 224 },
+                { num: 18, title: "第3章 解答④", page: 34 + 224 },
+                { num: 19, title: "第3章 解答⑤", page: 34 + 224 },
+                { num: 20, title: "第3章 解答⑥", page: 34 + 224 },
+                { num: 21, title: "第3章 解答⑦", page: 34 + 224 },
+                { num: 22, title: "第3章 解答⑧", page: 34 + 224 },
+                { num: 23, title: "第3章 解答⑨", page: 34 + 224 },
+                { num: 24, title: "第4章 解答①", page: 56 + 224 },
+                { num: 25, title: "第4章 解答②", page: 56 + 224 },
+                { num: 26, title: "第4章 解答③", page: 76 + 224 }
+            ]}
+        ],
+        get sections() {
+            return this.chapters.map(ch => ({
+                id: ch.id, title: ch.title, start: ch.start, end: ch.end,
+                pages: ch.end - ch.start + 1
+            }));
+        },
+        pageQrs: {}
+    },
+
+    hijii_zero: {
+        id: "hijii_zero",
+        title: "ゼロから英語長文が面白いほどわかる本",
+        totalPages: 240,
+        imagesPath: "images/hijii_zero/",
+        printImagesPath: "images/hijii_zero_bw/",
+        coverImage: "images/hijii_zero_cover.jpg",
+        qrBase: "",
+        chapters: [
+            { id: "intro", title: "はじめに・目次", start: 1, end: 1, subsections: [] },
+            { id: "prob", title: "問題編", start: 2, end: 55, subsections: [
+                { num: 1, title: "問題 01", page: 2 },
+                { num: 2, title: "問題 02", page: 5 },
+                { num: 3, title: "問題 03", page: 8 },
+                { num: 4, title: "問題 04", page: 11 },
+                { num: 5, title: "問題 05", page: 14 },
+                { num: 6, title: "問題 06", page: 17 },
+                { num: 7, title: "問題 07", page: 20 },
+                { num: 8, title: "問題 08", page: 23 },
+                { num: 9, title: "問題 09", page: 27 },
+                { num: 10, title: "問題 10", page: 31 },
+                { num: 11, title: "問題 11", page: 35 },
+                { num: 12, title: "問題 12", page: 38 },
+                { num: 13, title: "問題 13", page: 42 },
+                { num: 14, title: "問題 14", page: 46 },
+                { num: 15, title: "問題 15", page: 50 },
+                { num: 16, title: "問題 16", page: 53 }
+            ]},
+            { id: "ans", title: "解答・解説編", start: 56, end: 240, subsections: [
+                { num: 1, title: "解説 01", page: 15 + 55 },
+                { num: 2, title: "解説 02", page: 25 + 55 },
+                { num: 3, title: "解説 03", page: 33 + 55 },
+                { num: 4, title: "解説 04", page: 43 + 55 },
+                { num: 5, title: "解説 05", page: 53 + 55 },
+                { num: 6, title: "解説 06", page: 63 + 55 },
+                { num: 7, title: "解説 07", page: 73 + 55 },
+                { num: 8, title: "解説 08", page: 83 + 55 },
+                { num: 9, title: "解説 09", page: 93 + 55 },
+                { num: 10, title: "解説 10", page: 104 + 55 },
+                { num: 11, title: "解説 11", page: 116 + 55 },
+                { num: 12, title: "解説 12", page: 126 + 55 },
+                { num: 13, title: "解説 13", page: 139 + 55 },
+                { num: 14, title: "解説 14", page: 151 + 55 },
+                { num: 15, title: "解説 15", page: 163 + 55 },
+                { num: 16, title: "解説 16", page: 173 + 55 }
+            ]}
+        ],
+        get sections() {
+            return this.chapters.map(ch => ({
+                id: ch.id, title: ch.title, start: ch.start, end: ch.end,
+                pages: ch.end - ch.start + 1
+            }));
+        },
+        pageQrs: {}
+    },,
+
     // スピードチェック 化学基礎
     speedcheck_chem_basic: {
         id: "speedcheck_chem_basic",
@@ -1046,6 +2586,146 @@ const hsData = {
         pageQrs: {}
     },
 
+    hijii_dokkai: {
+        id: "hijii_dokkai",
+        title: "読解のための英文法が面白いほどわかる本",
+        totalPages: 303,
+        imagesPath: "images/hijii_dokkai/",
+        printImagesPath: "images/hijii_dokkai_bw/",
+        coverImage: "images/hijii_dokkai_cover.jpg",
+        qrBase: "",
+        chapters: [
+            { id: "intro", title: "はじめに・目次", start: 1, end: 10, subsections: [] },
+            { id: "ch0", title: "序章: SVの発見編", start: 11, end: 24, subsections: [
+                { num: 1, title: "テーマ 01(1) SVの発見", page: 12 },
+                { num: 2, title: "テーマ 01(2) SVの発見", page: 18 }
+            ]},
+            { id: "ch1", title: "第1章: 意味のカタマリ編", start: 25, end: 62, subsections: [
+                { num: 3, title: "テーマ 02 名詞句", page: 26 },
+                { num: 4, title: "テーマ 03 名詞節", page: 32 },
+                { num: 5, title: "テーマ 04 形容詞句", page: 38 },
+                { num: 6, title: "テーマ 05 形容詞節", page: 44 },
+                { num: 7, title: "テーマ 06 副詞句", page: 48 },
+                { num: 8, title: "テーマ 07 副詞節", page: 52 }
+            ]},
+            { id: "ch2", title: "第2章: 識別編", start: 63, end: 104, subsections: [
+                { num: 9, title: "テーマ 08 to do の識別", page: 64 },
+                { num: 10, title: "テーマ 09 -ing の識別", page: 70 },
+                { num: 11, title: "テーマ 10 過去分詞の識別", page: 76 },
+                { num: 12, title: "テーマ 11 that の識別", page: 80 },
+                { num: 13, title: "テーマ 12 it の識別", page: 92 },
+                { num: 14, title: "テーマ 13 as の識別", page: 98 }
+            ]},
+            { id: "ch3", title: "第3章: 構文編", start: 105, end: 156, subsections: [
+                { num: 15, title: "テーマ 14 接続詞", page: 106 },
+                { num: 16, title: "テーマ 15 倒置", page: 110 },
+                { num: 17, title: "テーマ 16 省略", page: 118 },
+                { num: 18, title: "テーマ 17 強調構文", page: 122 },
+                { num: 19, title: "テーマ 18 呼応", page: 126 },
+                { num: 20, title: "テーマ 19 ネクサス", page: 130 },
+                { num: 21, title: "テーマ 20 挿入", page: 136 },
+                { num: 22, title: "テーマ 21 比較", page: 142 },
+                { num: 23, title: "テーマ 22 複合関係詞", page: 152 }
+            ]},
+            { id: "ch4", title: "第4章: 動詞の型編", start: 157, end: 224, subsections: [
+                { num: 24, title: "テーマ 23-25 第4・第5文型", page: 158 },
+                { num: 25, title: "テーマ 26-32 イディオム型", page: 176 },
+                { num: 26, title: "テーマ 33 受動態", page: 206 }
+            ]},
+            { id: "ans", title: "解答・解説編", start: 225, end: 303, subsections: [
+                { num: 1, title: "序章 解答①", page: 2 + 224 },
+                { num: 2, title: "序章 解答②", page: 2 + 224 },
+                { num: 3, title: "第1章 解答①", page: 6 + 224 },
+                { num: 4, title: "第1章 解答②", page: 6 + 224 },
+                { num: 5, title: "第1章 解答③", page: 6 + 224 },
+                { num: 6, title: "第1章 解答④", page: 6 + 224 },
+                { num: 7, title: "第1章 解答⑤", page: 6 + 224 },
+                { num: 8, title: "第1章 解答⑥", page: 6 + 224 },
+                { num: 9, title: "第2章 解答①", page: 20 + 224 },
+                { num: 10, title: "第2章 解答②", page: 20 + 224 },
+                { num: 11, title: "第2章 解答③", page: 20 + 224 },
+                { num: 12, title: "第2章 解答④", page: 20 + 224 },
+                { num: 13, title: "第2章 解答⑤", page: 20 + 224 },
+                { num: 14, title: "第2章 解答⑥", page: 20 + 224 },
+                { num: 15, title: "第3章 解答①", page: 34 + 224 },
+                { num: 16, title: "第3章 解答②", page: 34 + 224 },
+                { num: 17, title: "第3章 解答③", page: 34 + 224 },
+                { num: 18, title: "第3章 解答④", page: 34 + 224 },
+                { num: 19, title: "第3章 解答⑤", page: 34 + 224 },
+                { num: 20, title: "第3章 解答⑥", page: 34 + 224 },
+                { num: 21, title: "第3章 解答⑦", page: 34 + 224 },
+                { num: 22, title: "第3章 解答⑧", page: 34 + 224 },
+                { num: 23, title: "第3章 解答⑨", page: 34 + 224 },
+                { num: 24, title: "第4章 解答①", page: 56 + 224 },
+                { num: 25, title: "第4章 解答②", page: 56 + 224 },
+                { num: 26, title: "第4章 解答③", page: 76 + 224 }
+            ]}
+        ],
+        get sections() {
+            return this.chapters.map(ch => ({
+                id: ch.id, title: ch.title, start: ch.start, end: ch.end,
+                pages: ch.end - ch.start + 1
+            }));
+        },
+        pageQrs: {}
+    },
+
+    hijii_zero: {
+        id: "hijii_zero",
+        title: "ゼロから英語長文が面白いほどわかる本",
+        totalPages: 240,
+        imagesPath: "images/hijii_zero/",
+        printImagesPath: "images/hijii_zero_bw/",
+        coverImage: "images/hijii_zero_cover.jpg",
+        qrBase: "",
+        chapters: [
+            { id: "intro", title: "はじめに・目次", start: 1, end: 1, subsections: [] },
+            { id: "prob", title: "問題編", start: 2, end: 55, subsections: [
+                { num: 1, title: "問題 01", page: 2 },
+                { num: 2, title: "問題 02", page: 5 },
+                { num: 3, title: "問題 03", page: 8 },
+                { num: 4, title: "問題 04", page: 11 },
+                { num: 5, title: "問題 05", page: 14 },
+                { num: 6, title: "問題 06", page: 17 },
+                { num: 7, title: "問題 07", page: 20 },
+                { num: 8, title: "問題 08", page: 23 },
+                { num: 9, title: "問題 09", page: 27 },
+                { num: 10, title: "問題 10", page: 31 },
+                { num: 11, title: "問題 11", page: 35 },
+                { num: 12, title: "問題 12", page: 38 },
+                { num: 13, title: "問題 13", page: 42 },
+                { num: 14, title: "問題 14", page: 46 },
+                { num: 15, title: "問題 15", page: 50 },
+                { num: 16, title: "問題 16", page: 53 }
+            ]},
+            { id: "ans", title: "解答・解説編", start: 56, end: 240, subsections: [
+                { num: 1, title: "解説 01", page: 15 + 55 },
+                { num: 2, title: "解説 02", page: 25 + 55 },
+                { num: 3, title: "解説 03", page: 33 + 55 },
+                { num: 4, title: "解説 04", page: 43 + 55 },
+                { num: 5, title: "解説 05", page: 53 + 55 },
+                { num: 6, title: "解説 06", page: 63 + 55 },
+                { num: 7, title: "解説 07", page: 73 + 55 },
+                { num: 8, title: "解説 08", page: 83 + 55 },
+                { num: 9, title: "解説 09", page: 93 + 55 },
+                { num: 10, title: "解説 10", page: 104 + 55 },
+                { num: 11, title: "解説 11", page: 116 + 55 },
+                { num: 12, title: "解説 12", page: 126 + 55 },
+                { num: 13, title: "解説 13", page: 139 + 55 },
+                { num: 14, title: "解説 14", page: 151 + 55 },
+                { num: 15, title: "解説 15", page: 163 + 55 },
+                { num: 16, title: "解説 16", page: 173 + 55 }
+            ]}
+        ],
+        get sections() {
+            return this.chapters.map(ch => ({
+                id: ch.id, title: ch.title, start: ch.start, end: ch.end,
+                pages: ch.end - ch.start + 1
+            }));
+        },
+        pageQrs: {}
+    },,
+
     // 理解しやすい化学・化学基礎
     rikeishiyasui_chem: {
         id: "rikeishiyasui_chem",
@@ -1078,6 +2758,146 @@ const hsData = {
         pageQrs: {}
     },
 
+    hijii_dokkai: {
+        id: "hijii_dokkai",
+        title: "読解のための英文法が面白いほどわかる本",
+        totalPages: 303,
+        imagesPath: "images/hijii_dokkai/",
+        printImagesPath: "images/hijii_dokkai_bw/",
+        coverImage: "images/hijii_dokkai_cover.jpg",
+        qrBase: "",
+        chapters: [
+            { id: "intro", title: "はじめに・目次", start: 1, end: 10, subsections: [] },
+            { id: "ch0", title: "序章: SVの発見編", start: 11, end: 24, subsections: [
+                { num: 1, title: "テーマ 01(1) SVの発見", page: 12 },
+                { num: 2, title: "テーマ 01(2) SVの発見", page: 18 }
+            ]},
+            { id: "ch1", title: "第1章: 意味のカタマリ編", start: 25, end: 62, subsections: [
+                { num: 3, title: "テーマ 02 名詞句", page: 26 },
+                { num: 4, title: "テーマ 03 名詞節", page: 32 },
+                { num: 5, title: "テーマ 04 形容詞句", page: 38 },
+                { num: 6, title: "テーマ 05 形容詞節", page: 44 },
+                { num: 7, title: "テーマ 06 副詞句", page: 48 },
+                { num: 8, title: "テーマ 07 副詞節", page: 52 }
+            ]},
+            { id: "ch2", title: "第2章: 識別編", start: 63, end: 104, subsections: [
+                { num: 9, title: "テーマ 08 to do の識別", page: 64 },
+                { num: 10, title: "テーマ 09 -ing の識別", page: 70 },
+                { num: 11, title: "テーマ 10 過去分詞の識別", page: 76 },
+                { num: 12, title: "テーマ 11 that の識別", page: 80 },
+                { num: 13, title: "テーマ 12 it の識別", page: 92 },
+                { num: 14, title: "テーマ 13 as の識別", page: 98 }
+            ]},
+            { id: "ch3", title: "第3章: 構文編", start: 105, end: 156, subsections: [
+                { num: 15, title: "テーマ 14 接続詞", page: 106 },
+                { num: 16, title: "テーマ 15 倒置", page: 110 },
+                { num: 17, title: "テーマ 16 省略", page: 118 },
+                { num: 18, title: "テーマ 17 強調構文", page: 122 },
+                { num: 19, title: "テーマ 18 呼応", page: 126 },
+                { num: 20, title: "テーマ 19 ネクサス", page: 130 },
+                { num: 21, title: "テーマ 20 挿入", page: 136 },
+                { num: 22, title: "テーマ 21 比較", page: 142 },
+                { num: 23, title: "テーマ 22 複合関係詞", page: 152 }
+            ]},
+            { id: "ch4", title: "第4章: 動詞の型編", start: 157, end: 224, subsections: [
+                { num: 24, title: "テーマ 23-25 第4・第5文型", page: 158 },
+                { num: 25, title: "テーマ 26-32 イディオム型", page: 176 },
+                { num: 26, title: "テーマ 33 受動態", page: 206 }
+            ]},
+            { id: "ans", title: "解答・解説編", start: 225, end: 303, subsections: [
+                { num: 1, title: "序章 解答①", page: 2 + 224 },
+                { num: 2, title: "序章 解答②", page: 2 + 224 },
+                { num: 3, title: "第1章 解答①", page: 6 + 224 },
+                { num: 4, title: "第1章 解答②", page: 6 + 224 },
+                { num: 5, title: "第1章 解答③", page: 6 + 224 },
+                { num: 6, title: "第1章 解答④", page: 6 + 224 },
+                { num: 7, title: "第1章 解答⑤", page: 6 + 224 },
+                { num: 8, title: "第1章 解答⑥", page: 6 + 224 },
+                { num: 9, title: "第2章 解答①", page: 20 + 224 },
+                { num: 10, title: "第2章 解答②", page: 20 + 224 },
+                { num: 11, title: "第2章 解答③", page: 20 + 224 },
+                { num: 12, title: "第2章 解答④", page: 20 + 224 },
+                { num: 13, title: "第2章 解答⑤", page: 20 + 224 },
+                { num: 14, title: "第2章 解答⑥", page: 20 + 224 },
+                { num: 15, title: "第3章 解答①", page: 34 + 224 },
+                { num: 16, title: "第3章 解答②", page: 34 + 224 },
+                { num: 17, title: "第3章 解答③", page: 34 + 224 },
+                { num: 18, title: "第3章 解答④", page: 34 + 224 },
+                { num: 19, title: "第3章 解答⑤", page: 34 + 224 },
+                { num: 20, title: "第3章 解答⑥", page: 34 + 224 },
+                { num: 21, title: "第3章 解答⑦", page: 34 + 224 },
+                { num: 22, title: "第3章 解答⑧", page: 34 + 224 },
+                { num: 23, title: "第3章 解答⑨", page: 34 + 224 },
+                { num: 24, title: "第4章 解答①", page: 56 + 224 },
+                { num: 25, title: "第4章 解答②", page: 56 + 224 },
+                { num: 26, title: "第4章 解答③", page: 76 + 224 }
+            ]}
+        ],
+        get sections() {
+            return this.chapters.map(ch => ({
+                id: ch.id, title: ch.title, start: ch.start, end: ch.end,
+                pages: ch.end - ch.start + 1
+            }));
+        },
+        pageQrs: {}
+    },
+
+    hijii_zero: {
+        id: "hijii_zero",
+        title: "ゼロから英語長文が面白いほどわかる本",
+        totalPages: 240,
+        imagesPath: "images/hijii_zero/",
+        printImagesPath: "images/hijii_zero_bw/",
+        coverImage: "images/hijii_zero_cover.jpg",
+        qrBase: "",
+        chapters: [
+            { id: "intro", title: "はじめに・目次", start: 1, end: 1, subsections: [] },
+            { id: "prob", title: "問題編", start: 2, end: 55, subsections: [
+                { num: 1, title: "問題 01", page: 2 },
+                { num: 2, title: "問題 02", page: 5 },
+                { num: 3, title: "問題 03", page: 8 },
+                { num: 4, title: "問題 04", page: 11 },
+                { num: 5, title: "問題 05", page: 14 },
+                { num: 6, title: "問題 06", page: 17 },
+                { num: 7, title: "問題 07", page: 20 },
+                { num: 8, title: "問題 08", page: 23 },
+                { num: 9, title: "問題 09", page: 27 },
+                { num: 10, title: "問題 10", page: 31 },
+                { num: 11, title: "問題 11", page: 35 },
+                { num: 12, title: "問題 12", page: 38 },
+                { num: 13, title: "問題 13", page: 42 },
+                { num: 14, title: "問題 14", page: 46 },
+                { num: 15, title: "問題 15", page: 50 },
+                { num: 16, title: "問題 16", page: 53 }
+            ]},
+            { id: "ans", title: "解答・解説編", start: 56, end: 240, subsections: [
+                { num: 1, title: "解説 01", page: 15 + 55 },
+                { num: 2, title: "解説 02", page: 25 + 55 },
+                { num: 3, title: "解説 03", page: 33 + 55 },
+                { num: 4, title: "解説 04", page: 43 + 55 },
+                { num: 5, title: "解説 05", page: 53 + 55 },
+                { num: 6, title: "解説 06", page: 63 + 55 },
+                { num: 7, title: "解説 07", page: 73 + 55 },
+                { num: 8, title: "解説 08", page: 83 + 55 },
+                { num: 9, title: "解説 09", page: 93 + 55 },
+                { num: 10, title: "解説 10", page: 104 + 55 },
+                { num: 11, title: "解説 11", page: 116 + 55 },
+                { num: 12, title: "解説 12", page: 126 + 55 },
+                { num: 13, title: "解説 13", page: 139 + 55 },
+                { num: 14, title: "解説 14", page: 151 + 55 },
+                { num: 15, title: "解説 15", page: 163 + 55 },
+                { num: 16, title: "解説 16", page: 173 + 55 }
+            ]}
+        ],
+        get sections() {
+            return this.chapters.map(ch => ({
+                id: ch.id, title: ch.title, start: ch.start, end: ch.end,
+                pages: ch.end - ch.start + 1
+            }));
+        },
+        pageQrs: {}
+    },,
+
     // 化学図録
     kagaku_zuroku: {
         id: "kagaku_zuroku",
@@ -1104,7 +2924,147 @@ const hsData = {
             }));
         },
         pageQrs: {}
-    }
+    },
+
+    hijii_dokkai: {
+        id: "hijii_dokkai",
+        title: "読解のための英文法が面白いほどわかる本",
+        totalPages: 303,
+        imagesPath: "images/hijii_dokkai/",
+        printImagesPath: "images/hijii_dokkai_bw/",
+        coverImage: "images/hijii_dokkai_cover.jpg",
+        qrBase: "",
+        chapters: [
+            { id: "intro", title: "はじめに・目次", start: 1, end: 10, subsections: [] },
+            { id: "ch0", title: "序章: SVの発見編", start: 11, end: 24, subsections: [
+                { num: 1, title: "テーマ 01(1) SVの発見", page: 12 },
+                { num: 2, title: "テーマ 01(2) SVの発見", page: 18 }
+            ]},
+            { id: "ch1", title: "第1章: 意味のカタマリ編", start: 25, end: 62, subsections: [
+                { num: 3, title: "テーマ 02 名詞句", page: 26 },
+                { num: 4, title: "テーマ 03 名詞節", page: 32 },
+                { num: 5, title: "テーマ 04 形容詞句", page: 38 },
+                { num: 6, title: "テーマ 05 形容詞節", page: 44 },
+                { num: 7, title: "テーマ 06 副詞句", page: 48 },
+                { num: 8, title: "テーマ 07 副詞節", page: 52 }
+            ]},
+            { id: "ch2", title: "第2章: 識別編", start: 63, end: 104, subsections: [
+                { num: 9, title: "テーマ 08 to do の識別", page: 64 },
+                { num: 10, title: "テーマ 09 -ing の識別", page: 70 },
+                { num: 11, title: "テーマ 10 過去分詞の識別", page: 76 },
+                { num: 12, title: "テーマ 11 that の識別", page: 80 },
+                { num: 13, title: "テーマ 12 it の識別", page: 92 },
+                { num: 14, title: "テーマ 13 as の識別", page: 98 }
+            ]},
+            { id: "ch3", title: "第3章: 構文編", start: 105, end: 156, subsections: [
+                { num: 15, title: "テーマ 14 接続詞", page: 106 },
+                { num: 16, title: "テーマ 15 倒置", page: 110 },
+                { num: 17, title: "テーマ 16 省略", page: 118 },
+                { num: 18, title: "テーマ 17 強調構文", page: 122 },
+                { num: 19, title: "テーマ 18 呼応", page: 126 },
+                { num: 20, title: "テーマ 19 ネクサス", page: 130 },
+                { num: 21, title: "テーマ 20 挿入", page: 136 },
+                { num: 22, title: "テーマ 21 比較", page: 142 },
+                { num: 23, title: "テーマ 22 複合関係詞", page: 152 }
+            ]},
+            { id: "ch4", title: "第4章: 動詞の型編", start: 157, end: 224, subsections: [
+                { num: 24, title: "テーマ 23-25 第4・第5文型", page: 158 },
+                { num: 25, title: "テーマ 26-32 イディオム型", page: 176 },
+                { num: 26, title: "テーマ 33 受動態", page: 206 }
+            ]},
+            { id: "ans", title: "解答・解説編", start: 225, end: 303, subsections: [
+                { num: 1, title: "序章 解答①", page: 2 + 224 },
+                { num: 2, title: "序章 解答②", page: 2 + 224 },
+                { num: 3, title: "第1章 解答①", page: 6 + 224 },
+                { num: 4, title: "第1章 解答②", page: 6 + 224 },
+                { num: 5, title: "第1章 解答③", page: 6 + 224 },
+                { num: 6, title: "第1章 解答④", page: 6 + 224 },
+                { num: 7, title: "第1章 解答⑤", page: 6 + 224 },
+                { num: 8, title: "第1章 解答⑥", page: 6 + 224 },
+                { num: 9, title: "第2章 解答①", page: 20 + 224 },
+                { num: 10, title: "第2章 解答②", page: 20 + 224 },
+                { num: 11, title: "第2章 解答③", page: 20 + 224 },
+                { num: 12, title: "第2章 解答④", page: 20 + 224 },
+                { num: 13, title: "第2章 解答⑤", page: 20 + 224 },
+                { num: 14, title: "第2章 解答⑥", page: 20 + 224 },
+                { num: 15, title: "第3章 解答①", page: 34 + 224 },
+                { num: 16, title: "第3章 解答②", page: 34 + 224 },
+                { num: 17, title: "第3章 解答③", page: 34 + 224 },
+                { num: 18, title: "第3章 解答④", page: 34 + 224 },
+                { num: 19, title: "第3章 解答⑤", page: 34 + 224 },
+                { num: 20, title: "第3章 解答⑥", page: 34 + 224 },
+                { num: 21, title: "第3章 解答⑦", page: 34 + 224 },
+                { num: 22, title: "第3章 解答⑧", page: 34 + 224 },
+                { num: 23, title: "第3章 解答⑨", page: 34 + 224 },
+                { num: 24, title: "第4章 解答①", page: 56 + 224 },
+                { num: 25, title: "第4章 解答②", page: 56 + 224 },
+                { num: 26, title: "第4章 解答③", page: 76 + 224 }
+            ]}
+        ],
+        get sections() {
+            return this.chapters.map(ch => ({
+                id: ch.id, title: ch.title, start: ch.start, end: ch.end,
+                pages: ch.end - ch.start + 1
+            }));
+        },
+        pageQrs: {}
+    },
+
+    hijii_zero: {
+        id: "hijii_zero",
+        title: "ゼロから英語長文が面白いほどわかる本",
+        totalPages: 240,
+        imagesPath: "images/hijii_zero/",
+        printImagesPath: "images/hijii_zero_bw/",
+        coverImage: "images/hijii_zero_cover.jpg",
+        qrBase: "",
+        chapters: [
+            { id: "intro", title: "はじめに・目次", start: 1, end: 1, subsections: [] },
+            { id: "prob", title: "問題編", start: 2, end: 55, subsections: [
+                { num: 1, title: "問題 01", page: 2 },
+                { num: 2, title: "問題 02", page: 5 },
+                { num: 3, title: "問題 03", page: 8 },
+                { num: 4, title: "問題 04", page: 11 },
+                { num: 5, title: "問題 05", page: 14 },
+                { num: 6, title: "問題 06", page: 17 },
+                { num: 7, title: "問題 07", page: 20 },
+                { num: 8, title: "問題 08", page: 23 },
+                { num: 9, title: "問題 09", page: 27 },
+                { num: 10, title: "問題 10", page: 31 },
+                { num: 11, title: "問題 11", page: 35 },
+                { num: 12, title: "問題 12", page: 38 },
+                { num: 13, title: "問題 13", page: 42 },
+                { num: 14, title: "問題 14", page: 46 },
+                { num: 15, title: "問題 15", page: 50 },
+                { num: 16, title: "問題 16", page: 53 }
+            ]},
+            { id: "ans", title: "解答・解説編", start: 56, end: 240, subsections: [
+                { num: 1, title: "解説 01", page: 15 + 55 },
+                { num: 2, title: "解説 02", page: 25 + 55 },
+                { num: 3, title: "解説 03", page: 33 + 55 },
+                { num: 4, title: "解説 04", page: 43 + 55 },
+                { num: 5, title: "解説 05", page: 53 + 55 },
+                { num: 6, title: "解説 06", page: 63 + 55 },
+                { num: 7, title: "解説 07", page: 73 + 55 },
+                { num: 8, title: "解説 08", page: 83 + 55 },
+                { num: 9, title: "解説 09", page: 93 + 55 },
+                { num: 10, title: "解説 10", page: 104 + 55 },
+                { num: 11, title: "解説 11", page: 116 + 55 },
+                { num: 12, title: "解説 12", page: 126 + 55 },
+                { num: 13, title: "解説 13", page: 139 + 55 },
+                { num: 14, title: "解説 14", page: 151 + 55 },
+                { num: 15, title: "解説 15", page: 163 + 55 },
+                { num: 16, title: "解説 16", page: 173 + 55 }
+            ]}
+        ],
+        get sections() {
+            return this.chapters.map(ch => ({
+                id: ch.id, title: ch.title, start: ch.start, end: ch.end,
+                pages: ch.end - ch.start + 1
+            }));
+        },
+        pageQrs: {}
+    },
 };
 
 if (typeof module !== 'undefined' && module.exports) {

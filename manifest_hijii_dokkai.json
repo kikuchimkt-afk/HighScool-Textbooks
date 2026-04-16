@@ -1,0 +1,20 @@
+{
+  "name": "読解のための英文法が面白いほどわかる本 Viewer",
+  "short_name": "読解のための英文法が面白いほどわかる本",
+  "start_url": "./hijii_dokkai_viewer.html",
+  "display": "fullscreen",
+  "background_color": "#1a1a1a",
+  "theme_color": "#1e3c72",
+  "icons": [
+    {
+      "src": "images/icons/icon-hijii_dokkai-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "images/icons/icon-hijii_dokkai-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

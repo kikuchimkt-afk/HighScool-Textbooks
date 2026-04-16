@@ -1,0 +1,20 @@
+{
+  "name": "ゼロから英語長文が面白いほどわかる本 Viewer",
+  "short_name": "ゼロから英語長文が面白いほどわかる本",
+  "start_url": "./hijii_zero_viewer.html",
+  "display": "fullscreen",
+  "background_color": "#1a1a1a",
+  "theme_color": "#1e3c72",
+  "icons": [
+    {
+      "src": "images/icons/icon-hijii_zero-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "images/icons/icon-hijii_zero-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

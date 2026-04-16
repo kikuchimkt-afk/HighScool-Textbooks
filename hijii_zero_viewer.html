@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ゼロから英語長文が面白いほどわかる本 | ビューア</title>
+    <meta name="description" content="高校参考書（ゼロから英語長文が面白いほどわかる本）ビューア">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/viewer.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/icons/icon-hijii_zero-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/icons/icon-hijii_zero-180x180.png">
+    <link rel="manifest" href="manifest_hijii_zero.json">
+    <meta name="theme-color" content="#1e3c72">
+</head>
+<body class="viewer-body">
+    <header class="viewer-header">
+        <a id="back-link" href="hijii_zero_toc.html" class="back-link" style="color:#fff;">
+            <svg style="width:24px;height:24px;margin-right:5px;vertical-align:middle" viewBox="0 0 24 24">
+                <path fill="currentColor" d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" />
+            </svg>
+            目次
+        </a>
+        <h1 id="chapter-title">ゼロから英語長文が面白いほどわかる本</h1>
+        <div class="header-actions">
+            <div class="view-mode-switcher" id="view-mode-switcher">
+                <button class="mode-tab active" data-mode="viewer" id="tab-viewer" title="ページ閲覧">
+                    <span class="mode-tab-icon">📄</span><span class="mode-tab-label">ビューア</span>
+                </button>
+                <button class="mode-tab" data-mode="spread" id="tab-spread" title="見開き表示">
+                    <span class="mode-tab-icon">📖</span><span class="mode-tab-label">見開き</span>
+                </button>
+            </div>
+        </div>
+        <div class="page-controls">
+            <button id="btn-fullscreen" class="btn-fullscreen" title="全画面表示" style="display:none">
+                <span id="fs-icon">📺</span>
+                <span id="fs-label">全画面</span>
+            </button>
+            <button id="btn-answer" class="btn-answer" title="練習の解答を表示">📝 解答</button>
+            <button id="btn-print" class="btn-icon" title="現在のページを印刷（モノクロ）" style="margin-right:15px; font-size:1.2rem;">🖨️</button>
+            <button id="btn-prev" class="btn-icon" title="前のページ">◀</button>
+            <span id="page-indicator" class="page-indicator-btn" title="ページジャンプ">p.--</span>
+            <button id="btn-next" class="btn-icon" title="次のページ">▶</button>
+        </div>
+    </header>
+    
+    <main class="viewer-container" id="viewer-container">
+        <section class="pane left-pane" id="image-pane">
+            <div class="zoom-controls" id="zoom-controls">
+                <button id="btn-zoom-out" title="縮小">−</button>
+                <button id="btn-zoom-reset" title="リセット">⟳</button>
+                <button id="btn-zoom-in" title="拡大">+</button>
+            </div>
+            <div class="image-wrapper" id="image-wrapper">
+                <img id="textbook-img" src="" alt="Textbook Page" draggable="false">
+                <img id="textbook-img-right" src="" alt="Textbook Page Right" draggable="false" style="display:none">
+            </div>
+            <!-- QRリンクバー -->
+            <div class="qr-bar" id="qr-bar" style="display:none">
+                <a id="qr-link" href="#" target="_blank" rel="noopener" class="qr-bar-link">
+                    <span class="qr-bar-icon">📱</span>
+                    <span id="qr-link-label">音声・動画</span>
+                    <span class="qr-bar-arrow">→</span>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- フローティングナビ (見開きモード用) -->
+    <div class="floating-nav" id="floating-nav" style="display:none">
+        <button class="float-btn float-prev" id="float-prev">❮</button>
+        <button class="float-btn float-next" id="float-next">❯</button>
+        <div class="float-page" id="float-page">p.--</div>
+        <button class="float-btn float-exit-fs" id="float-exit-fs" style="display:none">✕ 全画面解除</button>
+    </div>
+
+    <!-- ページジャンプモーダル -->
+    <div class="page-jump-overlay" id="page-jump-overlay">
+        <div class="page-jump-modal">
+            <h3>ページジャンプ</h3>
+            <div class="page-jump-input-row">
+                <span>p.</span>
+                <input type="number" id="page-jump-input" min="1" placeholder="1〜">
+                <button id="page-jump-go">移動</button>
+            </div>
+            <div class="page-jump-chapters" id="page-jump-chapters">
+                <!-- Populated by JS -->
+            </div>
+            <button class="page-jump-close" id="page-jump-close">閉じる</button>
+        </div>
+    </div>
+
+    <!-- 印刷モーダル -->
+    <div class="iframe-modal-overlay" id="print-modal-overlay" style="display:none">
+        <div class="iframe-modal print-modal" id="print-modal">
+            <div class="iframe-modal-header" id="print-modal-header">
+                <span id="print-modal-title">印刷プレビュー (モノクロ・解答なし)</span>
+                <div style="display:flex; gap:8px;">
+                    <button class="iframe-modal-close" id="print-modal-close" title="閉じる">✕</button>
+                </div>
+            </div>
+            <div class="print-modal-controls">
+                <button id="print-range-prev" class="print-range-btn" title="前のページも追加">◀ 前へ広げる</button>
+                <span id="print-range-label">表示範囲</span>
+                <button id="print-range-next" class="print-range-btn" title="次のページも追加">後へ広げる ▶</button>
+            </div>
+            <div class="print-modal-body" id="print-modal-body">
+                <!-- JSで動的生成 -->
+            </div>
+            <div class="print-modal-footer">
+                <span id="print-selected-count" style="color:#666; font-size:0.9rem; margin-right:auto;">選択: 0ページ</span>
+                <button id="btn-execute-print" class="btn-primary">選択したページを印刷</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 印刷用拡大プレビュー -->
+    <div id="print-zoom-overlay" style="display:none; position:fixed; inset:0; z-index:500; background:rgba(0,0,0,0.85); cursor:zoom-out; display:none; align-items:center; justify-content:center;">
+        <img id="print-zoom-img" src="" style="max-width:95vw; max-height:95vh; object-fit:contain; border-radius:4px; box-shadow:0 0 40px rgba(0,0,0,0.5);">
+    </div>
+
+    <!-- 解答モーダル -->
+    <div id="answer-modal-overlay" class="answer-modal-overlay" style="display:none">
+        <div class="answer-modal">
+            <div class="answer-modal-header">
+                <button id="answer-prev" class="answer-nav-btn">◀</button>
+                <span id="answer-title">解答 P.---</span>
+                <button id="answer-next" class="answer-nav-btn">▶</button>
+                <button id="answer-close" class="answer-close-btn">✕</button>
+            </div>
+            <div class="answer-modal-body" id="answer-modal-body">
+                <img id="answer-img" src="" class="answer-img">
+            </div>
+        </div>
+    </div>
+
+    <!-- Iframe モーダル -->
+    <div class="iframe-modal-overlay" id="iframe-modal-overlay" style="display:none">
+        <div class="iframe-modal">
+            <div class="iframe-modal-header" id="iframe-modal-header">
+                <span id="iframe-modal-title">音声・動画コンテンツ</span>
+                <div style="display:flex; gap:8px;">
+                    <button class="iframe-modal-resize" id="iframe-modal-resize" title="サイズ切替">🗗</button>
+                    <button class="iframe-modal-close" id="iframe-modal-close" title="閉じる">✕</button>
+                </div>
+            </div>
+            <iframe id="iframe-modal-frame" src=""></iframe>
+        </div>
+    </div>
+
+    <script src="js/hs_data.js"></script>
+    <script src="js/hs_app.js"></script>
+</body>
+</html>
