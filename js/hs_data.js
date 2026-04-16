@@ -1428,6 +1428,50 @@ const hsData = {
         pageQrs: {}
     },
 
+    solution3: {
+        id: "solution3",
+        title: "肘井学の読解のための英文法 Solution 3",
+        totalPages: 157,
+        imagesPath: "images/solution3/",
+        printImagesPath: "images/solution3_bw/",
+        coverImage: "images/solution3_cover.jpg",
+        qrBase: "",
+        chapters: [
+            { id: "intro", title: "はじめに・目次", start: 1, end: 1, subsections: [] },
+            { id: "chap1", title: "問題編", start: 2, end: 32, subsections: [
+                { num: 1, title: "問題 01", page: 2 },
+                { num: 2, title: "問題 02", page: 6 },
+                { num: 3, title: "問題 03", page: 9 },
+                { num: 4, title: "問題 04", page: 13 },
+                { num: 5, title: "問題 05", page: 15 },
+                { num: 6, title: "問題 06", page: 18 },
+                { num: 7, title: "問題 07", page: 20 },
+                { num: 8, title: "問題 08", page: 24 },
+                { num: 9, title: "問題 09", page: 27 },
+                { num: 10, title: "問題 10", page: 31 }
+            ]},
+            { id: "answers", title: "解答・解説編", start: 33, end: 157, subsections: [
+                { num: 1, title: "解説 01", page: 15 + 32 },
+                { num: 2, title: "解説 02", page: 27 + 32 },
+                { num: 3, title: "解説 03", page: 37 + 32 },
+                { num: 4, title: "解説 04", page: 51 + 32 },
+                { num: 5, title: "解説 05", page: 61 + 32 },
+                { num: 6, title: "解説 06", page: 70 + 32 },
+                { num: 7, title: "解説 07", page: 80 + 32 },
+                { num: 8, title: "解説 08", page: 92 + 32 },
+                { num: 9, title: "解説 09", page: 102 + 32 },
+                { num: 10, title: "解説 10", page: 114 + 32 }
+            ]}
+        ],
+        get sections() {
+            return this.chapters.map(ch => ({
+                id: ch.id, title: ch.title, start: ch.start, end: ch.end,
+                pages: ch.end - ch.start + 1
+            }));
+        },
+        pageQrs: {}
+    },
+
     hijii_dokkai: {
         id: "hijii_dokkai",
         title: "読解のための英文法が面白いほどわかる本",
