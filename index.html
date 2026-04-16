@@ -362,6 +362,37 @@
             to { opacity: 1; transform: scale(1) translateY(0); }
         }
 
+        /* === Tabs === */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-bottom: 2rem;
+        }
+        .tab-btn {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.6);
+            padding: 0.6rem 2rem;
+            border-radius: 100px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            outline: none;
+        }
+        .tab-btn:hover {
+            background: rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.9);
+        }
+        .tab-btn.active {
+            background: rgba(255, 255, 255, 0.15);
+            color: #fff;
+            border-color: rgba(255, 255, 255, 0.4);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+        
         /* === Responsive === */
         @media (max-width: 640px) {
             .header { padding: 3rem 1.5rem 1.5rem; }
@@ -404,6 +435,13 @@
         <h1>高校参考書<br>電子ビューア</h1>
         <p>教科書・問題集のページイメージ閲覧システム</p>
     </header>
+
+    <div class="tabs" id="category-tabs">
+        <button class="tab-btn active" data-cat="all">すべて</button>
+        <button class="tab-btn" data-cat="eng">英語</button>
+        <button class="tab-btn" data-cat="math">数学</button>
+        <button class="tab-btn" data-cat="chem">化学</button>
+    </div>
 
     <div class="library-grid" id="library-grid">
         <!-- JS で動的生成 -->
@@ -476,44 +514,26 @@
 
     // === 書籍リスト ===
     const books = [
-        { id: 'superquick_math1a', title: 'SuperQuick 数IA', desc: '入試に必要な内容を厳選したスーパー問題集', cover: 'images/superquick_math1a_cover.jpg', toc: 'superquick_math1a_toc.html' },
-        { id: 'superquick_math2bc', title: 'SuperQuick 数IIBC', desc: '数II・数B・数Cの入試問題集（全197項目）', cover: 'images/superquick_math2bc_cover.jpg', toc: 'superquick_math2bc_toc.html' },
-        { id: 'speedcheck_chem', title: 'スピードチェック 理論化学', desc: '99の最重要ポイントで理論化学を完全攻略', cover: 'images/speedcheck_chem_cover.jpg', toc: 'speedcheck_chem_toc.html' },
-        { id: 'speedcheck_chem_basic', title: 'スピードチェック 化学基礎', desc: '57の最重要ポイントで化学基礎を完全攻略', cover: 'images/speedcheck_chem_basic_cover.jpg', toc: 'speedcheck_chem_basic_toc.html' },
-        { id: 'rikeishiyasui_chem', title: '理解しやすい化学・化学基礎', desc: '化学のすべてがわかる充実の読み物', cover: 'images/rikeishiyasui_chem_cover.jpg', toc: 'rikeishiyasui_chem_toc.html' },
-        { id: 'kagaku_zuroku', title: '化学図録', desc: '写真・図解で化学を視覚的に理解する資料集', cover: 'images/kagaku_zuroku_cover.jpg', toc: 'kagaku_zuroku_toc.html' },
-        { id: 'polaris1', title: '英語長文ポラリス1', desc: '大学入試対応の英語長文読解問題集', cover: 'images/polaris1_cover.jpg', toc: 'polaris1_toc.html' },
-        { id: 'polaris2', title: '英語長文ポラリス2', desc: '標準レベルの英語長文読解問題集', cover: 'images/polaris2_cover.jpg', toc: 'polaris2_toc.html' },
-        { id: 'rules1', title: '関正生の英語長文 Rules 1', desc: '入試基礎レベルからの英語長文読解問題集', cover: 'images/rules1_cover.jpg', toc: 'rules1_toc.html' },
-        { id: 'rules2', title: '関正生の英語長文 Rules 2', desc: '共通テストレベルの英語長文読解問題集', cover: 'images/rules2_cover.jpg', toc: 'rules2_toc.html' },
-        { id: 'solution1', title: '肘井学の読解のための英文法 Solution 1', desc: '英語長文読解のための基礎英文法', cover: 'images/solution1_cover.jpg', toc: 'solution1_toc.html' },
-        { id: 'solution2', title: '肘井学の読解のための英文法 Solution 2', desc: '英語長文読解のための標準英文法', cover: 'images/solution2_cover.jpg', toc: 'solution2_toc.html' },
-        { id: 'jyuko_jo', title: '英文熟考［改訂版］上', desc: '読解のための基礎と文法構造', cover: 'images/jyuko_jo_cover.jpg', toc: 'jyuko_jo_toc.html' },
-        { id: 'jyuko_ge', title: '英文熟考［改訂版］下', desc: '読解のための発展と文法構造', cover: 'images/jyuko_ge_cover.jpg', toc: 'jyuko_ge_toc.html' },
-        { id: 'hijii_dokkai', title: '読解のための英文法が面白いほどわかる本', desc: '英文解釈の基礎と構文の発見をマスター', cover: 'images/hijii_dokkai_cover.jpg', toc: 'hijii_dokkai_toc.html' },
-        { id: 'hijii_zero', title: 'ゼロから英語長文が面白いほどわかる本', desc: '基礎〜応用レベルの英語長文読解問題集', cover: 'images/hijii_zero_cover.jpg', toc: 'hijii_zero_toc.html' }
+        { id: 'superquick_math1a', cat: 'math', title: 'SuperQuick 数IA', desc: '入試に必要な内容を厳選したスーパー問題集', cover: 'images/superquick_math1a_cover.jpg', toc: 'superquick_math1a_toc.html' },
+        { id: 'superquick_math2bc', cat: 'math', title: 'SuperQuick 数IIBC', desc: '数II・数B・数Cの入試問題集（全197項目）', cover: 'images/superquick_math2bc_cover.jpg', toc: 'superquick_math2bc_toc.html' },
+        { id: 'speedcheck_chem', cat: 'chem', title: 'スピードチェック 理論化学', desc: '99の最重要ポイントで理論化学を完全攻略', cover: 'images/speedcheck_chem_cover.jpg', toc: 'speedcheck_chem_toc.html' },
+        { id: 'speedcheck_chem_basic', cat: 'chem', title: 'スピードチェック 化学基礎', desc: '57の最重要ポイントで化学基礎を完全攻略', cover: 'images/speedcheck_chem_basic_cover.jpg', toc: 'speedcheck_chem_basic_toc.html' },
+        { id: 'rikeishiyasui_chem', cat: 'chem', title: '理解しやすい化学・化学基礎', desc: '化学のすべてがわかる充実の読み物', cover: 'images/rikeishiyasui_chem_cover.jpg', toc: 'rikeishiyasui_chem_toc.html' },
+        { id: 'kagaku_zuroku', cat: 'chem', title: '化学図録', desc: '写真・図解で化学を視覚的に理解する資料集', cover: 'images/kagaku_zuroku_cover.jpg', toc: 'kagaku_zuroku_toc.html' },
+        { id: 'polaris1', cat: 'eng', title: '英語長文ポラリス1', desc: '大学入試対応の英語長文読解問題集', cover: 'images/polaris1_cover.jpg', toc: 'polaris1_toc.html' },
+        { id: 'polaris2', cat: 'eng', title: '英語長文ポラリス2', desc: '標準レベルの英語長文読解問題集', cover: 'images/polaris2_cover.jpg', toc: 'polaris2_toc.html' },
+        { id: 'rules1', cat: 'eng', title: '関正生の英語長文 Rules 1', desc: '入試基礎レベルからの英語長文読解問題集', cover: 'images/rules1_cover.jpg', toc: 'rules1_toc.html' },
+        { id: 'rules2', cat: 'eng', title: '関正生の英語長文 Rules 2', desc: '共通テストレベルの英語長文読解問題集', cover: 'images/rules2_cover.jpg', toc: 'rules2_toc.html' },
+        { id: 'solution1', cat: 'eng', title: '肘井学の読解のための英文法 Solution 1', desc: '英語長文読解のための基礎英文法', cover: 'images/solution1_cover.jpg', toc: 'solution1_toc.html' },
+        { id: 'solution2', cat: 'eng', title: '肘井学の読解のための英文法 Solution 2', desc: '英語長文読解のための標準英文法', cover: 'images/solution2_cover.jpg', toc: 'solution2_toc.html' },
+        { id: 'jyuko_jo', cat: 'eng', title: '英文熟考［改訂版］上', desc: '読解のための基礎と文法構造', cover: 'images/jyuko_jo_cover.jpg', toc: 'jyuko_jo_toc.html' },
+        { id: 'jyuko_ge', cat: 'eng', title: '英文熟考［改訂版］下', desc: '読解のための発展と文法構造', cover: 'images/jyuko_ge_cover.jpg', toc: 'jyuko_ge_toc.html' },
+        { id: 'hijii_dokkai', cat: 'eng', title: '読解のための英文法が面白いほどわかる本', desc: '英文解釈の基礎と構文の発見をマスター', cover: 'images/hijii_dokkai_cover.jpg', toc: 'hijii_dokkai_toc.html' },
+        { id: 'hijii_zero', cat: 'eng', title: 'ゼロから英語長文が面白いほどわかる本', desc: '基礎〜応用レベルの英語長文読解問題集', cover: 'images/hijii_zero_cover.jpg', toc: 'hijii_zero_toc.html' }
     ];
 
     const grid = document.getElementById('library-grid');
-
-    books.forEach((book, i) => {
-        const card = document.createElement('div');
-        card.className = 'book-card';
-        card.style.animationDelay = `${i * 0.1}s`;
-        card.innerHTML = `
-            <a href="${book.toc}" class="book-card-link">
-                <img src="${book.cover}" alt="${book.title} 表紙" class="book-card-cover">
-                <div class="book-card-body">
-                    <div class="book-title">${book.title}</div>
-                    <div class="book-desc">${book.desc}</div>
-                </div>
-            </a>
-            <div class="book-card-actions">
-                <button class="btn-qr" data-toc="${book.toc}" data-title="${book.title}">📱 QR / URL を表示</button>
-            </div>
-        `;
-        grid.appendChild(card);
-    });
+    const tabs = document.querySelectorAll('.tab-btn');
 
     // === QR モーダル ===
     const qrOverlay = document.getElementById('qr-modal-overlay');
@@ -526,23 +546,57 @@
 
     let currentQrUrl = '';
 
-    document.querySelectorAll('.btn-qr').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            const tocPath = btn.dataset.toc;
-            const title = btn.dataset.title;
-            const baseUrl = window.location.origin + window.location.pathname.replace(/[^\/]*$/, '');
-            const fullUrl = baseUrl + tocPath;
-            currentQrUrl = fullUrl;
+    function renderBooks(filterCat) {
+        grid.innerHTML = '';
+        const filtered = filterCat === 'all' ? books : books.filter(b => b.cat === filterCat);
+        
+        filtered.forEach((book, i) => {
+            const card = document.createElement('div');
+            card.className = 'book-card';
+            card.style.animationDelay = `${i * 0.05}s`;
+            card.innerHTML = `
+                <a href="${book.toc}" class="book-card-link">
+                    <img src="${book.cover}" alt="${book.title} 表紙" class="book-card-cover">
+                    <div class="book-card-body">
+                        <div class="book-title">${book.title}</div>
+                        <div class="book-desc">${book.desc}</div>
+                    </div>
+                </a>
+                <div class="book-card-actions">
+                    <button class="btn-qr" data-toc="${book.toc}" data-title="${book.title}">📱 QR / URL を表示</button>
+                </div>
+            `;
+            grid.appendChild(card);
+        });
 
-            qrTitle.textContent = title;
-            qrUrl.textContent = fullUrl;
-            // QR Server API (free, reliable)
-            qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(fullUrl)}`;
-            qrOverlay.classList.add('active');
+        // Rebind QR Modal Event
+        document.querySelectorAll('.btn-qr').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                const tocPath = btn.dataset.toc;
+                const title = btn.dataset.title;
+                const baseUrl = window.location.origin + window.location.pathname.replace(/[^\/]*$/, '');
+                const fullUrl = baseUrl + tocPath;
+                currentQrUrl = fullUrl;
+
+                qrTitle.textContent = title;
+                qrUrl.textContent = fullUrl;
+                qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(fullUrl)}`;
+                qrOverlay.classList.add('active');
+            });
+        });
+    }
+
+    tabs.forEach(tab => {
+        tab.addEventListener('click', (e) => {
+            tabs.forEach(t => t.classList.remove('active'));
+            e.target.classList.add('active');
+            renderBooks(e.target.dataset.cat);
         });
     });
+
+    renderBooks('all'); // 初期描画
 
     qrCloseBtn.addEventListener('click', () => qrOverlay.classList.remove('active'));
     qrOverlay.addEventListener('click', (e) => { if (e.target === qrOverlay) qrOverlay.classList.remove('active'); });
