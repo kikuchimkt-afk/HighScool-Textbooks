@@ -3,28 +3,28 @@ const hsData = {
     polaris1: {
         id: "polaris1",
         title: "英語長文ポラリス1",
-        totalPages: 250,
+        totalPages: 252,
         imagesPath: "images/polaris1/",
         printImagesPath: "images/polaris1_bw/",
         coverImage: "images/polaris1_cover.jpg",
         qrBase: "",
         chapters: [
-            { id: "intro", title: "はじめに・目次", start: 1, end: 5, subsections: [] },
-            { id: "chap1", title: "問題", start: 6, end: 58, subsections: [
-                { num: 1, title: "問題1", page: 6 },
-                { num: 2, title: "問題2", page: 10 },
-                { num: 3, title: "問題3", page: 14 },
-                { num: 4, title: "問題4", page: 18 },
-                { num: 5, title: "問題5", page: 22 },
-                { num: 6, title: "問題6", page: 26 },
-                { num: 7, title: "問題7", page: 30 },
-                { num: 8, title: "問題8", page: 34 },
-                { num: 9, title: "問題9", page: 38 },
-                { num: 10, title: "問題10", page: 42 },
-                { num: 11, title: "問題11", page: 46 },
-                { num: 12, title: "問題12", page: 50 },
+            { id: "intro", title: "はじめに・目次", start: 1, end: 1, subsections: [] },
+            { id: "chap1", title: "問題", start: 2, end: 60, subsections: [
+                { num: 1, title: "Lesson 1", page: 2 },
+                { num: 2, title: "Lesson 2", page: 6 },
+                { num: 3, title: "Lesson 3", page: 14 },
+                { num: 4, title: "Lesson 4", page: 20 },
+                { num: 5, title: "Lesson 5", page: 24 },
+                { num: 6, title: "Lesson 6", page: 28 },
+                { num: 7, title: "Lesson 7", page: 34 },
+                { num: 8, title: "Lesson 8", page: 38 },
+                { num: 9, title: "Lesson 9", page: 42 },
+                { num: 10, title: "Lesson 10", page: 48 },
+                { num: 11, title: "Lesson 11", page: 52 },
+                { num: 12, title: "Lesson 12", page: 58 },
             ]},
-            { id: "answers", title: "解答・解説", start: 59, end: 250, subsections: [] }
+            { id: "answers", title: "解答・解説", start: 61, end: 252, subsections: [] }
         ],
         get sections() {
             return this.chapters.map(ch => ({

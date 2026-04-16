@@ -703,10 +703,11 @@ document.addEventListener('DOMContentLoaded', () => {
     let answerZoom = 1;
 
     function estimateAnswerPage(viewPage) {
-        // 本編 p.6〜p.CONTENT_END → 解答 p.ANSWER_START〜p.ANSWER_END
-        if (viewPage < 6) return ANSWER_START;
+        // 本編 p.6 (または設定) 〜 p.CONTENT_END → 解答 p.ANSWER_START 〜 p.ANSWER_END
+        const questionStart = bookData.id === 'polaris1' ? 2 : 6;
+        if (viewPage < questionStart) return ANSWER_START;
         if (viewPage >= ANSWER_START) return viewPage;
-        const ratio = (viewPage - 6) / (CONTENT_END - 6);
+        const ratio = (viewPage - questionStart) / (CONTENT_END - questionStart);
         return Math.min(ANSWER_END, Math.max(ANSWER_START, Math.round(ANSWER_START + ratio * (ANSWER_END - ANSWER_START))));
     }
 
