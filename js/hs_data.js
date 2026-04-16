@@ -120,7 +120,20 @@ const hsData = {
                 { num: 11, title: "Lesson 11", page: 41 },
                 { num: 12, title: "Lesson 12", page: 45 }
             ]},
-            { id: "answers", title: "解答・解説", start: 49, end: 256, subsections: [] }
+            { id: "answers", title: "解答・解説", start: 49, end: 256, subsections: [
+                { num: 1, title: "Lesson 1", page: 14 + 48 },
+                { num: 2, title: "Lesson 2", page: 32 + 48 },
+                { num: 3, title: "Lesson 3", page: 44 + 48 },
+                { num: 4, title: "Lesson 4", page: 64 + 48 },
+                { num: 5, title: "Lesson 5", page: 76 + 48 },
+                { num: 6, title: "Lesson 6", page: 88 + 48 },
+                { num: 7, title: "Lesson 7", page: 102 + 48 },
+                { num: 8, title: "Lesson 8", page: 116 + 48 },
+                { num: 9, title: "Lesson 9", page: 138 + 48 },
+                { num: 10, title: "Lesson 10", page: 150 + 48 },
+                { num: 11, title: "Lesson 11", page: 170 + 48 },
+                { num: 12, title: "Lesson 12", page: 190 + 48 }
+            ]}
         ],
         get sections() {
             return this.chapters.map(ch => ({
