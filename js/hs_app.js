@@ -144,6 +144,43 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // ===== 先読みキャッシュ =====
+    const prefetchCache = new Map();   // src -> true (読み込み済み)
+    const PREFETCH_AHEAD = 5;          // 現在ページから前方5ページ先読み
+    const PREFETCH_BEHIND = 2;         // 現在ページから後方2ページ先読み
+    const PREFETCH_DELAY = 80;         // 各画像の読み込み間隔(ms) — 帯域圧迫防止
+
+    function prefetchNearbyPages(centerPage) {
+        const pages = [];
+        // 前方を優先的にキューに入れる
+        for (let i = 1; i <= PREFETCH_AHEAD; i++) {
+            const p = centerPage + i;
+            if (p >= 1 && p <= TOTAL_PAGES) pages.push(p);
+        }
+        // 後方も追加
+        for (let i = 1; i <= PREFETCH_BEHIND; i++) {
+            const p = centerPage - i;
+            if (p >= 1 && p <= TOTAL_PAGES) pages.push(p);
+        }
+        // 見開きモードの場合は隣接ページも追加
+        if (viewMode === 'spread') {
+            const extra = [centerPage + 1, centerPage - 1];
+            extra.forEach(p => {
+                if (p >= 1 && p <= TOTAL_PAGES && !pages.includes(p)) pages.push(p);
+            });
+        }
+
+        pages.forEach((p, idx) => {
+            const src = getImageSrc(p);
+            if (prefetchCache.has(src)) return;  // 既にキャッシュ済み
+            prefetchCache.set(src, true);
+            setTimeout(() => {
+                const img = new Image();
+                img.src = src;  // ブラウザキャッシュに載せるだけ
+            }, idx * PREFETCH_DELAY);
+        });
+    }
+
     function loadPage(pageNum, direction) {
         if (pageNum < 1) pageNum = 1;
         if (pageNum > TOTAL_PAGES) pageNum = TOTAL_PAGES;
@@ -222,6 +259,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
             imageWrapper.scrollTop = 0;
             isNavigating = false;
+
+            // バックグラウンドで前後のページを先読みキャッシュ
+            prefetchNearbyPages(currentPage);
         });
     }
 
