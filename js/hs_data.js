@@ -612,6 +612,54 @@ const hsData = {
         pageQrs: {}
     },
 
+    rules3: {
+        id: "rules3",
+        title: "関正生のThe Rules 3 英語長文",
+        totalPages: 277,
+        imagesPath: "images/rules3/",
+        printImagesPath: "images/rules3_bw/",
+        coverImage: "images/rules3_cover.jpg",
+        qrBase: "",
+        chapters: [
+            { id: "intro", title: "はじめに・目次", start: 1, end: 2, subsections: [] },
+            { id: "chap1", title: "問題編", start: 3, end: 55, subsections: [
+                { num: 1, title: "Lesson 1", page: 3 },
+                { num: 2, title: "Lesson 2", page: 8 },
+                { num: 3, title: "Lesson 3", page: 12 },
+                { num: 4, title: "Lesson 4", page: 16 },
+                { num: 5, title: "Lesson 5", page: 19 },
+                { num: 6, title: "Lesson 6", page: 23 },
+                { num: 7, title: "Lesson 7", page: 28 },
+                { num: 8, title: "Lesson 8", page: 32 },
+                { num: 9, title: "Lesson 9", page: 36 },
+                { num: 10, title: "Lesson 10", page: 42 },
+                { num: 11, title: "Lesson 11", page: 47 },
+                { num: 12, title: "Lesson 12", page: 52 }
+            ]},
+            { id: "answers", title: "解答・解説編", start: 56, end: 277, subsections: [
+                { num: 1, title: "Lesson 1", page: 12 + 55 },
+                { num: 2, title: "Lesson 2", page: 33 + 55 },
+                { num: 3, title: "Lesson 3", page: 49 + 55 },
+                { num: 4, title: "Lesson 4", page: 68 + 55 },
+                { num: 5, title: "Lesson 5", page: 82 + 55 },
+                { num: 6, title: "Lesson 6", page: 101 + 55 },
+                { num: 7, title: "Lesson 7", page: 122 + 55 },
+                { num: 8, title: "Lesson 8", page: 134 + 55 },
+                { num: 9, title: "Lesson 9", page: 150 + 55 },
+                { num: 10, title: "Lesson 10", page: 168 + 55 },
+                { num: 11, title: "Lesson 11", page: 186 + 55 },
+                { num: 12, title: "Lesson 12", page: 203 + 55 }
+            ]}
+        ],
+        get sections() {
+            return this.chapters.map(ch => ({
+                id: ch.id, title: ch.title, start: ch.start, end: ch.end,
+                pages: ch.end - ch.start + 1
+            }));
+        },
+        pageQrs: {}
+    },
+
     hijii_dokkai: {
         id: "hijii_dokkai",
         title: "読解のための英文法が面白いほどわかる本",

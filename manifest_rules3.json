@@ -1,0 +1,20 @@
+{
+  "name": "関正生の英語長文 Rules 3 Viewer",
+  "short_name": "関正生の英語長文 Rules 3",
+  "start_url": "./rules3_viewer.html",
+  "display": "fullscreen",
+  "background_color": "#1a1a1a",
+  "theme_color": "#1e3c72",
+  "icons": [
+    {
+      "src": "images/icons/icon-rules3-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "images/icons/icon-rules3-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

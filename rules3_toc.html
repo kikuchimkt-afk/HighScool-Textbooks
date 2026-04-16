@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>関正生のThe Rules 3 英語長文 | 目次</title>
+    <meta name="description" content="関正生のThe Rules 3 英語長文 目次一覧">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/rules3_32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="icons/rules3_180.png">
+    <link rel="manifest" href="manifest_rules3.json">
+    <meta name="theme-color" content="#000000">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Inter', 'Noto Sans JP', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #000;
+            min-height: 100vh; color: #f5f5f7;
+        }
+        .bg-layer {
+            position: fixed; inset: 0; z-index: 0;
+        }
+        .bg-layer img {
+            width: 100%; height: 100%; object-fit: cover;
+            filter: brightness(0.5) saturate(1.2);
+        }
+        .bg-overlay {
+            position: fixed; inset: 0; z-index: 1;
+            background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.7) 100%);
+        }
+        .toc-page { position: relative; z-index: 2; }
+        .toc-header {
+            text-align: center; padding: 3rem 1.5rem 1.5rem;
+        }
+        .toc-back {
+            display: inline-flex; align-items: center; gap: 6px;
+            color: rgba(255,255,255,0.4); text-decoration: none;
+            font-size: 0.85rem; margin-bottom: 1.5rem;
+            transition: color 0.25s; font-weight: 400;
+        }
+        .toc-back:hover { color: rgba(255,255,255,0.8); }
+        .toc-header h1 {
+            font-size: 2.2rem; font-weight: 700;
+            letter-spacing: -0.03em; margin-bottom: 0.3rem;
+            background: linear-gradient(135deg, #fff, rgba(255,255,255,0.6));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .toc-header p {
+            font-size: 0.9rem; color: rgba(255,255,255,0.35);
+            font-weight: 300;
+        }
+        .toc-container {
+            max-width: 720px; margin: 0 auto; padding: 0 1rem 4rem;
+        }
+        .toc-cover {
+            display: block; max-width: 180px; margin: 0 auto 2rem;
+            border-radius: 14px;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+        }
+        .toc-chapter {
+            margin-bottom: 0.6rem;
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(40px) saturate(1.5);
+            -webkit-backdrop-filter: blur(40px) saturate(1.5);
+            border: 1px solid rgba(255,255,255,0.07);
+            border-radius: 16px; overflow: hidden;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.15),
+                        inset 0 1px 0 rgba(255,255,255,0.05);
+        }
+        /* --- Accordion --- */
+        .toc-accordion { border: none; }
+        .toc-accordion summary { list-style: none; cursor: pointer; }
+        .toc-accordion summary::-webkit-details-marker { display: none; }
+        .toc-accordion summary::marker { display: none; content: ''; }
+        .toc-chapter-link {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 0.85rem 1.2rem; text-decoration: none; color: #f5f5f7;
+            font-weight: 600; font-size: 0.95rem;
+            transition: background 0.25s;
+            letter-spacing: -0.01em;
+        }
+        .toc-chapter-link:hover {
+            background: rgba(255,255,255,0.06);
+        }
+        .toc-chapter-meta {
+            display: flex; align-items: center; gap: 8px;
+        }
+        .toc-chevron {
+            font-size: 0.65rem; color: rgba(255,255,255,0.3);
+            transition: transform 0.3s ease;
+            display: inline-block;
+        }
+        .toc-accordion[open] .toc-chevron {
+            transform: rotate(90deg);
+        }
+        .toc-chapter-pages {
+            font-size: 0.75rem; color: rgba(255,255,255,0.3);
+            font-weight: 400; white-space: nowrap;
+        }
+        .toc-subsections {
+            border-top: 1px solid rgba(255,255,255,0.06);
+            padding: 0.2rem 0;
+            animation: tocSlideDown 0.25s ease;
+        }
+        @keyframes tocSlideDown {
+            from { opacity: 0; max-height: 0; }
+            to { opacity: 1; max-height: 2000px; }
+        }
+        .toc-sub-link {
+            display: flex; align-items: center; gap: 8px;
+            padding: 0.45rem 1.2rem 0.45rem 1.6rem;
+            text-decoration: none; color: rgba(255,255,255,0.65);
+            font-size: 0.84rem; transition: all 0.25s;
+            font-weight: 400;
+        }
+        .toc-sub-link:hover {
+            background: rgba(255,255,255,0.05);
+            color: rgba(255,255,255,0.9);
+        }
+        .toc-sub-num {
+            min-width: 26px; text-align: right; font-weight: 500;
+            color: rgba(160,140,255,0.7); font-size: 0.82rem;
+            font-variant-numeric: tabular-nums;
+        }
+        .toc-sub-title { flex: 1; }
+        .toc-sub-page {
+            font-size: 0.72rem; color: rgba(255,255,255,0.2);
+            white-space: nowrap; font-variant-numeric: tabular-nums;
+        }
+        .toc-footer {
+            text-align: center; padding: 2rem 1rem;
+            font-size: 0.7rem; color: rgba(255,255,255,0.2);
+        }
+        @media (max-width: 600px) {
+            .toc-header h1 { font-size: 1.6rem; }
+            .toc-header { padding: 2rem 1rem 1rem; }
+            .toc-sub-link { padding-left: 1rem; font-size: 0.8rem; }
+            .toc-chapter-link { font-size: 0.9rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-layer">
+        <img src="images/portal_bg.png" alt="" loading="eager">
+    </div>
+    <div class="bg-overlay"></div>
+    <div class="toc-page">
+        <div class="toc-header">
+            <a href="index.html" class="toc-back">← ポータルに戻る</a>
+            <h1>関正生のThe Rules 3 英語長文</h1>
+            <p>全277ページ</p>
+        </div>
+        <div class="toc-container">
+            <img src="images/rules3_cover.jpg" alt="関正生のThe Rules 3 英語長文 表紙" class="toc-cover">
+            
+        <div class="toc-chapter">
+            <a href="rules3_viewer.html?book=rules3&section=intro&page=1" class="toc-chapter-link toc-chapter-link-plain">
+                <span class="toc-chapter-title">はじめに・目次</span>
+                <span class="toc-chapter-pages">p.1–2</span>
+            </a>
+        </div>
+        <div class="toc-chapter">
+            <details class="toc-accordion">
+                <summary class="toc-chapter-link">
+                    <span class="toc-chapter-title">問題編</span>
+                    <span class="toc-chapter-meta">
+                        <span class="toc-chapter-pages">p.3–55</span>
+                        <span class="toc-chevron">▶</span>
+                    </span>
+                </summary>
+                <div class="toc-subsections">
+                    <a href="rules3_viewer.html?book=rules3&page=3" class="toc-sub-link">
+                        <span class="toc-sub-num">1</span>
+                        <span class="toc-sub-title">Lesson 1</span>
+                        <span class="toc-sub-page">p.3</span>
+                    </a>
+                    <a href="rules3_viewer.html?book=rules3&page=8" class="toc-sub-link">
+                        <span class="toc-sub-num">2</span>
+                        <span class="toc-sub-title">Lesson 2</span>
+                        <span class="toc-sub-page">p.8</span>
+                    </a>
+                    <a href="rules3_viewer.html?book=rules3&page=12" class="toc-sub-link">
+                        <span class="toc-sub-num">3</span>
+                        <span class="toc-sub-title">Lesson 3</span>
+                        <span class="toc-sub-page">p.12</span>
+                    </a>
+                    <a href="rules3_viewer.html?book=rules3&page=16" class="toc-sub-link">
+                        <span class="toc-sub-num">4</span>
+                        <span class="toc-sub-title">Lesson 4</span>
+                        <span class="toc-sub-page">p.16</span>
+                    </a>
+                    <a href="rules3_viewer.html?book=rules3&page=19" class="toc-sub-link">
+                        <span class="toc-sub-num">5</span>
+                        <span class="toc-sub-title">Lesson 5</span>
+                        <span class="toc-sub-page">p.19</span>
+                    </a>
+                    <a href="rules3_viewer.html?book=rules3&page=23" class="toc-sub-link">
+                        <span class="toc-sub-num">6</span>
+                        <span class="toc-sub-title">Lesson 6</span>
+                        <span class="toc-sub-page">p.23</span>
+                    </a>
+                    <a href="rules3_viewer.html?book=rules3&page=28" class="toc-sub-link">
+                        <span class="toc-sub-num">7</span>
+                        <span class="toc-sub-title">Lesson 7</span>
+                        <span class="toc-sub-page">p.28</span>
+                    </a>
+                    <a href="rules3_viewer.html?book=rules3&page=32" class="toc-sub-link">
+                        <span class="toc-sub-num">8</span>
+                        <span class="toc-sub-title">Lesson 8</span>
+                        <span class="toc-sub-page">p.32</span>
+                    </a>
+                    <a href="rules3_viewer.html?book=rules3&page=36" class="toc-sub-link">
+                        <span class="toc-sub-num">9</span>
+                        <span class="toc-sub-title">Lesson 9</span>
+                        <span class="toc-sub-page">p.36</span>
+                    </a>
+                    <a href="rules3_viewer.html?book=rules3&page=42" class="toc-sub-link">
+                        <span class="toc-sub-num">10</span>
+                        <span class="toc-sub-title">Lesson 10</span>
+                        <span class="toc-sub-page">p.42</span>
+                    </a>
+                    <a href="rules3_viewer.html?book=rules3&page=47" class="toc-sub-link">
+                        <span class="toc-sub-num">11</span>
+                        <span class="toc-sub-title">Lesson 11</span>
+                        <span class="toc-sub-page">p.47</span>
+                    </a>
+                    <a href="rules3_viewer.html?book=rules3&page=52" class="toc-sub-link">
+                        <span class="toc-sub-num">12</span>
+                        <span class="toc-sub-title">Lesson 12</span>
+                        <span class="toc-sub-page">p.52</span>
+                    </a>
+                </div>
+            </details>
+        </div>
+        <div class="toc-chapter">
+            <details class="toc-accordion">
+                <summary class="toc-chapter-link">
+                    <span class="toc-chapter-title">解答・解説編</span>
+                    <span class="toc-chapter-meta">
+                        <span class="toc-chapter-pages">p.56–277</span>
+                        <span class="toc-chevron">▶</span>
+                    </span>
+                </summary>
+                <div class="toc-subsections">
+                    <a href="rules3_viewer.html?book=rules3&page=67" class="toc-sub-link">
+                        <span class="toc-sub-num">1</span>
+                        <span class="toc-sub-title">Lesson 1</span>
+                        <span class="toc-sub-page">p.67</span>
+                    </a>
+                    <a href="rules3_viewer.html?book=rules3&page=88" class="toc-sub-link">
+                        <span class="toc-sub-num">2</span>
+                        <span class="toc-sub-title">Lesson 2</span>
+                        <span class="toc-sub-page">p.88</span>
+                    </a>
+                    <a href="rules3_viewer.html?book=rules3&page=104" class="toc-sub-link">
+                        <span class="toc-sub-num">3</span>
+                        <span class="toc-sub-title">Lesson 3</span>
+                        <span class="toc-sub-page">p.104</span>
+                    </a>
+                    <a href="rules3_viewer.html?book=rules3&page=123" class="toc-sub-link">
+                        <span class="toc-sub-num">4</span>
+                        <span class="toc-sub-title">Lesson 4</span>
+                        <span class="toc-sub-page">p.123</span>
+                    </a>
+                    <a href="rules3_viewer.html?book=rules3&page=137" class="toc-sub-link">
+                        <span class="toc-sub-num">5</span>
+                        <span class="toc-sub-title">Lesson 5</span>
+                        <span class="toc-sub-page">p.137</span>
+                    </a>
+                    <a href="rules3_viewer.html?book=rules3&page=156" class="toc-sub-link">
+                        <span class="toc-sub-num">6</span>
+                        <span class="toc-sub-title">Lesson 6</span>
+                        <span class="toc-sub-page">p.156</span>
+                    </a>
+                    <a href="rules3_viewer.html?book=rules3&page=177" class="toc-sub-link">
+                        <span class="toc-sub-num">7</span>
+                        <span class="toc-sub-title">Lesson 7</span>
+                        <span class="toc-sub-page">p.177</span>
+                    </a>
+                    <a href="rules3_viewer.html?book=rules3&page=189" class="toc-sub-link">
+                        <span class="toc-sub-num">8</span>
+                        <span class="toc-sub-title">Lesson 8</span>
+                        <span class="toc-sub-page">p.189</span>
+                    </a>
+                    <a href="rules3_viewer.html?book=rules3&page=205" class="toc-sub-link">
+                        <span class="toc-sub-num">9</span>
+                        <span class="toc-sub-title">Lesson 9</span>
+                        <span class="toc-sub-page">p.205</span>
+                    </a>
+                    <a href="rules3_viewer.html?book=rules3&page=223" class="toc-sub-link">
+                        <span class="toc-sub-num">10</span>
+                        <span class="toc-sub-title">Lesson 10</span>
+                        <span class="toc-sub-page">p.223</span>
+                    </a>
+                    <a href="rules3_viewer.html?book=rules3&page=241" class="toc-sub-link">
+                        <span class="toc-sub-num">11</span>
+                        <span class="toc-sub-title">Lesson 11</span>
+                        <span class="toc-sub-page">p.241</span>
+                    </a>
+                    <a href="rules3_viewer.html?book=rules3&page=258" class="toc-sub-link">
+                        <span class="toc-sub-num">12</span>
+                        <span class="toc-sub-title">Lesson 12</span>
+                        <span class="toc-sub-page">p.258</span>
+                    </a>
+                </div>
+            </details>
+        </div>
+        </div>
+        <div class="toc-footer">© 2026 ECCベストワン藍住・北島中央</div>
+    </div>
+    <script>
+        // 同時に1つだけ開くアコーディオン制御
+        document.querySelectorAll('.toc-accordion').forEach(det => {
+            det.addEventListener('toggle', () => {
+                if (det.open) {
+                    document.querySelectorAll('.toc-accordion').forEach(other => {
+                        if (other !== det) other.open = false;
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
