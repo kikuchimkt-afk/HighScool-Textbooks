@@ -559,16 +559,17 @@ document.addEventListener('DOMContentLoaded', () => {
             printBtn.addEventListener('click', () => {
                 // 現在表示中のページを基準に前後2ページずつ表示
                 if (viewMode === 'spread') {
-                const lp = currentPage % 2 === 0 ? currentPage : currentPage - 1;
-                printRangeStart = Math.max(1, lp - 2);
-                printRangeEnd = Math.min(TOTAL_PAGES, lp + 3);
-            } else {
-                printRangeStart = Math.max(1, currentPage - 2);
-                printRangeEnd = Math.min(TOTAL_PAGES, currentPage + 2);
-            }
-            renderPrintPages();
-            printModalOverlay.style.display = 'flex';
-        });
+                    const lp = currentPage % 2 === 0 ? currentPage : currentPage - 1;
+                    printRangeStart = Math.max(1, lp - 2);
+                    printRangeEnd = Math.min(TOTAL_PAGES, lp + 3);
+                } else {
+                    printRangeStart = Math.max(1, currentPage - 2);
+                    printRangeEnd = Math.min(TOTAL_PAGES, currentPage + 2);
+                }
+                renderPrintPages();
+                printModalOverlay.style.display = 'flex';
+            });
+        }
     }
 
     if (printRangePrev) {
