@@ -582,6 +582,99 @@ const hsData = {
             }));
         },
         pageQrs: {}
+    },
+
+    // スピードチェック 化学基礎
+    speedcheck_chem_basic: {
+        id: "speedcheck_chem_basic",
+        title: "スピードチェック 化学基礎",
+        totalPages: 88,
+        imagesPath: "images/speedcheck_chem_basic/",
+        printImagesPath: "images/speedcheck_chem_basic_bw/",
+        coverImage: "images/speedcheck_chem_basic_cover.jpg",
+        qrBase: "",
+        chapters: [
+            {
+                id: "intro", title: "表紙・目次", start: 1, end: 3,
+                subsections: []
+            },
+            {
+                id: "part1", title: "物質の構成と化学結合", start: 4, end: 33,
+                subsections: [
+                    { num: 1,  title: "物質の三態", page: 4 },
+                    { num: 2,  title: "原子の構造", page: 10 },
+                    { num: 3,  title: "元素の周期表と電子配置", page: 16 },
+                    { num: 4,  title: "化学結合", page: 22 },
+                    { num: 5,  title: "結晶の種類", page: 29 }
+                ]
+            },
+            {
+                id: "part2", title: "物質量と化学反応式", start: 34, end: 48,
+                subsections: [
+                    { num: 6,  title: "原子量・分子量と物質量", page: 34 },
+                    { num: 7,  title: "化学反応式と量的関係", page: 40 },
+                    { num: 8,  title: "溶液の濃度", page: 44 }
+                ]
+            },
+            {
+                id: "part3", title: "酸・塩基の反応", start: 49, end: 62,
+                subsections: [
+                    { num: 9,  title: "酸・塩基とその量的関係", page: 49 },
+                    { num: 10, title: "pHと滴定曲線", page: 56 }
+                ]
+            },
+            {
+                id: "part4", title: "酸化還元反応", start: 63, end: 83,
+                subsections: [
+                    { num: 11, title: "酸化還元反応", page: 63 },
+                    { num: 12, title: "金属のイオン化傾向と電池", page: 70 },
+                    { num: 13, title: "電気分解と金属の製錬", page: 76 }
+                ]
+            },
+            {
+                id: "appendix", title: "元素の周期表・索引", start: 84, end: 88,
+                subsections: []
+            }
+        ],
+        get sections() {
+            return this.chapters.map(ch => ({
+                id: ch.id, title: ch.title, start: ch.start, end: ch.end,
+                pages: ch.end - ch.start + 1
+            }));
+        },
+        pageQrs: {}
+    },
+
+    // 理解しやすい化学・化学基礎
+    rikeishiyasui_chem: {
+        id: "rikeishiyasui_chem",
+        title: "理解しやすい化学・化学基礎",
+        totalPages: 577,
+        imagesPath: "images/rikeishiyasui_chem/",
+        printImagesPath: null, // 印刷非対応
+        coverImage: "images/rikeishiyasui_chem_cover.jpg",
+        qrBase: "",
+        chapters: [
+            { id: "intro", title: "目次", start: 1, end: 8, subsections: [] },
+            { id: "part1", title: "第1編 物質の構成", start: 9, end: 72, subsections: [] },
+            { id: "part2", title: "第2編 物質の変化", start: 73, end: 177, subsections: [] },
+            { id: "part3", title: "第3編 物質の状態と平衡", start: 178, end: 245, subsections: [] },
+            { id: "part4", title: "第4編 物質の変化と平衡", start: 246, end: 299, subsections: [] },
+            { id: "part5", title: "第5編 無機物質", start: 300, end: 365, subsections: [] },
+            { id: "part6", title: "第6編 有機化合物", start: 366, end: 437, subsections: [] },
+            { id: "part7", title: "第7編 高分子化合物", start: 438, end: 492, subsections: [] },
+            { id: "part8", title: "第8編 化学が果たす役割", start: 493, end: 530, subsections: [] },
+            { id: "answers", title: "問題の解答", start: 531, end: 562, subsections: [] },
+            { id: "index1", title: "索引", start: 563, end: 574, subsections: [] },
+            { id: "index2", title: "索引（化学式）", start: 575, end: 577, subsections: [] }
+        ],
+        get sections() {
+            return this.chapters.map(ch => ({
+                id: ch.id, title: ch.title, start: ch.start, end: ch.end,
+                pages: ch.end - ch.start + 1
+            }));
+        },
+        pageQrs: {}
     }
 };
 
