@@ -252,6 +252,66 @@ const hsData = {
         pageQrs: {}
     },
 
+    jyuko_ge: {
+        id: "jyuko_ge",
+        title: "英文熟考［改訂版］下",
+        totalPages: 224,
+        imagesPath: "images/jyuko_ge/",
+        printImagesPath: "images/jyuko_ge_bw/",
+        coverImage: "images/jyuko_ge_cover.jpg",
+        qrBase: "",
+        chapters: [
+            { id: "intro", title: "はじめに・目次", start: 1, end: 1, subsections: [] },
+            { id: "chap1", title: "問題", start: 2, end: 72, subsections: [
+                { num: 1, title: "第1回", page: 2 },
+                { num: 2, title: "第2回", page: 6 },
+                { num: 3, title: "第3回", page: 10 },
+                { num: 4, title: "第4回", page: 14 },
+                { num: 5, title: "第5回", page: 18 },
+                { num: 6, title: "第6回", page: 22 },
+                { num: 7, title: "第7回", page: 26 },
+                { num: 8, title: "第8回", page: 30 },
+                { num: 9, title: "第9回", page: 34 },
+                { num: 10, title: "第10回", page: 38 },
+                { num: 11, title: "第11回", page: 42 },
+                { num: 12, title: "第12回", page: 46 },
+                { num: 13, title: "第13回", page: 50 },
+                { num: 14, title: "第14回", page: 54 },
+                { num: 15, title: "第15回", page: 58 },
+                { num: 16, title: "第16回", page: 62 },
+                { num: 17, title: "第17回", page: 66 },
+                { num: 18, title: "第18回", page: 70 }
+            ]},
+            { id: "answers", title: "解答・解説", start: 73, end: 224, subsections: [
+                { num: 1, title: "第1回", page: 10 + 72 },
+                { num: 2, title: "第2回", page: 18 + 72 },
+                { num: 3, title: "第3回", page: 26 + 72 },
+                { num: 4, title: "第4回", page: 34 + 72 },
+                { num: 5, title: "第5回", page: 42 + 72 },
+                { num: 6, title: "第6回", page: 50 + 72 },
+                { num: 7, title: "第7回", page: 58 + 72 },
+                { num: 8, title: "第8回", page: 66 + 72 },
+                { num: 9, title: "第9回", page: 74 + 72 },
+                { num: 10, title: "第10回", page: 82 + 72 },
+                { num: 11, title: "第11回", page: 90 + 72 },
+                { num: 12, title: "第12回", page: 98 + 72 },
+                { num: 13, title: "第13回", page: 106 + 72 },
+                { num: 14, title: "第14回", page: 114 + 72 },
+                { num: 15, title: "第15回", page: 122 + 72 },
+                { num: 16, title: "第16回", page: 130 + 72 },
+                { num: 17, title: "第17回", page: 138 + 72 },
+                { num: 18, title: "第18回", page: 146 + 72 }
+            ]}
+        ],
+        get sections() {
+            return this.chapters.map(ch => ({
+                id: ch.id, title: ch.title, start: ch.start, end: ch.end,
+                pages: ch.end - ch.start + 1
+            }));
+        },
+        pageQrs: {}
+    },
+
     solution1: {
         id: "solution1",
         title: "肘井学の読解のための英文法 Solution 1",
