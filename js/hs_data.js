@@ -96,6 +96,41 @@ const hsData = {
         pageQrs: {}
     },
 
+    rules1: {
+        id: "rules1",
+        title: "関正生の英語長文 Rules 1",
+        totalPages: 256,
+        imagesPath: "images/rules1/",
+        printImagesPath: "images/rules1_bw/",
+        coverImage: "images/rules1_cover.jpg",
+        qrBase: "",
+        chapters: [
+            { id: "intro", title: "はじめに・目次", start: 1, end: 2, subsections: [] },
+            { id: "chap1", title: "問題", start: 3, end: 48, subsections: [
+                { num: 1, title: "Lesson 1", page: 3 },
+                { num: 2, title: "Lesson 2", page: 7 },
+                { num: 3, title: "Lesson 3", page: 9 },
+                { num: 4, title: "Lesson 4", page: 13 },
+                { num: 5, title: "Lesson 5", page: 17 },
+                { num: 6, title: "Lesson 6", page: 21 },
+                { num: 7, title: "Lesson 7", page: 25 },
+                { num: 8, title: "Lesson 8", page: 29 },
+                { num: 9, title: "Lesson 9", page: 33 },
+                { num: 10, title: "Lesson 10", page: 37 },
+                { num: 11, title: "Lesson 11", page: 41 },
+                { num: 12, title: "Lesson 12", page: 45 }
+            ]},
+            { id: "answers", title: "解答・解説", start: 49, end: 256, subsections: [] }
+        ],
+        get sections() {
+            return this.chapters.map(ch => ({
+                id: ch.id, title: ch.title, start: ch.start, end: ch.end,
+                pages: ch.end - ch.start + 1
+            }));
+        },
+        pageQrs: {}
+    },
+
     // SuperQuick 数IA
     superquick_math1a: {
         id: "superquick_math1a",

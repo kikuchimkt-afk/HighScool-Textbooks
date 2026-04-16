@@ -542,7 +542,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const cbox = document.createElement('input');
             cbox.type = 'checkbox';
             cbox.value = src;
-            cbox.checked = true;
+            cbox.checked = false;
             cbox.addEventListener('change', () => {
                 item.classList.toggle('selected', cbox.checked);
                 updatePrintSelectedCount();

@@ -1,0 +1,12 @@
+{
+    "name": "関正生の英語長文 Rules 1 ビューア",
+    "short_name": "ポラリス1",
+    "start_url": "./rules1_toc.html",
+    "display": "standalone",
+    "background_color": "#000000",
+    "theme_color": "#1e3c72",
+    "icons": [
+        { "src": "icons/rules1_192.png", "sizes": "192x192", "type": "image/png" },
+        { "src": "icons/rules1_512.png", "sizes": "512x512", "type": "image/png" }
+    ]
+}
