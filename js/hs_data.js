@@ -3,7 +3,7 @@ const hsData = {
     tanki_math1a: {
         id: "tanki_math1a",
         title: "短期集中ゼミ 基礎からの数学I+A",
-        totalPages: 152,
+        totalPages: 155,
         imagesPath: "images/tanki_math1a/",
         printImagesPath: "images/tanki_math1a_bw/",
         coverImage: "images/tanki_math1a_cover.jpg",
@@ -132,7 +132,7 @@ const hsData = {
     tanki_math2b: {
         id: "tanki_math2b",
         title: "短期集中ゼミ 基礎からの数学II+B Express",
-        totalPages: 186,
+        totalPages: 189,
         imagesPath: "images/tanki_math2b/",
         printImagesPath: "images/tanki_math2b_bw/",
         coverImage: "images/tanki_math2b_cover.jpg",
