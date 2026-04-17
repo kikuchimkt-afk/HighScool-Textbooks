@@ -1,4 +1,62 @@
 const hsData = {
+    // ランダム総点検 基礎レベル
+    random_check_basic: {
+        id: "random_check_basic",
+        title: "ランダム総点検 英文法・語法 最終チェック問題集 基礎レベル編",
+        totalPages: 175,
+        imagesPath: "images/random_check_basic/",
+        printImagesPath: "images/random_check_basic_bw/",
+        coverImage: "images/random_check_basic_cover.jpg",
+        qrBase: "",
+        chapters: [
+            { id: "prob", title: "本文", start: 1, end: 47, subsections: [
+                { num: 1, title: "Test 01", page: 6 },
+                { num: 2, title: "Test 02", page: 9 },
+                { num: 3, title: "Test 03", page: 12 },
+                { num: 4, title: "Test 04", page: 15 },
+                { num: 5, title: "Test 05", page: 18 },
+                { num: 6, title: "Test 06", page: 21 },
+                { num: 7, title: "Test 07", page: 24 },
+                { num: 8, title: "Test 08", page: 27 },
+                { num: 9, title: "Test 09", page: 31 },
+                { num: 10, title: "Test 10", page: 34 },
+                { num: 11, title: "Test 01 解答用紙", page: 38 },
+                { num: 12, title: "Test 02 解答用紙", page: 39 },
+                { num: 13, title: "Test 03 解答用紙", page: 40 },
+                { num: 14, title: "Test 04 解答用紙", page: 41 },
+                { num: 15, title: "Test 05 解答用紙", page: 42 },
+                { num: 16, title: "Test 06 解答用紙", page: 43 },
+                { num: 17, title: "Test 07 解答用紙", page: 44 },
+                { num: 18, title: "Test 08 解答用紙", page: 45 },
+                { num: 19, title: "Test 09 解答用紙", page: 46 },
+                { num: 20, title: "Test 10 解答用紙", page: 47 }
+            ]},
+            { id: "answers", title: "解答・解説編", start: 48, end: 175, subsections: [
+                { num: 1, title: "英語の品詞と文型の基本を再確認しよう！", page: 4 + 47 },
+                { num: 2, title: "Test 01 解答・解説", page: 6 + 47 },
+                { num: 3, title: "Test 02 解答・解説", page: 17 + 47 },
+                { num: 4, title: "Test 03 解答・解説", page: 28 + 47 },
+                { num: 5, title: "Test 04 解答・解説", page: 39 + 47 },
+                { num: 6, title: "Test 05 解答・解説", page: 51 + 47 },
+                { num: 7, title: "Test 06 解答・解説", page: 62 + 47 },
+                { num: 8, title: "Test 07 解答・解説", page: 75 + 47 },
+                { num: 9, title: "Test 08 解答・解説", page: 87 + 47 },
+                { num: 10, title: "Test 09 解答・解説", page: 99 + 47 },
+                { num: 11, title: "Test 10 解答・解説", page: 109 + 47 },
+                { num: 12, title: "基本の文法を整理しよう！", page: 121 + 47 },
+                { num: 13, title: "実力点検チャート", page: 124 + 47 },
+                { num: 14, title: "INDEX", page: 126 + 47 }
+            ]}
+        ],
+        get sections() {
+            return this.chapters.map(ch => ({
+                id: ch.id, title: ch.title, start: ch.start, end: ch.end,
+                pages: ch.end - ch.start + 1
+            }));
+        },
+        pageQrs: {}
+    },
+
     // 英語長文ポラリス1
     polaris1: {
         id: "polaris1",
