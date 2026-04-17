@@ -3018,6 +3018,32 @@ const hsData = {
         pageQrs: {}
     },
 
+    hyojun_chem: {
+        id: "hyojun_chem",
+        title: "化学の新標準演習 (新課程)",
+        totalPages: 592,
+        imagesPath: "images/hyojun_chem/",
+        printImagesPath: "images/hyojun_chem_bw/",
+        coverImage: "images/hyojun_chem_cover.jpg",
+        qrBase: "",
+        chapters: [
+            { id: "intro", title: "はじめに・目次", start: 1, end: 5, subsections: [] },
+            { id: "chap_q1", title: "問題編 (1〜100ページ)", start: 6, end: 100, subsections: [] },
+            { id: "chap_q2", title: "問題編 (101〜200ページ)", start: 101, end: 200, subsections: [] },
+            { id: "chap_q3", title: "問題編 (201〜300ページ)", start: 201, end: 300, subsections: [] },
+            { id: "chap_q4", title: "問題編 (301〜336ページ)", start: 301, end: 336, subsections: [] },
+            { id: "chap_a1", title: "解答・解説編 (1〜128ページ)", start: 337, end: 464, subsections: [] },
+            { id: "chap_a2", title: "解答・解説編 (129〜256ページ)", start: 465, end: 592, subsections: [] }
+        ],
+        get sections() {
+            return this.chapters.map(ch => ({
+                id: ch.id, title: ch.title, start: ch.start, end: ch.end,
+                pages: ch.end - ch.start + 1
+            }));
+        },
+        pageQrs: {}
+    },
+
     hijii_dokkai: {
         id: "hijii_dokkai",
         title: "読解のための英文法が面白いほどわかる本",
