@@ -2,7 +2,7 @@ const hsData = {
     chart_kyotsu_math: {
         id: "chart_kyotsu_math",
         title: "新課程 チャート式 大学入学共通テスト対策 数学IA+IIBC",
-        totalPages: 450, // 仮
+        totalPages: 659,
         imagesPath: "images/chart_kyotsu_math/",
         printImagesPath: "images/chart_kyotsu_math_bw/",
         coverImage: "images/chart_kyotsu_math_cover.jpg",
@@ -33,7 +33,7 @@ const hsData = {
                 { num: 1, title: "第14章 ベクトル", page: 267 },
                 { num: 2, title: "第15章 平面上の曲線と複素数平面", page: 286 }
             ]},
-            { id: "ch6", title: "その他", start: 311, end: 450, subsections: [
+            { id: "ch6", title: "その他", start: 311, end: 659, subsections: [
                 { num: 1, title: "実践模試", page: 311 },
                 { num: 2, title: "指針一覧", page: 348 },
                 { num: 3, title: "答の部", page: 370 }
