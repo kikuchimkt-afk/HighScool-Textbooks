@@ -132,7 +132,7 @@ const hsData = {
     tanki_math2b: {
         id: "tanki_math2b",
         title: "短期集中ゼミ 基礎からの数学II+B Express",
-        totalPages: 189,
+        totalPages: 186,
         imagesPath: "images/tanki_math2b/",
         printImagesPath: "images/tanki_math2b_bw/",
         coverImage: "images/tanki_math2b_cover.jpg",
