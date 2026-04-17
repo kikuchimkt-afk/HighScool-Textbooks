@@ -1,4 +1,53 @@
 const hsData = {
+    chart_kyotsu_math: {
+        id: "chart_kyotsu_math",
+        title: "新課程 チャート式 大学入学共通テスト対策 数学IA+IIBC",
+        totalPages: 450, // 仮
+        imagesPath: "images/chart_kyotsu_math/",
+        printImagesPath: "images/chart_kyotsu_math_bw/",
+        coverImage: "images/chart_kyotsu_math_cover.jpg",
+        qrBase: "",
+        chapters: [
+            { id: "ch1", title: "数学Ⅰ", start: 13, end: 87, subsections: [
+                { num: 1, title: "第1章 数と式, 集合と命題", page: 13 },
+                { num: 2, title: "第2章 2次関数", page: 28 },
+                { num: 3, title: "第3章 図形と計量", page: 49 },
+                { num: 4, title: "第4章 データの分析", page: 66 }
+            ]},
+            { id: "ch2", title: "数学A", start: 88, end: 131, subsections: [
+                { num: 1, title: "第5章 場合の数と確率", page: 88 },
+                { num: 2, title: "第6章 図形の性質", page: 115 }
+            ]},
+            { id: "ch3", title: "数学Ⅱ", start: 132, end: 224, subsections: [
+                { num: 1, title: "第7章 式と証明, 複素数と方程式", page: 132 },
+                { num: 2, title: "第8章 図形と方程式", page: 150 },
+                { num: 3, title: "第9章 三角関数", page: 167 },
+                { num: 4, title: "第10章 指数関数・対数関数", page: 184 },
+                { num: 5, title: "第11章 微分法・積分法", page: 200 }
+            ]},
+            { id: "ch4", title: "数学B", start: 225, end: 266, subsections: [
+                { num: 1, title: "第12章 数列", page: 225 },
+                { num: 2, title: "第13章 統計的な推測", page: 247 }
+            ]},
+            { id: "ch5", title: "数学C", start: 267, end: 310, subsections: [
+                { num: 1, title: "第14章 ベクトル", page: 267 },
+                { num: 2, title: "第15章 平面上の曲線と複素数平面", page: 286 }
+            ]},
+            { id: "ch6", title: "その他", start: 311, end: 450, subsections: [
+                { num: 1, title: "実践模試", page: 311 },
+                { num: 2, title: "指針一覧", page: 348 },
+                { num: 3, title: "答の部", page: 370 }
+            ]}
+        ],
+        get sections() {
+            return this.chapters.map(ch => ({
+                id: ch.id, title: ch.title, start: ch.start, end: ch.end,
+                pages: ch.end - ch.start + 1
+            }));
+        },
+        pageQrs: {}
+    },
+
     // 短期集中ゼミ 基礎からの数学I+A
     tanki_math1a: {
         id: "tanki_math1a",
