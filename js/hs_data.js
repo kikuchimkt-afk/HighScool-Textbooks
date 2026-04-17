@@ -1847,6 +1847,49 @@ const hsData = {
         pageQrs: {}
     },
 
+    sundai_math1a: {
+        id: "sundai_math1a",
+        title: "短期攻略 共通テスト 数学Ⅰ・A",
+        totalPages: 180,
+        imagesPath: "images/sundai_math1a/",
+        printImagesPath: "images/sundai_math1a_bw/",
+        coverImage: "images/sundai_math1a_cover.jpg",
+        qrBase: "",
+        chapters: [
+            { id: "intro", title: "はじめに・もくじ", start: 1, end: 2, subsections: [] },
+            { id: "math1", title: "数学Ⅰ", start: 3, end: 12, subsections: [
+                { num: "1", title: "*1 ～ *8", page: 3 }
+            ] },
+            { id: "set", title: "集合と命題", start: 13, end: 22, subsections: [
+                { num: "2", title: "*9 ～ *16", page: 13 }
+            ] },
+            { id: "quad", title: "2次関数", start: 23, end: 33, subsections: [
+                { num: "3", title: "*17 ～ *24", page: 23 }
+            ] },
+            { id: "fig", title: "図形と計量", start: 34, end: 45, subsections: [
+                { num: "4", title: "*25 ～ *33", page: 34 }
+            ] },
+            { id: "data", title: "データの分析", start: 46, end: 63, subsections: [
+                { num: "5", title: "*34 ～ *42", page: 46 }
+            ] },
+            { id: "prob", title: "場合の数と確率", start: 64, end: 75, subsections: [
+                { num: "6", title: "*43 ～ *50", page: 64 }
+            ] },
+            { id: "geom", title: "図形の性質", start: 76, end: 88, subsections: [
+                { num: "7", title: "*51 ～ *58", page: 76 }
+            ] },
+            { id: "trig", title: "三角比の表", start: 89, end: 89, subsections: [] },
+            { id: "answers", title: "解答・解説", start: 90, end: 180, subsections: [] }
+        ],
+        get sections() {
+            return this.chapters.map(ch => ({
+                id: ch.id, title: ch.title, start: ch.start, end: ch.end,
+                pages: ch.end - ch.start + 1
+            }));
+        },
+        pageQrs: {}
+    },
+
     hijii_dokkai: {
         id: "hijii_dokkai",
         title: "読解のための英文法が面白いほどわかる本",
