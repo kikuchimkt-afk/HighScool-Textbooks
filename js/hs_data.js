@@ -2498,6 +2498,112 @@ const hsData = {
         }
     },
 
+    kawai_1000: {
+        id: "kawai_1000",
+        title: "やっておきたい英語長文1000",
+        totalPages: 188,
+        imagesPath: "images/kawai_1000/",
+        printImagesPath: "images/kawai_1000_bw/",
+        coverImage: "images/kawai_1000_cover.jpg",
+        qrBase: "",
+        chapters: [
+            { id: "intro", title: "目次", start: 1, end: 1, subsections: [
+            ] },
+            { id: "p1", title: "1. 動物の感情 [同志社大]", start: 2, end: 5, subsections: [
+                { num: "答", title: "解答・解説", page: 50 },
+            ] },
+            { id: "p2", title: "2. グローバル化の恩恵 [金沢大]", start: 6, end: 9, subsections: [
+                { num: "答", title: "解答・解説", page: 62 },
+            ] },
+            { id: "p3", title: "3. 医学の起源 [慶應義塾大]", start: 10, end: 13, subsections: [
+                { num: "答", title: "解答・解説", page: 74 },
+            ] },
+            { id: "p4", title: "4. 創発 [東京外国語大]", start: 14, end: 17, subsections: [
+                { num: "答", title: "解答・解説", page: 86 },
+            ] },
+            { id: "p5", title: "5. 移民抑制の是非 [青山学院大]", start: 18, end: 20, subsections: [
+                { num: "答", title: "解答・解説", page: 99 },
+            ] },
+            { id: "p6", title: "6. 商品としての時間 [慶應義塾大]", start: 21, end: 24, subsections: [
+                { num: "答", title: "解答・解説", page: 111 },
+            ] },
+            { id: "p7", title: "7. 人格形成に影響を及ぼす因子 [東京医科歯科大]", start: 25, end: 28, subsections: [
+                { num: "答", title: "解答・解説", page: 125 },
+            ] },
+            { id: "p8", title: "8. 演繹と帰納 [早稲田大]", start: 29, end: 33, subsections: [
+                { num: "答", title: "解答・解説", page: 139 },
+            ] },
+            { id: "p9", title: "9. 過食と拒食 [東京大]", start: 34, end: 38, subsections: [
+                { num: "答", title: "解答・解説", page: 154 },
+            ] },
+            { id: "p10", title: "10. 規範文法 [一橋大]", start: 39, end: 43, subsections: [
+                { num: "答", title: "解答・解説", page: 170 },
+            ] },
+            { id: "answers", title: "全解答・解説", start: 45, end: 188, subsections: [
+                { num: "1", title: "動物の感情", page: 50 },
+                { num: "2", title: "グローバル化の恩恵", page: 62 },
+                { num: "3", title: "医学の起源", page: 74 },
+                { num: "4", title: "創発", page: 86 },
+                { num: "5", title: "移民抑制の是非", page: 99 },
+                { num: "6", title: "商品としての時間", page: 111 },
+                { num: "7", title: "人格形成に影響を及ぼす因子", page: 125 },
+                { num: "8", title: "演繹と帰納", page: 139 },
+                { num: "9", title: "過食と拒食", page: 154 },
+                { num: "10", title: "規範文法", page: 170 },
+            ] },
+        ],
+        get sections() {
+            return this.chapters.map(ch => ({
+                id: ch.id, title: ch.title, start: ch.start, end: ch.end,
+                pages: ch.end - ch.start + 1
+            }));
+        },
+        pageQrs: {
+            2: 50,
+            3: 50,
+            4: 50,
+            5: 50,
+            6: 62,
+            7: 62,
+            8: 62,
+            9: 62,
+            10: 74,
+            11: 74,
+            12: 74,
+            13: 74,
+            14: 86,
+            15: 86,
+            16: 86,
+            17: 86,
+            18: 99,
+            19: 99,
+            20: 99,
+            21: 111,
+            22: 111,
+            23: 111,
+            24: 111,
+            25: 125,
+            26: 125,
+            27: 125,
+            28: 125,
+            29: 139,
+            30: 139,
+            31: 139,
+            32: 139,
+            33: 139,
+            34: 154,
+            35: 154,
+            36: 154,
+            37: 154,
+            38: 154,
+            39: 170,
+            40: 170,
+            41: 170,
+            42: 170,
+            43: 170,
+        }
+    },
+
     hijii_dokkai: {
         id: "hijii_dokkai",
         title: "読解のための英文法が面白いほどわかる本",
