@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>チャート式 新化学 (新課程) | 目次</title>
+    <meta name="description" content="チャート式 新化学 (新課程) 目次一覧">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/chart_chem_32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="icons/chart_chem_180.png">
+    <link rel="manifest" href="manifest_chart_chem.json">
+    <meta name="theme-color" content="#000000">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Inter', 'Noto Sans JP', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #000;
+            min-height: 100vh; color: #f5f5f7;
+        }
+        .bg-layer {
+            position: fixed; inset: 0; z-index: 0;
+        }
+        .bg-layer img {
+            width: 100%; height: 100%; object-fit: cover;
+            filter: brightness(0.5) saturate(1.2);
+        }
+        .bg-overlay {
+            position: fixed; inset: 0; z-index: 1;
+            background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.7) 100%);
+        }
+        .toc-page { position: relative; z-index: 2; }
+        .toc-header {
+            text-align: center; padding: 3rem 1.5rem 1.5rem;
+        }
+        .toc-back {
+            display: inline-flex; align-items: center; gap: 6px;
+            color: rgba(255,255,255,0.4); text-decoration: none;
+            font-size: 0.85rem; margin-bottom: 1.5rem;
+            transition: color 0.25s; font-weight: 400;
+        }
+        .toc-back:hover { color: rgba(255,255,255,0.8); }
+        .toc-header h1 {
+            font-size: 2.2rem; font-weight: 700;
+            letter-spacing: -0.03em; margin-bottom: 0.3rem;
+            background: linear-gradient(135deg, #fff, rgba(255,255,255,0.6));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .toc-header p {
+            font-size: 0.9rem; color: rgba(255,255,255,0.35);
+            font-weight: 300;
+        }
+        .toc-container {
+            max-width: 720px; margin: 0 auto; padding: 0 1rem 4rem;
+        }
+        .toc-cover {
+            display: block; max-width: 180px; margin: 0 auto 2rem;
+            border-radius: 14px;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+        }
+        .toc-chapter {
+            margin-bottom: 0.6rem;
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(40px) saturate(1.5);
+            -webkit-backdrop-filter: blur(40px) saturate(1.5);
+            border: 1px solid rgba(255,255,255,0.07);
+            border-radius: 16px; overflow: hidden;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.15),
+                        inset 0 1px 0 rgba(255,255,255,0.05);
+        }
+        /* --- Accordion --- */
+        .toc-accordion { border: none; }
+        .toc-accordion summary { list-style: none; cursor: pointer; }
+        .toc-accordion summary::-webkit-details-marker { display: none; }
+        .toc-accordion summary::marker { display: none; content: ''; }
+        .toc-chapter-link {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 0.85rem 1.2rem; text-decoration: none; color: #f5f5f7;
+            font-weight: 600; font-size: 0.95rem;
+            transition: background 0.25s;
+            letter-spacing: -0.01em;
+        }
+        .toc-chapter-link:hover {
+            background: rgba(255,255,255,0.06);
+        }
+        .toc-chapter-meta {
+            display: flex; align-items: center; gap: 8px;
+        }
+        .toc-chevron {
+            font-size: 0.65rem; color: rgba(255,255,255,0.3);
+            transition: transform 0.3s ease;
+            display: inline-block;
+        }
+        .toc-accordion[open] .toc-chevron {
+            transform: rotate(90deg);
+        }
+        .toc-chapter-pages {
+            font-size: 0.75rem; color: rgba(255,255,255,0.3);
+            font-weight: 400; white-space: nowrap;
+        }
+        .toc-subsections {
+            border-top: 1px solid rgba(255,255,255,0.06);
+            padding: 0.2rem 0;
+            animation: tocSlideDown 0.25s ease;
+        }
+        @keyframes tocSlideDown {
+            from { opacity: 0; max-height: 0; }
+            to { opacity: 1; max-height: 2000px; }
+        }
+        .toc-sub-link {
+            display: flex; align-items: center; gap: 8px;
+            padding: 0.45rem 1.2rem 0.45rem 1.6rem;
+            text-decoration: none; color: rgba(255,255,255,0.65);
+            font-size: 0.84rem; transition: all 0.25s;
+            font-weight: 400;
+        }
+        .toc-sub-link:hover {
+            background: rgba(255,255,255,0.05);
+            color: rgba(255,255,255,0.9);
+        }
+        .toc-sub-num {
+            min-width: 26px; text-align: right; font-weight: 500;
+            color: rgba(160,140,255,0.7); font-size: 0.82rem;
+            font-variant-numeric: tabular-nums;
+        }
+        .toc-sub-title { flex: 1; }
+        .toc-sub-page {
+            font-size: 0.72rem; color: rgba(255,255,255,0.2);
+            white-space: nowrap; font-variant-numeric: tabular-nums;
+        }
+        .toc-footer {
+            text-align: center; padding: 2rem 1rem;
+            font-size: 0.7rem; color: rgba(255,255,255,0.2);
+        }
+        @media (max-width: 600px) {
+            .toc-header h1 { font-size: 1.6rem; }
+            .toc-header { padding: 2rem 1rem 1rem; }
+            .toc-sub-link { padding-left: 1rem; font-size: 0.8rem; }
+            .toc-chapter-link { font-size: 0.9rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-layer">
+        <img src="images/portal_bg.png" alt="" loading="eager">
+    </div>
+    <div class="bg-overlay"></div>
+    <div class="toc-page">
+        <div class="toc-header">
+            <a href="index.html" class="toc-back">← ポータルに戻る</a>
+            <h1>チャート式 新化学 (新課程)</h1>
+            <p>全605ページ</p>
+        </div>
+        <div class="toc-container">
+            <img src="images/chart_chem_cover.jpg" alt="チャート式 新化学 (新課程) 表紙" class="toc-cover">
+            
+        <div class="toc-chapter">
+            <details class="toc-accordion">
+                <summary class="toc-chapter-link">
+                    <span class="toc-chapter-title">序章</span>
+                    <span class="toc-chapter-meta">
+                        <span class="toc-chapter-pages">p.3–21</span>
+                        <span class="toc-chevron">▶</span>
+                    </span>
+                </summary>
+                <div class="toc-subsections">
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=11" class="toc-sub-link">
+                        <span class="toc-sub-num">0</span>
+                        <span class="toc-sub-title">序章 化学が拓く世界</span>
+                        <span class="toc-sub-page">p.11</span>
+                    </a>
+                </div>
+            </details>
+        </div>
+        <div class="toc-chapter">
+            <details class="toc-accordion">
+                <summary class="toc-chapter-link">
+                    <span class="toc-chapter-title">第1編 物質の構成と化学結合</span>
+                    <span class="toc-chapter-meta">
+                        <span class="toc-chapter-pages">p.22–122</span>
+                        <span class="toc-chevron">▶</span>
+                    </span>
+                </summary>
+                <div class="toc-subsections">
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=22" class="toc-sub-link">
+                        <span class="toc-sub-num">1</span>
+                        <span class="toc-sub-title">物質の構成</span>
+                        <span class="toc-sub-page">p.22</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=42" class="toc-sub-link">
+                        <span class="toc-sub-num">2</span>
+                        <span class="toc-sub-title">物質の構成粒子</span>
+                        <span class="toc-sub-page">p.42</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=64" class="toc-sub-link">
+                        <span class="toc-sub-num">3</span>
+                        <span class="toc-sub-title">化学結合</span>
+                        <span class="toc-sub-page">p.64</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=102" class="toc-sub-link">
+                        <span class="toc-sub-num">4</span>
+                        <span class="toc-sub-title">物質量と化学反応式</span>
+                        <span class="toc-sub-page">p.102</span>
+                    </a>
+                </div>
+            </details>
+        </div>
+        <div class="toc-chapter">
+            <details class="toc-accordion">
+                <summary class="toc-chapter-link">
+                    <span class="toc-chapter-title">第2編 物質の状態</span>
+                    <span class="toc-chapter-meta">
+                        <span class="toc-chapter-pages">p.126–180</span>
+                        <span class="toc-chevron">▶</span>
+                    </span>
+                </summary>
+                <div class="toc-subsections">
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=126" class="toc-sub-link">
+                        <span class="toc-sub-num">1</span>
+                        <span class="toc-sub-title">物質の三態と状態変化</span>
+                        <span class="toc-sub-page">p.126</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=138" class="toc-sub-link">
+                        <span class="toc-sub-num">2</span>
+                        <span class="toc-sub-title">気体</span>
+                        <span class="toc-sub-page">p.138</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=160" class="toc-sub-link">
+                        <span class="toc-sub-num">3</span>
+                        <span class="toc-sub-title">溶液</span>
+                        <span class="toc-sub-page">p.160</span>
+                    </a>
+                </div>
+            </details>
+        </div>
+        <div class="toc-chapter">
+            <details class="toc-accordion">
+                <summary class="toc-chapter-link">
+                    <span class="toc-chapter-title">第3編 物質の変化</span>
+                    <span class="toc-chapter-meta">
+                        <span class="toc-chapter-pages">p.196–304</span>
+                        <span class="toc-chevron">▶</span>
+                    </span>
+                </summary>
+                <div class="toc-subsections">
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=196" class="toc-sub-link">
+                        <span class="toc-sub-num">1</span>
+                        <span class="toc-sub-title">化学反応とエネルギー</span>
+                        <span class="toc-sub-page">p.196</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=214" class="toc-sub-link">
+                        <span class="toc-sub-num">2</span>
+                        <span class="toc-sub-title">化学反応の速さとしくみ</span>
+                        <span class="toc-sub-page">p.214</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=228" class="toc-sub-link">
+                        <span class="toc-sub-num">3</span>
+                        <span class="toc-sub-title">化学平衡</span>
+                        <span class="toc-sub-page">p.228</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=242" class="toc-sub-link">
+                        <span class="toc-sub-num">4</span>
+                        <span class="toc-sub-title">酸と塩基の反応</span>
+                        <span class="toc-sub-page">p.242</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=284" class="toc-sub-link">
+                        <span class="toc-sub-num">5</span>
+                        <span class="toc-sub-title">酸化還元反応と電池・電気分解</span>
+                        <span class="toc-sub-page">p.284</span>
+                    </a>
+                </div>
+            </details>
+        </div>
+        <div class="toc-chapter">
+            <details class="toc-accordion">
+                <summary class="toc-chapter-link">
+                    <span class="toc-chapter-title">第4編 無機物質</span>
+                    <span class="toc-chapter-meta">
+                        <span class="toc-chapter-pages">p.328–420</span>
+                        <span class="toc-chevron">▶</span>
+                    </span>
+                </summary>
+                <div class="toc-subsections">
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=328" class="toc-sub-link">
+                        <span class="toc-sub-num">1</span>
+                        <span class="toc-sub-title">非金属元素</span>
+                        <span class="toc-sub-page">p.328</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=360" class="toc-sub-link">
+                        <span class="toc-sub-num">2</span>
+                        <span class="toc-sub-title">金属元素(I) －典型元素－</span>
+                        <span class="toc-sub-page">p.360</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=375" class="toc-sub-link">
+                        <span class="toc-sub-num">3</span>
+                        <span class="toc-sub-title">金属元素(II) －遷移元素－</span>
+                        <span class="toc-sub-page">p.375</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=400" class="toc-sub-link">
+                        <span class="toc-sub-num">4</span>
+                        <span class="toc-sub-title">無機物質と人間生活</span>
+                        <span class="toc-sub-page">p.400</span>
+                    </a>
+                </div>
+            </details>
+        </div>
+        <div class="toc-chapter">
+            <details class="toc-accordion">
+                <summary class="toc-chapter-link">
+                    <span class="toc-chapter-title">第5編 有機化合物</span>
+                    <span class="toc-chapter-meta">
+                        <span class="toc-chapter-pages">p.412–498</span>
+                        <span class="toc-chevron">▶</span>
+                    </span>
+                </summary>
+                <div class="toc-subsections">
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=412" class="toc-sub-link">
+                        <span class="toc-sub-num">1</span>
+                        <span class="toc-sub-title">有機化合物の分類と分析</span>
+                        <span class="toc-sub-page">p.412</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=420" class="toc-sub-link">
+                        <span class="toc-sub-num">2</span>
+                        <span class="toc-sub-title">脂肪族炭化水素</span>
+                        <span class="toc-sub-page">p.420</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=434" class="toc-sub-link">
+                        <span class="toc-sub-num">3</span>
+                        <span class="toc-sub-title">アルコールと関連化合物</span>
+                        <span class="toc-sub-page">p.434</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=458" class="toc-sub-link">
+                        <span class="toc-sub-num">4</span>
+                        <span class="toc-sub-title">芳香族化合物</span>
+                        <span class="toc-sub-page">p.458</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=478" class="toc-sub-link">
+                        <span class="toc-sub-num">5</span>
+                        <span class="toc-sub-title">有機化合物と人間生活</span>
+                        <span class="toc-sub-page">p.478</span>
+                    </a>
+                </div>
+            </details>
+        </div>
+        <div class="toc-chapter">
+            <details class="toc-accordion">
+                <summary class="toc-chapter-link">
+                    <span class="toc-chapter-title">第6編 天然有機化合物と高分子化合物</span>
+                    <span class="toc-chapter-meta">
+                        <span class="toc-chapter-pages">p.486–544</span>
+                        <span class="toc-chevron">▶</span>
+                    </span>
+                </summary>
+                <div class="toc-subsections">
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=486" class="toc-sub-link">
+                        <span class="toc-sub-num">1</span>
+                        <span class="toc-sub-title">天然有機化合物</span>
+                        <span class="toc-sub-page">p.486</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=510" class="toc-sub-link">
+                        <span class="toc-sub-num">2</span>
+                        <span class="toc-sub-title">合成高分子化合物</span>
+                        <span class="toc-sub-page">p.510</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=524" class="toc-sub-link">
+                        <span class="toc-sub-num">3</span>
+                        <span class="toc-sub-title">高分子化合物と人間生活</span>
+                        <span class="toc-sub-page">p.524</span>
+                    </a>
+                </div>
+            </details>
+        </div>
+        <div class="toc-chapter">
+            <details class="toc-accordion">
+                <summary class="toc-chapter-link">
+                    <span class="toc-chapter-title">特集</span>
+                    <span class="toc-chapter-meta">
+                        <span class="toc-chapter-pages">p.534–584</span>
+                        <span class="toc-chevron">▶</span>
+                    </span>
+                </summary>
+                <div class="toc-subsections">
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=534" class="toc-sub-link">
+                        <span class="toc-sub-num">0</span>
+                        <span class="toc-sub-title">1 問題解答のポイント</span>
+                        <span class="toc-sub-page">p.534</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=538" class="toc-sub-link">
+                        <span class="toc-sub-num">0</span>
+                        <span class="toc-sub-title">2 問題の考え方</span>
+                        <span class="toc-sub-page">p.538</span>
+                    </a>
+                </div>
+            </details>
+        </div>
+        <div class="toc-chapter">
+            <details class="toc-accordion">
+                <summary class="toc-chapter-link">
+                    <span class="toc-chapter-title">付録・索引</span>
+                    <span class="toc-chapter-meta">
+                        <span class="toc-chapter-pages">p.550–600</span>
+                        <span class="toc-chevron">▶</span>
+                    </span>
+                </summary>
+                <div class="toc-subsections">
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=550" class="toc-sub-link">
+                        <span class="toc-sub-num">0</span>
+                        <span class="toc-sub-title">解答編</span>
+                        <span class="toc-sub-page">p.550</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=580" class="toc-sub-link">
+                        <span class="toc-sub-num">0</span>
+                        <span class="toc-sub-title">巻末資料</span>
+                        <span class="toc-sub-page">p.580</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=585" class="toc-sub-link">
+                        <span class="toc-sub-num">0</span>
+                        <span class="toc-sub-title">索引</span>
+                        <span class="toc-sub-page">p.585</span>
+                    </a>
+                </div>
+            </details>
+        </div>
+        <div class="toc-chapter">
+            <details class="toc-accordion">
+                <summary class="toc-chapter-link">
+                    <span class="toc-chapter-title">CHART 公式・暗記事項</span>
+                    <span class="toc-chapter-meta">
+                        <span class="toc-chapter-pages">p.9999–9999</span>
+                        <span class="toc-chevron">▶</span>
+                    </span>
+                </summary>
+                <div class="toc-subsections">
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=30" class="toc-sub-link">
+                        <span class="toc-sub-num">01</span>
+                        <span class="toc-sub-title">同素体の覚え方</span>
+                        <span class="toc-sub-page">p.30</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=33" class="toc-sub-link">
+                        <span class="toc-sub-num">02</span>
+                        <span class="toc-sub-title">炎色反応の覚え方</span>
+                        <span class="toc-sub-page">p.33</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=39" class="toc-sub-link">
+                        <span class="toc-sub-num">03</span>
+                        <span class="toc-sub-title">アボガドロの法則</span>
+                        <span class="toc-sub-page">p.39</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=43" class="toc-sub-link">
+                        <span class="toc-sub-num">04</span>
+                        <span class="toc-sub-title">1H → 20Ca までの記憶法</span>
+                        <span class="toc-sub-page">p.43</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=49" class="toc-sub-link">
+                        <span class="toc-sub-num">05</span>
+                        <span class="toc-sub-title">電子殻の最大収容電子数 2n²</span>
+                        <span class="toc-sub-page">p.49</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=72" class="toc-sub-link">
+                        <span class="toc-sub-num">06</span>
+                        <span class="toc-sub-title">共有は互いに出し合い 8 となる</span>
+                        <span class="toc-sub-page">p.72</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=75" class="toc-sub-link">
+                        <span class="toc-sub-num">07</span>
+                        <span class="toc-sub-title">配位結合はどれ? → 区別なし</span>
+                        <span class="toc-sub-page">p.75</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=81" class="toc-sub-link">
+                        <span class="toc-sub-num">08</span>
+                        <span class="toc-sub-title">ひみつはグランパ CM 参上</span>
+                        <span class="toc-sub-page">p.81</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=84" class="toc-sub-link">
+                        <span class="toc-sub-num">09</span>
+                        <span class="toc-sub-title">電気陰性度から化学結合の様式が推定できる</span>
+                        <span class="toc-sub-page">p.84</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=86" class="toc-sub-link">
+                        <span class="toc-sub-num">10</span>
+                        <span class="toc-sub-title">電気陰性度で δ+ ・ δ- を判定する</span>
+                        <span class="toc-sub-page">p.86</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=89" class="toc-sub-link">
+                        <span class="toc-sub-num">11</span>
+                        <span class="toc-sub-title">水素は FON と握手する</span>
+                        <span class="toc-sub-page">p.89</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=103" class="toc-sub-link">
+                        <span class="toc-sub-num">12</span>
+                        <span class="toc-sub-title">原子量 = (同位体の相対質量 × 存在比) の総和</span>
+                        <span class="toc-sub-page">p.103</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=108" class="toc-sub-link">
+                        <span class="toc-sub-num">13</span>
+                        <span class="toc-sub-title">質量をモル質量で割ると物質量</span>
+                        <span class="toc-sub-page">p.108</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=110" class="toc-sub-link">
+                        <span class="toc-sub-num">14</span>
+                        <span class="toc-sub-title">気体 1mol は 22.4L</span>
+                        <span class="toc-sub-page">p.110</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=113" class="toc-sub-link">
+                        <span class="toc-sub-num">15</span>
+                        <span class="toc-sub-title">水和水、水に溶ければただの水!</span>
+                        <span class="toc-sub-page">p.113</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=115" class="toc-sub-link">
+                        <span class="toc-sub-num">16</span>
+                        <span class="toc-sub-title">c[mol/L] の溶液 V[L] 中にはいつでも cV[mol] の溶質</span>
+                        <span class="toc-sub-page">p.115</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=127" class="toc-sub-link">
+                        <span class="toc-sub-num">17</span>
+                        <span class="toc-sub-title">熱は分子を踊らせる</span>
+                        <span class="toc-sub-page">p.127</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=128" class="toc-sub-link">
+                        <span class="toc-sub-num">18</span>
+                        <span class="toc-sub-title">セルシウス 273 で絶対絶命!</span>
+                        <span class="toc-sub-page">p.128</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=135" class="toc-sub-link">
+                        <span class="toc-sub-num">19</span>
+                        <span class="toc-sub-title">重い分子は引くのも強い</span>
+                        <span class="toc-sub-page">p.135</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=144" class="toc-sub-link">
+                        <span class="toc-sub-num">20</span>
+                        <span class="toc-sub-title">気体といえば、いつでも pV=nRT</span>
+                        <span class="toc-sub-page">p.144</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=148" class="toc-sub-link">
+                        <span class="toc-sub-num">21</span>
+                        <span class="toc-sub-title">全圧は分圧の和</span>
+                        <span class="toc-sub-page">p.148</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=150" class="toc-sub-link">
+                        <span class="toc-sub-num">22</span>
+                        <span class="toc-sub-title">成分気体 A とあれば pA V=nA RT と書く</span>
+                        <span class="toc-sub-page">p.150</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=161" class="toc-sub-link">
+                        <span class="toc-sub-num">23</span>
+                        <span class="toc-sub-title">水への溶解は水和で始まる</span>
+                        <span class="toc-sub-page">p.161</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=162" class="toc-sub-link">
+                        <span class="toc-sub-num">24</span>
+                        <span class="toc-sub-title">似たものどうしはよく溶け合う</span>
+                        <span class="toc-sub-page">p.162</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=166" class="toc-sub-link">
+                        <span class="toc-sub-num">25</span>
+                        <span class="toc-sub-title">溶解度の問題は飽和溶液について考えよ</span>
+                        <span class="toc-sub-page">p.166</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=167" class="toc-sub-link">
+                        <span class="toc-sub-num">26</span>
+                        <span class="toc-sub-title">水和水をもつ物質の溶解度の計算</span>
+                        <span class="toc-sub-page">p.167</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=182" class="toc-sub-link">
+                        <span class="toc-sub-num">27</span>
+                        <span class="toc-sub-title">浸透圧よ、お前もか! ΠV=nRT</span>
+                        <span class="toc-sub-page">p.182</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=197" class="toc-sub-link">
+                        <span class="toc-sub-num">28</span>
+                        <span class="toc-sub-title">エンタルピーは生成物 － 反応物</span>
+                        <span class="toc-sub-page">p.197</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=199" class="toc-sub-link">
+                        <span class="toc-sub-num">29</span>
+                        <span class="toc-sub-title">反応エンタルピーは注目する物質 1mol あたりで考える</span>
+                        <span class="toc-sub-page">p.199</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=223" class="toc-sub-link">
+                        <span class="toc-sub-num">30</span>
+                        <span class="toc-sub-title">反応は活を入れないと進まない</span>
+                        <span class="toc-sub-page">p.223</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=224" class="toc-sub-link">
+                        <span class="toc-sub-num">31</span>
+                        <span class="toc-sub-title">触媒は汗水たらす要もなし</span>
+                        <span class="toc-sub-page">p.224</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=229" class="toc-sub-link">
+                        <span class="toc-sub-num">32</span>
+                        <span class="toc-sub-title">平衡は行きと帰りの速度が同じ</span>
+                        <span class="toc-sub-page">p.229</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=231" class="toc-sub-link">
+                        <span class="toc-sub-num">33</span>
+                        <span class="toc-sub-title">平衡は触媒で速く行っても同じこと</span>
+                        <span class="toc-sub-page">p.231</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=237" class="toc-sub-link">
+                        <span class="toc-sub-num">34</span>
+                        <span class="toc-sub-title">ルシャトリエの原理は鎮静剤</span>
+                        <span class="toc-sub-page">p.237</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=243" class="toc-sub-link">
+                        <span class="toc-sub-num">35</span>
+                        <span class="toc-sub-title">ブレンステッド・ローリーの定義</span>
+                        <span class="toc-sub-page">p.243</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=249" class="toc-sub-link">
+                        <span class="toc-sub-num">36</span>
+                        <span class="toc-sub-title">電離定数 Ka, Kb は、何を混ぜても変わらない</span>
+                        <span class="toc-sub-page">p.249</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=257" class="toc-sub-link">
+                        <span class="toc-sub-num">37</span>
+                        <span class="toc-sub-title">中和では、酸と塩基の (価数 × 物質量) が等しい</span>
+                        <span class="toc-sub-page">p.257</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=266" class="toc-sub-link">
+                        <span class="toc-sub-num">38</span>
+                        <span class="toc-sub-title">正塩を水に溶かすと強いほうが勝つ</span>
+                        <span class="toc-sub-page">p.266</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=269" class="toc-sub-link">
+                        <span class="toc-sub-num">39</span>
+                        <span class="toc-sub-title">弱い酸は出ていけ 弱い塩基も逃げていけ</span>
+                        <span class="toc-sub-page">p.269</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=278" class="toc-sub-link">
+                        <span class="toc-sub-num">40</span>
+                        <span class="toc-sub-title">溶解度積で沈殿生成の判定</span>
+                        <span class="toc-sub-page">p.278</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=285" class="toc-sub-link">
+                        <span class="toc-sub-num">41</span>
+                        <span class="toc-sub-title">酸化・還元は同時に起こる</span>
+                        <span class="toc-sub-page">p.285</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=287" class="toc-sub-link">
+                        <span class="toc-sub-num">42</span>
+                        <span class="toc-sub-title">酸化数 増えると酸化、減ると還元</span>
+                        <span class="toc-sub-page">p.287</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=288" class="toc-sub-link">
+                        <span class="toc-sub-num">43</span>
+                        <span class="toc-sub-title">化学反応式中に単体を含めば必ず酸化還元反応</span>
+                        <span class="toc-sub-page">p.288</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=294" class="toc-sub-link">
+                        <span class="toc-sub-num">44</span>
+                        <span class="toc-sub-title">ハロゲンの酸化力</span>
+                        <span class="toc-sub-page">p.294</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=301" class="toc-sub-link">
+                        <span class="toc-sub-num">45</span>
+                        <span class="toc-sub-title">リッチに借りようかな、間があるあてにすんなひどすぎる借金</span>
+                        <span class="toc-sub-page">p.301</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=303" class="toc-sub-link">
+                        <span class="toc-sub-num">46</span>
+                        <span class="toc-sub-title">イオン化傾向の小さいほうが析出</span>
+                        <span class="toc-sub-page">p.303</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=307" class="toc-sub-link">
+                        <span class="toc-sub-num">47</span>
+                        <span class="toc-sub-title">電池: イオン化傾向の大きいほうがマイナス(負極)だ</span>
+                        <span class="toc-sub-page">p.307</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=309" class="toc-sub-link">
+                        <span class="toc-sub-num">48</span>
+                        <span class="toc-sub-title">電池では亜鉛(負極)から電子が出ていく</span>
+                        <span class="toc-sub-page">p.309</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=349" class="toc-sub-link">
+                        <span class="toc-sub-num">49</span>
+                        <span class="toc-sub-title">硝酸の製法</span>
+                        <span class="toc-sub-page">p.349</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=364" class="toc-sub-link">
+                        <span class="toc-sub-num">50</span>
+                        <span class="toc-sub-title">Li, K, Ca, Na, Mg, Al の製法</span>
+                        <span class="toc-sub-page">p.364</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=371" class="toc-sub-link">
+                        <span class="toc-sub-num">51</span>
+                        <span class="toc-sub-title">両性金属の覚え方</span>
+                        <span class="toc-sub-page">p.371</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=378" class="toc-sub-link">
+                        <span class="toc-sub-num">52</span>
+                        <span class="toc-sub-title">錯イオンの名称</span>
+                        <span class="toc-sub-page">p.378</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=389" class="toc-sub-link">
+                        <span class="toc-sub-num">53</span>
+                        <span class="toc-sub-title">アンモニアは、銀・銅・亜鉛と錯イオン形成</span>
+                        <span class="toc-sub-page">p.389</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=414" class="toc-sub-link">
+                        <span class="toc-sub-num">54</span>
+                        <span class="toc-sub-title">鎖式炭化水素</span>
+                        <span class="toc-sub-page">p.414</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=432" class="toc-sub-link">
+                        <span class="toc-sub-num">55</span>
+                        <span class="toc-sub-title">二重結合・三重結合の特色</span>
+                        <span class="toc-sub-page">p.432</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=445" class="toc-sub-link">
+                        <span class="toc-sub-num">56</span>
+                        <span class="toc-sub-title">酸の強弱関係</span>
+                        <span class="toc-sub-page">p.445</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=451" class="toc-sub-link">
+                        <span class="toc-sub-num">57</span>
+                        <span class="toc-sub-title">エステルのけん化は中和と似ている</span>
+                        <span class="toc-sub-page">p.451</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=489" class="toc-sub-link">
+                        <span class="toc-sub-num">58</span>
+                        <span class="toc-sub-title">糖類は鎖式構造のホルミル基が還元性を示す</span>
+                        <span class="toc-sub-page">p.489</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=493" class="toc-sub-link">
+                        <span class="toc-sub-num">59</span>
+                        <span class="toc-sub-title">デンプンは植物の貯蔵多糖 グリコーゲンは動物の貯蔵多糖</span>
+                        <span class="toc-sub-page">p.493</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=504" class="toc-sub-link">
+                        <span class="toc-sub-num">60</span>
+                        <span class="toc-sub-title">タンパク質はキサントで黄色 ビウレットでバイオレット</span>
+                        <span class="toc-sub-page">p.504</span>
+                    </a>
+                </div>
+            </details>
+        </div>
+        <div class="toc-chapter">
+            <details class="toc-accordion">
+                <summary class="toc-chapter-link">
+                    <span class="toc-chapter-title">Question Time (Q&A)</span>
+                    <span class="toc-chapter-meta">
+                        <span class="toc-chapter-pages">p.9999–9999</span>
+                        <span class="toc-chevron">▶</span>
+                    </span>
+                </summary>
+                <div class="toc-subsections">
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=35" class="toc-sub-link">
+                        <span class="toc-sub-num">01</span>
+                        <span class="toc-sub-title">炎色反応の色が違うのはなぜか。</span>
+                        <span class="toc-sub-page">p.35</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=43" class="toc-sub-link">
+                        <span class="toc-sub-num">02</span>
+                        <span class="toc-sub-title">原子核が壊れないのはなぜか。</span>
+                        <span class="toc-sub-page">p.43</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=50" class="toc-sub-link">
+                        <span class="toc-sub-num">03</span>
+                        <span class="toc-sub-title">カリウムの N 殻に電子が入るのはなぜか。</span>
+                        <span class="toc-sub-page">p.50</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=55" class="toc-sub-link">
+                        <span class="toc-sub-num">04</span>
+                        <span class="toc-sub-title">アルミニウムイオンが 3 価以外の陽イオンになりにくいのはなぜか。</span>
+                        <span class="toc-sub-page">p.55</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=90" class="toc-sub-link">
+                        <span class="toc-sub-num">05</span>
+                        <span class="toc-sub-title">酢酸の分子量を測定すると約 120 になるのはなぜか。</span>
+                        <span class="toc-sub-page">p.90</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=93" class="toc-sub-link">
+                        <span class="toc-sub-num">06</span>
+                        <span class="toc-sub-title">金属が電気を通すのはなぜか。</span>
+                        <span class="toc-sub-page">p.93</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=107" class="toc-sub-link">
+                        <span class="toc-sub-num">07</span>
+                        <span class="toc-sub-title">アボガドロ定数を利用することで便利なことは何か。</span>
+                        <span class="toc-sub-page">p.107</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=113" class="toc-sub-link">
+                        <span class="toc-sub-num">08</span>
+                        <span class="toc-sub-title">ppm とはどのような単位か。</span>
+                        <span class="toc-sub-page">p.113</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=119" class="toc-sub-link">
+                        <span class="toc-sub-num">09</span>
+                        <span class="toc-sub-title">イオン反応式はいつ使うのか。</span>
+                        <span class="toc-sub-page">p.119</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=128" class="toc-sub-link">
+                        <span class="toc-sub-num">10</span>
+                        <span class="toc-sub-title">分子の速度分布のグラフの山の高さが高温ほど低くなるのはなぜか。</span>
+                        <span class="toc-sub-page">p.128</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=130" class="toc-sub-link">
+                        <span class="toc-sub-num">11</span>
+                        <span class="toc-sub-title">水が一度に凍らないのはなぜか。また高温になると盛んに蒸発するのはなぜか。</span>
+                        <span class="toc-sub-page">p.130</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=131" class="toc-sub-link">
+                        <span class="toc-sub-num">12</span>
+                        <span class="toc-sub-title">氷が水に浮くのはなぜか。</span>
+                        <span class="toc-sub-page">p.131</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=132" class="toc-sub-link">
+                        <span class="toc-sub-num">13</span>
+                        <span class="toc-sub-title">水の沸点は 100℃ではないのか。</span>
+                        <span class="toc-sub-page">p.132</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=142" class="toc-sub-link">
+                        <span class="toc-sub-num">14</span>
+                        <span class="toc-sub-title">－273℃ より低い温度は存在しないのか。</span>
+                        <span class="toc-sub-page">p.142</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=146" class="toc-sub-link">
+                        <span class="toc-sub-num">15</span>
+                        <span class="toc-sub-title">圧力を加えても体積が変わらなくなるのはどのような状態のときか。</span>
+                        <span class="toc-sub-page">p.146</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=161" class="toc-sub-link">
+                        <span class="toc-sub-num">16</span>
+                        <span class="toc-sub-title">ヘキサンが水に溶けないのはなぜか。</span>
+                        <span class="toc-sub-page">p.161</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=162" class="toc-sub-link">
+                        <span class="toc-sub-num">17</span>
+                        <span class="toc-sub-title">エタノールと水を混合したとき，体積が減るのはなぜか。</span>
+                        <span class="toc-sub-page">p.162</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=171" class="toc-sub-link">
+                        <span class="toc-sub-num">18</span>
+                        <span class="toc-sub-title">温まった炭酸飲料の栓を抜くと泡が吹き出るのはなぜか。</span>
+                        <span class="toc-sub-page">p.171</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=180" class="toc-sub-link">
+                        <span class="toc-sub-num">19</span>
+                        <span class="toc-sub-title">寒冷地における海水下の魚の血液が凍らないのはなぜか。</span>
+                        <span class="toc-sub-page">p.180</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=182" class="toc-sub-link">
+                        <span class="toc-sub-num">20</span>
+                        <span class="toc-sub-title">浸透圧の公式はどのように導かれたのか。</span>
+                        <span class="toc-sub-page">p.182</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=183" class="toc-sub-link">
+                        <span class="toc-sub-num">21</span>
+                        <span class="toc-sub-title">浸透圧の公式と気体の状態方程式が似ているのはなぜか。</span>
+                        <span class="toc-sub-page">p.183</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=190" class="toc-sub-link">
+                        <span class="toc-sub-num">22</span>
+                        <span class="toc-sub-title">水酸化鉄(III)が親水コロイドでないのはなぜか。</span>
+                        <span class="toc-sub-page">p.190</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=233" class="toc-sub-link">
+                        <span class="toc-sub-num">23</span>
+                        <span class="toc-sub-title">化学平衡があるなら物理平衡もあるのか。</span>
+                        <span class="toc-sub-page">p.233</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=244" class="toc-sub-link">
+                        <span class="toc-sub-num">24</span>
+                        <span class="toc-sub-title">酸の水溶液で生じるのは H3O+ か H+ か。</span>
+                        <span class="toc-sub-page">p.244</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=246" class="toc-sub-link">
+                        <span class="toc-sub-num">25</span>
+                        <span class="toc-sub-title">二酸化ケイ素は酸性酸化物か。</span>
+                        <span class="toc-sub-page">p.246</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=250" class="toc-sub-link">
+                        <span class="toc-sub-num">26</span>
+                        <span class="toc-sub-title">酢酸を薄めると酸性が強くなるのか。</span>
+                        <span class="toc-sub-page">p.250</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=255" class="toc-sub-link">
+                        <span class="toc-sub-num">27</span>
+                        <span class="toc-sub-title">pH=5 の塩酸を 1000 倍に薄めると，pH=8 になるのか。</span>
+                        <span class="toc-sub-page">p.255</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=258" class="toc-sub-link">
+                        <span class="toc-sub-num">28</span>
+                        <span class="toc-sub-title">弱酸や弱塩基は少量の強塩基や強酸で中和するのか。</span>
+                        <span class="toc-sub-page">p.258</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=258" class="toc-sub-link">
+                        <span class="toc-sub-num">29</span>
+                        <span class="toc-sub-title">シュウ酸を標準液に用いるのはなぜか。</span>
+                        <span class="toc-sub-page">p.258</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=295" class="toc-sub-link">
+                        <span class="toc-sub-num">30</span>
+                        <span class="toc-sub-title">洗浄剤にある「混ぜるな危険」とはどんな意味か。</span>
+                        <span class="toc-sub-page">p.295</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=305" class="toc-sub-link">
+                        <span class="toc-sub-num">31</span>
+                        <span class="toc-sub-title">トタンとブリキではどちらの鉄がさびにくいか。</span>
+                        <span class="toc-sub-page">p.305</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=310" class="toc-sub-link">
+                        <span class="toc-sub-num">32</span>
+                        <span class="toc-sub-title">マンガン乾電池は充電できないのか。</span>
+                        <span class="toc-sub-page">p.310</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=319" class="toc-sub-link">
+                        <span class="toc-sub-num">33</span>
+                        <span class="toc-sub-title">陽極で，硫酸イオンでなく水が電気分解するのはなぜか。</span>
+                        <span class="toc-sub-page">p.319</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=334" class="toc-sub-link">
+                        <span class="toc-sub-num">34</span>
+                        <span class="toc-sub-title">反応性が激しい単体のフッ素はどのようにつくるか。</span>
+                        <span class="toc-sub-page">p.334</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=363" class="toc-sub-link">
+                        <span class="toc-sub-num">35</span>
+                        <span class="toc-sub-title">アンモニアソーダ法で NaHCO3 が沈殿するしくみはどのようなものか。</span>
+                        <span class="toc-sub-page">p.363</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=368" class="toc-sub-link">
+                        <span class="toc-sub-num">36</span>
+                        <span class="toc-sub-title">セッコウが塑像に使われるのはなぜか。</span>
+                        <span class="toc-sub-page">p.368</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=418" class="toc-sub-link">
+                        <span class="toc-sub-num">37</span>
+                        <span class="toc-sub-title">有機化合物の分析で，分子量はどのように求めるか。</span>
+                        <span class="toc-sub-page">p.418</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=425" class="toc-sub-link">
+                        <span class="toc-sub-num">38</span>
+                        <span class="toc-sub-title">有機化合物の名称はどのようにつけるか。</span>
+                        <span class="toc-sub-page">p.425</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=429" class="toc-sub-link">
+                        <span class="toc-sub-num">39</span>
+                        <span class="toc-sub-title">シクロアルケンは付加重合するか。</span>
+                        <span class="toc-sub-page">p.429</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=439" class="toc-sub-link">
+                        <span class="toc-sub-num">40</span>
+                        <span class="toc-sub-title">CH3-O-C2H5 を，メチルエチルエーテルとよんではいけないのか。</span>
+                        <span class="toc-sub-page">p.439</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=450" class="toc-sub-link">
+                        <span class="toc-sub-num">41</span>
+                        <span class="toc-sub-title">エステル化で，カルボン酸の OH の部分とアルコールの H の部分が取れることがわかったのはなぜか。</span>
+                        <span class="toc-sub-page">p.450</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=451" class="toc-sub-link">
+                        <span class="toc-sub-num">42</span>
+                        <span class="toc-sub-title">エステルの示性式はどのように書くか。</span>
+                        <span class="toc-sub-page">p.451</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=461" class="toc-sub-link">
+                        <span class="toc-sub-num">43</span>
+                        <span class="toc-sub-title">ベンゼンが付加反応をしにくいのはなぜか。</span>
+                        <span class="toc-sub-page">p.461</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=462" class="toc-sub-link">
+                        <span class="toc-sub-num">44</span>
+                        <span class="toc-sub-title">芳香族化合物の名称はどのようにつけるか。</span>
+                        <span class="toc-sub-page">p.462</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=468" class="toc-sub-link">
+                        <span class="toc-sub-num">45</span>
+                        <span class="toc-sub-title">アスピリンはどのように開発されたのか。</span>
+                        <span class="toc-sub-page">p.468</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=480" class="toc-sub-link">
+                        <span class="toc-sub-num">46</span>
+                        <span class="toc-sub-title">表面張力とはどのような力か。</span>
+                        <span class="toc-sub-page">p.480</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=494" class="toc-sub-link">
+                        <span class="toc-sub-num">47</span>
+                        <span class="toc-sub-title">セルロースはデンプンとどのように違うか。</span>
+                        <span class="toc-sub-page">p.494</span>
+                    </a>
+                    <a href="chart_chem_viewer.html?book=chart_chem&page=499" class="toc-sub-link">
+                        <span class="toc-sub-num">48</span>
+                        <span class="toc-sub-title">アミノ酸はアルコールとエステルをつくるか。また酸無水物とアミド結合をつくるか。</span>
+                        <span class="toc-sub-page">p.499</span>
+                    </a>
+                </div>
+            </details>
+        </div>
+        </div>
+        <div class="toc-footer">© 2026 ECCベストワン藍住・北島中央</div>
+    </div>
+    <script>
+        // 同時に1つだけ開くアコーディオン制御
+        document.querySelectorAll('.toc-accordion').forEach(det => {
+            det.addEventListener('toggle', () => {
+                if (det.open) {
+                    document.querySelectorAll('.toc-accordion').forEach(other => {
+                        if (other !== det) other.open = false;
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
