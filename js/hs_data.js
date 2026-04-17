@@ -1,5 +1,5 @@
 const hsData = {
-    chart_kyotsu_math: {
+        chart_kyotsu_math: {
         id: "chart_kyotsu_math",
         title: "新課程 チャート式 大学入学共通テスト対策 数学IA+IIBC",
         totalPages: 659,
@@ -8,6 +8,7 @@ const hsData = {
         coverImage: "images/chart_kyotsu_math_cover.jpg",
         qrBase: "",
         chapters: [
+
             { id: "ch1", title: "数学Ⅰ", start: 13, end: 87, subsections: [
                 { num: 1, title: "第1章 数と式, 集合と命題", page: 13 },
                 { num: 2, title: "第2章 2次関数", page: 28 },
@@ -37,6 +38,99 @@ const hsData = {
                 { num: 1, title: "実践模試", page: 311 },
                 { num: 2, title: "指針一覧", page: 348 },
                 { num: 3, title: "答の部", page: 370 }
+            ]},
+            { id: "answers_ch7", title: "[解答] 第1章 数と式、集合と命題", start: 388, end: 659, subsections: [
+                { num: 1, title: "Check", page: 388 },
+                { num: 2, title: "練習", page: 390 },
+                { num: 3, title: "問題", page: 394 },
+                { num: 4, title: "実戦問題", page: 395 }
+            ]},
+            { id: "answers_ch8", title: "[解答] 第2章 2次関数", start: 398, end: 659, subsections: [
+                { num: 1, title: "Check", page: 398 },
+                { num: 2, title: "練習", page: 404 },
+                { num: 3, title: "問題", page: 408 },
+                { num: 4, title: "実戦問題", page: 411 }
+            ]},
+            { id: "answers_ch9", title: "[解答] 第3章 図形と計量", start: 418, end: 659, subsections: [
+                { num: 1, title: "Check", page: 418 },
+                { num: 2, title: "練習", page: 421 },
+                { num: 3, title: "問題", page: 424 },
+                { num: 4, title: "実戦問題", page: 426 }
+            ]},
+            { id: "answers_ch10", title: "[解答] 第4章 データの分析", start: 433, end: 659, subsections: [
+                { num: 1, title: "Check", page: 433 },
+                { num: 2, title: "練習", page: 434 },
+                { num: 3, title: "問題", page: 439 },
+                { num: 4, title: "実戦問題", page: 440 }
+            ]},
+            { id: "answers_ch11", title: "[解答] 第5章 場合の数と確率", start: 444, end: 659, subsections: [
+                { num: 1, title: "Check", page: 444 },
+                { num: 2, title: "練習", page: 448 },
+                { num: 3, title: "問題", page: 453 },
+                { num: 4, title: "実戦問題", page: 454 }
+            ]},
+            { id: "answers_ch12", title: "[解答] 第6章 図形の性質", start: 463, end: 659, subsections: [
+                { num: 1, title: "Check", page: 463 },
+                { num: 2, title: "練習", page: 466 },
+                { num: 3, title: "問題", page: 469 },
+                { num: 4, title: "実戦問題", page: 470 }
+            ]},
+            { id: "answers_ch13", title: "[解答] 第7章 式と証明、複素数と方程式", start: 475, end: 659, subsections: [
+                { num: 1, title: "Check", page: 475 },
+                { num: 2, title: "練習", page: 479 },
+                { num: 3, title: "問題", page: 482 },
+                { num: 4, title: "実戦問題", page: 484 }
+            ]},
+            { id: "answers_ch14", title: "[解答] 第8章 図形と方程式", start: 488, end: 659, subsections: [
+                { num: 1, title: "Check", page: 488 },
+                { num: 2, title: "練習", page: 491 },
+                { num: 3, title: "問題", page: 497 },
+                { num: 4, title: "実戦問題", page: 499 }
+            ]},
+            { id: "answers_ch15", title: "[解答] 第9章 三角関数", start: 505, end: 659, subsections: [
+                { num: 1, title: "Check", page: 505 },
+                { num: 2, title: "練習", page: 508 },
+                { num: 3, title: "問題", page: 511 },
+                { num: 4, title: "実戦問題", page: 514 }
+            ]},
+            { id: "answers_ch16", title: "[解答] 第10章 指数関数・対数関数", start: 518, end: 659, subsections: [
+                { num: 1, title: "Check", page: 518 },
+                { num: 2, title: "練習", page: 522 },
+                { num: 3, title: "問題", page: 525 },
+                { num: 4, title: "実戦問題", page: 526 }
+            ]},
+            { id: "answers_ch17", title: "[解答] 第11章 微分法・積分法", start: 531, end: 659, subsections: [
+                { num: 1, title: "Check", page: 531 },
+                { num: 2, title: "練習", page: 536 },
+                { num: 3, title: "問題", page: 538 },
+                { num: 4, title: "実戦問題", page: 548 }
+            ]},
+            { id: "answers_ch18", title: "[解答] 第12章 数列", start: 554, end: 659, subsections: [
+                { num: 1, title: "Check", page: 554 },
+                { num: 2, title: "練習", page: 557 },
+                { num: 3, title: "問題", page: 563 },
+                { num: 4, title: "実戦問題", page: 565 }
+            ]},
+            { id: "answers_ch19", title: "[解答] 第13章 統計的な推測", start: 571, end: 659, subsections: [
+                { num: 1, title: "Check", page: 571 },
+                { num: 2, title: "練習", page: 574 },
+                { num: 3, title: "問題", page: 578 },
+                { num: 4, title: "実戦問題", page: 580 }
+            ]},
+            { id: "answers_ch20", title: "[解答] 第14章 ベクトル", start: 584, end: 659, subsections: [
+                { num: 1, title: "Check", page: 584 },
+                { num: 2, title: "練習", page: 588 },
+                { num: 3, title: "問題", page: 593 },
+                { num: 4, title: "実戦問題", page: 595 }
+            ]},
+            { id: "answers_ch21", title: "[解答] 第15章 平面上の曲線と複素数平面", start: 602, end: 659, subsections: [
+                { num: 1, title: "Check", page: 602 },
+                { num: 2, title: "練習", page: 609 },
+                { num: 3, title: "問題", page: 613 },
+                { num: 4, title: "実戦問題", page: 618 }
+            ]},
+            { id: "answers_ch22", title: "[解答] 付録", start: 625, end: 659, subsections: [
+                { num: 1, title: "実践模試", page: 625 }
             ]}
         ],
         get sections() {
@@ -47,6 +141,7 @@ const hsData = {
         },
         pageQrs: {}
     },
+
 
     // 短期集中ゼミ 基礎からの数学I+A
     tanki_math1a: {
