@@ -1,0 +1,20 @@
+{
+  "name": "国公立標準問題集 CanPass 化学 Viewer",
+  "short_name": "CanPass",
+  "start_url": "./canpass_chem_viewer.html",
+  "display": "fullscreen",
+  "background_color": "#1a1a1a",
+  "theme_color": "#1e3c72",
+  "icons": [
+    {
+      "src": "images/icons/icon-canpass_chem-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "images/icons/icon-canpass_chem-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

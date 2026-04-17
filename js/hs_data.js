@@ -3125,6 +3125,73 @@ const hsData = {
         pageQrs: {}
     },
 
+    canpass_chem: {
+        id: "canpass_chem",
+        title: "国公立標準問題集 CanPass 化学",
+        totalPages: 499,
+        imagesPath: "images/canpass_chem/",
+        printImagesPath: "images/canpass_chem_bw/",
+        coverImage: "images/canpass_chem_cover.jpg",
+        qrBase: "",
+        chapters: [
+            { id: "intro", title: "目次", start: 1, end: 3, subsections: [
+            ] },
+            { id: "part1", title: "第1編 物質の状態(化学基礎)", start: 4, end: 28, subsections: [
+                { num: "1", title: "物質の探求・構成粒子", page: 4 },
+                { num: "2", title: "化学結合", page: 10 },
+            ] },
+            { id: "part2", title: "第2編 物質の変化(化学基礎)", start: 16, end: 48, subsections: [
+                { num: "3", title: "物質量", page: 16 },
+                { num: "4", title: "酸・塩基", page: 22 },
+                { num: "5", title: "酸化還元", page: 30 },
+            ] },
+            { id: "part3", title: "第3編 物質の状態(化学)", start: 36, end: 78, subsections: [
+                { num: "6", title: "状態変化", page: 36 },
+                { num: "7", title: "気体", page: 40 },
+                { num: "8", title: "固体", page: 52 },
+                { num: "9", title: "溶液", page: 60 },
+            ] },
+            { id: "part4", title: "第4編 物質の変化(化学)", start: 70, end: 116, subsections: [
+                { num: "10", title: "熱化学", page: 70 },
+                { num: "11", title: "電気化学", page: 78 },
+                { num: "12", title: "反応速度", page: 86 },
+                { num: "13", title: "化学平衡", page: 92 },
+                { num: "14", title: "電離平衡", page: 98 },
+            ] },
+            { id: "part5", title: "第5編 無機物質", start: 108, end: 138, subsections: [
+                { num: "15", title: "金属元素", page: 108 },
+                { num: "16", title: "非金属元素", page: 120 },
+            ] },
+            { id: "part6", title: "第6編 有機化合物", start: 128, end: 172, subsections: [
+                { num: "17", title: "脂肪族化合物", page: 128 },
+                { num: "18", title: "芳香族化合物", page: 140 },
+                { num: "19", title: "糖・アミノ酸・医薬品・染料", page: 154 },
+            ] },
+            { id: "part7", title: "第7編 高分子化合物", start: 170, end: 210, subsections: [
+                { num: "20", title: "合成高分子化合物", page: 170 },
+                { num: "21", title: "多糖類・タンパク質", page: 184 },
+                { num: "22", title: "生命の化学", page: 192 },
+            ] },
+            { id: "answers", title: "解答・解説編", start: 200, end: 499, subsections: [
+                { num: "0", title: "解説・はじめに", page: 200 },
+                { num: "1", title: "第1編 解答・解説", page: 209 },
+                { num: "2", title: "第2編 解答・解説", page: 224 },
+                { num: "3", title: "第3編 解答・解説", page: 256 },
+                { num: "4", title: "第4編 解答・解説", page: 304 },
+                { num: "5", title: "第5編 解答・解説", page: 359 },
+                { num: "6", title: "第6編 解答・解説", page: 389 },
+                { num: "7", title: "第7編 解答・解説", page: 460 },
+            ] },
+        ],
+        get sections() {
+            return this.chapters.map(ch => ({
+                id: ch.id, title: ch.title, start: ch.start, end: ch.end,
+                pages: ch.end - ch.start + 1
+            }));
+        },
+        pageQrs: {}
+    },
+
     hijii_dokkai: {
         id: "hijii_dokkai",
         title: "読解のための英文法が面白いほどわかる本",
