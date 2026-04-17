@@ -3,7 +3,7 @@ const hsData = {
     tanki_math1a: {
         id: "tanki_math1a",
         title: "短期集中ゼミ 基礎からの数学I+A",
-        totalPages: 155,
+        totalPages: 152,
         imagesPath: "images/tanki_math1a/",
         printImagesPath: "images/tanki_math1a_bw/",
         coverImage: "images/tanki_math1a_cover.jpg",
