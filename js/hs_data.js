@@ -3027,13 +3027,64 @@ const hsData = {
         coverImage: "images/hyojun_chem_cover.jpg",
         qrBase: "",
         chapters: [
-            { id: "intro", title: "はじめに・目次", start: 1, end: 5, subsections: [] },
-            { id: "chap_q1", title: "問題編 (1〜100ページ)", start: 6, end: 100, subsections: [] },
-            { id: "chap_q2", title: "問題編 (101〜200ページ)", start: 101, end: 200, subsections: [] },
-            { id: "chap_q3", title: "問題編 (201〜300ページ)", start: 201, end: 300, subsections: [] },
-            { id: "chap_q4", title: "問題編 (301〜336ページ)", start: 301, end: 336, subsections: [] },
-            { id: "chap_a1", title: "解答・解説編 (1〜128ページ)", start: 337, end: 464, subsections: [] },
-            { id: "chap_a2", title: "解答・解説編 (129〜256ページ)", start: 465, end: 592, subsections: [] }
+            { id: "intro", title: "はじめに・目次", start: 1, end: 5, subsections: [
+                { num: 0, title: "本書の構成", page: 2 },
+                { num: 0, title: "本書の利用法", page: 3 },
+                { num: 0, title: "目次", page: 4 }
+            ] },
+            { id: "part1", title: "第1編 物質の構成", start: 6, end: 41, subsections: [
+                { num: 1, title: "物質の成分と元素", page: 6 },
+                { num: 2, title: "原子の構造と周期表", page: 15 },
+                { num: 3, title: "化学結合①", page: 26 },
+                { num: 4, title: "化学結合②", page: 34 }
+            ] },
+            { id: "part2", title: "第2編 物質の変化", start: 42, end: 91, subsections: [
+                { num: 5, title: "物質量と濃度", page: 42 },
+                { num: 6, title: "化学反応式と量的関係", page: 52 },
+                { num: 7, title: "酸と塩基", page: 63 },
+                { num: 8, title: "中和反応と塩", page: 71 },
+                { num: 9, title: "酸化還元反応", page: 81 }
+            ] },
+            { id: "part3", title: "第3編 物質の状態", start: 92, end: 138, subsections: [
+                { num: 10, title: "物質の状態変化", page: 92 },
+                { num: 11, title: "気体の法則", page: 101 },
+                { num: 12, title: "溶解と溶解度", page: 112 },
+                { num: 13, title: "希薄溶液の性質", page: 120 },
+                { num: 14, title: "コロイド", page: 127 },
+                { num: 15, title: "固体の構造", page: 132 }
+            ] },
+            { id: "part4", title: "第4編 物質の変化と平衡", start: 139, end: 191, subsections: [
+                { num: 16, title: "化学反応と熱・光", page: 139 },
+                { num: 17, title: "電池", page: 149 },
+                { num: 18, title: "電気分解", page: 158 },
+                { num: 19, title: "化学反応の速さ", page: 164 },
+                { num: 20, title: "化学平衡", page: 172 },
+                { num: 21, title: "電解質水溶液の平衡", page: 181 }
+            ] },
+            { id: "part5", title: "第5編 無機物質の性質と利用", start: 192, end: 239, subsections: [
+                { num: 22, title: "非金属元素①", page: 192 },
+                { num: 23, title: "非金属元素②", page: 202 },
+                { num: 24, title: "典型金属元素", page: 210 },
+                { num: 25, title: "遷移元素", page: 219 },
+                { num: 26, title: "金属イオンの分離と検出", page: 228 },
+                { num: 27, title: "無機物質と人間生活", page: 236 }
+            ] },
+            { id: "part6", title: "第6編 有機化合物の性質と利用", start: 240, end: 292, subsections: [
+                { num: 28, title: "有機化合物の特徴と構造", page: 240 },
+                { num: 29, title: "脂肪族炭化水素", page: 247 },
+                { num: 30, title: "アルコールとカルボニル化合物", page: 256 },
+                { num: 31, title: "カルボン酸・エステルと油脂", page: 264 },
+                { num: 32, title: "芳香族化合物①", page: 274 },
+                { num: 33, title: "芳香族化合物②", page: 281 },
+                { num: 34, title: "有機化合物と人間生活", page: 290 }
+            ] },
+            { id: "part7", title: "第7編 高分子化合物の性質と利用", start: 293, end: 336, subsections: [
+                { num: 35, title: "糖類(炭水化物)", page: 293 },
+                { num: 36, title: "アミノ酸とタンパク質, 核酸", page: 302 },
+                { num: 37, title: "プラスチック・ゴム", page: 317 },
+                { num: 38, title: "繊維・機能性高分子", page: 326 }
+            ] },
+            { id: "answers", title: "別冊：解答・解説集", start: 337, end: 592, subsections: [] }
         ],
         get sections() {
             return this.chapters.map(ch => ({
