@@ -1,0 +1,20 @@
+{
+  "name": "リードLightノート 化学基礎 (新課程) Viewer",
+  "short_name": "リードLightノート 化学基礎 (新課程)",
+  "start_url": "./leadlight_chem_viewer.html",
+  "display": "fullscreen",
+  "background_color": "#1a1a1a",
+  "theme_color": "#1e3c72",
+  "icons": [
+    {
+      "src": "images/icons/icon-leadlight_chem-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "images/icons/icon-leadlight_chem-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

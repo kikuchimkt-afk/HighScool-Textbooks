@@ -2678,6 +2678,44 @@ const hsData = {
         pageQrs: {}
     },
 
+    leadlight_chem: {
+        id: "leadlight_chem",
+        title: "リードLightノート 化学基礎 (新課程)",
+        totalPages: 178,
+        imagesPath: "images/leadlight_chem/",
+        printImagesPath: "images/leadlight_chem_bw/",
+        coverImage: "images/leadlight_chem_cover.jpg",
+        qrBase: "",
+        chapters: [
+            { id: "intro", title: "はじめに・目次", start: 1, end: 1, subsections: [] },
+            { id: "part1", title: "第1編 物質の構成と化学結合", start: 2, end: 37, subsections: [
+                { num: 1, title: "第1章 物質の構成", page: 2 },
+                { num: 2, title: "第2章 物質の構成粒子", page: 10 },
+                { num: 3, title: "第3章 粒子の結合", page: 20 },
+                { num: 4, title: "編末問題", page: 36 }
+            ] },
+            { id: "part2", title: "第2編 物質の変化", start: 38, end: 113, subsections: [
+                { num: 5, title: "第4章 物質量と化学反応式", page: 38 },
+                { num: 6, title: "第5章 酸と塩基の反応", page: 64 },
+                { num: 7, title: "第6章 酸化還元反応", page: 84 },
+                { num: 8, title: "第7章 電池と電気分解", page: 96 },
+                { num: 9, title: "編末問題", page: 111 }
+            ] },
+            { id: "part3", title: "巻末問題", start: 114, end: 122, subsections: [
+                { num: 10, title: "巻末チャレンジ問題", page: 114 },
+                { num: 11, title: "計算問題の答", page: 119 }
+            ] },
+            { id: "answers", title: "別冊：解答・解説集", start: 123, end: 178, subsections: [] }
+        ],
+        get sections() {
+            return this.chapters.map(ch => ({
+                id: ch.id, title: ch.title, start: ch.start, end: ch.end,
+                pages: ch.end - ch.start + 1
+            }));
+        },
+        pageQrs: {}
+    },
+
     hijii_dokkai: {
         id: "hijii_dokkai",
         title: "読解のための英文法が面白いほどわかる本",
