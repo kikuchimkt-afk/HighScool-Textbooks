@@ -106,8 +106,17 @@ const hsData = {
                 { num: 80, title: "メネラウスの定理", page: 83 },
                 { num: 81, title: "チェバの定理", page: 84 }
             ]},
-            { id: "answers", title: "解答・解説編", start: 85, end: 152, subsections: [
-                { num: 82, title: "こたえ (解答)", page: 85 }
+            { id: "answers", title: "解答・解説編", start: 89, end: 152, subsections: [
+                { num: 82, title: "こたえ (略解・本編末尾)", page: 85 },
+                { num: 83, title: "数と式", page: 89 },
+                { num: 84, title: "2次関数", page: 100 },
+                { num: 85, title: "図形の計量", page: 114 },
+                { num: 86, title: "集合と論理", page: 121 },
+                { num: 87, title: "データの分析", page: 125 },
+                { num: 88, title: "場合の数", page: 130 },
+                { num: 89, title: "確率", page: 133 },
+                { num: 90, title: "整数の性質", page: 142 },
+                { num: 91, title: "図形の性質", page: 148 }
             ]}
         ],
         get sections() {
