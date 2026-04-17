@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>短期集中ゼミ 基礎からの数学II+B Express</title>
+    <link rel="stylesheet" href="css/hs_style.css">
+    <link rel="manifest" href="manifest_tanki_math2b.json">
+    <link rel="apple-touch-icon" href="images/tanki_math2b_cover.jpg">
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header class="viewer-header">
+        <a href="superquick_math1a_toc.html" class="back-btn" id="back-link">
+            <span class="back-icon">◀</span> 目次
+        </a>
+        <h1 id="chapter-title" class="chapter-title">Loading...</h1>
+        
+        <div class="header-right">
+            <!-- 解答ボタン -->
+            <button id="btn-answer" class="icon-btn" title="解答・解説を見る">📝 解答</button>
+            <button id="btn-print" class="icon-btn" title="プリント印刷">🖨️ 印刷</button>
+
+            <!-- ページジャンプ -->
+            <div class="page-indicator" id="page-indicator" title="タップしてページジャンプ">P.--</div>
+
+            <!-- モード切替タブ -->
+            <div class="mode-tabs">
+                <button class="mode-tab active" data-mode="viewer">1枚</button>
+                <button class="mode-tab" data-mode="spread">見開き</button>
+            </div>
+            
+            <button id="btn-fullscreen" class="icon-btn" style="display:none;">
+                <span id="fs-icon">📺</span> <span id="fs-label" class="dn-mobile">全画面</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- メインビューア -->
+    <main class="viewer-main" id="viewer-container">
+        <!-- ズームコントロール -->
+        <div class="zoom-controls">
+            <button id="btn-zoom-out" class="zoom-btn" title="縮小">➖</button>
+            <button id="btn-zoom-reset" class="zoom-btn" title="リセット">💯</button>
+            <button id="btn-zoom-in" class="zoom-btn" title="拡大">➕</button>
+        </div>
+
+        <button id="btn-prev" class="nav-btn nav-left"><span>◀</span></button>
+        
+        <div class="image-pane" id="image-pane">
+            <div class="image-wrapper" id="image-wrapper">
+                <img id="textbook-img" src="" alt="Textbook Page" draggable="false">
+                <img id="textbook-img-right" src="" alt="Textbook Page Right" draggable="false">
+            </div>
+        </div>
+
+        <button id="btn-next" class="nav-btn nav-right"><span>▶</span></button>
+    </main>
+
+    <!-- フローティングナビ (見開き・全画面時) -->
+    <div class="floating-nav" id="floating-nav">
+        <button id="float-exit-fs" class="float-btn exit-fs-btn" style="display:none;" title="全画面終了">✖️</button>
+    </div>
+    
+    <div class="floating-nav-bottom" id="floating-nav-bottom">
+        <button id="float-prev" class="float-btn">◀ 戻る</button>
+        <span id="float-page" class="float-page-ind">P.--</span>
+        <button id="float-next" class="float-btn">次へ ▶</button>
+    </div>
+
+    <!-- ページジャンプモーダル -->
+    <div class="modal-overlay" id="page-jump-overlay">
+        <div class="modal-content jump-modal">
+            <h3>ページジャンプ</h3>
+            <div class="jump-input-group">
+                <input type="number" id="page-jump-input" min="1" placeholder="ページ番号">
+                <button id="page-jump-go">移動</button>
+            </div>
+            <div class="jump-chapters" id="page-jump-chapters">
+                <!-- JSで章ボタンを追加 -->
+            </div>
+            <button id="page-jump-close" class="modal-close-btn">閉じる</button>
+        </div>
+    </div>
+
+    <!-- 印刷モーダル -->
+    <div class="modal-overlay" id="print-modal-overlay">
+        <div class="modal-content print-modal">
+            <div class="print-modal-header">
+                <h3>🖨️ 印刷プレビュー (モノクロ・解なし版)</h3>
+                <span id="print-selected-count" class="print-count-badge">選択: 0ページ</span>
+            </div>
+            
+            <div class="print-range-selector">
+                <button id="print-range-prev" class="nav-btn-small">◀ 前のページ群</button>
+                <span id="print-range-label" class="print-range-text">P.-- 〜 P.--</span>
+                <button id="print-range-next" class="nav-btn-small">次のページ群 ▶</button>
+            </div>
+
+            <div class="print-grid" id="print-modal-body">
+                <!-- JSでサムネイルとチェックボックスを生成 -->
+            </div>
+            
+            <div class="modal-actions">
+                <button id="print-modal-close" class="btn-cancel">キャンセル</button>
+                <button id="btn-execute-print" class="btn-primary">選択したページを印刷</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 拡大プレビュー用オーバーレイ (印刷画面) -->
+    <div id="print-zoom-overlay" class="print-zoom-overlay" style="display:none;">
+        <img id="print-zoom-img" src="" alt="Zoom Preview">
+    </div>
+
+    <!-- 解答モーダル -->
+    <div class="answer-modal-overlay" id="answer-modal-overlay" style="display:none;">
+        <div class="answer-modal">
+            <div class="answer-modal-header">
+                <h3 id="answer-title">📝 解答</h3>
+                <div class="answer-nav">
+                    <button id="answer-prev" class="icon-btn">◀ 戻る</button>
+                    <button id="answer-next" class="icon-btn">次へ ▶</button>
+                    <button id="answer-close" class="icon-btn">✖️ 閉じる</button>
+                </div>
+            </div>
+            <div class="answer-modal-body" id="answer-modal-body">
+                <img id="answer-img" src="" alt="Answer Page">
+            </div>
+        </div>
+    </div>
+
+    <script src="js/hs_data.js"></script>
+    <script src="js/hs_app.js"></script>
+</body>
+</html>

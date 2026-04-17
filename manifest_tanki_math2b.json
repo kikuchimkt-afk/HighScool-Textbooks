@@ -1,0 +1,8 @@
+{
+  "name": "短期集中ゼミ 基礎からの数学II+B",
+  "short_name": "短期ゼミ 数IIB",
+  "start_url": "tanki_math2b_toc.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1e3c72"
+}
