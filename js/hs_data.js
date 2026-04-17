@@ -2716,6 +2716,133 @@ const hsData = {
         pageQrs: {}
     },
 
+    leadlight_chem_adv: {
+        id: "leadlight_chem_adv",
+        title: "リードLightノート 化学 (新課程)",
+        totalPages: 313,
+        imagesPath: "images/leadlight_chem_adv/",
+        printImagesPath: "images/leadlight_chem_adv_bw/",
+        coverImage: "images/leadlight_chem_adv_cover.jpg",
+        qrBase: "",
+        chapters: [
+            { id: "intro", title: "目次", start: 1, end: 1, subsections: [] },
+            { id: "part1", title: "第1編 物質の状態", start: 2, end: 44, subsections: [
+                { num: 1, title: "第1章 粒子の結合と結晶の構造", page: 1 + 1 },
+                { num: 2, title: "第2章 物質の状態変化", page: 9 + 1 },
+                { num: 3, title: "第3章 気体", page: 17 + 1 },
+                { num: 4, title: "第4章 溶液", page: 29 + 1 },
+                { num: 5, title: "編末問題", page: 42 + 1 }
+            ] },
+            { id: "part2", title: "第2編 物質の変化", start: 45, end: 90, subsections: [
+                { num: 6, title: "第5章 化学反応とエネルギー", page: 44 + 1 },
+                { num: 7, title: "第6章 電池と電気分解", page: 54 + 1 },
+                { num: 8, title: "第7章 化学反応の速さとしくみ", page: 67 + 1 },
+                { num: 9, title: "第8章 化学平衡", page: 75 + 1 },
+                { num: 10, title: "編末問題", page: 88 + 1 }
+            ] },
+            { id: "part3", title: "第3編 無機物質", start: 91, end: 130, subsections: [
+                { num: 11, title: "第9章 非金属元素", page: 90 + 1 },
+                { num: 12, title: "第10章 金属元素(Ⅰ)", page: 107 + 1 },
+                { num: 13, title: "第11章 金属元素(Ⅱ)", page: 115 + 1 },
+                { num: 14, title: "編末問題", page: 128 + 1 }
+            ] },
+            { id: "part4", title: "第4編 有機化合物", start: 131, end: 168, subsections: [
+                { num: 15, title: "第12章 有機化合物の分類と分析", page: 130 + 1 },
+                { num: 16, title: "第13章 脂肪族炭化水素", page: 136 + 1 },
+                { num: 17, title: "第14章 アルコールと関連化合物", page: 143 + 1 },
+                { num: 18, title: "第15章 芳香族化合物", page: 155 + 1 },
+                { num: 19, title: "編末問題", page: 166 + 1 }
+            ] },
+            { id: "part5", title: "第5編 高分子化合物", start: 169, end: 194, subsections: [
+                { num: 20, title: "第16章 天然高分子化合物", page: 168 + 1 },
+                { num: 21, title: "第17章 合成高分子化合物", page: 182 + 1 },
+                { num: 22, title: "編末問題", page: 192 + 1 }
+            ] },
+            { id: "part6", title: "巻末問題", start: 195, end: 202, subsections: [
+                { num: 23, title: "巻末チャレンジ問題", page: 194 + 1 }
+            ] },
+            { id: "answers", title: "計算問題の答 / 解答・解説集", start: 203, end: 313, subsections: [] }
+        ],
+        get sections() {
+            return this.chapters.map(ch => ({
+                id: ch.id, title: ch.title, start: ch.start, end: ch.end,
+                pages: ch.end - ch.start + 1
+            }));
+        },
+        pageQrs: {}
+    },
+
+    excel_chem: {
+        id: "excel_chem",
+        title: "エクセル化学 [総合版] (新課程)",
+        totalPages: 784,
+        imagesPath: "images/excel_chem/",
+        printImagesPath: "images/excel_chem_bw/",
+        coverImage: "images/excel_chem_cover.jpg",
+        qrBase: "",
+        chapters: [
+            { id: "intro", title: "はじめに", start: 1, end: 15, subsections: [] },
+            { id: "part1", title: "第1章 物質の構成", start: 16, end: 67, subsections: [
+                { num: 1, title: "1. 物質の探究", page: 16 },
+                { num: 2, title: "2. 物質の構成粒子", page: 28 },
+                { num: 3, title: "3. 物質と化学結合", page: 42 },
+                { num: 4, title: "発展問題", page: 60 }
+            ] },
+            { id: "part2", title: "第2章 物質の変化", start: 68, end: 151, subsections: [
+                { num: 5, title: "4. 物質量", page: 68 },
+                { num: 6, title: "5. 化学反応式と量的関係", page: 88 },
+                { num: 7, title: "6. 酸・塩基", page: 100 },
+                { num: 8, title: "7. 酸化還元反応", page: 122 },
+                { num: 9, title: "8. 電池・電気分解", page: 134 },
+                { num: 10, title: "発展問題", page: 146 }
+            ] },
+            { id: "part3", title: "第3章 物質の状態と平衡", start: 152, end: 205, subsections: [
+                { num: 11, title: "9. 状態変化", page: 152 },
+                { num: 12, title: "10. 固体の構造", page: 160 },
+                { num: 13, title: "11. 気体の性質", page: 168 },
+                { num: 14, title: "12. 溶液の性質", page: 182 },
+                { num: 15, title: "発展問題", page: 196 }
+            ] },
+            { id: "part4", title: "第4章 物質の変化と平衡", start: 206, end: 273, subsections: [
+                { num: 16, title: "13. 化学反応と熱エネルギー", page: 206 },
+                { num: 17, title: "14. 化学反応と光エネルギー", page: 222 },
+                { num: 18, title: "15. 反応の速さとしくみ", page: 230 },
+                { num: 19, title: "16. 化学平衡", page: 240 },
+                { num: 20, title: "発展問題", page: 262 }
+            ] },
+            { id: "part5", title: "第5章 無機物質", start: 274, end: 341, subsections: [
+                { num: 21, title: "17. 非金属元素", page: 274 },
+                { num: 22, title: "18. 典型金属元素", page: 298 },
+                { num: 23, title: "19. 遷移元素", page: 310 },
+                { num: 24, title: "20. 金属イオンの分離と推定", page: 322 },
+                { num: 25, title: "21. 無機物質と人間生活", page: 334 },
+                { num: 26, title: "発展問題", page: 338 }
+            ] },
+            { id: "part6", title: "第6章 有機化合物", start: 342, end: 413, subsections: [
+                { num: 27, title: "22. 有機化合物の特徴と分類", page: 342 },
+                { num: 28, title: "23. 脂肪族炭化水素", page: 352 },
+                { num: 29, title: "24. 酸素を含む脂肪族化合物", page: 362 },
+                { num: 30, title: "25. 芳香族化合物", page: 382 },
+                { num: 31, title: "発展問題", page: 404 }
+            ] },
+            { id: "part7", title: "第7章 高分子化合物", start: 414, end: 466, subsections: [
+                { num: 32, title: "26. 糖", page: 414 },
+                { num: 33, title: "27. アミノ酸とタンパク質・核酸", page: 422 },
+                { num: 34, title: "28. 合成高分子化合物", page: 432 },
+                { num: 35, title: "29. 有機化合物と人間生活", page: 444 },
+                { num: 36, title: "発展問題", page: 452 }
+            ] },
+            { id: "answers", title: "解答編", start: 467, end: 784, subsections: [] }
+        ],
+        get sections() {
+            return this.chapters.map(ch => ({
+                id: ch.id, title: ch.title, start: ch.start, end: ch.end,
+                pages: ch.end - ch.start + 1
+            }));
+        },
+        pageQrs: {}
+    },
+
     hijii_dokkai: {
         id: "hijii_dokkai",
         title: "読解のための英文法が面白いほどわかる本",
