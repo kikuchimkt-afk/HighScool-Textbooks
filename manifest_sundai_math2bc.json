@@ -1,0 +1,20 @@
+{
+  "name": "短期攻略 共通テスト数学II・B・C Viewer",
+  "short_name": "短期攻略2BC",
+  "start_url": "./sundai_math2bc_viewer.html",
+  "display": "fullscreen",
+  "background_color": "#1a1a1a",
+  "theme_color": "#1e3c72",
+  "icons": [
+    {
+      "src": "images/icons/icon-sundai_math2bc-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "images/icons/icon-sundai_math2bc-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

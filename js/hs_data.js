@@ -1890,6 +1890,66 @@ const hsData = {
         pageQrs: {}
     },
 
+    sundai_math2bc: {
+        id: "sundai_math2bc",
+        title: "短期攻略 共通テスト 数学II・B・C",
+        totalPages: 232,
+        imagesPath: "images/sundai_math2bc/",
+        printImagesPath: "images/sundai_math2bc_bw/",
+        coverImage: "images/sundai_math2bc_cover.jpg",
+        qrBase: "",
+        chapters: [
+            { id: "intro", title: "目次 / 解答上の注意", start: 1, end: 2, subsections: [] },
+            { id: "sec1", title: "§1 いろいろな式", start: 3, end: 10, subsections: [
+                { num: "1", title: "問題 1 ～ 6", page: 3 }
+            ] },
+            { id: "sec2", title: "§2 図形と方程式", start: 11, end: 22, subsections: [
+                { num: "2", title: "問題 7 ～ 14", page: 11 }
+            ] },
+            { id: "sec3", title: "§3 三角関数", start: 23, end: 32, subsections: [
+                { num: "3", title: "問題 15 ～ 22", page: 23 }
+            ] },
+            { id: "sec4", title: "§4 指数関数・対数関数", start: 33, end: 42, subsections: [
+                { num: "4", title: "問題 23 ～ 30", page: 33 }
+            ] },
+            { id: "sec5", title: "§5 微分・積分の考え", start: 43, end: 54, subsections: [
+                { num: "5", title: "問題 31 ～ 38", page: 43 }
+            ] },
+            { id: "sec6", title: "§6 数列", start: 55, end: 66, subsections: [
+                { num: "6", title: "問題 39 ～ 47", page: 55 }
+            ] },
+            { id: "sec7", title: "§7 統計的な推測", start: 67, end: 78, subsections: [
+                { num: "7", title: "問題 48 ～ 53", page: 67 }
+            ] },
+            { id: "sec8", title: "§8 ベクトル", start: 79, end: 90, subsections: [
+                { num: "8", title: "問題 54 ～ 61", page: 79 }
+            ] },
+            { id: "sec9", title: "§9 平面上の曲線と複素数平面", start: 91, end: 106, subsections: [
+                { num: "9", title: "問題 62 ～ 69", page: 91 }
+            ] },
+            { id: "appendix", title: "付録（常用対数表・正規分布表）", start: 107, end: 109, subsections: [] },
+            { id: "answers", title: "解答・解説", start: 110, end: 232, subsections: [
+                { num: "一覧", title: "解答一覧", page: 110 },
+                { num: "§1", title: "§1 解答解説", page: 139 },
+                { num: "§2", title: "§2 解答解説", page: 144 },
+                { num: "§3", title: "§3 解答解説", page: 154 },
+                { num: "§4", title: "§4 解答解説", page: 161 },
+                { num: "§5", title: "§5 解答解説", page: 170 },
+                { num: "§6", title: "§6 解答解説", page: 179 },
+                { num: "§7", title: "§7 解答解説", page: 191 },
+                { num: "§8", title: "§8 解答解説", page: 202 },
+                { num: "§9", title: "§9 解答解説", page: 215 },
+            ] }
+        ],
+        get sections() {
+            return this.chapters.map(ch => ({
+                id: ch.id, title: ch.title, start: ch.start, end: ch.end,
+                pages: ch.end - ch.start + 1
+            }));
+        },
+        pageQrs: {}
+    },
+
     hijii_dokkai: {
         id: "hijii_dokkai",
         title: "読解のための英文法が面白いほどわかる本",
