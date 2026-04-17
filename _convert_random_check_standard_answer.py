@@ -11,7 +11,7 @@ os.makedirs(bw_out_dir, exist_ok=True)
 DPI = 150
 doc = fitz.open(answer_pdf)
 total_pages = doc.page_count
-offset = 55 # 前編（問題）が55ページあるため、解答は56ページ目から
+offset = 57 # 前編（問題）が57ページあるため、解答は58ページ目から
 
 print(f"変換開始: 解答PDF枚数 {total_pages} ページ -> 連番 {offset + 1} ～ {offset + total_pages}")
 

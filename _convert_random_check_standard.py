@@ -1,6 +1,8 @@
 import fitz
 import os
 import shutil
+from PIL import Image
+import shutil
 
 mondai_pdf = r"D:\Files\ランダム総点検 英文法・語法 最終チェック問題集 標準レベル\問題.pdf"
 cover_jpg = r"D:\Files\ランダム総点検 英文法・語法 最終チェック問題集 標準レベル\表紙.jpg"
@@ -23,12 +25,28 @@ DPI = 150
 doc = fitz.open(mondai_pdf)
 total_pdf_pages = doc.page_count
 
-# PDFの1ページ目をスキップし、2ページ目(インデックス1)から開始
-print(f"変換開始: PDF枚数 {total_pdf_pages} ページ -> 最初の1ページをスキップし {total_pdf_pages - 1} ページ分を抽出")
+print(f"変換開始: PDF枚数 {total_pdf_pages} ページ -> 表紙のあとに白紙を1枚挿入し {total_pdf_pages + 1} ページ分を抽出")
 
 mat = fitz.Matrix(DPI / 72, DPI / 72)
 
 image_num = 1
+
+# --- 1枚目: 表紙(PDF idx=0) ---
+page = doc.load_page(0)
+pix = page.get_pixmap(matrix=mat)
+pix.save(os.path.join(out_dir, f"page_{image_num:04d}.png"))
+pix_bw = page.get_pixmap(matrix=mat, colorspace=fitz.csGRAY)
+pix_bw.save(os.path.join(bw_out_dir, f"page_{image_num:04d}.png"))
+image_num += 1
+
+# --- 2枚目: 白紙挿入 ---
+blank_img = Image.new("RGB", (pix.width, pix.height), (255, 255, 255))
+blank_img.save(os.path.join(out_dir, f"page_{image_num:04d}.png"))
+blank_bw = Image.new("L", (pix.width, pix.height), 255)
+blank_bw.save(os.path.join(bw_out_dir, f"page_{image_num:04d}.png"))
+image_num += 1
+
+# --- 3枚目以降: PDFの2枚目(idx=1)以降を順次出力 ---
 for pdf_idx in range(1, total_pdf_pages):
     page = doc.load_page(pdf_idx)
     
@@ -43,7 +61,7 @@ for pdf_idx in range(1, total_pdf_pages):
     pix_bw.save(out_bw_path)
     
     if image_num % 10 == 0:
-        print(f"  [{image_num}/{total_pdf_pages - 1}] processed.")
+        print(f"  [{image_num}/{total_pdf_pages + 1}] processed.")
         
     image_num += 1
 
