@@ -33,7 +33,7 @@ const hsData = {
                 { num: 1, title: "第14章 ベクトル", page: 267 },
                 { num: 2, title: "第15章 平面上の曲線と複素数平面", page: 286 }
             ]},
-            { id: "ch6", title: "その他", start: 311, end: 659, subsections: [
+            { id: "ch6", title: "その他", start: 311, end: 387, subsections: [
                 { num: 1, title: "実践模試", page: 311 },
                 { num: 2, title: "指針一覧", page: 348 },
                 { num: 3, title: "答の部", page: 370 }
