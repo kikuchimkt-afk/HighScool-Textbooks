@@ -1,0 +1,38 @@
+{
+  "source_dir": "D:\\pdf\\Files\\(河合塾）やっておきたい英語長文700",
+  "table_of_contents": [
+    { "id": 1, "title": "グローバル化", "source": "同志社大", "page": 6 },
+    { "id": 2, "title": "食糧問題", "source": "三重大", "page": 15 },
+    { "id": 3, "title": "自宅教育", "source": "同志社大", "page": 23 },
+    { "id": 4, "title": "高齢化社会", "source": "早稲田大", "page": 34 },
+    { "id": 5, "title": "インターネット", "source": "旭川医科大", "page": 42 },
+    { "id": 6, "title": "言語の遍在性", "source": "明治大", "page": 52 },
+    { "id": 7, "title": "英語の将来", "source": "明治学院大", "page": 62 },
+    { "id": 8, "title": "イランでの旅", "source": "東京大", "page": 73 },
+    { "id": 9, "title": "文化と社会", "source": "同志社大", "page": 85 },
+    { "id": 10, "title": "環境と経済", "source": "大阪大", "page": 95 },
+    { "id": 11, "title": "太陽エネルギー", "source": "佐賀大", "page": 105 },
+    { "id": 12, "title": "地球温暖化", "source": "青山学院大", "page": 115 },
+    { "id": 13, "title": "遺伝子", "source": "青山学院大", "page": 124 },
+    { "id": 14, "title": "脳死", "source": "中央大", "page": 135 },
+    { "id": 15, "title": "20世紀最大の発見", "source": "千葉大", "page": 144 }
+  ],
+  "mapping": [
+    { "problem_number": 1, "book_page_range": "2-4", "pdf_page_range": "2-4" },
+    { "problem_number": 2, "book_page_range": "5-7", "pdf_page_range": "5-7" },
+    { "problem_number": 3, "book_page_range": "8-11", "pdf_page_range": "8-11" },
+    { "problem_number": 4, "book_page_range": "12-14", "pdf_page_range": "12-14" },
+    { "problem_number": 5, "book_page_range": "15-17", "pdf_page_range": "15-17" },
+    { "problem_number": 6, "book_page_range": "18-20", "pdf_page_range": "18-20" },
+    { "problem_number": 7, "book_page_range": "21-24", "pdf_page_range": "21-24" },
+    { "problem_number": 8, "book_page_range": "25-28", "pdf_page_range": "25-28" },
+    { "problem_number": 9, "book_page_range": "29-31", "pdf_page_range": "29-31" },
+    { "problem_number": 10, "book_page_range": "32-34", "pdf_page_range": "32-34" },
+    { "problem_number": 11, "book_page_range": "35-37", "pdf_page_range": "35-37" },
+    { "problem_number": 12, "book_page_range": "38-40", "pdf_page_range": "38-40" },
+    { "problem_number": 13, "book_page_range": "41-44", "pdf_page_range": "41-44" },
+    { "problem_number": 14, "book_page_range": "45-47", "pdf_page_range": "45-47" },
+    { "problem_number": 15, "book_page_range": "48-50", "pdf_page_range": "48-50" }
+  ],
+  "note": "PDFの1ページ目は表紙のため、本のページ番号および問題の割り当てはありません。"
+}
