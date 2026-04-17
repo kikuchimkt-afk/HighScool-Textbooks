@@ -2010,6 +2010,210 @@ const hsData = {
         pageQrs: {}
     },
 
+    kawai_300: {
+        id: "kawai_300",
+        title: "やっておきたい英語長文300",
+        totalPages: 214,
+        imagesPath: "images/kawai_300/",
+        printImagesPath: "images/kawai_300_bw/",
+        coverImage: "images/kawai_300_cover.jpg",
+        qrBase: "",
+        chapters: [
+            { id: "intro", title: "目次", start: 1, end: 1, subsections: [
+            ] },
+            { id: "p1", title: "1. 本能と学習 [東北学院大]", start: 2, end: 3, subsections: [
+                { num: "答", title: "解答・解説", page: 67 },
+            ] },
+            { id: "p2", title: "2. 燃料電池 [岡山理科大]", start: 4, end: 6, subsections: [
+                { num: "答", title: "解答・解説", page: 71 },
+            ] },
+            { id: "p3", title: "3. カルチャーショック [札幌学院大]", start: 7, end: 9, subsections: [
+                { num: "答", title: "解答・解説", page: 76 },
+            ] },
+            { id: "p4", title: "4. 脳の大きさ [法政大]", start: 10, end: 11, subsections: [
+                { num: "答", title: "解答・解説", page: 81 },
+            ] },
+            { id: "p5", title: "5. 読書 [徳島大]", start: 12, end: 14, subsections: [
+                { num: "答", title: "解答・解説", page: 86 },
+            ] },
+            { id: "p6", title: "6. よりよい親となるために [信州大]", start: 15, end: 16, subsections: [
+                { num: "答", title: "解答・解説", page: 91 },
+            ] },
+            { id: "p7", title: "7. 辛抱強く待つこと [東京学芸大]", start: 17, end: 18, subsections: [
+                { num: "答", title: "解答・解説", page: 96 },
+            ] },
+            { id: "p8", title: "8. 笑いの効用 [愛知学院大]", start: 19, end: 20, subsections: [
+                { num: "答", title: "解答・解説", page: 101 },
+            ] },
+            { id: "p9", title: "9. うそとゴシップ [京都府立大]", start: 21, end: 22, subsections: [
+                { num: "答", title: "解答・解説", page: 106 },
+            ] },
+            { id: "p10", title: "10. 動物の知能 [西南学院大]", start: 23, end: 25, subsections: [
+                { num: "答", title: "解答・解説", page: 110 },
+            ] },
+            { id: "p11", title: "11. 旅行 [聖心女子大]", start: 26, end: 27, subsections: [
+                { num: "答", title: "解答・解説", page: 116 },
+            ] },
+            { id: "p12", title: "12. 公用語 [専修大]", start: 28, end: 29, subsections: [
+                { num: "答", title: "解答・解説", page: 121 },
+            ] },
+            { id: "p13", title: "13. イギリス人とアメリカ人 [熊本県立大]", start: 30, end: 31, subsections: [
+                { num: "答", title: "解答・解説", page: 125 },
+            ] },
+            { id: "p14", title: "14. 脳とコンピュータ [東京農工大]", start: 32, end: 33, subsections: [
+                { num: "答", title: "解答・解説", page: 130 },
+            ] },
+            { id: "p15", title: "15. 人と違う道を選択すること [成蹊大]", start: 34, end: 35, subsections: [
+                { num: "答", title: "解答・解説", page: 134 },
+            ] },
+            { id: "p16", title: "16. 健全な競争 [和歌山大]", start: 36, end: 37, subsections: [
+                { num: "答", title: "解答・解説", page: 139 },
+            ] },
+            { id: "p17", title: "17. 孤独感（問題欠落） [福岡女子大]", start: 37, end: 37, subsections: [
+                { num: "答", title: "解答・解説", page: 144 },
+            ] },
+            { id: "p18", title: "18. 恐竜の子孫（問題欠落） [九州大]", start: 37, end: 37, subsections: [
+                { num: "答", title: "解答・解説", page: 149 },
+            ] },
+            { id: "p19", title: "19. ストレス [大阪女子大]", start: 38, end: 39, subsections: [
+                { num: "答", title: "解答・解説", page: 153 },
+            ] },
+            { id: "p20", title: "20. インターネットの影響 [宮崎大]", start: 40, end: 41, subsections: [
+                { num: "答", title: "解答・解説", page: 158 },
+            ] },
+            { id: "p21", title: "21. テレビの影響 [センター試験]", start: 42, end: 43, subsections: [
+                { num: "答", title: "解答・解説", page: 163 },
+            ] },
+            { id: "p22", title: "22. マニュアル思考の限界 [新潟大]", start: 44, end: 46, subsections: [
+                { num: "答", title: "解答・解説", page: 168 },
+            ] },
+            { id: "p23", title: "23. 心臓発作 [近畿大]", start: 47, end: 49, subsections: [
+                { num: "答", title: "解答・解説", page: 174 },
+            ] },
+            { id: "p24", title: "24. 睡眠 [福岡女子大]", start: 50, end: 51, subsections: [
+                { num: "答", title: "解答・解説", page: 179 },
+            ] },
+            { id: "p25", title: "25. 日本人の礼儀正しさ [日本女子大]", start: 52, end: 53, subsections: [
+                { num: "答", title: "解答・解説", page: 184 },
+            ] },
+            { id: "p26", title: "26. 人の話を聞くこと [宮崎大]", start: 54, end: 55, subsections: [
+                { num: "答", title: "解答・解説", page: 188 },
+            ] },
+            { id: "p27", title: "27. ライト兄弟 [摂南大]", start: 56, end: 57, subsections: [
+                { num: "答", title: "解答・解説", page: 194 },
+            ] },
+            { id: "p28", title: "28. 読みとつづりの学習（問題本文一部欠落） [実践女子大]", start: 58, end: 58, subsections: [
+                { num: "答", title: "解答・解説", page: 200 },
+            ] },
+            { id: "p29", title: "29. 動植物に対する人間の姿勢 [愛媛大]", start: 59, end: 60, subsections: [
+                { num: "答", title: "解答・解説", page: 205 },
+            ] },
+            { id: "p30", title: "30. 語彙力と成功の関係 [宮崎大]", start: 61, end: 62, subsections: [
+                { num: "答", title: "解答・解説", page: 210 },
+            ] },
+            { id: "answers", title: "全解答・解説", start: 63, end: 214, subsections: [
+                { num: "1", title: "本能と学習", page: 67 },
+                { num: "2", title: "燃料電池", page: 71 },
+                { num: "3", title: "カルチャーショック", page: 76 },
+                { num: "4", title: "脳の大きさ", page: 81 },
+                { num: "5", title: "読書", page: 86 },
+                { num: "6", title: "よりよい親となるために", page: 91 },
+                { num: "7", title: "辛抱強く待つこと", page: 96 },
+                { num: "8", title: "笑いの効用", page: 101 },
+                { num: "9", title: "うそとゴシップ", page: 106 },
+                { num: "10", title: "動物の知能", page: 110 },
+                { num: "11", title: "旅行", page: 116 },
+                { num: "12", title: "公用語", page: 121 },
+                { num: "13", title: "イギリス人とアメリカ人", page: 125 },
+                { num: "14", title: "脳とコンピュータ", page: 130 },
+                { num: "15", title: "人と違う道を選択すること", page: 134 },
+                { num: "16", title: "健全な競争", page: 139 },
+                { num: "17", title: "孤独感（問題欠落）", page: 144 },
+                { num: "18", title: "恐竜の子孫（問題欠落）", page: 149 },
+                { num: "19", title: "ストレス", page: 153 },
+                { num: "20", title: "インターネットの影響", page: 158 },
+                { num: "21", title: "テレビの影響", page: 163 },
+                { num: "22", title: "マニュアル思考の限界", page: 168 },
+                { num: "23", title: "心臓発作", page: 174 },
+                { num: "24", title: "睡眠", page: 179 },
+                { num: "25", title: "日本人の礼儀正しさ", page: 184 },
+                { num: "26", title: "人の話を聞くこと", page: 188 },
+                { num: "27", title: "ライト兄弟", page: 194 },
+                { num: "28", title: "読みとつづりの学習（問題本文一部欠落）", page: 200 },
+                { num: "29", title: "動植物に対する人間の姿勢", page: 205 },
+                { num: "30", title: "語彙力と成功の関係", page: 210 },
+            ] },
+        ],
+        get sections() {
+            return this.chapters.map(ch => ({
+                id: ch.id, title: ch.title, start: ch.start, end: ch.end,
+                pages: ch.end - ch.start + 1
+            }));
+        },
+        pageQrs: {
+            2: 67,
+            3: 67,
+            4: 71,
+            5: 71,
+            6: 71,
+            7: 76,
+            8: 76,
+            9: 76,
+            10: 81,
+            11: 81,
+            12: 86,
+            13: 86,
+            14: 86,
+            15: 91,
+            16: 91,
+            17: 96,
+            18: 96,
+            19: 101,
+            20: 101,
+            21: 106,
+            22: 106,
+            23: 110,
+            24: 110,
+            25: 110,
+            26: 116,
+            27: 116,
+            28: 121,
+            29: 121,
+            30: 125,
+            31: 125,
+            32: 130,
+            33: 130,
+            34: 134,
+            35: 134,
+            36: 139,
+            37: 139,
+            38: 153,
+            39: 153,
+            40: 158,
+            41: 158,
+            42: 163,
+            43: 163,
+            44: 168,
+            45: 168,
+            46: 168,
+            47: 174,
+            48: 174,
+            49: 174,
+            50: 179,
+            51: 179,
+            52: 184,
+            53: 184,
+            54: 188,
+            55: 188,
+            56: 194,
+            57: 194,
+            59: 205,
+            60: 205,
+            61: 210,
+            62: 210,
+        }
+    },
+
     hijii_dokkai: {
         id: "hijii_dokkai",
         title: "読解のための英文法が面白いほどわかる本",
