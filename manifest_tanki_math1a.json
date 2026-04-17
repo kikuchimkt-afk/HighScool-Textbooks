@@ -1,0 +1,8 @@
+{
+  "name": "短期集中ゼミ 基礎からの数学I+A",
+  "short_name": "短期ゼミ 数IA",
+  "start_url": "tanki_math1a_toc.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1e3c72"
+}

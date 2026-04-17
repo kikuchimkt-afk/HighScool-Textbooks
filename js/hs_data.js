@@ -1,4 +1,124 @@
 const hsData = {
+    // 短期集中ゼミ 基礎からの数学I+A
+    tanki_math1a: {
+        id: "tanki_math1a",
+        title: "短期集中ゼミ 基礎からの数学I+A",
+        totalPages: 152,
+        imagesPath: "images/tanki_math1a/",
+        printImagesPath: "images/tanki_math1a_bw/",
+        coverImage: "images/tanki_math1a_cover.jpg",
+        qrBase: "",
+        chapters: [
+            { id: "ch1", title: "数と式", start: 4, end: 13, subsections: [
+                { num: 1, title: "公式による展開", page: 4 },
+                { num: 2, title: "式の計算", page: 5 },
+                { num: 3, title: "因数分解", page: 6 },
+                { num: 4, title: "おきかえによる因数分解", page: 7 },
+                { num: 5, title: "無理数の計算", page: 8 },
+                { num: 6, title: "対称式の計算", page: 9 },
+                { num: 7, title: "二重根号のはずし方", page: 10 },
+                { num: 8, title: "無理数の整数部分と小数部分", page: 11 },
+                { num: 9, title: "3元連立方程式", page: 12 },
+                { num: 10, title: "絶対値記号とそのはずし方", page: 13 }
+            ]},
+            { id: "ch2", title: "2次関数", start: 14, end: 32, subsections: [
+                { num: 11, title: "関数のグラフ", page: 14 },
+                { num: 12, title: "少し複雑な2次関数のグラフ", page: 15 },
+                { num: 13, title: "2次関数のグラフの平行移動,対称移動", page: 16 },
+                { num: 14, title: "2次関数の決定(1)", page: 17 },
+                { num: 15, title: "2次関数の決定(2)", page: 18 },
+                { num: 16, title: "2次関数の最大・最小", page: 19 },
+                { num: 17, title: "場合分けが必要な最大, 最小(定義域が動く)", page: 20 },
+                { num: 18, title: "場合分けが必要な最大, 最小(グラフが動く)", page: 21 },
+                { num: 19, title: "2次関数のグラフと判別式", page: 22 },
+                { num: 20, title: "すべてのxで ax^2+bx+c>0 が成り立つ条件", page: 23 },
+                { num: 21, title: "2次方程式の解", page: 24 },
+                { num: 22, title: "2次方程式と判別式", page: 25 },
+                { num: 23, title: "1次不等式", page: 26 },
+                { num: 24, title: "2次不等式の解法", page: 27 },
+                { num: 25, title: "連立不等式", page: 28 },
+                { num: 26, title: "場合分けが必要な2次不等式", page: 29 },
+                { num: 27, title: "不等式の整数解の個数", page: 30 },
+                { num: 28, title: "2次方程式の解とグラフ", page: 31 },
+                { num: 29, title: "絶対値を含む方程式・不等式", page: 32 }
+            ]},
+            { id: "ch3", title: "図形と計量", start: 33, end: 43, subsections: [
+                { num: 30, title: "三角比の定義", page: 33 },
+                { num: 31, title: "三角比の拡張 (90°以上の三角比)", page: 34 },
+                { num: 32, title: "三角比の相互関係", page: 35 },
+                { num: 33, title: "sinθ+cosθ と sinθcosθ", page: 36 },
+                { num: 34, title: "三角方程式・不等式", page: 37 },
+                { num: 35, title: "sinθ, cosθ で表された関数", page: 38 },
+                { num: 36, title: "正弦定理", page: 39 },
+                { num: 37, title: "余弦定理", page: 40 },
+                { num: 38, title: "三角形の面積", page: 41 },
+                { num: 39, title: "円に内接する四角形", page: 42 },
+                { num: 40, title: "空間図形の考え方", page: 43 }
+            ]},
+            { id: "ch4", title: "集合と論証", start: 44, end: 48, subsections: [
+                { num: 41, title: "不等式で表された集合の関係", page: 44 },
+                { num: 42, title: "不等式で表された集合の包含関係", page: 45 },
+                { num: 43, title: "集合の要素の個数", page: 46 },
+                { num: 44, title: "「かつ」と「または」、「すべて」と「ある」", page: 47 },
+                { num: 45, title: "必要条件と十分条件", page: 48 }
+            ]},
+            { id: "ch5", title: "データの分析", start: 49, end: 52, subsections: [
+                { num: 46, title: "度数分布と代表値", page: 49 },
+                { num: 47, title: "箱ひげ図", page: 50 },
+                { num: 48, title: "平均値・分散と標準偏差", page: 51 },
+                { num: 49, title: "相関係数", page: 52 }
+            ]},
+            { id: "ch6", title: "場合の数と確率", start: 53, end: 71, subsections: [
+                { num: 50, title: "和の法則・積の法則", page: 53 },
+                { num: 51, title: "順列と組合せ", page: 54 },
+                { num: 52, title: "いろいろな順列", page: 55 },
+                { num: 53, title: "円順列", page: 56 },
+                { num: 54, title: "重複順列", page: 57 },
+                { num: 55, title: "同じものを含む順列", page: 58 },
+                { num: 56, title: "いろいろな組合せ", page: 59 },
+                { num: 57, title: "組の区別のつかない組分け", page: 60 },
+                { num: 58, title: "組合せの図形への応用", page: 61 },
+                { num: 59, title: "確率の考え方", page: 62 },
+                { num: 60, title: "確率の加法定理(1) (排反である場合)", page: 63 },
+                { num: 61, title: "確率の加法定理(2) (排反でない場合)", page: 64 },
+                { num: 62, title: "順列と確率", page: 65 },
+                { num: 63, title: "組合せと確率", page: 66 },
+                { num: 64, title: "余事象の確率", page: 67 },
+                { num: 65, title: "続けて起こる場合の確率", page: 68 },
+                { num: 66, title: "さいころの確率", page: 69 },
+                { num: 67, title: "反復試行の確率", page: 70 },
+                { num: 68, title: "条件つき確率", page: 71 }
+            ]},
+            { id: "ch7", title: "整数の性質", start: 72, end: 77, subsections: [
+                { num: 69, title: "最大公約数・最小公倍数", page: 72 },
+                { num: 70, title: "余りによる整数の分類", page: 73 },
+                { num: 71, title: "互除法", page: 74 },
+                { num: 72, title: "不定方程式 ax+by=c の解", page: 75 },
+                { num: 73, title: "不定方程式 xy+px+qy=r の整数解", page: 76 },
+                { num: 74, title: "n進法", page: 77 }
+            ]},
+            { id: "ch8", title: "図形の性質", start: 78, end: 84, subsections: [
+                { num: 75, title: "角の2等分線と中線定理", page: 78 },
+                { num: 76, title: "円周角, 接弦定理, 円に内接する四角形", page: 79 },
+                { num: 77, title: "内心と外心", page: 80 },
+                { num: 78, title: "方べきの定理", page: 81 },
+                { num: 79, title: "円と接線, 2円の関係", page: 82 },
+                { num: 80, title: "メネラウスの定理", page: 83 },
+                { num: 81, title: "チェバの定理", page: 84 }
+            ]},
+            { id: "answers", title: "解答・解説編", start: 85, end: 152, subsections: [
+                { num: 82, title: "こたえ (解答)", page: 85 }
+            ]}
+        ],
+        get sections() {
+            return this.chapters.map(ch => ({
+                id: ch.id, title: ch.title, start: ch.start, end: ch.end,
+                pages: ch.end - ch.start + 1
+            }));
+        },
+        pageQrs: {}
+    },
+
     // ランダム総点検 標準レベル
     random_check_standard: {
         id: "random_check_standard",
