@@ -21,7 +21,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Find initial section
     const initialSection = sections.find(s => s.id === sectionId) || sections[0];
-    let currentPage = initialSection.start + (initialPage - 1);
+    // URLの`page`パラメータがグローバルページ番号かセクション内ローカルページかを判定する
+    // TOCリンクは?page=グローバルページ番号で渡す。
+    // グローバルとして解釈: pageがsectionの有効範囲(start..end)内なら直接使う
+    // ローカルとして解釈: pageが小さく相対値の場合は start + (page-1)
+    let currentPage;
+    if (initialPage >= initialSection.start) {
+        // pageがsectionのstart以上 → グローバルページとして直接使う (TOCリンクからのジャンプ)
+        currentPage = initialPage;
+    } else {
+        // pageがローカル相対値（セクション内1始まり）
+        currentPage = initialSection.start + (initialPage - 1);
+    }
     if (currentPage < 1) currentPage = 1;
     if (currentPage > TOTAL_PAGES) currentPage = TOTAL_PAGES;
 
