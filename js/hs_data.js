@@ -2016,97 +2016,98 @@ const hsData = {
         totalPages: 214,
         imagesPath: "images/kawai_300/",
         printImagesPath: "images/kawai_300_bw/",
+        problemImageStartPage: 67,
         coverImage: "images/kawai_300_cover.jpg",
         qrBase: "",
         chapters: [
-              { id: "p1", title: "1. 本能と学習 [東北学院大]", start: 67, end: 70, subsections: [
+              { id: "p1", title: "1. 本能と学習 [東北学院大]", start: 67, end: 70, bookPageStart: 5, subsections: [
                   { num: "答", title: "解答・解説", page: 2 },
               ] },
-              { id: "p2", title: "2. 燃料電池 [岡山理科大]", start: 71, end: 75, subsections: [
+              { id: "p2", title: "2. 燃料電池 [岡山理科大]", start: 71, end: 75, bookPageStart: 9, subsections: [
                   { num: "答", title: "解答・解説", page: 4 },
               ] },
-              { id: "p3", title: "3. カルチャーショック [札幌学院大]", start: 76, end: 80, subsections: [
+              { id: "p3", title: "3. カルチャーショック [札幌学院大]", start: 76, end: 80, bookPageStart: 14, subsections: [
                   { num: "答", title: "解答・解説", page: 7 },
               ] },
-              { id: "p4", title: "4. 脳の大きさ [法政大]", start: 81, end: 85, subsections: [
+              { id: "p4", title: "4. 脳の大きさ [法政大]", start: 81, end: 85, bookPageStart: 19, subsections: [
                   { num: "答", title: "解答・解説", page: 10 },
               ] },
-              { id: "p5", title: "5. 読書 [徳島大]", start: 86, end: 90, subsections: [
+              { id: "p5", title: "5. 読書 [徳島大]", start: 86, end: 90, bookPageStart: 24, subsections: [
                   { num: "答", title: "解答・解説", page: 12 },
               ] },
-              { id: "p6", title: "6. よりよい親となるために [信州大]", start: 91, end: 95, subsections: [
+              { id: "p6", title: "6. よりよい親となるために [信州大]", start: 91, end: 95, bookPageStart: 29, subsections: [
                   { num: "答", title: "解答・解説", page: 15 },
               ] },
-              { id: "p7", title: "7. 辛抱強く待つこと [東京学芸大]", start: 96, end: 100, subsections: [
+              { id: "p7", title: "7. 辛抱強く待つこと [東京学芸大]", start: 96, end: 100, bookPageStart: 34, subsections: [
                   { num: "答", title: "解答・解説", page: 17 },
               ] },
-              { id: "p8", title: "8. 笑いの効用 [愛知学院大]", start: 101, end: 105, subsections: [
+              { id: "p8", title: "8. 笑いの効用 [愛知学院大]", start: 101, end: 105, bookPageStart: 39, subsections: [
                   { num: "答", title: "解答・解説", page: 19 },
               ] },
-              { id: "p9", title: "9. うそとゴシップ [京都府立大]", start: 106, end: 109, subsections: [
+              { id: "p9", title: "9. うそとゴシップ [京都府立大]", start: 106, end: 109, bookPageStart: 44, subsections: [
                   { num: "答", title: "解答・解説", page: 21 },
               ] },
-              { id: "p10", title: "10. 動物の知能 [西南学院大]", start: 110, end: 115, subsections: [
+              { id: "p10", title: "10. 動物の知能 [西南学院大]", start: 110, end: 115, bookPageStart: 48, subsections: [
                   { num: "答", title: "解答・解説", page: 23 },
               ] },
-              { id: "p11", title: "11. 旅行 [聖心女子大]", start: 116, end: 120, subsections: [
+              { id: "p11", title: "11. 旅行 [聖心女子大]", start: 116, end: 120, bookPageStart: 54, subsections: [
                   { num: "答", title: "解答・解説", page: 26 },
               ] },
-              { id: "p12", title: "12. 公用語 [専修大]", start: 121, end: 124, subsections: [
+              { id: "p12", title: "12. 公用語 [専修大]", start: 121, end: 124, bookPageStart: 59, subsections: [
                   { num: "答", title: "解答・解説", page: 28 },
               ] },
-              { id: "p13", title: "13. イギリス人とアメリカ人 [熊本県立大]", start: 125, end: 129, subsections: [
+              { id: "p13", title: "13. イギリス人とアメリカ人 [熊本県立大]", start: 125, end: 129, bookPageStart: 63, subsections: [
                   { num: "答", title: "解答・解説", page: 30 },
               ] },
-              { id: "p14", title: "14. 脳とコンピュータ [東京農工大]", start: 130, end: 133, subsections: [
+              { id: "p14", title: "14. 脳とコンピュータ [東京農工大]", start: 130, end: 133, bookPageStart: 68, subsections: [
                   { num: "答", title: "解答・解説", page: 32 },
               ] },
-              { id: "p15", title: "15. 人と違う道を選択すること [成蹊大]", start: 134, end: 138, subsections: [
+              { id: "p15", title: "15. 人と違う道を選択すること [成蹊大]", start: 134, end: 138, bookPageStart: 72, subsections: [
                   { num: "答", title: "解答・解説", page: 34 },
               ] },
-              { id: "p16", title: "16. 健全な競争 [和歌山大]", start: 139, end: 143, subsections: [
+              { id: "p16", title: "16. 健全な競争 [和歌山大]", start: 139, end: 143, bookPageStart: 77, subsections: [
                   { num: "答", title: "解答・解説", page: 36 },
               ] },
-              { id: "p17", title: "17. 孤独感（問題欠落） [福岡女子大]", start: 144, end: 148, subsections: [
+              { id: "p17", title: "17. 孤独感（欠） [福岡女子大]", start: 144, end: 148, bookPageStart: 82, subsections: [
                   { num: "答", title: "解答・解説", page: 37 },
               ] },
-              { id: "p18", title: "18. 恐竜の子孫（問題欠落） [九州大]", start: 149, end: 152, subsections: [
+              { id: "p18", title: "18. 恐竜の子孫（欠） [九州大]", start: 149, end: 152, bookPageStart: 87, subsections: [
                   { num: "答", title: "解答・解説", page: 37 },
               ] },
-              { id: "p19", title: "19. ストレス [大阪女子大]", start: 153, end: 157, subsections: [
+              { id: "p19", title: "19. ストレス [大阪女子大]", start: 153, end: 157, bookPageStart: 91, subsections: [
                   { num: "答", title: "解答・解説", page: 38 },
               ] },
-              { id: "p20", title: "20. インターネットの影響 [宮崎大]", start: 158, end: 162, subsections: [
+              { id: "p20", title: "20. インターネットの影響 [宮崎大]", start: 158, end: 162, bookPageStart: 96, subsections: [
                   { num: "答", title: "解答・解説", page: 40 },
               ] },
-              { id: "p21", title: "21. テレビの影響 [センター試験]", start: 163, end: 167, subsections: [
+              { id: "p21", title: "21. テレビの影響 [センター試験]", start: 163, end: 167, bookPageStart: 101, subsections: [
                   { num: "答", title: "解答・解説", page: 42 },
               ] },
-              { id: "p22", title: "22. マニュアル思考の限界 [新潟大]", start: 168, end: 173, subsections: [
+              { id: "p22", title: "22. マニュアル思考の限界 [新潟大]", start: 168, end: 173, bookPageStart: 106, subsections: [
                   { num: "答", title: "解答・解説", page: 44 },
               ] },
-              { id: "p23", title: "23. 心臓発作 [近畿大]", start: 174, end: 178, subsections: [
+              { id: "p23", title: "23. 心臓発作 [近畿大]", start: 174, end: 178, bookPageStart: 112, subsections: [
                   { num: "答", title: "解答・解説", page: 47 },
               ] },
-              { id: "p24", title: "24. 睡眠 [福岡女子大]", start: 179, end: 183, subsections: [
+              { id: "p24", title: "24. 睡眠 [福岡女子大]", start: 179, end: 183, bookPageStart: 117, subsections: [
                   { num: "答", title: "解答・解説", page: 50 },
               ] },
-              { id: "p25", title: "25. 日本人の礼儀正しさ [日本女子大]", start: 184, end: 187, subsections: [
+              { id: "p25", title: "25. 日本人の礼儀正しさ [日本女子大]", start: 184, end: 187, bookPageStart: 122, subsections: [
                   { num: "答", title: "解答・解説", page: 52 },
               ] },
-              { id: "p26", title: "26. 人の話を聞くこと [宮崎大]", start: 188, end: 193, subsections: [
+              { id: "p26", title: "26. 人の話を聞くこと [宮崎大]", start: 188, end: 193, bookPageStart: 126, subsections: [
                   { num: "答", title: "解答・解説", page: 54 },
               ] },
-              { id: "p27", title: "27. ライト兄弟 [摂南大]", start: 194, end: 199, subsections: [
+              { id: "p27", title: "27. ライト兄弟 [摂南大]", start: 194, end: 199, bookPageStart: 132, subsections: [
                   { num: "答", title: "解答・解説", page: 56 },
               ] },
-              { id: "p28", title: "28. 読みとつづりの学習（問題本文一部欠落） [実践女子大]", start: 200, end: 204, subsections: [
+              { id: "p28", title: "28. 読みとつづりの学習（欠） [実践女子大]", start: 200, end: 204, bookPageStart: 138, subsections: [
                   { num: "答", title: "解答・解説", page: 58 },
               ] },
-              { id: "p29", title: "29. 動植物に対する人間の姿勢 [愛媛大]", start: 205, end: 209, subsections: [
+              { id: "p29", title: "29. 動植物に対する人間の姿勢 [愛媛大]", start: 205, end: 209, bookPageStart: 143, subsections: [
                   { num: "答", title: "解答・解説", page: 59 },
               ] },
-              { id: "p30", title: "30. 語彙力と成功の関係 [宮崎大]", start: 210, end: 214, subsections: [
+              { id: "p30", title: "30. 語彙力と成功の関係 [宮崎大]", start: 210, end: 214, bookPageStart: 148, subsections: [
                   { num: "答", title: "解答・解説", page: 61 },
               ] },
               { id: "answers", title: "全解答・解説", start: 1, end: 62, subsections: [
@@ -2126,8 +2127,8 @@ const hsData = {
                   { num: "14", title: "脳とコンピュータ", page: 32 },
                   { num: "15", title: "人と違う道を選択すること", page: 34 },
                   { num: "16", title: "健全な競争", page: 36 },
-                  { num: "17", title: "孤独感（問題欠落）", page: 37 },
-                  { num: "18", title: "恐竜の子孫（問題欠落）", page: 37 },
+                  { num: "17", title: "孤独感（欠）", page: 37 },
+                  { num: "18", title: "恐竜の子孫（欠）", page: 37 },
                   { num: "19", title: "ストレス", page: 38 },
                   { num: "20", title: "インターネットの影響", page: 40 },
                   { num: "21", title: "テレビの影響", page: 42 },
@@ -2137,7 +2138,7 @@ const hsData = {
                   { num: "25", title: "日本人の礼儀正しさ", page: 52 },
                   { num: "26", title: "人の話を聞くこと", page: 54 },
                   { num: "27", title: "ライト兄弟", page: 56 },
-                  { num: "28", title: "読みとつづりの学習（問題本文一部欠落）", page: 58 },
+                  { num: "28", title: "読みとつづりの学習（欠）", page: 58 },
                   { num: "29", title: "動植物に対する人間の姿勢", page: 59 },
                   { num: "30", title: "語彙力と成功の関係", page: 61 }
               ] }
@@ -2145,7 +2146,8 @@ const hsData = {
         get sections() {
             return this.chapters.map(ch => ({
                 id: ch.id, title: ch.title, start: ch.start, end: ch.end,
-                pages: ch.end - ch.start + 1
+                pages: ch.end - ch.start + 1,
+                ...(ch.bookPageStart != null ? { bookPageStart: ch.bookPageStart } : {})
             }));
         },
         pageQrs: {
@@ -2306,6 +2308,7 @@ const hsData = {
         totalPages: 192,
         imagesPath: "images/kawai_500/",
         printImagesPath: "images/kawai_500_bw/",
+        problemImageStartPage: 53,
         coverImage: "images/kawai_500_cover.jpg",
         qrBase: "",
         chapters: [
@@ -2548,6 +2551,7 @@ const hsData = {
         totalPages: 204,
         imagesPath: "images/kawai_700/",
         printImagesPath: "images/kawai_700_bw/",
+        problemImageStartPage: 56,
         coverImage: "images/kawai_700_cover.jpg",
         qrBase: "",
         chapters: [
@@ -2779,6 +2783,7 @@ const hsData = {
         totalPages: 188,
         imagesPath: "images/kawai_1000/",
         printImagesPath: "images/kawai_1000_bw/",
+        problemImageStartPage: 50,
         coverImage: "images/kawai_1000_cover.jpg",
         qrBase: "",
         chapters: [

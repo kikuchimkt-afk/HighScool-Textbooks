@@ -16,8 +16,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const TOTAL_PAGES = bookData.totalPages;
-    const IMAGE_DIR = bookData.imagesPath;
     const sections = bookData.sections;
+
+    /** 河合「やっておきたい英語長文」系: imagesPath=解説・printImagesPath=問題で別exportの場合、先頭ページから切替 */
+    function resolveImagesDirForPage(p) {
+        const start = bookData.problemImageStartPage;
+        if (start != null && p >= start) {
+            return bookData.problemImagesPath || bookData.printImagesPath || bookData.imagesPath;
+        }
+        return bookData.imagesPath;
+    }
 
     // Find initial section
     const initialSection = sections.find(s => s.id === sectionId) || sections[0];
@@ -128,7 +136,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function getImageSrc(globalPage) {
-        return `${IMAGE_DIR}/page_${globalPage.toString().padStart(4, '0')}.png`;
+        const dir = resolveImagesDirForPage(globalPage);
+        return `${dir}page_${globalPage.toString().padStart(4, '0')}.png`;
     }
 
     function getSectionForPage(p) {
@@ -367,7 +376,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const sec = getSectionForPage(p);
         const localPage = sec ? (p - sec.start + 1) : p;
         if (sec) {
-            chapterTitle.textContent = `${sec.title} (${localPage}/${sec.pages})`;
+            let main = `${sec.title} (${localPage}/${sec.pages})`;
+            if (sec.bookPageStart != null) {
+                main += ` · 本誌p.${sec.bookPageStart + localPage - 1}`;
+            }
+            chapterTitle.textContent = main;
         } else {
             chapterTitle.textContent = `Page ${p}`;
         }
@@ -515,8 +528,10 @@ document.addEventListener('DOMContentLoaded', () => {
     let printRangeEnd = 1;
 
     function getBwSrc(p) {
-        const bwPath = bookData.printImagesPath || bookData.imagesPath;
-        return `${bwPath}page_${p.toString().padStart(4, '0')}.png`;
+        const dir = bookData.problemImageStartPage != null
+            ? resolveImagesDirForPage(p)
+            : (bookData.printImagesPath || bookData.imagesPath);
+        return `${dir}page_${p.toString().padStart(4, '0')}.png`;
     }
 
     function updatePrintSelectedCount() {
