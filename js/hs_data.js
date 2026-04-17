@@ -2214,6 +2214,157 @@ const hsData = {
         }
     },
 
+    kawai_500: {
+        id: "kawai_500",
+        title: "やっておきたい英語長文500",
+        totalPages: 192,
+        imagesPath: "images/kawai_500/",
+        printImagesPath: "images/kawai_500_bw/",
+        coverImage: "images/kawai_500_cover.jpg",
+        qrBase: "",
+        chapters: [
+            { id: "intro", title: "目次", start: 1, end: 1, subsections: [
+            ] },
+            { id: "p1", title: "1. 適度なストレス [龍谷大]", start: 2, end: 3, subsections: [
+                { num: "答", title: "解答・解説", page: 53 },
+            ] },
+            { id: "p2", title: "2. カモノハシ [東北大]", start: 4, end: 6, subsections: [
+                { num: "答", title: "解答・解説", page: 59 },
+            ] },
+            { id: "p3", title: "3. 緑の革命 [神戸学院大]", start: 7, end: 8, subsections: [
+                { num: "答", title: "解答・解説", page: 67 },
+            ] },
+            { id: "p4", title: "4. 電子メールの影響 [愛知県立大]", start: 9, end: 10, subsections: [
+                { num: "答", title: "解答・解説", page: 74 },
+            ] },
+            { id: "p5", title: "5. 観光と環境 [東工大]", start: 11, end: 13, subsections: [
+                { num: "答", title: "解答・解説", page: 81 },
+            ] },
+            { id: "p6", title: "6. 視覚と認識 [神戸大]", start: 14, end: 15, subsections: [
+                { num: "答", title: "解答・解説", page: 89 },
+            ] },
+            { id: "p7", title: "7. エイズの治療薬 [茨城大]", start: 16, end: 17, subsections: [
+                { num: "答", title: "解答・解説", page: 96 },
+            ] },
+            { id: "p8", title: "8. 名前の持つ魔力 [熊本県立大]", start: 18, end: 19, subsections: [
+                { num: "答", title: "解答・解説", page: 103 },
+            ] },
+            { id: "p9", title: "9. 動物実験 [北海道大]", start: 20, end: 21, subsections: [
+                { num: "答", title: "解答・解説", page: 109 },
+            ] },
+            { id: "p10", title: "10. 赤ちゃんを左側に抱く理由 [和歌山大]", start: 22, end: 23, subsections: [
+                { num: "答", title: "解答・解説", page: 116 },
+            ] },
+            { id: "p11", title: "11. 睡眠 [福島大]", start: 24, end: 25, subsections: [
+                { num: "答", title: "解答・解説", page: 122 },
+            ] },
+            { id: "p12", title: "12. 触れることの大切さ [岩手大]", start: 26, end: 27, subsections: [
+                { num: "答", title: "解答・解説", page: 129 },
+            ] },
+            { id: "p13", title: "13. 移動の意味 [立教大]", start: 28, end: 29, subsections: [
+                { num: "答", title: "解答・解説", page: 136 },
+            ] },
+            { id: "p14", title: "14. 左脳と右脳 [専修大]", start: 30, end: 31, subsections: [
+                { num: "答", title: "解答・解説", page: 143 },
+            ] },
+            { id: "p15", title: "15. 妻の介護 [大阪電通大]", start: 32, end: 33, subsections: [
+                { num: "答", title: "解答・解説", page: 149 },
+            ] },
+            { id: "p16", title: "16. 環境に優しい暮らし方 [茨城大]", start: 34, end: 35, subsections: [
+                { num: "答", title: "解答・解説", page: 155 },
+            ] },
+            { id: "p17", title: "17. 脳の拡大 [立教大]", start: 36, end: 38, subsections: [
+                { num: "答", title: "解答・解説", page: 161 },
+            ] },
+            { id: "p18", title: "18. ホッキョクグマ [滋賀県立大]", start: 39, end: 41, subsections: [
+                { num: "答", title: "解答・解説", page: 167 },
+            ] },
+            { id: "p19", title: "19. ラジオの役割 [熊本大]", start: 42, end: 43, subsections: [
+                { num: "答", title: "解答・解説", page: 174 },
+            ] },
+            { id: "p20", title: "20. 言語の持つ制約 [一橋大]", start: 44, end: 48, subsections: [
+                { num: "答", title: "解答・解説", page: 181 },
+            ] },
+            { id: "answers", title: "全解答・解説", start: 49, end: 192, subsections: [
+                { num: "1", title: "適度なストレス", page: 53 },
+                { num: "2", title: "カモノハシ", page: 59 },
+                { num: "3", title: "緑の革命", page: 67 },
+                { num: "4", title: "電子メールの影響", page: 74 },
+                { num: "5", title: "観光と環境", page: 81 },
+                { num: "6", title: "視覚と認識", page: 89 },
+                { num: "7", title: "エイズの治療薬", page: 96 },
+                { num: "8", title: "名前の持つ魔力", page: 103 },
+                { num: "9", title: "動物実験", page: 109 },
+                { num: "10", title: "赤ちゃんを左側に抱く理由", page: 116 },
+                { num: "11", title: "睡眠", page: 122 },
+                { num: "12", title: "触れることの大切さ", page: 129 },
+                { num: "13", title: "移動の意味", page: 136 },
+                { num: "14", title: "左脳と右脳", page: 143 },
+                { num: "15", title: "妻の介護", page: 149 },
+                { num: "16", title: "環境に優しい暮らし方", page: 155 },
+                { num: "17", title: "脳の拡大", page: 161 },
+                { num: "18", title: "ホッキョクグマ", page: 167 },
+                { num: "19", title: "ラジオの役割", page: 174 },
+                { num: "20", title: "言語の持つ制約", page: 181 },
+            ] },
+        ],
+        get sections() {
+            return this.chapters.map(ch => ({
+                id: ch.id, title: ch.title, start: ch.start, end: ch.end,
+                pages: ch.end - ch.start + 1
+            }));
+        },
+        pageQrs: {
+            2: 53,
+            3: 53,
+            4: 59,
+            5: 59,
+            6: 59,
+            7: 67,
+            8: 67,
+            9: 74,
+            10: 74,
+            11: 81,
+            12: 81,
+            13: 81,
+            14: 89,
+            15: 89,
+            16: 96,
+            17: 96,
+            18: 103,
+            19: 103,
+            20: 109,
+            21: 109,
+            22: 116,
+            23: 116,
+            24: 122,
+            25: 122,
+            26: 129,
+            27: 129,
+            28: 136,
+            29: 136,
+            30: 143,
+            31: 143,
+            32: 149,
+            33: 149,
+            34: 155,
+            35: 155,
+            36: 161,
+            37: 161,
+            38: 161,
+            39: 167,
+            40: 167,
+            41: 167,
+            42: 174,
+            43: 174,
+            44: 181,
+            45: 181,
+            46: 181,
+            47: 181,
+            48: 181,
+        }
+    },
+
     hijii_dokkai: {
         id: "hijii_dokkai",
         title: "読解のための英文法が面白いほどわかる本",
