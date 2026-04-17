@@ -2365,6 +2365,139 @@ const hsData = {
         }
     },
 
+    kawai_700: {
+        id: "kawai_700",
+        title: "やっておきたい英語長文700",
+        totalPages: 204,
+        imagesPath: "images/kawai_700/",
+        printImagesPath: "images/kawai_700_bw/",
+        coverImage: "images/kawai_700_cover.jpg",
+        qrBase: "",
+        chapters: [
+            { id: "intro", title: "目次", start: 1, end: 1, subsections: [
+            ] },
+            { id: "p1", title: "1. グローバル化 [同志社大]", start: 2, end: 4, subsections: [
+                { num: "答", title: "解答・解説", page: 56 },
+            ] },
+            { id: "p2", title: "2. 食糧問題 [三重大]", start: 5, end: 7, subsections: [
+                { num: "答", title: "解答・解説", page: 65 },
+            ] },
+            { id: "p3", title: "3. 自宅教育 [同志社大]", start: 8, end: 11, subsections: [
+                { num: "答", title: "解答・解説", page: 73 },
+            ] },
+            { id: "p4", title: "4. 高齢化社会 [早稲田大]", start: 12, end: 14, subsections: [
+                { num: "答", title: "解答・解説", page: 84 },
+            ] },
+            { id: "p5", title: "5. インターネット [旭川医科大]", start: 15, end: 17, subsections: [
+                { num: "答", title: "解答・解説", page: 92 },
+            ] },
+            { id: "p6", title: "6. 言語の遍在性 [明治大]", start: 18, end: 20, subsections: [
+                { num: "答", title: "解答・解説", page: 102 },
+            ] },
+            { id: "p7", title: "7. 英語の将来 [明治学院大]", start: 21, end: 24, subsections: [
+                { num: "答", title: "解答・解説", page: 112 },
+            ] },
+            { id: "p8", title: "8. イランでの旅 [東京大]", start: 25, end: 28, subsections: [
+                { num: "答", title: "解答・解説", page: 123 },
+            ] },
+            { id: "p9", title: "9. 文化と社会 [同志社大]", start: 29, end: 31, subsections: [
+                { num: "答", title: "解答・解説", page: 135 },
+            ] },
+            { id: "p10", title: "10. 環境と経済 [大阪大]", start: 32, end: 34, subsections: [
+                { num: "答", title: "解答・解説", page: 145 },
+            ] },
+            { id: "p11", title: "11. 太陽エネルギー [佐賀大]", start: 35, end: 37, subsections: [
+                { num: "答", title: "解答・解説", page: 155 },
+            ] },
+            { id: "p12", title: "12. 地球温暖化 [青山学院大]", start: 38, end: 40, subsections: [
+                { num: "答", title: "解答・解説", page: 165 },
+            ] },
+            { id: "p13", title: "13. 遺伝子 [青山学院大]", start: 41, end: 44, subsections: [
+                { num: "答", title: "解答・解説", page: 174 },
+            ] },
+            { id: "p14", title: "14. 脳死 [中央大]", start: 45, end: 47, subsections: [
+                { num: "答", title: "解答・解説", page: 185 },
+            ] },
+            { id: "p15", title: "15. 20世紀最大の発見 [千葉大]", start: 48, end: 50, subsections: [
+                { num: "答", title: "解答・解説", page: 194 },
+            ] },
+            { id: "answers", title: "全解答・解説", start: 51, end: 204, subsections: [
+                { num: "1", title: "グローバル化", page: 56 },
+                { num: "2", title: "食糧問題", page: 65 },
+                { num: "3", title: "自宅教育", page: 73 },
+                { num: "4", title: "高齢化社会", page: 84 },
+                { num: "5", title: "インターネット", page: 92 },
+                { num: "6", title: "言語の遍在性", page: 102 },
+                { num: "7", title: "英語の将来", page: 112 },
+                { num: "8", title: "イランでの旅", page: 123 },
+                { num: "9", title: "文化と社会", page: 135 },
+                { num: "10", title: "環境と経済", page: 145 },
+                { num: "11", title: "太陽エネルギー", page: 155 },
+                { num: "12", title: "地球温暖化", page: 165 },
+                { num: "13", title: "遺伝子", page: 174 },
+                { num: "14", title: "脳死", page: 185 },
+                { num: "15", title: "20世紀最大の発見", page: 194 },
+            ] },
+        ],
+        get sections() {
+            return this.chapters.map(ch => ({
+                id: ch.id, title: ch.title, start: ch.start, end: ch.end,
+                pages: ch.end - ch.start + 1
+            }));
+        },
+        pageQrs: {
+            2: 56,
+            3: 56,
+            4: 56,
+            5: 65,
+            6: 65,
+            7: 65,
+            8: 73,
+            9: 73,
+            10: 73,
+            11: 73,
+            12: 84,
+            13: 84,
+            14: 84,
+            15: 92,
+            16: 92,
+            17: 92,
+            18: 102,
+            19: 102,
+            20: 102,
+            21: 112,
+            22: 112,
+            23: 112,
+            24: 112,
+            25: 123,
+            26: 123,
+            27: 123,
+            28: 123,
+            29: 135,
+            30: 135,
+            31: 135,
+            32: 145,
+            33: 145,
+            34: 145,
+            35: 155,
+            36: 155,
+            37: 155,
+            38: 165,
+            39: 165,
+            40: 165,
+            41: 174,
+            42: 174,
+            43: 174,
+            44: 174,
+            45: 185,
+            46: 185,
+            47: 185,
+            48: 194,
+            49: 194,
+            50: 194,
+        }
+    },
+
     hijii_dokkai: {
         id: "hijii_dokkai",
         title: "読解のための英文法が面白いほどわかる本",
