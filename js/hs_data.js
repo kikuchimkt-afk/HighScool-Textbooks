@@ -1,4 +1,65 @@
 const hsData = {
+    // ランダム総点検 標準レベル
+    random_check_standard: {
+        id: "random_check_standard",
+        title: "ランダム総点検 英文法・語法 最終チェック問題集 標準レベル編",
+        totalPages: 214,
+        imagesPath: "images/random_check_standard/",
+        printImagesPath: "images/random_check_standard_bw/",
+        coverImage: "images/random_check_standard_cover.jpg",
+        qrBase: "",
+        chapters: [
+            { id: "prob", title: "本文", start: 1, end: 55, subsections: [
+                { num: 1, title: "Test 01", page: 6 },
+                { num: 2, title: "Test 02", page: 10 },
+                { num: 3, title: "Test 03", page: 14 },
+                { num: 4, title: "Test 04", page: 18 },
+                { num: 5, title: "Test 05", page: 22 },
+                { num: 6, title: "Test 06", page: 26 },
+                { num: 7, title: "Test 07", page: 30 },
+                { num: 8, title: "Test 08", page: 34 },
+                { num: 9, title: "Test 09", page: 38 },
+                { num: 10, title: "Test 10", page: 42 },
+                { num: 11, title: "Test 01 解答用紙", page: 46 },
+                { num: 12, title: "Test 02 解答用紙", page: 47 },
+                { num: 13, title: "Test 03 解答用紙", page: 48 },
+                { num: 14, title: "Test 04 解答用紙", page: 49 },
+                { num: 15, title: "Test 05 解答用紙", page: 50 },
+                { num: 16, title: "Test 06 解答用紙", page: 51 },
+                { num: 17, title: "Test 07 解答用紙", page: 52 },
+                { num: 18, title: "Test 08 解答用紙", page: 53 },
+                { num: 19, title: "Test 09 解答用紙", page: 54 },
+                { num: 20, title: "Test 10 解答用紙", page: 55 }
+            ]},
+            { id: "answers", title: "解答・解説編", start: 56, end: 214, subsections: [
+                { num: 1, title: "解答欄・解説編 目次", page: 4 + 54 },
+                { num: 2, title: "Test 01 解答一覧", page: 7 + 54 },
+                { num: 3, title: "Test 01 解答・解説", page: 8 + 54 },
+                { num: 4, title: "理解: 関係代名詞の種類（格変化）", page: 9 + 54 },
+                { num: 5, title: "理解: 時・条件を表す副詞節の時制", page: 11 + 54 },
+                { num: 6, title: "理解: 使役動詞の意味と用法の違い", page: 12 + 54 },
+                { num: 7, title: "理解: It is ~ for+人 / of+人 の区別", page: 33 + 54 },
+                { num: 8, title: "理解: 比較対象の指示代名詞（that/those）", page: 39 + 54 },
+                { num: 9, title: "理解: 動詞+doing/to doで意味が変わる他動詞", page: 71 + 54 },
+                { num: 10, title: "理解: ほとんど〜ない/めったに〜しない", page: 98 + 54 },
+                { num: 11, title: "知識: 動詞+doingの形をとる他動詞", page: 8 + 54 },
+                { num: 12, title: "知識: 〈助動詞+have done〉の表す意味", page: 19 + 54 },
+                { num: 13, title: "知識: standを用いた重要イディオム", page: 25 + 54 },
+                { num: 14, title: "知識: 自動詞と誤解されがちな他動詞", page: 47 + 54 },
+                { num: 15, title: "知識: 「〜するとすぐに…」の構文", page: 66 + 54 },
+                { num: 16, title: "知識: more, lessを用いた重要表現", page: 84 + 54 },
+                { num: 17, title: "知識: 可算・不可算名詞（furniture等）", page: 99 + 54 }
+            ]}
+        ],
+        get sections() {
+            return this.chapters.map(ch => ({
+                id: ch.id, title: ch.title, start: ch.start, end: ch.end,
+                pages: ch.end - ch.start + 1
+            }));
+        },
+        pageQrs: {}
+    },
+
     // ランダム総点検 基礎レベル
     random_check_basic: {
         id: "random_check_basic",

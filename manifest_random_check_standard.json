@@ -1,0 +1,8 @@
+{
+  "name": "ランダム総点検 標準レベル編",
+  "short_name": "ランダム総点検 標準",
+  "start_url": "random_check_standard_toc.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1e3c72"
+}
