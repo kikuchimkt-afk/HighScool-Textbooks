@@ -669,15 +669,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    /** iワーク中学・Engage 等: モノクロ別exportがなく viewer と同じ PNG を印刷に使う */
-    const jhsViewerPrint =
-        bookData.id && String(bookData.id).startsWith('jhs_iwork_');
-    const viewerPrintFallback = bookData.viewerPrintUsesViewerImages === true;
-    const hasDedicatedPrintBw =
-        bookData.printImagesPath != null && bookData.printImagesPath !== '';
+    /** 印刷は全書籍で既定表示。printImagesPath があればBW版、無ければ viewer と同じPNGにフォールバック。
+     *  個別に無効化したいときだけ bookData.printDisabled = true を設定。 */
+    const printDisabled = bookData.printDisabled === true;
 
     if (printBtn) {
-        if (!hasDedicatedPrintBw && !jhsViewerPrint && !viewerPrintFallback) {
+        if (printDisabled) {
             printBtn.style.display = 'none';
         } else {
             printBtn.addEventListener('click', () => {

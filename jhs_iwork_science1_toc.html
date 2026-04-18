@@ -271,51 +271,77 @@
             };
         }
 
-        function renderMainAnswerBookFromData(data) {
-            const host = document.getElementById("toc-main-answers");
-            if (!host || !data || !data.contents) return;
+        function buildAnswerRow(page, label) {
+            const { pdfPage, globalP, omitted, clamped } = printedAnswerPageToViewer(page);
+            const wrap = document.createElement("div");
+            wrap.className = "toc-chapter toc-answer-item" + (omitted ? " toc-answer-omitted" : "");
+            let rightCol;
+            if (omitted) {
+                rightCol =
+                    `<span class="toc-chapter-pages">` +
+                    `<span>解答（印刷）p.${page}</span>` +
+                    `<span class="toc-global-p">全体 ―</span>` +
+                    `<span class="toc-answer-note">ページ番号が無効です</span>` +
+                    `</span>`;
+                wrap.innerHTML =
+                    `<div class="toc-chapter-link">` +
+                    `<span class="toc-chapter-title">${escapeHtml(label)}</span>${rightCol}` +
+                    `</div>`;
+            } else {
+                const clampNote = clamped
+                    ? `<span class="toc-answer-note">PDFは${MAIN_ANSWER_PDF_PAGES}ページまで（末尾に合わせて表示）</span>`
+                    : "";
+                rightCol =
+                    `<span class="toc-chapter-pages">` +
+                    `<span>解答（印刷）p.${page}</span>` +
+                    `<span class="toc-global-p">PDF p.${pdfPage} · 全体 p.${globalP}</span>` +
+                    clampNote +
+                    `</span>`;
+                wrap.innerHTML =
+                    `<a href="${VIEW}&section=main_answers&page=${globalP}" class="toc-chapter-link">` +
+                    `<span class="toc-chapter-title">${escapeHtml(label)}</span>${rightCol}` +
+                    `</a>`;
+            }
+            return wrap;
+        }
+
+        function renderAnswerAccordion(hostId, groups) {
+            const host = document.getElementById(hostId);
+            if (!host) return;
             host.innerHTML = "";
-            data.contents.forEach(item => {
-                const printed = item.page;
-                const { pdfPage, globalP, omitted, clamped } = printedAnswerPageToViewer(printed);
-                const wrap = document.createElement("div");
-                wrap.className = "toc-chapter toc-answer-item" + (omitted ? " toc-answer-omitted" : "");
-                const unitPart = item.unit
-                    ? `<span class="toc-answer-unit">${escapeHtml(stripCite(item.unit))}</span>`
-                    : "";
-                const secText = stripCite(item.section || "");
-                const details = item.details && item.details.length
-                    ? `<div class="toc-answer-detail">${item.details.map(d => escapeHtml(stripCite(d))).join(" · ")}</div>`
-                    : "";
-                let rightCol;
-                if (omitted) {
-                    rightCol =
-                        `<span class="toc-chapter-pages">` +
-                        `<span>解答（印刷）p.${printed}</span>` +
-                        `<span class="toc-global-p">全体 ―</span>` +
-                        `<span class="toc-answer-note">ページ番号が無効です</span>` +
-                        `</span>`;
-                    wrap.innerHTML =
-                        `<div class="toc-chapter-link">` +
-                        `<span class="toc-chapter-title">${unitPart}${item.unit ? "<br>" : ""}${escapeHtml(secText)}</span>${rightCol}` +
-                        `</div>${details}`;
-                } else {
-                    const clampNote = clamped
-                        ? `<span class="toc-answer-note">PDFは${MAIN_ANSWER_PDF_PAGES}ページまで（末尾に合わせて表示）</span>`
-                        : "";
-                    rightCol =
-                        `<span class="toc-chapter-pages">` +
-                        `<span>解答（印刷）p.${printed}</span>` +
-                        `<span class="toc-global-p">PDF p.${pdfPage} · 全体 p.${globalP}</span>` +
-                        clampNote +
-                        `</span>`;
-                    wrap.innerHTML =
-                        `<a href="${VIEW}&section=main_answers&page=${globalP}" class="toc-chapter-link">` +
-                        `<span class="toc-chapter-title">${unitPart}${item.unit ? "<br>" : ""}${escapeHtml(secText)}</span>${rightCol}` +
-                        `</a>${details}`;
-                }
-                host.appendChild(wrap);
+            groups.forEach(group => {
+                const block = document.createElement("div");
+                block.className = "toc-unit-block";
+                const toggle = document.createElement("button");
+                toggle.type = "button";
+                toggle.className = "toc-unit-toggle";
+                toggle.innerHTML = `<span>${escapeHtml(group.unit)}</span><span class="toc-unit-arrow">▶</span>`;
+                toggle.addEventListener("click", () => block.classList.toggle("open"));
+                block.appendChild(toggle);
+                const body = document.createElement("div");
+                body.className = "toc-unit-body";
+                group.items.forEach(item => body.appendChild(buildAnswerRow(item.page, item.label)));
+                block.appendChild(body);
+                host.appendChild(block);
             });
+        }
+
+        function renderMainAnswerBookFromData(data) {
+            if (!data || !data.contents) return;
+            const groups = [];
+            let cur = null;
+            data.contents.forEach(item => {
+                if (item.unit) {
+                    cur = { unit: stripCite(item.unit), items: [] };
+                    groups.push(cur);
+                }
+                if (!cur) {
+                    cur = { unit: "その他", items: [] };
+                    groups.push(cur);
+                }
+                cur.items.push({ page: item.page, label: stripCite(item.section || "") });
+            });
+            renderAnswerAccordion("toc-main-answers", groups);
         }
 
         const flat = flattenRows();

@@ -253,27 +253,64 @@
                 .replace(/"/g, "&quot;");
         }
 
-        /** data: { contents: [{ page, section, details? }] } — page は解答解説冊子のページ番号 */
-        function renderMainAnswerBookFromData(data) {
-            const host = document.getElementById("toc-main-answers");
-            if (!host || !data || !data.contents) return;
+        function stripCite(s) {
+            return String(s).replace(/\s*\[cite:[^\]]*\]/g, "").trim();
+        }
+
+        function buildAnswerRow(page, label) {
+            const globalP = MAIN_ANSWER_BOOK_OFFSET + page;
+            const wrap = document.createElement("div");
+            wrap.className = "toc-chapter toc-answer-item";
+            wrap.innerHTML =
+                `<a href="${VIEW}&section=main_answers&page=${globalP}" class="toc-chapter-link">` +
+                `<span class="toc-chapter-title">${escapeHtml(label)}</span>` +
+                `<span class="toc-chapter-pages">` +
+                `<span>解答 p.${page}</span>` +
+                `<span class="toc-global-p">全体 p.${globalP}</span>` +
+                `</span></a>`;
+            return wrap;
+        }
+
+        function renderAnswerAccordion(hostId, groups) {
+            const host = document.getElementById(hostId);
+            if (!host) return;
             host.innerHTML = "";
-            data.contents.forEach(item => {
-                const globalP = MAIN_ANSWER_BOOK_OFFSET + item.page;
-                const wrap = document.createElement("div");
-                wrap.className = "toc-chapter toc-answer-item";
-                const details = item.details && item.details.length
-                    ? `<div class="toc-answer-detail">${item.details.map(escapeHtml).join(" · ")}</div>`
-                    : "";
-                wrap.innerHTML =
-                    `<a href="${VIEW}&section=main_answers&page=${globalP}" class="toc-chapter-link">` +
-                    `<span class="toc-chapter-title">${escapeHtml(item.section)}</span>` +
-                    `<span class="toc-chapter-pages">` +
-                    `<span>解答 p.${item.page}</span>` +
-                    `<span class="toc-global-p">全体 p.${globalP}</span>` +
-                    `</span></a>${details}`;
-                host.appendChild(wrap);
+            groups.forEach(group => {
+                const block = document.createElement("div");
+                block.className = "toc-unit-block";
+                const toggle = document.createElement("button");
+                toggle.type = "button";
+                toggle.className = "toc-unit-toggle";
+                toggle.innerHTML = `<span>${escapeHtml(group.unit)}</span><span class="toc-unit-arrow">▶</span>`;
+                toggle.addEventListener("click", () => block.classList.toggle("open"));
+                block.appendChild(toggle);
+                const body = document.createElement("div");
+                body.className = "toc-unit-body";
+                group.items.forEach(item => body.appendChild(buildAnswerRow(item.page, item.label)));
+                block.appendChild(body);
+                host.appendChild(block);
             });
+        }
+
+        /** data: { contents: [{ page, section, details? }] } */
+        function renderMainAnswerBookFromData(data) {
+            if (!data || !data.contents) return;
+            const groups = [];
+            let cur = null;
+            data.contents.forEach(item => {
+                const label = stripCite(item.section || "");
+                const isChapter = /^\s*\d+章\s+/.test(label);
+                const isReview = /^\s*復習/.test(label);
+                if (isChapter) {
+                    cur = { unit: label, items: [] };
+                    groups.push(cur);
+                } else if (!cur || isReview && !cur.isReview) {
+                    cur = { unit: "復習・導入", isReview: true, items: [] };
+                    groups.push(cur);
+                }
+                cur.items.push({ page: item.page, label });
+            });
+            renderAnswerAccordion("toc-main-answers", groups);
         }
 
         renderMainWork(tocChapters);

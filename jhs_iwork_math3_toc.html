@@ -321,25 +321,46 @@
             host.appendChild(wrap);
         }
 
+        function renderAnswerAccordion(hostId, groups) {
+            const host = document.getElementById(hostId);
+            if (!host) return;
+            host.innerHTML = "";
+            groups.forEach(group => {
+                const block = document.createElement("div");
+                block.className = "toc-unit-block";
+                const toggle = document.createElement("button");
+                toggle.type = "button";
+                toggle.className = "toc-unit-toggle";
+                toggle.innerHTML = `<span>${escapeHtml(group.unit)}</span><span class="toc-unit-arrow">▶</span>`;
+                toggle.addEventListener("click", () => block.classList.toggle("open"));
+                block.appendChild(toggle);
+                const body = document.createElement("div");
+                body.className = "toc-unit-body";
+                group.items.forEach(item => appendAnswerRow(body, item.label, item.page));
+                block.appendChild(body);
+                host.appendChild(block);
+            });
+        }
+
         /** 単独行・章見出し＋sections の混在JSONに対応 */
         function renderMainAnswerBookFromData(data) {
-            const host = document.getElementById("toc-main-answers");
-            if (!host || !data || !data.contents) return;
-            host.innerHTML = "";
+            if (!data || !data.contents) return;
+            const groups = [];
+            let cur = null;
             data.contents.forEach(node => {
                 if (node.chapter && Array.isArray(node.sections)) {
-                    const label = document.createElement("div");
-                    label.className = "toc-chapter toc-answer-item toc-answer-group";
-                    label.innerHTML =
-                        `<div class="toc-chapter-link">` +
-                        `<span class="toc-chapter-title"><span class="toc-answer-unit">${escapeHtml(node.chapter)}</span></span>` +
-                        `</div>`;
-                    host.appendChild(label);
-                    node.sections.forEach(sub => appendAnswerRow(host, sub.title, sub.page));
+                    cur = { unit: node.chapter, items: [] };
+                    groups.push(cur);
+                    node.sections.forEach(sub => cur.items.push({ page: sub.page, label: sub.title || "" }));
                 } else if (node.section != null && node.page != null) {
-                    appendAnswerRow(host, node.section, node.page);
+                    if (!cur || !cur.isReview) {
+                        cur = { unit: "復習", isReview: true, items: [] };
+                        groups.push(cur);
+                    }
+                    cur.items.push({ page: node.page, label: node.section });
                 }
             });
+            renderAnswerAccordion("toc-main-answers", groups);
         }
 
         renderMainWork(tocChapters);
