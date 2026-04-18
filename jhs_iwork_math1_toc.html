@@ -43,7 +43,12 @@
         .toc-sec-title { font-weight: 600; }
         .toc-sec-meta { font-size: 0.72rem; color: rgba(255,255,255,0.38); text-align: right; line-height: 1.35; }
         .toc-sec-meta span { display: block; }
-        .toc-unit-static { margin: 1rem 0 0.6rem; font-size: 0.85rem; color: rgba(200, 190, 255, 0.95); font-weight: 700; }
+        .toc-unit-static { margin: 1.25rem 0 0.5rem; font-size: 0.85rem; color: rgba(200, 190, 255, 0.95); font-weight: 700; }
+        .toc-unit-static:first-of-type { margin-top: 0.5rem; }
+        .toc-section-note { font-size: 0.72rem; color: rgba(255,255,255,0.32); font-weight: 400; margin: -0.2rem 0 0.6rem; line-height: 1.4; }
+        .toc-answer-detail { padding: 0 1rem 0.65rem 1rem; font-size: 0.74rem; color: rgba(255,255,255,0.42); line-height: 1.45; border-bottom: 1px solid rgba(255,255,255,0.06); }
+        .toc-chapter.toc-answer-item .toc-chapter-link { align-items: flex-start; }
+        .toc-global-p { display: block; font-size: 0.68rem; opacity: 0.88; margin-top: 3px; font-weight: 400; }
         .toc-footer { text-align: center; padding: 2rem 1rem; font-size: 0.7rem; color: rgba(255,255,255,0.2); }
     </style>
 </head>
@@ -60,11 +65,21 @@
         <div class="toc-container">
             <img src="images/jhs_iwork_math1_cover.png" alt="iワーク 中1数学 表紙" class="toc-cover">
             <div class="toc-chapter"><a href="jhs_iwork_math1_viewer.html?book=jhs_iwork_math1&section=cover&page=1" class="toc-chapter-link"><span class="toc-chapter-title">表紙</span><span class="toc-chapter-pages">p.1</span></a></div>
+
+            <div class="toc-unit-static">本冊（ワーク）</div>
             <div id="toc-dynamic"></div>
-            <div class="toc-unit-static">解答・副教材</div>
-            <div class="toc-chapter"><a href="jhs_iwork_math1_viewer.html?book=jhs_iwork_math1&section=main_answers&page=226" class="toc-chapter-link"><span class="toc-chapter-title">本冊 解答解説</span><span class="toc-chapter-pages">p.226-338</span></a></div>
-            <div class="toc-chapter"><a href="jhs_iwork_math1_viewer.html?book=jhs_iwork_math1&section=plus&page=339" class="toc-chapter-link"><span class="toc-chapter-title">副教材 iワークプラス</span><span class="toc-chapter-pages">p.339-415</span></a></div>
-            <div class="toc-chapter"><a href="jhs_iwork_math1_viewer.html?book=jhs_iwork_math1&section=plus_answers&page=416" class="toc-chapter-link"><span class="toc-chapter-title">iワークプラス 解答解説</span><span class="toc-chapter-pages">p.416-459</span></a></div>
+
+            <div class="toc-unit-static">本冊 解答解説</div>
+            <p class="toc-section-note">解答解説PDFの目次に基づき、見開き先頭のページへジャンプします（解答書のページ番号 → 全体の p.226 からの対応）。</p>
+            <div id="toc-main-answers"></div>
+
+            <div class="toc-unit-static">副教材 iワークプラス</div>
+            <p class="toc-section-note">副教材も同じ節見出しでジャンプ先を割り当てています（目安）。</p>
+            <div id="toc-plus"></div>
+
+            <div class="toc-unit-static">iワークプラス 解答解説</div>
+            <p class="toc-section-note">プラス解答はページ数が少ないため、節の先頭付近へのジャンプ（目安）です。</p>
+            <div id="toc-plus-answers"></div>
         </div>
         <div class="toc-footer">© 2026 ECCベストワン藍住・北島中央</div>
     </div>
@@ -109,38 +124,179 @@
                 { section_number: 24, title: "データの活用", main_pages: "192-199", textbook_pages: "222-243" }
             ]}
         ];
+
+        const VIEW = "jhs_iwork_math1_viewer.html?book=jhs_iwork_math1";
+        /** 解答解説ブロック先頭 global=226 に対応する解答書のオフセット（全体 p = 225 + 解答書 p） */
+        const MAIN_ANSWER_BOOK_OFFSET = 225;
+        const PLUS = { base: 339, len: 77 };
+        const PLUS_ANS = { base: 416, len: 44 };
+
         function parseWorkbookStart(range) {
             const s = String(range || "");
             return parseInt((s.split("-")[0] || "").trim(), 10) || 0;
         }
+        function pageSpan(range) {
+            const p = String(range || "").split("-").map(x => parseInt(x.trim(), 10));
+            const a = p[0];
+            const b = p.length > 1 && !isNaN(p[1]) ? p[1] : a;
+            if (isNaN(a)) return 0;
+            return Math.max(1, b - a + 1);
+        }
         function toGlobalPage(workbookStart) {
             return workbookStart + 1;
         }
-        const host = document.getElementById("toc-dynamic");
-        tocChapters.forEach((ch, idx) => {
-            const block = document.createElement("div");
-            block.className = "toc-unit-block" + (idx < 2 ? " open" : "");
-            const toggle = document.createElement("button");
-            toggle.type = "button";
-            toggle.className = "toc-unit-toggle";
-            toggle.innerHTML = `<span>第${ch.chapter_number}章　${ch.chapter_title}</span><span class="toc-unit-arrow">▶</span>`;
-            toggle.addEventListener("click", () => block.classList.toggle("open"));
-            block.appendChild(toggle);
-            const body = document.createElement("div");
-            body.className = "toc-unit-body";
-            ch.sections.forEach((sec) => {
-                const wb = parseWorkbookStart(sec.main_pages);
-                if (!wb) return;
-                const gp = toGlobalPage(wb);
-                const a = document.createElement("a");
-                a.className = "toc-sec-link";
-                a.href = `jhs_iwork_math1_viewer.html?book=jhs_iwork_math1&section=main&page=${gp}`;
-                a.innerHTML = `<span class="toc-sec-title">${sec.section_number}. ${sec.title}</span><span class="toc-sec-meta"><span>本書 p.${sec.main_pages}</span><span>教科書 p.${sec.textbook_pages}</span></span>`;
-                body.appendChild(a);
+
+        function flattenSectionRows() {
+            const rows = [];
+            tocChapters.forEach(ch => {
+                ch.sections.forEach(sec => {
+                    rows.push({
+                        unit: `第${ch.chapter_number}章　${ch.chapter_title}`,
+                        no: sec.section_number,
+                        title: sec.title,
+                        main_pages: sec.main_pages,
+                        textbook_pages: sec.textbook_pages,
+                        weight: pageSpan(sec.main_pages)
+                    });
+                });
             });
-            block.appendChild(body);
-            host.appendChild(block);
-        });
+            return rows;
+        }
+
+        function assignJumpPages(rows, baseGlobal, segmentLen) {
+            const totalW = rows.reduce((s, r) => s + r.weight, 0) || 1;
+            let cum = 0;
+            const out = rows.map(r => {
+                const jump = baseGlobal + Math.floor(segmentLen * cum / totalW);
+                cum += r.weight;
+                return Object.assign({}, r, { jumpPage: jump });
+            });
+            out.forEach((r, i) => {
+                const next = out[i + 1];
+                r.endPage = next ? next.jumpPage - 1 : baseGlobal + segmentLen - 1;
+                if (r.endPage < r.jumpPage) r.endPage = r.jumpPage;
+            });
+            return out;
+        }
+
+        function groupByUnit(rows) {
+            const groups = [];
+            let cur = null;
+            rows.forEach(r => {
+                if (!cur || cur.unit !== r.unit) {
+                    cur = { unit: r.unit, chapters: [] };
+                    groups.push(cur);
+                }
+                cur.chapters.push(r);
+            });
+            return groups;
+        }
+
+        function renderMainWork(groups) {
+            const host = document.getElementById("toc-dynamic");
+            groups.forEach(ch => {
+                const block = document.createElement("div");
+                block.className = "toc-unit-block";
+                const toggle = document.createElement("button");
+                toggle.type = "button";
+                toggle.className = "toc-unit-toggle";
+                toggle.innerHTML = `<span>第${ch.chapter_number}章　${ch.chapter_title}</span><span class="toc-unit-arrow">▶</span>`;
+                toggle.addEventListener("click", () => block.classList.toggle("open"));
+                block.appendChild(toggle);
+                const body = document.createElement("div");
+                body.className = "toc-unit-body";
+                ch.sections.forEach((sec) => {
+                    const wb = parseWorkbookStart(sec.main_pages);
+                    if (!wb) return;
+                    const gp = toGlobalPage(wb);
+                    const a = document.createElement("a");
+                    a.className = "toc-sec-link";
+                    a.href = `${VIEW}&section=main&page=${gp}`;
+                    a.innerHTML = `<span class="toc-sec-title">${sec.section_number}. ${sec.title}</span><span class="toc-sec-meta"><span>本書 p.${sec.main_pages}</span><span>教科書 p.${sec.textbook_pages}</span></span>`;
+                    body.appendChild(a);
+                });
+                block.appendChild(body);
+                host.appendChild(block);
+            });
+        }
+
+        function renderJumpGroups(containerId, groups, sectionId) {
+            const host = document.getElementById(containerId);
+            groups.forEach(group => {
+                const block = document.createElement("div");
+                block.className = "toc-unit-block";
+                const toggle = document.createElement("button");
+                toggle.type = "button";
+                toggle.className = "toc-unit-toggle";
+                toggle.innerHTML = `<span>${group.unit}</span><span class="toc-unit-arrow">▶</span>`;
+                toggle.addEventListener("click", () => block.classList.toggle("open"));
+                block.appendChild(toggle);
+                const body = document.createElement("div");
+                body.className = "toc-unit-body";
+                group.chapters.forEach(ch => {
+                    const wrap = document.createElement("div");
+                    wrap.className = "toc-chapter";
+                    const rangeLabel = ch.jumpPage === ch.endPage ? `p.${ch.jumpPage}` : `p.${ch.jumpPage}-${ch.endPage}`;
+                    wrap.innerHTML = `<a href="${VIEW}&section=${sectionId}&page=${ch.jumpPage}" class="toc-chapter-link"><span class="toc-chapter-title">${ch.no}. ${ch.title}</span><span class="toc-chapter-pages">${rangeLabel}</span></a>`;
+                    body.appendChild(wrap);
+                });
+                block.appendChild(body);
+                host.appendChild(block);
+            });
+        }
+
+        function escapeHtml(s) {
+            return String(s)
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;");
+        }
+
+        /** data: { contents: [{ page, section, details? }] } — page は解答解説冊子のページ番号 */
+        function renderMainAnswerBookFromData(data) {
+            const host = document.getElementById("toc-main-answers");
+            if (!host || !data || !data.contents) return;
+            host.innerHTML = "";
+            data.contents.forEach(item => {
+                const globalP = MAIN_ANSWER_BOOK_OFFSET + item.page;
+                const wrap = document.createElement("div");
+                wrap.className = "toc-chapter toc-answer-item";
+                const details = item.details && item.details.length
+                    ? `<div class="toc-answer-detail">${item.details.map(escapeHtml).join(" · ")}</div>`
+                    : "";
+                wrap.innerHTML =
+                    `<a href="${VIEW}&section=main_answers&page=${globalP}" class="toc-chapter-link">` +
+                    `<span class="toc-chapter-title">${escapeHtml(item.section)}</span>` +
+                    `<span class="toc-chapter-pages">` +
+                    `<span>解答 p.${item.page}</span>` +
+                    `<span class="toc-global-p">全体 p.${globalP}</span>` +
+                    `</span></a>${details}`;
+                host.appendChild(wrap);
+            });
+        }
+
+        renderMainWork(tocChapters);
+
+        const flat = flattenSectionRows();
+        const plusRows = assignJumpPages(flat, PLUS.base, PLUS.len);
+        const plusAnsRows = assignJumpPages(flat, PLUS_ANS.base, PLUS_ANS.len);
+
+        renderJumpGroups("toc-plus", groupByUnit(plusRows), "plus");
+        renderJumpGroups("toc-plus-answers", groupByUnit(plusAnsRows), "plus_answers");
+
+        fetch("data/jhs_iwork_math1_main_answer_toc.json")
+            .then(r => {
+                if (!r.ok) throw new Error("fetch failed");
+                return r.json();
+            })
+            .then(renderMainAnswerBookFromData)
+            .catch(() => {
+                const host = document.getElementById("toc-main-answers");
+                if (host) {
+                    host.innerHTML = "<p class=\"toc-section-note\">解答目次データ（data/jhs_iwork_math1_main_answer_toc.json）を読み込めませんでした。Webサーバ経由で開いているか確認してください。</p>";
+                }
+            });
     </script>
 </body>
 </html>

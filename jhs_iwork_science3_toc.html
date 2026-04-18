@@ -25,9 +25,9 @@
         .toc-container { max-width: 760px; margin: 0 auto; padding: 0 1rem 4rem; }
         .toc-cover { display: block; max-width: 180px; margin: 0 auto 2rem; border-radius: 14px; box-shadow: 0 12px 40px rgba(0,0,0,0.5); }
         .toc-unit-block { margin-bottom: 0.8rem; border-radius: 16px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.04); }
-        .toc-unit-toggle { width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 0.8rem 1rem; background: rgba(255,255,255,0.04); color: #f5f5f7; border: none; cursor: pointer; font-size: 0.92rem; font-weight: 700; }
+        .toc-unit-toggle { width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 0.8rem 1rem; background: rgba(255,255,255,0.04); color: #f5f5f7; border: none; cursor: pointer; font-size: 0.92rem; font-weight: 700; text-align: left; }
         .toc-unit-toggle:hover { background: rgba(255,255,255,0.09); }
-        .toc-unit-arrow { color: rgba(255,255,255,0.65); transition: transform 0.2s; }
+        .toc-unit-arrow { color: rgba(255,255,255,0.65); transition: transform 0.2s; flex-shrink: 0; margin-left: 8px; }
         .toc-unit-block.open .toc-unit-arrow { transform: rotate(90deg); }
         .toc-unit-body { display: none; border-top: 1px solid rgba(255,255,255,0.06); }
         .toc-unit-block.open .toc-unit-body { display: block; }
@@ -42,7 +42,16 @@
         .toc-sub-num { min-width: 26px; text-align: right; color: rgba(160,140,255,0.8); font-size: 0.78rem; font-weight: 600; }
         .toc-sub-title { flex: 1; }
         .toc-sub-page { font-size: 0.72rem; color: rgba(255,255,255,0.35); white-space: nowrap; }
-        .toc-unit-static { margin: 1rem 0 0.6rem; font-size: 0.85rem; color: rgba(170, 210, 255, 0.95); font-weight: 700; }
+        .toc-unit-static { margin: 1.25rem 0 0.5rem; font-size: 0.85rem; color: rgba(170, 210, 255, 0.95); font-weight: 700; }
+        .toc-unit-static:first-of-type { margin-top: 0.5rem; }
+        .toc-section-note { font-size: 0.72rem; color: rgba(255,255,255,0.32); font-weight: 400; margin: -0.2rem 0 0.6rem; line-height: 1.4; }
+        .toc-answer-detail { padding: 0 1rem 0.65rem 1rem; font-size: 0.74rem; color: rgba(255,255,255,0.42); line-height: 1.45; border-bottom: 1px solid rgba(255,255,255,0.06); }
+        .toc-chapter.toc-answer-item .toc-chapter-link { align-items: flex-start; }
+        .toc-answer-unit { display: block; font-size: 0.72rem; color: rgba(180, 200, 255, 0.85); font-weight: 600; margin-bottom: 4px; line-height: 1.35; }
+        .toc-global-p { display: block; font-size: 0.68rem; opacity: 0.88; margin-top: 3px; font-weight: 400; }
+        .toc-answer-omitted .toc-chapter-link { cursor: default; opacity: 0.85; }
+        .toc-answer-omitted .toc-chapter-link:hover { background: transparent; }
+        .toc-answer-note { font-size: 0.68rem; color: rgba(255,200,120,0.75); margin-top: 3px; font-weight: 400; }
         .toc-footer { text-align: center; padding: 2rem 1rem; font-size: 0.7rem; color: rgba(255,255,255,0.2); }
     </style>
 </head>
@@ -57,46 +66,136 @@
         </div>
         <div class="toc-container">
             <img src="images/jhs_iwork_science3_cover.jpg" alt="iワーク 中3理科 表紙" class="toc-cover">
-            <div class="toc-chapter"><a href="jhs_iwork_science3_viewer.html?book=jhs_iwork_science3&section=cover&page=1" class="toc-chapter-link"><span class="toc-chapter-title">表紙</span><span class="toc-chapter-pages">p.1-1</span></a></div>
+            <div class="toc-chapter"><a href="jhs_iwork_science3_viewer.html?book=jhs_iwork_science3&section=cover&page=1" class="toc-chapter-link"><span class="toc-chapter-title">表紙</span><span class="toc-chapter-pages">p.1</span></a></div>
+
+            <div class="toc-unit-static">本冊（ワーク）</div>
             <div id="toc-dynamic"></div>
-            <div class="toc-unit-static">解答・副教材</div>
-            <div class="toc-chapter"><a href="jhs_iwork_science3_viewer.html?book=jhs_iwork_science3&section=main_answers&page=234" class="toc-chapter-link"><span class="toc-chapter-title">本冊 解答解説</span><span class="toc-chapter-pages">p.234-315</span></a></div>
-            <div class="toc-chapter"><a href="jhs_iwork_science3_viewer.html?book=jhs_iwork_science3&section=plus&page=316" class="toc-chapter-link"><span class="toc-chapter-title">副教材 iワークプラス</span><span class="toc-chapter-pages">p.316-409</span></a></div>
-            <div class="toc-chapter"><a href="jhs_iwork_science3_viewer.html?book=jhs_iwork_science3&section=plus_answers&page=410" class="toc-chapter-link"><span class="toc-chapter-title">iワークプラス 解答解説</span><span class="toc-chapter-pages">p.410-434</span></a></div>
+
+            <div class="toc-unit-static">本冊 解答解説</div>
+            <p class="toc-section-note">解答冊子の<strong>印刷ページ</strong>に基づきます。本アプリのPDFでは1・2年の復習にあたる<strong>先頭8ページを省略</strong>しており、印刷p.9がPDF先頭（全体p.234）です。ジャンプは「印刷p − 8＝PDF内ページ → 全体 233＋PDF内ページ」で計算します。</p>
+            <div id="toc-main-answers"></div>
+
+            <div class="toc-unit-static">副教材 iワークプラス</div>
+            <p class="toc-section-note">副教材も同じ単元見出しでジャンプ先を割り当てています（目安）。</p>
+            <div id="toc-plus"></div>
+
+            <div class="toc-unit-static">iワークプラス 解答解説</div>
+            <p class="toc-section-note">プラス解答はページ数が少ないため、単元の先頭付近へのジャンプ（目安）です。</p>
+            <div id="toc-plus-answers"></div>
         </div>
         <div class="toc-footer">© 2026 ECCベストワン藍住・北島中央</div>
     </div>
     <script>
         const tocSource = {"contents": [{"unit": "1・2年の復習", "chapters": [{"no": 1, "title": "いろいろな生物とその共通点", "workbook_page": "4-7"}, {"no": 2, "title": "活きている地球", "workbook_page": "8-11"}, {"no": 3, "title": "身のまわりの物質", "workbook_page": "12-15"}, {"no": 4, "title": "光・音・力による現象", "workbook_page": "16-19"}, {"no": 5, "title": "生物の体のつくりとはたらき", "workbook_page": "20-23"}, {"no": 6, "title": "地球の大気と天気の変化", "workbook_page": "24-27"}, {"no": 7, "title": "化学変化と原子・分子", "workbook_page": "28-31"}, {"no": 8, "title": "電流とその利用", "workbook_page": "32-35"}]}, {"unit": "生命（生命の連続性）", "chapters": [{"no": 9, "title": "生物のふえ方と成長", "sections": ["生物のふえ方", "細胞のふえ方"], "workbook_page": "36-39"}, {"no": 10, "title": "遺伝の規則性と遺伝子", "sections": ["親から子への特徴の伝わり方", "遺伝のしくみと遺伝子"], "workbook_page": "40-43"}, {"no": 11, "title": "生物の種類の実多様性と進化", "sections": ["生物の進化"], "workbook_page": "44-47"}]}, {"unit": "地球（宇宙を観る）", "chapters": [{"no": 12, "title": "宇宙の天体", "sections": ["太陽系", "宇宙の広がり"], "workbook_page": "62-65"}, {"no": 13, "title": "太陽の動き", "sections": ["太陽の1日の動き", "太陽の動きと季節の変化"], "workbook_page": "66-69"}, {"no": 14, "title": "星座の星の動き", "sections": ["星座の星の動き"], "workbook_page": "72-75"}, {"no": 15, "title": "月と金星の動きと見え方", "sections": ["月の動きと見え方", "惑星の動きと見え方"], "workbook_page": "76-79"}]}, {"unit": "物質（化学変化とイオン）", "chapters": [{"no": 16, "title": "水溶液とイオン", "sections": ["水溶液と電流", "電解質の水溶液の電気分解", "イオン"], "workbook_page": "98-101"}, {"no": 17, "title": "電池とイオン", "sections": ["金属のイオンへのなりやすさ", "電池のしくみ", "日常生活と電池"], "workbook_page": "104-107"}, {"no": 18, "title": "酸とアルカリ", "sections": ["酸性やアルカリ性の水溶液の性質", "酸性やアルカリ性の性質を決めているもの"], "workbook_page": "110-113"}, {"no": 19, "title": "中和と塩", "sections": ["酸とアルカリを混ぜたときの変化"], "workbook_page": "114-117"}]}, {"unit": "エネルギー（運動とエネルギー）", "chapters": [{"no": 20, "title": "水中の物体にはたらく力", "sections": ["水圧", "浮力"], "workbook_page": "138-141"}, {"no": 21, "title": "力の合成と分解", "sections": ["力の合成", "力の分解"], "workbook_page": "142-145"}, {"no": 22, "title": "物体の運動", "sections": ["物体の運動の表し方", "運動の調べ方"], "workbook_page": "146-149"}, {"no": 23, "title": "水平面上での物体の運動", "sections": ["物体に一定の力がはたらき続けるときの運動", "物体に力がはたらかないときの運動"], "workbook_page": "154-157"}, {"no": 24, "title": "斜面上の物体の運動", "sections": ["力がはたらく運動", "力のおよぼし合い"], "workbook_page": "158-161"}, {"no": 25, "title": "仕事", "sections": ["仕事", "仕事の原理・仕事率"], "workbook_page": "168-171"}, {"no": 26, "title": "エネルギー", "sections": ["エネルギー", "位置エネルギーと運動エネルギー"], "workbook_page": "174-177"}, {"no": 27, "title": "多様なエネルギーとその移り変わり", "sections": ["エネルギーの種類", "エネルギーの移り変わり"], "workbook_page": "180-183"}, {"no": 28, "title": "エネルギー資源とその利用", "sections": ["生活を支えるエネルギーと利用上の課題", "エネルギーの有効利用"], "workbook_page": "184-187"}]}, {"unit": "環境（自然と人間）", "chapters": [{"no": 29, "title": "生物どうしのつながり", "sections": ["生物どうしのつながり"], "workbook_page": "208-211"}, {"no": 30, "title": "生物の遺骸のゆくえと物質の循環", "sections": ["生物の遺骸のゆくえ", "物質の循環"], "workbook_page": "212-215"}, {"no": 31, "title": "自然と人間", "sections": ["さまざまな物質の利用と科学技術の発展", "人間と環境", "持続可能な社会をめざして"], "workbook_page": "216-219"}]}, {"other": "元素周期表", "workbook_page": "232"}]};
-        function parseWorkbookStart(range) { const s = String(range || ""); return parseInt((s.split("-")[0] || "").trim(), 10); }
-        function toGlobalPage(workbookStart) { return workbookStart + 1; }
-        const host = document.getElementById("toc-dynamic");
-        tocSource.contents.forEach((item, unitIndex) => {
-            if (item.unit) {
+        const VIEW = "jhs_iwork_science3_viewer.html?book=jhs_iwork_science3";
+        /** 全体 p.234 ＝解答PDFの1ページ目＝解答冊子の印刷p.9 */
+        const MAIN_ANSWER_BOOK_OFFSET = 233;
+        /** 本PDFに含まない解答冊子の印刷ページ数（復習分）。印刷p.9 → PDF p.1 */
+        const OMITTED_PRINTED_ANSWER_PAGES = 8;
+        /** jhs_data main_answers のページ数（PDFと一致） */
+        const MAIN_ANSWER_PDF_PAGES = 82;
+        const PLUS = { base: 316, len: 94 };
+        const PLUS_ANS = { base: 410, len: 25 };
+
+        function parseWorkbookStart(range) {
+            const s = String(range || "");
+            return parseInt((s.split("-")[0] || "").trim(), 10);
+        }
+        function pageSpan(range) {
+            const p = String(range || "").split("-").map(x => parseInt(x.trim(), 10));
+            const a = p[0];
+            const b = p.length > 1 && !isNaN(p[1]) ? p[1] : a;
+            if (isNaN(a)) return 0;
+            return Math.max(1, b - a + 1);
+        }
+        function toGlobalPage(workbookStart) {
+            return workbookStart + 1;
+        }
+
+        function flattenRows() {
+            const rows = [];
+            tocSource.contents.forEach(block => {
+                if (block.unit && block.chapters) {
+                    block.chapters.forEach(ch => {
+                        rows.push({
+                            unit: block.unit,
+                            no: ch.no,
+                            title: ch.title,
+                            sections: ch.sections,
+                            workbook_page: ch.workbook_page,
+                            weight: pageSpan(ch.workbook_page)
+                        });
+                    });
+                } else if (block.other) {
+                    rows.push({
+                        unit: "（本冊末尾）",
+                        no: "資料",
+                        title: block.other,
+                        sections: null,
+                        workbook_page: block.workbook_page,
+                        weight: pageSpan(block.workbook_page)
+                    });
+                }
+            });
+            return rows;
+        }
+
+        function assignJumpPages(rows, baseGlobal, segmentLen) {
+            const totalW = rows.reduce((s, r) => s + r.weight, 0) || 1;
+            let cum = 0;
+            const out = rows.map(r => {
+                const jump = baseGlobal + Math.floor(segmentLen * cum / totalW);
+                cum += r.weight;
+                return Object.assign({}, r, { jumpPage: jump });
+            });
+            out.forEach((r, i) => {
+                const next = out[i + 1];
+                r.endPage = next ? next.jumpPage - 1 : baseGlobal + segmentLen - 1;
+                if (r.endPage < r.jumpPage) r.endPage = r.jumpPage;
+            });
+            return out;
+        }
+
+        function groupByUnit(rows) {
+            const groups = [];
+            let cur = null;
+            rows.forEach(r => {
+                if (!cur || cur.unit !== r.unit) {
+                    cur = { unit: r.unit, chapters: [] };
+                    groups.push(cur);
+                }
+                cur.chapters.push(r);
+            });
+            return groups;
+        }
+
+        function renderMainWork(groups) {
+            const host = document.getElementById("toc-dynamic");
+            groups.forEach(group => {
                 const block = document.createElement("div");
-                block.className = "toc-unit-block" + (unitIndex < 2 ? " open" : "");
+                block.className = "toc-unit-block";
                 const toggle = document.createElement("button");
                 toggle.type = "button";
                 toggle.className = "toc-unit-toggle";
-                toggle.innerHTML = `<span>${item.unit}</span><span class="toc-unit-arrow">▶</span>`;
+                toggle.innerHTML = `<span>${group.unit}</span><span class="toc-unit-arrow">▶</span>`;
                 toggle.addEventListener("click", () => block.classList.toggle("open"));
                 block.appendChild(toggle);
                 const body = document.createElement("div");
                 body.className = "toc-unit-body";
-                item.chapters.forEach((ch) => {
+                group.chapters.forEach(ch => {
                     const wbStart = parseWorkbookStart(ch.workbook_page);
                     if (!wbStart) return;
                     const gp = toGlobalPage(wbStart);
                     const wrap = document.createElement("div");
                     wrap.className = "toc-chapter";
-                    wrap.innerHTML = `<a href="jhs_iwork_science3_viewer.html?book=jhs_iwork_science3&section=main&page=${gp}" class="toc-chapter-link"><span class="toc-chapter-title">${ch.no}. ${ch.title}</span><span class="toc-chapter-pages">p.${ch.workbook_page}</span></a>`;
+                    wrap.innerHTML = `<a href="${VIEW}&section=main&page=${gp}" class="toc-chapter-link"><span class="toc-chapter-title">${ch.no}. ${ch.title}</span><span class="toc-chapter-pages">p.${ch.workbook_page}</span></a>`;
                     if (ch.sections && ch.sections.length) {
                         const subs = document.createElement("div");
                         subs.className = "toc-subsections";
                         ch.sections.forEach((sec, i) => {
                             const a = document.createElement("a");
                             a.className = "toc-sub-link";
-                            a.href = `jhs_iwork_science3_viewer.html?book=jhs_iwork_science3&section=main&page=${gp}`;
+                            a.href = `${VIEW}&section=main&page=${gp}`;
                             a.innerHTML = `<span class="toc-sub-num">${ch.no}.${i + 1}</span><span class="toc-sub-title">${sec}</span><span class="toc-sub-page">p.${ch.workbook_page}</span>`;
                             subs.appendChild(a);
                         });
@@ -106,15 +205,144 @@
                 });
                 block.appendChild(body);
                 host.appendChild(block);
-            } else if (item.other) {
-                const wbStart = parseWorkbookStart(item.workbook_page);
-                const gp = toGlobalPage(wbStart);
-                const wrap = document.createElement("div");
-                wrap.className = "toc-chapter";
-                wrap.innerHTML = `<a href="jhs_iwork_science3_viewer.html?book=jhs_iwork_science3&section=main&page=${gp}" class="toc-chapter-link"><span class="toc-chapter-title">${item.other}</span><span class="toc-chapter-pages">p.${item.workbook_page}</span></a>`;
-                host.appendChild(wrap);
+            });
+        }
+
+        function renderJumpGroups(containerId, groups, sectionId) {
+            const host = document.getElementById(containerId);
+            groups.forEach(group => {
+                const block = document.createElement("div");
+                block.className = "toc-unit-block";
+                const toggle = document.createElement("button");
+                toggle.type = "button";
+                toggle.className = "toc-unit-toggle";
+                toggle.innerHTML = `<span>${group.unit}</span><span class="toc-unit-arrow">▶</span>`;
+                toggle.addEventListener("click", () => block.classList.toggle("open"));
+                block.appendChild(toggle);
+                const body = document.createElement("div");
+                body.className = "toc-unit-body";
+                group.chapters.forEach(ch => {
+                    const wrap = document.createElement("div");
+                    wrap.className = "toc-chapter";
+                    const rangeLabel = ch.jumpPage === ch.endPage ? `p.${ch.jumpPage}` : `p.${ch.jumpPage}-${ch.endPage}`;
+                    wrap.innerHTML = `<a href="${VIEW}&section=${sectionId}&page=${ch.jumpPage}" class="toc-chapter-link"><span class="toc-chapter-title">${ch.no}. ${ch.title}</span><span class="toc-chapter-pages">${rangeLabel}</span></a>`;
+                    body.appendChild(wrap);
+                });
+                block.appendChild(body);
+                host.appendChild(block);
+            });
+        }
+
+        function escapeHtml(s) {
+            return String(s)
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;");
+        }
+
+        function stripCite(s) {
+            return String(s).replace(/\s*\[cite:[^\]]*\]/g, "").trim();
+        }
+
+        /**
+         * JSON の page は解答冊子の「印刷」通しページ。PDF では復習分（印刷 1〜8）を省略。
+         * @returns {{ pdfPage: number|null, globalP: number|null, omitted: boolean, clamped: boolean }}
+         */
+        function printedAnswerPageToViewer(printed) {
+            const p = Number(printed);
+            if (!Number.isFinite(p)) {
+                return { pdfPage: null, globalP: null, omitted: true, clamped: false };
             }
-        });
+            if (p <= OMITTED_PRINTED_ANSWER_PAGES) {
+                return { pdfPage: null, globalP: null, omitted: true, clamped: false };
+            }
+            let pdf = p - OMITTED_PRINTED_ANSWER_PAGES;
+            let clamped = false;
+            if (pdf > MAIN_ANSWER_PDF_PAGES) {
+                pdf = MAIN_ANSWER_PDF_PAGES;
+                clamped = true;
+            }
+            return {
+                pdfPage: pdf,
+                globalP: MAIN_ANSWER_BOOK_OFFSET + pdf,
+                omitted: false,
+                clamped
+            };
+        }
+
+        function renderMainAnswerBookFromData(data) {
+            const host = document.getElementById("toc-main-answers");
+            if (!host || !data || !data.contents) return;
+            host.innerHTML = "";
+            data.contents.forEach(block => {
+                if (!block.sections || !block.sections.length) return;
+                block.sections.forEach((sec, si) => {
+                    const printed =
+                        typeof sec.page === "number" && !Number.isNaN(sec.page) ? sec.page : block.page;
+                    const { pdfPage, globalP, omitted, clamped } = printedAnswerPageToViewer(printed);
+                    const wrap = document.createElement("div");
+                    wrap.className = "toc-chapter toc-answer-item" + (omitted ? " toc-answer-omitted" : "");
+                    const unitHtml = si === 0 && block.unit
+                        ? `<span class="toc-answer-unit">${escapeHtml(stripCite(block.unit))}</span><br>`
+                        : "";
+                    const name = stripCite(sec.name || "");
+                    const topics = sec.topics && sec.topics.length
+                        ? `<div class="toc-answer-detail">${sec.topics.map(t => escapeHtml(stripCite(t))).join(" · ")}</div>`
+                        : "";
+                    let rightCol;
+                    if (omitted) {
+                        rightCol =
+                            `<span class="toc-chapter-pages">` +
+                            `<span>解答（印刷）p.${printed}</span>` +
+                            `<span class="toc-global-p">全体 ―</span>` +
+                            `<span class="toc-answer-note">本PDFでは復習分（印刷1〜8）を省略のため未収録</span>` +
+                            `</span>`;
+                        wrap.innerHTML =
+                            `<div class="toc-chapter-link">` +
+                            `<span class="toc-chapter-title">${unitHtml}${escapeHtml(name)}</span>${rightCol}` +
+                            `</div>${topics}`;
+                    } else {
+                        const clampNote = clamped
+                            ? `<span class="toc-answer-note">PDFは${MAIN_ANSWER_PDF_PAGES}ページまで（末尾に合わせて表示）</span>`
+                            : "";
+                        rightCol =
+                            `<span class="toc-chapter-pages">` +
+                            `<span>解答（印刷）p.${printed}</span>` +
+                            `<span class="toc-global-p">PDF p.${pdfPage} · 全体 p.${globalP}</span>` +
+                            clampNote +
+                            `</span>`;
+                        wrap.innerHTML =
+                            `<a href="${VIEW}&section=main_answers&page=${globalP}" class="toc-chapter-link">` +
+                            `<span class="toc-chapter-title">${unitHtml}${escapeHtml(name)}</span>${rightCol}` +
+                            `</a>${topics}`;
+                    }
+                    host.appendChild(wrap);
+                });
+            });
+        }
+
+        const flat = flattenRows();
+        const plusRows = assignJumpPages(flat, PLUS.base, PLUS.len);
+        const plusAnsRows = assignJumpPages(flat, PLUS_ANS.base, PLUS_ANS.len);
+
+        renderMainWork(groupByUnit(flat));
+
+        renderJumpGroups("toc-plus", groupByUnit(plusRows), "plus");
+        renderJumpGroups("toc-plus-answers", groupByUnit(plusAnsRows), "plus_answers");
+
+        fetch("data/jhs_iwork_science3_main_answer_toc.json")
+            .then(r => {
+                if (!r.ok) throw new Error("fetch failed");
+                return r.json();
+            })
+            .then(renderMainAnswerBookFromData)
+            .catch(() => {
+                const el = document.getElementById("toc-main-answers");
+                if (el) {
+                    el.innerHTML = "<p class=\"toc-section-note\">解答目次データ（data/jhs_iwork_science3_main_answer_toc.json）を読み込めませんでした。Webサーバ経由で開いているか確認してください。</p>";
+                }
+            });
     </script>
 </body>
 </html>
