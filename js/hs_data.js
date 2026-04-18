@@ -5721,6 +5721,36 @@ const hsData = {
         },
         pageQrs: {}
     },
+
+    // 英文法・語法 Engage
+    engage_egrammar: {
+        id: "engage_egrammar",
+        title: "英文法・語法 Engage",
+        totalPages: 558,
+        imagesPath: "images/engage_egrammar/",
+        printImagesPath: null,
+        coverImage: "images/engage_egrammar_cover.jpg",
+        qrBase: "",
+        chapters: [
+            { id: "cover", title: "表紙", start: 1, end: 1, subsections: [] },
+            { id: "toc", title: "目次", start: 2, end: 15, subsections: [] },
+            { id: "field1", title: "Field 1 文法", start: 16, end: 221, subsections: [] },
+            { id: "field2", title: "Field 2 語法", start: 222, end: 332, subsections: [] },
+            { id: "field3", title: "Field 3 イデオム", start: 333, end: 437, subsections: [] },
+            { id: "field4", title: "Field 4 会話表現", start: 438, end: 463, subsections: [] },
+            { id: "field5", title: "Field 5 ボキャブラリー", start: 464, end: 492, subsections: [] },
+            { id: "field6", title: "Field 6 英文構造", start: 493, end: 519, subsections: [] },
+            { id: "field7", title: "Field 7 大学入試問題頻度ランキング", start: 520, end: 533, subsections: [] },
+            { id: "field8", title: "Field 8 索引", start: 534, end: 558, subsections: [] }
+        ],
+        get sections() {
+            return this.chapters.map(ch => ({
+                id: ch.id, title: ch.title, start: ch.start, end: ch.end,
+                pages: ch.end - ch.start + 1
+            }));
+        },
+        pageQrs: {}
+    }
 };
 
 if (typeof module !== 'undefined' && module.exports) {
