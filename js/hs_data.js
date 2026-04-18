@@ -5729,6 +5729,10 @@ const hsData = {
         totalPages: 558,
         imagesPath: "images/engage_egrammar/",
         printImagesPath: null,
+        /** 見開きで本の刷り（偶数が左）と一致させるため、ファイル連番の左を +1 する */
+        spreadBookPairOffset: 1,
+        /** printImagesPath が無くても imagesPath で印刷モーダルを使う */
+        viewerPrintUsesViewerImages: true,
         coverImage: "images/engage_egrammar_cover.jpg",
         qrBase: "",
         chapters: [

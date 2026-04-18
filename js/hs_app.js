@@ -45,6 +45,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (currentPage < 1) currentPage = 1;
     if (currentPage > TOTAL_PAGES) currentPage = TOTAL_PAGES;
 
+    /** 見開き（spreadBookPairOffset）時は左ファイル番号と章表示用の「アンカー」がずれるため保持 */
+    let spreadAnchorPage = currentPage;
+
     // DOM refs
     const imgEl = document.getElementById('textbook-img');
     const imgRightEl = document.getElementById('textbook-img-right');
@@ -221,7 +224,13 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 resolvedLeftPage = pageNum % 2 === 0 ? pageNum : pageNum - 1;
             }
-            
+            // Engage 等: 連番PNGの左と本の見開き（刷り偶数＝左）が1ページずれるとき補正
+            if (bookData.spreadBookPairOffset === 1) {
+                resolvedLeftPage += 1;
+                if (resolvedLeftPage < 1) resolvedLeftPage = 1;
+                if (resolvedLeftPage >= TOTAL_PAGES) resolvedLeftPage = Math.max(1, TOTAL_PAGES - 1);
+            }
+
             if (resolvedLeftPage >= 1) {
                 imagesToPreload.push(getImageSrc(resolvedLeftPage));
             }
@@ -237,10 +246,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         Promise.all(imagesToPreload.map(preloadImage)).then(() => {
             currentPage = viewMode === 'spread' ? resolvedLeftPage : pageNum;
+            spreadAnchorPage = pageNum;
 
-            // URL update
-            const sec = getSectionForPage(currentPage);
-            const localPage = sec ? (currentPage - sec.start + 1) : currentPage;
+            // URL・章タイトル: spreadBookPairOffset 時はジャンプ先 pageNum（アンカー）でローカル頁を計算
+            const pageForMeta =
+                viewMode === 'spread' && bookData.spreadBookPairOffset === 1 ? pageNum : currentPage;
+            const sec = getSectionForPage(pageForMeta);
+            const localPage = sec ? pageForMeta - sec.start + 1 : pageForMeta;
             const secId = sec ? sec.id : sectionId;
             const newUrl = `${window.location.pathname}?book=${bookId}&section=${secId}&page=${localPage}`;
             window.history.replaceState(null, '', newUrl);
@@ -281,10 +293,10 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             // Update title
-            updateTitle(currentPage);
+            updateTitle(pageForMeta);
 
             // Update QR link bar
-            updateQrBar(currentPage);
+            updateQrBar(pageForMeta);
 
             imageWrapper.scrollTop = 0;
             isNavigating = false;
@@ -395,8 +407,20 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    function goNext() { loadPage(currentPage + (viewMode === 'spread' ? 2 : 1), 1); }
-    function goPrev() { loadPage(currentPage - (viewMode === 'spread' ? 2 : 1), -1); }
+    function goNext() {
+        if (viewMode === 'spread' && bookData.spreadBookPairOffset === 1) {
+            loadPage(spreadAnchorPage + 2, 1);
+        } else {
+            loadPage(currentPage + (viewMode === 'spread' ? 2 : 1), 1);
+        }
+    }
+    function goPrev() {
+        if (viewMode === 'spread' && bookData.spreadBookPairOffset === 1) {
+            loadPage(spreadAnchorPage - 2, -1);
+        } else {
+            loadPage(currentPage - (viewMode === 'spread' ? 2 : 1), -1);
+        }
+    }
 
     btnPrev.addEventListener('click', goPrev);
     btnNext.addEventListener('click', goNext);
@@ -498,7 +522,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     pageInd.addEventListener('click', () => {
         jumpOverlay.classList.add('active');
-        jumpInput.value = currentPage;
+        jumpInput.value =
+            viewMode === 'spread' && bookData.spreadBookPairOffset === 1 ? spreadAnchorPage : currentPage;
         jumpInput.focus();
         jumpInput.select();
     });
@@ -644,20 +669,26 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    /** iワーク中学: モノクロ別exportがなく viewer と同じ PNG を印刷に使う */
+    /** iワーク中学・Engage 等: モノクロ別exportがなく viewer と同じ PNG を印刷に使う */
     const jhsViewerPrint =
         bookData.id && String(bookData.id).startsWith('jhs_iwork_');
+    const viewerPrintFallback = bookData.viewerPrintUsesViewerImages === true;
     const hasDedicatedPrintBw =
         bookData.printImagesPath != null && bookData.printImagesPath !== '';
 
     if (printBtn) {
-        if (!hasDedicatedPrintBw && !jhsViewerPrint) {
+        if (!hasDedicatedPrintBw && !jhsViewerPrint && !viewerPrintFallback) {
             printBtn.style.display = 'none';
         } else {
             printBtn.addEventListener('click', () => {
                 // 現在表示中のページを基準に前後2ページずつ表示
                 if (viewMode === 'spread') {
-                    const lp = currentPage % 2 === 0 ? currentPage : currentPage - 1;
+                    let lp;
+                    if (bookData.spreadBookPairOffset === 1) {
+                        lp = spreadAnchorPage;
+                    } else {
+                        lp = currentPage % 2 === 0 ? currentPage : currentPage - 1;
+                    }
                     printRangeStart = Math.max(1, lp - 2);
                     printRangeEnd = Math.min(TOTAL_PAGES, lp + 3);
                 } else {
