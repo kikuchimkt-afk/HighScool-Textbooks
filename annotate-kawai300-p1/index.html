@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>書き込み試作 · 英語長文300 問題1</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html, body { height: 100%; touch-action: manipulation; }
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", "Hiragino Sans", sans-serif;
+            background: #1a1a1e;
+            color: #eee;
+            display: flex;
+            flex-direction: column;
+            min-height: 100%;
+            padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+        }
+        header {
+            flex-shrink: 0;
+            padding: 8px 10px;
+            background: #2d2d32;
+            border-bottom: 1px solid #444;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 8px;
+        }
+        header h1 { font-size: 0.85rem; font-weight: 600; flex: 1 1 100%; }
+        .hint { font-size: 0.7rem; color: #888; flex: 1 1 100%; line-height: 1.35; }
+        .toolbar {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 6px;
+        }
+        button, .toggle {
+            font-size: 0.8rem;
+            padding: 8px 12px;
+            border-radius: 8px;
+            border: 1px solid #555;
+            background: #3a3a40;
+            color: #eee;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+        }
+        button:active { background: #505058; }
+        button.active, .toggle input:checked + span {
+            background: #2563eb;
+            border-color: #3b82f6;
+        }
+        .toggle { display: inline-flex; align-items: center; padding: 0; border: none; background: transparent; }
+        .toggle input { position: absolute; opacity: 0; pointer-events: none; }
+        .toggle span {
+            display: inline-block;
+            padding: 8px 12px;
+            border-radius: 8px;
+            border: 1px solid #555;
+            background: #3a3a40;
+        }
+        .toggle input:checked + span { background: #2563eb; border-color: #3b82f6; }
+        input[type="color"] {
+            width: 40px; height: 36px;
+            border: none;
+            border-radius: 8px;
+            padding: 0;
+            background: transparent;
+        }
+        select {
+            font-size: 0.8rem;
+            padding: 8px;
+            border-radius: 8px;
+            border: 1px solid #555;
+            background: #3a3a40;
+            color: #eee;
+        }
+        #status { font-size: 0.72rem; color: #8b8; margin-left: auto; }
+        main {
+            flex: 1;
+            overflow: auto;
+            -webkit-overflow-scrolling: touch;
+            padding: 10px;
+        }
+        .page-block {
+            margin-bottom: 16px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .page-label {
+            font-size: 0.75rem;
+            color: #999;
+            margin-bottom: 6px;
+        }
+        .stage {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+            vertical-align: top;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.45);
+            touch-action: none;
+        }
+        .stage.drawing-off { touch-action: pan-y pinch-zoom; }
+        .stage img {
+            display: block;
+            width: 100%;
+            height: auto;
+            vertical-align: top;
+            pointer-events: none;
+            user-select: none;
+        }
+        .stage canvas {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: auto;
+        }
+        .stage.drawing-off canvas { pointer-events: none; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>書き込み試作 · やっておきたい英語長文300 · 問題1（本p.2–3）</h1>
+        <p class="hint">リポジトリのルートで <code style="background:#333;padding:2px 6px;border-radius:4px;">npx serve</code> などで開いてください（<code style="background:#333;padding:2px 6px;border-radius:4px;">/annotate-kawai300-p1/</code>）。データはこの端末の IndexedDB のみに保存されます（目安 ~数MB以下想定）。</p>
+        <div class="toolbar">
+            <label class="toggle"><input type="checkbox" id="draw-mode" checked><span>ペンで書く</span></label>
+            <label>色 <input type="color" id="pen-color" value="#e11d48"></label>
+            <label>太さ
+                <select id="pen-width">
+                    <option value="2">細</option>
+                    <option value="4" selected>標準</option>
+                    <option value="8">太</option>
+                </select>
+            </label>
+            <button type="button" id="btn-undo">戻す</button>
+            <button type="button" id="btn-clear-page">このページ消去</button>
+            <span style="font-size:0.7rem;color:#777;">※消去・戻すの対象は、直前にタップしたページです。</span>
+            <button type="button" id="btn-export">JSON バックアップ</button>
+            <label style="font-size:0.75rem;color:#aaa;">復元 <input type="file" id="import-file" accept="application/json" style="max-width:120px;font-size:0.7rem;"></label>
+            <span id="status"></span>
+        </div>
+    </header>
+    <main id="main"></main>
+    <script src="app.js"></script>
+</body>
+</html>
