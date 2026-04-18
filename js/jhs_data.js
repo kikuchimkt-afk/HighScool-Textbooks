@@ -163,6 +163,55 @@ const jhsData = {
             }));
         },
         pageQrs: {}
+    },
+    jhs_iwork_math1: {
+        id: "jhs_iwork_math1",
+        title: "iワーク 中1数学",
+        totalPages: 459,
+        imagesPath: "images/jhs_iwork_math1/",
+        printImagesPath: null,
+        spreadEvenLeftBySection: true,
+        coverImage: "images/jhs_iwork_math1_cover.png",
+        qrBase: "",
+        chapters: [
+            { id: "cover", title: "表紙", start: 1, end: 1, subsections: [] },
+            { id: "main", title: "中1数学（本冊）", start: 2, end: 225, subsections: [
+                { num: 1, title: "正の数・負の数", page: 11 },
+                { num: 2, title: "正の数・負の数の加法，減法", page: 17 },
+                { num: 3, title: "正の数・負の数の乗法，除法", page: 23 },
+                { num: 4, title: "乗法と除法の混じった計算", page: 27 },
+                { num: 5, title: "いろいろな計算", page: 31 },
+                { num: 6, title: "文字を使った式", page: 51 },
+                { num: 7, title: "文字式の加法，減法", page: 59 },
+                { num: 8, title: "文字式と数の乗法，除法", page: 63 },
+                { num: 9, title: "関係を表す式", page: 67 },
+                { num: 10, title: "方程式とその解", page: 81 },
+                { num: 11, title: "いろいろな方程式", page: 85 },
+                { num: 12, title: "方程式の利用(1)", page: 91 },
+                { num: 13, title: "方程式の利用(2)", page: 95 },
+                { num: 14, title: "関数・比例", page: 111 },
+                { num: 15, title: "比例のグラフ", page: 117 },
+                { num: 16, title: "反比例", page: 121 },
+                { num: 17, title: "比例，反比例の利用", page: 125 },
+                { num: 18, title: "直線と図形，移動", page: 139 },
+                { num: 19, title: "基本の作図", page: 145 },
+                { num: 20, title: "円とおうぎ形", page: 151 },
+                { num: 21, title: "いろいろな立体", page: 165 },
+                { num: 22, title: "空間内の位置関係", page: 171 },
+                { num: 23, title: "体積・表面積", page: 177 },
+                { num: 24, title: "データの活用", page: 193 }
+            ] },
+            { id: "main_answers", title: "中1数学 解答解説", start: 226, end: 338, subsections: [] },
+            { id: "plus", title: "iワークプラス", start: 339, end: 415, subsections: [] },
+            { id: "plus_answers", title: "iワークプラス 解答解説", start: 416, end: 459, subsections: [] }
+        ],
+        get sections() {
+            return this.chapters.map(ch => ({
+                id: ch.id, title: ch.title, start: ch.start, end: ch.end,
+                pages: ch.end - ch.start + 1
+            }));
+        },
+        pageQrs: {}
     }
 };
 
