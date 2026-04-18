@@ -69,11 +69,6 @@
             box-shadow: 0 2px 12px rgba(0,0,0,0.15),
                         inset 0 1px 0 rgba(255,255,255,0.05);
         }
-        /* --- Accordion --- */
-        .toc-accordion { border: none; }
-        .toc-accordion summary { list-style: none; cursor: pointer; }
-        .toc-accordion summary::-webkit-details-marker { display: none; }
-        .toc-accordion summary::marker { display: none; content: ''; }
         .toc-chapter-link {
             display: flex; justify-content: space-between; align-items: center;
             padding: 0.85rem 1.2rem; text-decoration: none; color: #f5f5f7;
@@ -84,17 +79,6 @@
         .toc-chapter-link:hover {
             background: rgba(255,255,255,0.06);
         }
-        .toc-chapter-meta {
-            display: flex; align-items: center; gap: 8px;
-        }
-        .toc-chevron {
-            font-size: 0.65rem; color: rgba(255,255,255,0.3);
-            transition: transform 0.3s ease;
-            display: inline-block;
-        }
-        .toc-accordion[open] .toc-chevron {
-            transform: rotate(90deg);
-        }
         .toc-chapter-pages {
             font-size: 0.75rem; color: rgba(255,255,255,0.3);
             font-weight: 400; white-space: nowrap;
@@ -102,11 +86,6 @@
         .toc-subsections {
             border-top: 1px solid rgba(255,255,255,0.06);
             padding: 0.2rem 0;
-            animation: tocSlideDown 0.25s ease;
-        }
-        @keyframes tocSlideDown {
-            from { opacity: 0; max-height: 0; }
-            to { opacity: 1; max-height: 2000px; }
         }
         .toc-sub-link {
             display: flex; align-items: center; gap: 8px;
@@ -156,49 +135,49 @@
             <img src="images/kagaku_zuroku_cover.jpg" alt="化学図録 表紙" class="toc-cover">
             
         <div class="toc-chapter">
-            <a href="kagaku_zuroku_viewer.html?book=kagaku_zuroku&section=chap0&page=1" class="toc-chapter-link toc-chapter-link-plain">
+            <a href="kagaku_zuroku_viewer.html?book=kagaku_zuroku&section=chap0&page=1" class="toc-chapter-link">
                 <span class="toc-chapter-title">元素・実験の基本操作</span>
                 <span class="toc-chapter-pages">p.1–14</span>
             </a>
         </div>
         <div class="toc-chapter">
-            <a href="kagaku_zuroku_viewer.html?book=kagaku_zuroku&section=chap1&page=1" class="toc-chapter-link toc-chapter-link-plain">
+            <a href="kagaku_zuroku_viewer.html?book=kagaku_zuroku&section=chap1&page=1" class="toc-chapter-link">
                 <span class="toc-chapter-title">物質の構成</span>
                 <span class="toc-chapter-pages">p.15–30</span>
             </a>
         </div>
         <div class="toc-chapter">
-            <a href="kagaku_zuroku_viewer.html?book=kagaku_zuroku&section=chap2&page=1" class="toc-chapter-link toc-chapter-link-plain">
+            <a href="kagaku_zuroku_viewer.html?book=kagaku_zuroku&section=chap2&page=1" class="toc-chapter-link">
                 <span class="toc-chapter-title">物質の状態</span>
                 <span class="toc-chapter-pages">p.31–40</span>
             </a>
         </div>
         <div class="toc-chapter">
-            <a href="kagaku_zuroku_viewer.html?book=kagaku_zuroku&section=chap3&page=1" class="toc-chapter-link toc-chapter-link-plain">
+            <a href="kagaku_zuroku_viewer.html?book=kagaku_zuroku&section=chap3&page=1" class="toc-chapter-link">
                 <span class="toc-chapter-title">物質の反応</span>
                 <span class="toc-chapter-pages">p.41–59</span>
             </a>
         </div>
         <div class="toc-chapter">
-            <a href="kagaku_zuroku_viewer.html?book=kagaku_zuroku&section=chap4&page=1" class="toc-chapter-link toc-chapter-link-plain">
+            <a href="kagaku_zuroku_viewer.html?book=kagaku_zuroku&section=chap4&page=1" class="toc-chapter-link">
                 <span class="toc-chapter-title">無機化合物</span>
                 <span class="toc-chapter-pages">p.60–86</span>
             </a>
         </div>
         <div class="toc-chapter">
-            <a href="kagaku_zuroku_viewer.html?book=kagaku_zuroku&section=chap5&page=1" class="toc-chapter-link toc-chapter-link-plain">
+            <a href="kagaku_zuroku_viewer.html?book=kagaku_zuroku&section=chap5&page=1" class="toc-chapter-link">
                 <span class="toc-chapter-title">有機化合物</span>
                 <span class="toc-chapter-pages">p.87–106</span>
             </a>
         </div>
         <div class="toc-chapter">
-            <a href="kagaku_zuroku_viewer.html?book=kagaku_zuroku&section=chap6&page=1" class="toc-chapter-link toc-chapter-link-plain">
+            <a href="kagaku_zuroku_viewer.html?book=kagaku_zuroku&section=chap6&page=1" class="toc-chapter-link">
                 <span class="toc-chapter-title">人間生活と物質</span>
                 <span class="toc-chapter-pages">p.107–123</span>
             </a>
         </div>
         <div class="toc-chapter">
-            <a href="kagaku_zuroku_viewer.html?book=kagaku_zuroku&section=chap7&page=1" class="toc-chapter-link toc-chapter-link-plain">
+            <a href="kagaku_zuroku_viewer.html?book=kagaku_zuroku&section=chap7&page=1" class="toc-chapter-link">
                 <span class="toc-chapter-title">資料・索引</span>
                 <span class="toc-chapter-pages">p.124–141</span>
             </a>
@@ -206,17 +185,5 @@
         </div>
         <div class="toc-footer">© 2026 ECCベストワン藍住・北島中央</div>
     </div>
-    <script>
-        // 同時に1つだけ開くアコーディオン制御
-        document.querySelectorAll('.toc-accordion').forEach(det => {
-            det.addEventListener('toggle', () => {
-                if (det.open) {
-                    document.querySelectorAll('.toc-accordion').forEach(other => {
-                        if (other !== det) other.open = false;
-                    });
-                }
-            });
-        });
-    </script>
 </body>
 </html>

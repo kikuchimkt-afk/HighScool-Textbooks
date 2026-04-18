@@ -1,6 +1,6 @@
 /**
  * TOC HTMLファイル生成スクリプト (Apple風デザイン)
- * hs_data.js からデータを読み取り、5つのTOCファイルを生成する
+ * hs_data.js からデータを読み取り、全書籍分の *_toc.html を生成する
  * 
  * 使い方: node _generate_toc.js
  */
@@ -17,42 +17,31 @@ function generateTocHtml(bookId, bookData) {
     let tocItems = '';
     chapters.forEach(ch => {
         const hasSubsections = ch.subsections && ch.subsections.length > 0;
-
-        if (hasSubsections) {
-            // 折りたたみ式（アコーディオン）
-            tocItems += `
+        
+        tocItems += `
         <div class="toc-chapter">
-            <details class="toc-accordion">
-                <summary class="toc-chapter-link">
-                    <span class="toc-chapter-title">${ch.title}</span>
-                    <span class="toc-chapter-meta">
-                        <span class="toc-chapter-pages">p.${ch.start}–${ch.end}</span>
-                        <span class="toc-chevron">▶</span>
-                    </span>
-                </summary>
-                <div class="toc-subsections">`;
-            ch.subsections.forEach(sub => {
-                tocItems += `
-                    <a href="${viewerFile}?book=${bookId}&page=${sub.page}" class="toc-sub-link">
-                        <span class="toc-sub-num">${sub.num}</span>
-                        <span class="toc-sub-title">${sub.title}</span>
-                        <span class="toc-sub-page">p.${sub.page}</span>
-                    </a>`;
-            });
-            tocItems += `
-                </div>
-            </details>
-        </div>`;
-        } else {
-            // サブセクションなし - 通常リンク
-            tocItems += `
-        <div class="toc-chapter">
-            <a href="${viewerFile}?book=${bookId}&section=${ch.id}&page=1" class="toc-chapter-link toc-chapter-link-plain">
+            <a href="${viewerFile}?book=${bookId}&section=${ch.id}&page=1" class="toc-chapter-link">
                 <span class="toc-chapter-title">${ch.title}</span>
                 <span class="toc-chapter-pages">p.${ch.start}–${ch.end}</span>
-            </a>
-        </div>`;
+            </a>`;
+
+        if (hasSubsections) {
+            tocItems += `
+            <div class="toc-subsections">`;
+            ch.subsections.forEach(sub => {
+                tocItems += `
+                <a href="${viewerFile}?book=${bookId}&page=${sub.page}" class="toc-sub-link">
+                    <span class="toc-sub-num">${sub.num}</span>
+                    <span class="toc-sub-title">${sub.title}</span>
+                    <span class="toc-sub-page">p.${sub.page}</span>
+                </a>`;
+            });
+            tocItems += `
+            </div>`;
         }
+
+        tocItems += `
+        </div>`;
     });
 
     return `<!DOCTYPE html>
@@ -126,11 +115,6 @@ function generateTocHtml(bookId, bookData) {
             box-shadow: 0 2px 12px rgba(0,0,0,0.15),
                         inset 0 1px 0 rgba(255,255,255,0.05);
         }
-        /* --- Accordion --- */
-        .toc-accordion { border: none; }
-        .toc-accordion summary { list-style: none; cursor: pointer; }
-        .toc-accordion summary::-webkit-details-marker { display: none; }
-        .toc-accordion summary::marker { display: none; content: ''; }
         .toc-chapter-link {
             display: flex; justify-content: space-between; align-items: center;
             padding: 0.85rem 1.2rem; text-decoration: none; color: #f5f5f7;
@@ -141,17 +125,6 @@ function generateTocHtml(bookId, bookData) {
         .toc-chapter-link:hover {
             background: rgba(255,255,255,0.06);
         }
-        .toc-chapter-meta {
-            display: flex; align-items: center; gap: 8px;
-        }
-        .toc-chevron {
-            font-size: 0.65rem; color: rgba(255,255,255,0.3);
-            transition: transform 0.3s ease;
-            display: inline-block;
-        }
-        .toc-accordion[open] .toc-chevron {
-            transform: rotate(90deg);
-        }
         .toc-chapter-pages {
             font-size: 0.75rem; color: rgba(255,255,255,0.3);
             font-weight: 400; white-space: nowrap;
@@ -159,11 +132,6 @@ function generateTocHtml(bookId, bookData) {
         .toc-subsections {
             border-top: 1px solid rgba(255,255,255,0.06);
             padding: 0.2rem 0;
-            animation: tocSlideDown 0.25s ease;
-        }
-        @keyframes tocSlideDown {
-            from { opacity: 0; max-height: 0; }
-            to { opacity: 1; max-height: 2000px; }
         }
         .toc-sub-link {
             display: flex; align-items: center; gap: 8px;
@@ -215,18 +183,6 @@ function generateTocHtml(bookId, bookData) {
         </div>
         <div class="toc-footer">© 2026 ECCベストワン藍住・北島中央</div>
     </div>
-    <script>
-        // 同時に1つだけ開くアコーディオン制御
-        document.querySelectorAll('.toc-accordion').forEach(det => {
-            det.addEventListener('toggle', () => {
-                if (det.open) {
-                    document.querySelectorAll('.toc-accordion').forEach(other => {
-                        if (other !== det) other.open = false;
-                    });
-                }
-            });
-        });
-    </script>
 </body>
 </html>`;
 }

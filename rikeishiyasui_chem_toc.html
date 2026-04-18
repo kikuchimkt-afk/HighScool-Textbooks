@@ -69,11 +69,6 @@
             box-shadow: 0 2px 12px rgba(0,0,0,0.15),
                         inset 0 1px 0 rgba(255,255,255,0.05);
         }
-        /* --- Accordion --- */
-        .toc-accordion { border: none; }
-        .toc-accordion summary { list-style: none; cursor: pointer; }
-        .toc-accordion summary::-webkit-details-marker { display: none; }
-        .toc-accordion summary::marker { display: none; content: ''; }
         .toc-chapter-link {
             display: flex; justify-content: space-between; align-items: center;
             padding: 0.85rem 1.2rem; text-decoration: none; color: #f5f5f7;
@@ -84,17 +79,6 @@
         .toc-chapter-link:hover {
             background: rgba(255,255,255,0.06);
         }
-        .toc-chapter-meta {
-            display: flex; align-items: center; gap: 8px;
-        }
-        .toc-chevron {
-            font-size: 0.65rem; color: rgba(255,255,255,0.3);
-            transition: transform 0.3s ease;
-            display: inline-block;
-        }
-        .toc-accordion[open] .toc-chevron {
-            transform: rotate(90deg);
-        }
         .toc-chapter-pages {
             font-size: 0.75rem; color: rgba(255,255,255,0.3);
             font-weight: 400; white-space: nowrap;
@@ -102,11 +86,6 @@
         .toc-subsections {
             border-top: 1px solid rgba(255,255,255,0.06);
             padding: 0.2rem 0;
-            animation: tocSlideDown 0.25s ease;
-        }
-        @keyframes tocSlideDown {
-            from { opacity: 0; max-height: 0; }
-            to { opacity: 1; max-height: 2000px; }
         }
         .toc-sub-link {
             display: flex; align-items: center; gap: 8px;
@@ -156,73 +135,73 @@
             <img src="images/rikeishiyasui_chem_cover.jpg" alt="理解しやすい化学・化学基礎 表紙" class="toc-cover">
             
         <div class="toc-chapter">
-            <a href="rikeishiyasui_chem_viewer.html?book=rikeishiyasui_chem&section=intro&page=1" class="toc-chapter-link toc-chapter-link-plain">
+            <a href="rikeishiyasui_chem_viewer.html?book=rikeishiyasui_chem&section=intro&page=1" class="toc-chapter-link">
                 <span class="toc-chapter-title">目次</span>
                 <span class="toc-chapter-pages">p.1–8</span>
             </a>
         </div>
         <div class="toc-chapter">
-            <a href="rikeishiyasui_chem_viewer.html?book=rikeishiyasui_chem&section=part1&page=1" class="toc-chapter-link toc-chapter-link-plain">
+            <a href="rikeishiyasui_chem_viewer.html?book=rikeishiyasui_chem&section=part1&page=1" class="toc-chapter-link">
                 <span class="toc-chapter-title">第1編 物質の構成</span>
                 <span class="toc-chapter-pages">p.9–72</span>
             </a>
         </div>
         <div class="toc-chapter">
-            <a href="rikeishiyasui_chem_viewer.html?book=rikeishiyasui_chem&section=part2&page=1" class="toc-chapter-link toc-chapter-link-plain">
+            <a href="rikeishiyasui_chem_viewer.html?book=rikeishiyasui_chem&section=part2&page=1" class="toc-chapter-link">
                 <span class="toc-chapter-title">第2編 物質の変化</span>
                 <span class="toc-chapter-pages">p.73–177</span>
             </a>
         </div>
         <div class="toc-chapter">
-            <a href="rikeishiyasui_chem_viewer.html?book=rikeishiyasui_chem&section=part3&page=1" class="toc-chapter-link toc-chapter-link-plain">
+            <a href="rikeishiyasui_chem_viewer.html?book=rikeishiyasui_chem&section=part3&page=1" class="toc-chapter-link">
                 <span class="toc-chapter-title">第3編 物質の状態と平衡</span>
                 <span class="toc-chapter-pages">p.178–245</span>
             </a>
         </div>
         <div class="toc-chapter">
-            <a href="rikeishiyasui_chem_viewer.html?book=rikeishiyasui_chem&section=part4&page=1" class="toc-chapter-link toc-chapter-link-plain">
+            <a href="rikeishiyasui_chem_viewer.html?book=rikeishiyasui_chem&section=part4&page=1" class="toc-chapter-link">
                 <span class="toc-chapter-title">第4編 物質の変化と平衡</span>
                 <span class="toc-chapter-pages">p.246–299</span>
             </a>
         </div>
         <div class="toc-chapter">
-            <a href="rikeishiyasui_chem_viewer.html?book=rikeishiyasui_chem&section=part5&page=1" class="toc-chapter-link toc-chapter-link-plain">
+            <a href="rikeishiyasui_chem_viewer.html?book=rikeishiyasui_chem&section=part5&page=1" class="toc-chapter-link">
                 <span class="toc-chapter-title">第5編 無機物質</span>
                 <span class="toc-chapter-pages">p.300–365</span>
             </a>
         </div>
         <div class="toc-chapter">
-            <a href="rikeishiyasui_chem_viewer.html?book=rikeishiyasui_chem&section=part6&page=1" class="toc-chapter-link toc-chapter-link-plain">
+            <a href="rikeishiyasui_chem_viewer.html?book=rikeishiyasui_chem&section=part6&page=1" class="toc-chapter-link">
                 <span class="toc-chapter-title">第6編 有機化合物</span>
                 <span class="toc-chapter-pages">p.366–437</span>
             </a>
         </div>
         <div class="toc-chapter">
-            <a href="rikeishiyasui_chem_viewer.html?book=rikeishiyasui_chem&section=part7&page=1" class="toc-chapter-link toc-chapter-link-plain">
+            <a href="rikeishiyasui_chem_viewer.html?book=rikeishiyasui_chem&section=part7&page=1" class="toc-chapter-link">
                 <span class="toc-chapter-title">第7編 高分子化合物</span>
                 <span class="toc-chapter-pages">p.438–492</span>
             </a>
         </div>
         <div class="toc-chapter">
-            <a href="rikeishiyasui_chem_viewer.html?book=rikeishiyasui_chem&section=part8&page=1" class="toc-chapter-link toc-chapter-link-plain">
+            <a href="rikeishiyasui_chem_viewer.html?book=rikeishiyasui_chem&section=part8&page=1" class="toc-chapter-link">
                 <span class="toc-chapter-title">第8編 化学が果たす役割</span>
                 <span class="toc-chapter-pages">p.493–530</span>
             </a>
         </div>
         <div class="toc-chapter">
-            <a href="rikeishiyasui_chem_viewer.html?book=rikeishiyasui_chem&section=answers&page=1" class="toc-chapter-link toc-chapter-link-plain">
+            <a href="rikeishiyasui_chem_viewer.html?book=rikeishiyasui_chem&section=answers&page=1" class="toc-chapter-link">
                 <span class="toc-chapter-title">問題の解答</span>
                 <span class="toc-chapter-pages">p.531–562</span>
             </a>
         </div>
         <div class="toc-chapter">
-            <a href="rikeishiyasui_chem_viewer.html?book=rikeishiyasui_chem&section=index1&page=1" class="toc-chapter-link toc-chapter-link-plain">
+            <a href="rikeishiyasui_chem_viewer.html?book=rikeishiyasui_chem&section=index1&page=1" class="toc-chapter-link">
                 <span class="toc-chapter-title">索引</span>
                 <span class="toc-chapter-pages">p.563–574</span>
             </a>
         </div>
         <div class="toc-chapter">
-            <a href="rikeishiyasui_chem_viewer.html?book=rikeishiyasui_chem&section=index2&page=1" class="toc-chapter-link toc-chapter-link-plain">
+            <a href="rikeishiyasui_chem_viewer.html?book=rikeishiyasui_chem&section=index2&page=1" class="toc-chapter-link">
                 <span class="toc-chapter-title">索引（化学式）</span>
                 <span class="toc-chapter-pages">p.575–577</span>
             </a>
@@ -230,17 +209,5 @@
         </div>
         <div class="toc-footer">© 2026 ECCベストワン藍住・北島中央</div>
     </div>
-    <script>
-        // 同時に1つだけ開くアコーディオン制御
-        document.querySelectorAll('.toc-accordion').forEach(det => {
-            det.addEventListener('toggle', () => {
-                if (det.open) {
-                    document.querySelectorAll('.toc-accordion').forEach(other => {
-                        if (other !== det) other.open = false;
-                    });
-                }
-            });
-        });
-    </script>
 </body>
 </html>

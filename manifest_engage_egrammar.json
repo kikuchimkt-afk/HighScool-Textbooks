@@ -1,0 +1,20 @@
+{
+  "name": "英文法・語法 Engage",
+  "short_name": "Engage",
+  "start_url": "engage_egrammar_toc.html",
+  "display": "standalone",
+  "background_color": "#1a237e",
+  "theme_color": "#1a237e",
+  "icons": [
+    {
+      "src": "icons/engage_egrammar_192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/engage_egrammar_512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
