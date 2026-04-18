@@ -1,0 +1,83 @@
+{
+  "book_title": "理科 中2",
+  "source_dir_hint": "D:\\Files\\(2025)定期テスト対策ワーク\\中2理科",
+  "table_of_contents": [
+    {
+      "category": "1年の復習",
+      "items": [
+        { "id": "①", "title": "いろいろな生物とその共通点", "this_book_page": "4~7", "textbook_page": null },
+        { "id": "②", "title": "活きている地球", "this_book_page": "8~11", "textbook_page": null },
+        { "id": "③", "title": "身のまわりの物質", "this_book_page": "12~15", "textbook_page": null },
+        { "id": "④", "title": "光・音・力による現象", "this_book_page": "16~19", "textbook_page": null }
+      ]
+    },
+    {
+      "chapter": "第1章 生物の体のつくりとはたらき",
+      "items": [
+        { "id": 1, "title": "生物の体をつくるもの", "this_book_page": "20~23", "textbook_page": "4~17" },
+        { "id": 2, "title": "植物の体のつくりとはたらき(1)", "this_book_page": "24~28", "textbook_page": "18~24", "note": "実・観" },
+        { "id": 3, "title": "植物の体のつくりとはたらき(2)", "this_book_page": "29~33", "textbook_page": "25~32", "note": "計算" },
+        { "title": "■重要事項のまとめ(1)", "this_book_page": "34", "textbook_page": "4~32" },
+        { "title": "■まとめテスト(1)", "this_book_page": "35~36", "textbook_page": "4~32" },
+        { "id": 4, "title": "動物の体のつくりとはたらき(1)", "this_book_page": "37~41", "textbook_page": "33~41", "note": "実・観" },
+        { "id": 5, "title": "動物の体のつくりとはたらき(2)", "this_book_page": "42~46", "textbook_page": "42~49" },
+        { "id": 6, "title": "動物の行動のしくみ", "this_book_page": "47~50", "textbook_page": "50~59" },
+        { "title": "■重要事項のまとめ(2)", "this_book_page": "51", "textbook_page": "33~59" },
+        { "title": "■まとめテスト(2)", "this_book_page": "52~53", "textbook_page": "33~59" },
+        { "title": "■チャレンジ問題", "this_book_page": "54~55", "textbook_page": "2~67" }
+      ]
+    },
+    {
+      "chapter": "第2章 地球の大気と天気の変化",
+      "items": [
+        { "id": 7, "title": "地球をとり巻く大気のようす", "this_book_page": "56~61", "textbook_page": "70~79", "note": "計算" },
+        { "id": 8, "title": "空気中の水の変化", "this_book_page": "62~68", "textbook_page": "80~92", "note": "計算" },
+        { "title": "■重要事項のまとめ(1)", "this_book_page": "69", "textbook_page": "70~92" },
+        { "title": "■まとめテスト(1)", "this_book_page": "70~71", "textbook_page": "70~92" },
+        { "id": 9, "title": "天気の変化と大気の動き", "this_book_page": "72~75", "textbook_page": "93~107" },
+        { "id": 10, "title": "大気の動きと日本の四季", "this_book_page": "76~80", "textbook_page": "108~123" },
+        { "title": "■重要事項のまとめ(2)", "this_book_page": "81", "textbook_page": "93~123" },
+        { "title": "■まとめテスト(2)", "this_book_page": "82~83", "textbook_page": "93~123" },
+        { "title": "■チャレンジ問題", "this_book_page": "84~85", "textbook_page": "68~131" }
+      ]
+    },
+    {
+      "chapter": "第3章 化学変化と原子・分子",
+      "items": [
+        { "id": 11, "title": "物質の成り立ち(1)", "this_book_page": "86~90", "textbook_page": "140~148", "note": "実・観" },
+        { "id": 12, "title": "物質の成り立ち(2)", "this_book_page": "91~96", "textbook_page": "149~159", "note": "実・観" },
+        { "id": 13, "title": "物質の表し方", "this_book_page": "97~101", "textbook_page": "160~171", "note": "化学式" },
+        { "title": "■重要事項のまとめ(1)", "this_book_page": "102", "textbook_page": "140~171" },
+        { "title": "■まとめテスト(1)", "this_book_page": "103~104", "textbook_page": "140~171" },
+        { "id": 14, "title": "さまざまな化学変化(1)", "this_book_page": "105~109", "textbook_page": "172~181", "note": "実・観" },
+        { "id": 15, "title": "さまざまな化学変化(2)", "this_book_page": "110~114", "textbook_page": "182~188", "note": "実・観" },
+        { "id": 16, "title": "化学変化と物質の質量", "this_book_page": "115~120", "textbook_page": "189~199", "note": "計算" },
+        { "title": "■重要事項のまとめ(2)", "this_book_page": "121", "textbook_page": "172~199" },
+        { "title": "■まとめテスト(2)", "this_book_page": "122~123", "textbook_page": "172~199" },
+        { "title": "■チャレンジ問題", "this_book_page": "124~125", "textbook_page": "138~207" }
+      ]
+    },
+    {
+      "chapter": "第4章 電流とその利用",
+      "items": [
+        { "id": 17, "title": "電流の性質(1)", "this_book_page": "126~130", "textbook_page": "210~224" },
+        { "id": 18, "title": "電流の性質(2)", "this_book_page": "131~136", "textbook_page": "225~234", "note": "計算" },
+        { "id": 19, "title": "電流の性質(3)", "this_book_page": "137~142", "textbook_page": "235~241", "note": "計算" },
+        { "title": "■重要事項のまとめ(1)", "this_book_page": "143", "textbook_page": "210~241" },
+        { "title": "■まとめテスト(1)", "this_book_page": "144~145", "textbook_page": "210~241" },
+        { "id": 20, "title": "電流の正体", "this_book_page": "146~150", "textbook_page": "242~253" },
+        { "id": 21, "title": "電流と磁界(1)", "this_book_page": "151~155", "textbook_page": "254~265", "note": "実・観" },
+        { "id": 22, "title": "電流と磁界(2)", "this_book_page": "156~160", "textbook_page": "266~273", "note": "実・観" },
+        { "title": "■重要事項のまとめ(2)", "this_book_page": "161", "textbook_page": "242~273" },
+        { "title": "■まとめテスト(2)", "this_book_page": "162~163", "textbook_page": "242~273" },
+        { "title": "■チャレンジ問題", "this_book_page": "164~165", "textbook_page": "208~281" }
+      ]
+    },
+    {
+      "category": "発展学習",
+      "items": [
+        { "title": "発展学習", "this_book_page": "166~168", "textbook_page": null }
+      ]
+    }
+  ]
+}

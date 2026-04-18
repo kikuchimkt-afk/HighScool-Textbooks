@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>定期テスト対策ワーク 理科 中1 | 目次</title>
+    <meta name="description" content="定期テスト対策ワーク 理科 中1 目次">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/jhs_teiki_science1_32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="icons/jhs_teiki_science1_180.png">
+    <link rel="manifest" href="manifest_jhs_teiki_science1.json">
+    <meta name="theme-color" content="#000000">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Inter', 'Noto Sans JP', -apple-system, BlinkMacSystemFont, sans-serif; background: #000; min-height: 100vh; color: #f5f5f7; }
+        .bg-layer { position: fixed; inset: 0; z-index: 0; }
+        .bg-layer img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.5) saturate(1.2); }
+        .bg-overlay { position: fixed; inset: 0; z-index: 1; background: linear-gradient(180deg, rgba(0,0,0,0.3), rgba(0,0,0,0.7)); }
+        .toc-page { position: relative; z-index: 2; }
+        .toc-header { text-align: center; padding: 3rem 1.5rem 1.5rem; }
+        .toc-back { display: inline-flex; align-items: center; gap: 6px; color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.85rem; margin-bottom: 1.5rem; transition: color 0.25s; font-weight: 400; }
+        .toc-back:hover { color: rgba(255,255,255,0.8); }
+        .toc-header h1 { font-size: 2rem; font-weight: 700; letter-spacing: -0.03em; margin-bottom: 0.3rem; background: linear-gradient(135deg, #fff, rgba(255,255,255,0.6)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .toc-header p { font-size: 0.9rem; color: rgba(255,255,255,0.35); font-weight: 300; }
+        .toc-container { max-width: 760px; margin: 0 auto; padding: 0 1rem 4rem; }
+        .toc-cover { display: block; max-width: 180px; margin: 0 auto 2rem; border-radius: 14px; box-shadow: 0 12px 40px rgba(0,0,0,0.5); }
+        .toc-unit-block { margin-bottom: 0.8rem; border-radius: 16px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.04); }
+        .toc-unit-toggle { width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 0.8rem 1rem; background: rgba(255,255,255,0.04); color: #f5f5f7; border: none; cursor: pointer; font-size: 0.92rem; font-weight: 700; text-align: left; }
+        .toc-unit-toggle:hover { background: rgba(255,255,255,0.09); }
+        .toc-unit-arrow { color: rgba(255,255,255,0.65); transition: transform 0.2s; flex-shrink: 0; margin-left: 8px; }
+        .toc-unit-block.open .toc-unit-arrow { transform: rotate(90deg); }
+        .toc-unit-body { display: none; border-top: 1px solid rgba(255,255,255,0.06); }
+        .toc-unit-block.open .toc-unit-body { display: block; }
+        .toc-chapter { background: rgba(255,255,255,0.02); border-bottom: 1px solid rgba(255,255,255,0.06); }
+        .toc-chapter:last-child { border-bottom: none; }
+        .toc-chapter-link { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; padding: 0.65rem 1rem; text-decoration: none; color: #f5f5f7; font-weight: 500; font-size: 0.86rem; line-height: 1.4; }
+        .toc-chapter-link:hover { background: rgba(255,255,255,0.06); }
+        .toc-chapter-pages { font-size: 0.72rem; color: rgba(255,255,255,0.38); text-align: right; flex-shrink: 0; }
+        .toc-chapter-pages .tb { display: block; font-size: 0.68rem; color: rgba(255,255,255,0.28); margin-top: 2px; }
+        .toc-sub-num { min-width: 22px; color: rgba(160,140,255,0.85); font-size: 0.76rem; font-weight: 600; }
+        .toc-section-note { font-size: 0.72rem; color: rgba(255,255,255,0.32); margin: 0 0 1rem; line-height: 1.45; }
+        .toc-footer { text-align: center; padding: 2rem 1rem; font-size: 0.7rem; color: rgba(255,255,255,0.2); }
+    </style>
+</head>
+<body>
+    <div class="bg-layer"><img src="images/portal_bg.png" alt="" loading="eager"></div>
+    <div class="bg-overlay"></div>
+    <div class="toc-page">
+        <div class="toc-header">
+            <a href="index.html" class="toc-back">← ポータルに戻る</a>
+            <h1 id="toc-title">定期テスト対策ワーク 理科 中1</h1>
+            <p>全148ページ</p>
+        </div>
+        <div class="toc-container">
+            <img src="images/jhs_teiki_science1_cover.jpg" alt="" class="toc-cover" id="toc-cover">
+            <p class="toc-section-note">目次の p. は本ワークの通しページです。教科書ページは参考表示です。PDF からの画像出力は _gen_jhs_teiki_science1_from_pdf.py を参照してください。</p>
+            <div id="toc-root"></div>
+        </div>
+        <div class="toc-footer">© 2026 ECCベストワン藍住・北島中央</div>
+    </div>
+    <script>
+        const VIEW = "jhs_teiki_science1_viewer.html?book=jhs_teiki_science1&section=main";
+
+        function escapeHtml(s) {
+            return String(s)
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;");
+        }
+
+        function startPage(rangeStr) {
+            const a = String(rangeStr || "").replace(/~/g, "-").split("-")[0].trim();
+            return parseInt(a, 10) || 1;
+        }
+
+        function renderToc(data) {
+            const host = document.getElementById("toc-root");
+            if (!host || !data.table_of_contents) return;
+            if (data.book_title) {
+                const h = document.getElementById("toc-title");
+                if (h) h.textContent = "定期テスト対策ワーク " + data.book_title;
+            }
+            data.table_of_contents.forEach(block => {
+                const label = block.chapter || block.category || "目次";
+                const blockEl = document.createElement("div");
+                blockEl.className = "toc-unit-block";
+                const toggle = document.createElement("button");
+                toggle.type = "button";
+                toggle.className = "toc-unit-toggle";
+                toggle.innerHTML = `<span>${escapeHtml(label)}</span><span class="toc-unit-arrow">▶</span>`;
+                toggle.addEventListener("click", () => blockEl.classList.toggle("open"));
+                blockEl.appendChild(toggle);
+                const body = document.createElement("div");
+                body.className = "toc-unit-body";
+                (block.items || []).forEach(item => {
+                    const p = startPage(item.this_book_page);
+                    const wrap = document.createElement("div");
+                    wrap.className = "toc-chapter";
+                    const num = item.id != null ? String(item.id) : "・";
+                    const tb = item.textbook_page != null
+                        ? `<span class="tb">教科書 p.${escapeHtml(String(item.textbook_page))}</span>`
+                        : "";
+                    const note = item.note ? ` <span style="opacity:0.65">(${escapeHtml(item.note)})</span>` : "";
+                    wrap.innerHTML =
+                        `<a href="${VIEW}&page=${p}" class="toc-chapter-link">` +
+                        `<span><span class="toc-sub-num">${escapeHtml(num)}</span> ${escapeHtml(item.title)}${note}</span>` +
+                        `<span class="toc-chapter-pages">本書 p.${escapeHtml(String(item.this_book_page))}${tb}</span>` +
+                        `</a>`;
+                    body.appendChild(wrap);
+                });
+                blockEl.appendChild(body);
+                host.appendChild(blockEl);
+            });
+        }
+
+        fetch("data/jhs_teiki_science1_toc.json")
+            .then(r => {
+                if (!r.ok) throw new Error("fetch failed");
+                return r.json();
+            })
+            .then(renderToc)
+            .catch(() => {
+                const host = document.getElementById("toc-root");
+                if (host) {
+                    host.innerHTML = "<p class=\"toc-section-note\">data/jhs_teiki_science1_toc.json を読み込めませんでした。Webサーバ経由で開いているか確認してください。</p>";
+                }
+            });
+    </script>
+</body>
+</html>

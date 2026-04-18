@@ -1,0 +1,91 @@
+{
+  "book_title": "理科 中3",
+  "source_dir_hint": "D:\\Files\\(2025)定期テスト対策ワーク\\中3理科",
+  "table_of_contents": [
+    {
+      "category": "1・2年の復習",
+      "items": [
+        { "id": "①", "title": "いろいろな生物とその共通点", "this_book_page": "4~7", "textbook_page": null },
+        { "id": "②", "title": "活きている地球", "this_book_page": "8~11", "textbook_page": null },
+        { "id": "③", "title": "身のまわりの物質", "this_book_page": "12~15", "textbook_page": null },
+        { "id": "④", "title": "光・音・力による現象", "this_book_page": "16~19", "textbook_page": null },
+        { "id": "⑤", "title": "生物の体のつくりとはたらき", "this_book_page": "20~23", "textbook_page": null },
+        { "id": "⑥", "title": "地球の大気と天気の変化", "this_book_page": "24~27", "textbook_page": null },
+        { "id": "⑦", "title": "化学変化と原子・分子", "this_book_page": "28~31", "textbook_page": null },
+        { "id": "⑧", "title": "電流とその利用", "this_book_page": "32~35", "textbook_page": null }
+      ]
+    },
+    {
+      "chapter": "第1章 生命の連続性",
+      "items": [
+        { "id": 1, "title": "生物のふえ方と成長", "this_book_page": "36~40", "textbook_page": "4~16", "note": "実・観" },
+        { "id": 2, "title": "遺伝の規則性と遺伝子", "this_book_page": "41~44", "textbook_page": "17~27" },
+        { "id": 3, "title": "生物の種類の多様性と進化", "this_book_page": "45~48", "textbook_page": "28~37" },
+        { "title": "■重要事項のまとめ", "this_book_page": "49", "textbook_page": "4~37" },
+        { "title": "■まとめテスト", "this_book_page": "50~51", "textbook_page": "4~37" },
+        { "title": "■チャレンジ問題", "this_book_page": "52~53", "textbook_page": "2~45" }
+      ]
+    },
+    {
+      "chapter": "第2章 宇宙を観る",
+      "items": [
+        { "id": 4, "title": "宇宙の天体", "this_book_page": "54~58", "textbook_page": "50~64", "note": "実・観" },
+        { "id": 5, "title": "太陽と恒星の動き(1)", "this_book_page": "59~63", "textbook_page": "65~73", "note": "実・観" },
+        { "title": "■重要事項のまとめ(1)", "this_book_page": "64", "textbook_page": "50~73" },
+        { "title": "■まとめテスト(1)", "this_book_page": "65~66", "textbook_page": "50~73" },
+        { "id": 6, "title": "太陽と恒星の動き(2)", "this_book_page": "67~72", "textbook_page": "74~81", "note": "計算" },
+        { "id": 7, "title": "月と金星の動きと見え方", "this_book_page": "73~76", "textbook_page": "82~91" },
+        { "title": "■重要事項のまとめ(2)", "this_book_page": "77", "textbook_page": "74~91" },
+        { "title": "■まとめテスト(2)", "this_book_page": "78~79", "textbook_page": "74~91" },
+        { "title": "■チャレンジ問題", "this_book_page": "80~81", "textbook_page": "46~99" }
+      ]
+    },
+    {
+      "chapter": "第3章 化学変化とイオン",
+      "items": [
+        { "id": 8, "title": "水溶液とイオン", "this_book_page": "82~87", "textbook_page": "106~121", "note": "実・観" },
+        { "id": 9, "title": "電池とイオン", "this_book_page": "88~93", "textbook_page": "122~139", "note": "実・観" },
+        { "title": "■重要事項のまとめ(1)", "this_book_page": "94", "textbook_page": "106~139" },
+        { "title": "■まとめテスト(1)", "this_book_page": "95~96", "textbook_page": "106~139" },
+        { "id": 10, "title": "酸・アルカリと塩(1)", "this_book_page": "97~100", "textbook_page": "140~151" },
+        { "id": 11, "title": "酸・アルカリと塩(2)", "this_book_page": "101~104", "textbook_page": "152~161" },
+        { "title": "■重要事項のまとめ(2)", "this_book_page": "105", "textbook_page": "140~161" },
+        { "title": "■まとめテスト(2)", "this_book_page": "106~107", "textbook_page": "140~161" },
+        { "title": "■チャレンジ問題", "this_book_page": "108~109", "textbook_page": "104~169" }
+      ]
+    },
+    {
+      "chapter": "第4章 運動とエネルギー",
+      "items": [
+        { "id": 12, "title": "力の合成と分解", "this_book_page": "110~116", "textbook_page": "172~185", "note": "計算・作図" },
+        { "id": 13, "title": "物体の運動(1)", "this_book_page": "117~121", "textbook_page": "186~195", "note": "計算" },
+        { "id": 14, "title": "物体の運動(2)", "this_book_page": "122~125", "textbook_page": "196~204" },
+        { "title": "■重要事項のまとめ(1)", "this_book_page": "126", "textbook_page": "172~204" },
+        { "title": "■まとめテスト(1)", "this_book_page": "127~128", "textbook_page": "172~204" },
+        { "id": 15, "title": "仕事とエネルギー", "this_book_page": "129~134", "textbook_page": "205~216", "note": "計算" },
+        { "id": 16, "title": "多様なエネルギーとその移り変わり", "this_book_page": "135~138", "textbook_page": "217~225" },
+        { "id": 17, "title": "エネルギー資源とその利用", "this_book_page": "139~142", "textbook_page": "226~235" },
+        { "title": "■重要事項のまとめ(2)", "this_book_page": "143", "textbook_page": "205~235" },
+        { "title": "■まとめテスト(2)", "this_book_page": "144~145", "textbook_page": "205~235" },
+        { "title": "■チャレンジ問題", "this_book_page": "146~147", "textbook_page": "170~243" }
+      ]
+    },
+    {
+      "chapter": "第5章 自然と人間",
+      "items": [
+        { "id": 18, "title": "自然界のつり合い", "this_book_page": "148~153", "textbook_page": "246~259", "note": "実・観" },
+        { "id": 19, "title": "さまざまな物質の利用と人間／科学技術の発展", "this_book_page": "154~158", "textbook_page": "260~275" },
+        { "id": 20, "title": "人間と環境／持続可能な社会をめざして", "this_book_page": "159~162", "textbook_page": "276~301" },
+        { "title": "■重要事項のまとめ", "this_book_page": "163", "textbook_page": "246~301" },
+        { "title": "■まとめテスト", "this_book_page": "164", "textbook_page": "246~301" },
+        { "title": "■チャレンジ問題", "this_book_page": "165", "textbook_page": "244~307" }
+      ]
+    },
+    {
+      "category": "発展学習",
+      "items": [
+        { "title": "発展学習", "this_book_page": "166~168", "textbook_page": null }
+      ]
+    }
+  ]
+}

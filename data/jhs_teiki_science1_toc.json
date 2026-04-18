@@ -1,0 +1,82 @@
+{
+  "book_title": "理科 中1",
+  "source_dir_hint": "D:\\Files\\(2025)定期テスト対策ワーク\\中1理科",
+  "table_of_contents": [
+    {
+      "category": "小学校の復習",
+      "items": [
+        { "title": "小学校の復習①", "this_book_page": "4", "textbook_page": null },
+        { "title": "小学校の復習②", "this_book_page": "5", "textbook_page": null },
+        { "title": "小学校の復習③", "this_book_page": "6", "textbook_page": null },
+        { "title": "小学校の復習④", "this_book_page": "7", "textbook_page": null }
+      ]
+    },
+    {
+      "chapter": "第1章 いろいろな生物とその共通点",
+      "items": [
+        { "id": 1, "title": "自然の中にあふれる生命", "this_book_page": "8-11", "textbook_page": "2-17" },
+        { "id": 2, "title": "植物の特徴と分類(1)", "this_book_page": "12-16", "textbook_page": "20-30" },
+        { "id": 3, "title": "植物の特徴と分類(2)", "this_book_page": "17-20", "textbook_page": "31-35" },
+        { "title": "■重要事項のまとめ(1)", "this_book_page": "21", "textbook_page": "2-35" },
+        { "title": "■まとめテスト(1)", "this_book_page": "22-23", "textbook_page": "2-35" },
+        { "id": 4, "title": "動物の特徴と分類(1)", "this_book_page": "24-28", "textbook_page": "36-47" },
+        { "id": 5, "title": "動物の特徴と分類(2)", "this_book_page": "29-32", "textbook_page": "48-53" },
+        { "title": "■重要事項のまとめ(2)", "this_book_page": "33", "textbook_page": "36-61" },
+        { "title": "■まとめテスト(2)", "this_book_page": "34-35", "textbook_page": "36-61" },
+        { "title": "■チャレンジ問題", "this_book_page": "36-37", "textbook_page": "2-61" }
+      ]
+    },
+    {
+      "chapter": "第2章 活きている地球",
+      "items": [
+        { "id": 6, "title": "身近な大地", "this_book_page": "38-41", "textbook_page": "65-72" },
+        { "id": 7, "title": "ゆれる大地", "this_book_page": "42-48", "textbook_page": "73-83", "note": "計算" },
+        { "title": "■重要事項のまとめ(1)", "this_book_page": "49", "textbook_page": "65-83" },
+        { "title": "■まとめテスト(1)", "this_book_page": "50-51", "textbook_page": "65-83" },
+        { "id": 8, "title": "火をふく大地(1)", "this_book_page": "52-57", "textbook_page": "84-93", "note": "実・観" },
+        { "id": 9, "title": "火をふく大地(2)", "this_book_page": "58-61", "textbook_page": "94-98", "note": "実・観" },
+        { "id": 10, "title": "語る大地(1)", "this_book_page": "62-66", "textbook_page": "99-108", "note": "実・観" },
+        { "id": 11, "title": "語る大地(2)", "this_book_page": "67-70", "textbook_page": "109-117" },
+        { "title": "■重要事項のまとめ(2)", "this_book_page": "71", "textbook_page": "84-125" },
+        { "title": "■まとめテスト(2)", "this_book_page": "72-73", "textbook_page": "84-125" },
+        { "title": "■チャレンジ問題", "this_book_page": "74-75", "textbook_page": "62-125" }
+      ]
+    },
+    {
+      "chapter": "第3章 身のまわりの物質",
+      "items": [
+        { "id": 12, "title": "いろいろな物質とその性質", "this_book_page": "76-81", "textbook_page": "136-149", "note": "計算" },
+        { "id": 13, "title": "いろいろな気体とその性質", "this_book_page": "82-86", "textbook_page": "150-160", "note": "実・観" },
+        { "title": "■重要事項のまとめ(1)", "this_book_page": "87", "textbook_page": "136-160" },
+        { "title": "■まとめテスト(1)", "this_book_page": "88-89", "textbook_page": "136-160" },
+        { "id": 14, "title": "水溶液の性質(1)", "this_book_page": "90-95", "textbook_page": "161-166", "note": "計算" },
+        { "id": 15, "title": "水溶液の性質(2)", "this_book_page": "96-100", "textbook_page": "167-172", "note": "実・観" },
+        { "id": 16, "title": "物質のすがたとその変化", "this_book_page": "101-106", "textbook_page": "173-189", "note": "実・観" },
+        { "title": "■重要事項のまとめ(2)", "this_book_page": "107", "textbook_page": "161-197" },
+        { "title": "■まとめテスト(2)", "this_book_page": "108-109", "textbook_page": "161-197" },
+        { "title": "■チャレンジ問題", "this_book_page": "110-111", "textbook_page": "134-197" }
+      ]
+    },
+    {
+      "chapter": "第4章 光・音・力による現象",
+      "items": [
+        { "id": 17, "title": "光による現象(1)", "this_book_page": "112-117", "textbook_page": "200-213", "note": "作図" },
+        { "id": 18, "title": "光による現象(2)", "this_book_page": "118-123", "textbook_page": "214-221", "note": "作図" },
+        { "title": "■重要事項のまとめ(1)", "this_book_page": "124", "textbook_page": "200-221" },
+        { "title": "■まとめテスト(1)", "this_book_page": "125-126", "textbook_page": "200-221" },
+        { "id": 19, "title": "音による現象", "this_book_page": "127-132", "textbook_page": "222-231", "note": "計算" },
+        { "id": 20, "title": "力による現象(1)", "this_book_page": "133-138", "textbook_page": "232-241", "note": "計算" },
+        { "id": 21, "title": "力による現象(2)", "this_book_page": "139-142", "textbook_page": "242-247" },
+        { "title": "■重要事項のまとめ(2)", "this_book_page": "143", "textbook_page": "222-255" },
+        { "title": "■まとめテスト(2)", "this_book_page": "144-145", "textbook_page": "222-255" },
+        { "title": "■チャレンジ問題", "this_book_page": "146-147", "textbook_page": "198-255" }
+      ]
+    },
+    {
+      "category": "発展学習",
+      "items": [
+        { "title": "発展学習", "this_book_page": "148", "textbook_page": null }
+      ]
+    }
+  ]
+}
