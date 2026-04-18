@@ -1,0 +1,463 @@
+    shinkenkyu_chem: {
+        id: "shinkenkyu_chem",
+        title: "化学の新研究 改訂版",
+        totalPages: 836,
+        imagesPath: "images/shinkenkyu_chem/",
+        printImagesPath: "images/shinkenkyu_chem/",
+        coverImage: "images/shinkenkyu_chem_cover.jpg",
+        qrBase: "",
+        chapters: [
+            {
+                "id": "intro",
+                "title": "まえがき・目次",
+                "start": 1,
+                "end": 11,
+                "subsections": [
+                    {
+                        "num": 0,
+                        "title": "まえがき・目次",
+                        "page": 1
+                    }
+                ]
+            },
+            {
+                "id": "part1",
+                "title": "第1章 物質の構成",
+                "start": 12,
+                "end": 113,
+                "subsections": [
+                    {
+                        "num": 1,
+                        "title": "物質の構成",
+                        "page": 12
+                    },
+                    {
+                        "num": 2,
+                        "title": "原子とイオン",
+                        "page": 27
+                    },
+                    {
+                        "num": 3,
+                        "title": "化学結合",
+                        "page": 48
+                    },
+                    {
+                        "num": 4,
+                        "title": "原子量分子量と物質量",
+                        "page": 95
+                    },
+                    {
+                        "num": 5,
+                        "title": "化学反応式の量的関係",
+                        "page": 106
+                    }
+                ]
+            },
+            {
+                "id": "part2",
+                "title": "第2章 物質の状態と溶液",
+                "start": 114,
+                "end": 212,
+                "subsections": [
+                    {
+                        "num": 1,
+                        "title": "粒子の熱運動と拡散",
+                        "page": 114
+                    },
+                    {
+                        "num": 2,
+                        "title": "物質の三態と状態変化",
+                        "page": 120
+                    },
+                    {
+                        "num": 3,
+                        "title": "液体の蒸気圧と沸騰",
+                        "page": 128
+                    },
+                    {
+                        "num": 4,
+                        "title": "気体の性質",
+                        "page": 134
+                    },
+                    {
+                        "num": 5,
+                        "title": "混合気体と蒸気圧",
+                        "page": 140
+                    },
+                    {
+                        "num": 6,
+                        "title": "理想気体と実在気体",
+                        "page": 148
+                    },
+                    {
+                        "num": 7,
+                        "title": "溶解のしくみ",
+                        "page": 154
+                    },
+                    {
+                        "num": 8,
+                        "title": "固体の溶解度",
+                        "page": 160
+                    },
+                    {
+                        "num": 9,
+                        "title": "気体の溶解度",
+                        "page": 170
+                    },
+                    {
+                        "num": 10,
+                        "title": "溶液の濃度",
+                        "page": 177
+                    },
+                    {
+                        "num": 11,
+                        "title": "希薄溶液の性質",
+                        "page": 180
+                    },
+                    {
+                        "num": 12,
+                        "title": "浸透圧",
+                        "page": 194
+                    },
+                    {
+                        "num": 13,
+                        "title": "コロイド溶液",
+                        "page": 199
+                    }
+                ]
+            },
+            {
+                "id": "part3",
+                "title": "第3章 化学反応と平衡",
+                "start": 213,
+                "end": 398,
+                "subsections": [
+                    {
+                        "num": 1,
+                        "title": "化学反応と熱",
+                        "page": 213
+                    },
+                    {
+                        "num": 2,
+                        "title": "ヘスの法則と結合エネルギー",
+                        "page": 222
+                    },
+                    {
+                        "num": 3,
+                        "title": "化学反応の速さ",
+                        "page": 234
+                    },
+                    {
+                        "num": 4,
+                        "title": "化学平衡",
+                        "page": 255
+                    },
+                    {
+                        "num": 5,
+                        "title": "酸と塩基",
+                        "page": 282
+                    },
+                    {
+                        "num": 6,
+                        "title": "中和反応と塩",
+                        "page": 305
+                    },
+                    {
+                        "num": 7,
+                        "title": "酸化還元反応",
+                        "page": 337
+                    },
+                    {
+                        "num": 8,
+                        "title": "電池と電気分解",
+                        "page": 359
+                    }
+                ]
+            },
+            {
+                "id": "part4",
+                "title": "第4章 無機物質",
+                "start": 399,
+                "end": 534,
+                "subsections": [
+                    {
+                        "num": 1,
+                        "title": "水素と希ガス",
+                        "page": 399
+                    },
+                    {
+                        "num": 2,
+                        "title": "ハロゲンとその化合物",
+                        "page": 404
+                    },
+                    {
+                        "num": 3,
+                        "title": "酸素硫黄とその化合物",
+                        "page": 412
+                    },
+                    {
+                        "num": 4,
+                        "title": "窒素リンとその化合物",
+                        "page": 427
+                    },
+                    {
+                        "num": 5,
+                        "title": "炭素ケイ素とその化合物",
+                        "page": 440
+                    },
+                    {
+                        "num": 6,
+                        "title": "気体の製法と性質",
+                        "page": 458
+                    },
+                    {
+                        "num": 7,
+                        "title": "アルカリ金属とその化合物",
+                        "page": 464
+                    },
+                    {
+                        "num": 8,
+                        "title": "アルカリ土類金属とその化合物",
+                        "page": 472
+                    },
+                    {
+                        "num": 9,
+                        "title": "アルミニウムとその化合物",
+                        "page": 480
+                    },
+                    {
+                        "num": 10,
+                        "title": "亜鉛水銀とその化合物",
+                        "page": 486
+                    },
+                    {
+                        "num": 11,
+                        "title": "スズ鉛とその性質",
+                        "page": 491
+                    },
+                    {
+                        "num": 12,
+                        "title": "遷移元素の特徴",
+                        "page": 496
+                    },
+                    {
+                        "num": 13,
+                        "title": "錯イオンと錯塩",
+                        "page": 499
+                    },
+                    {
+                        "num": 14,
+                        "title": "鉄とその化合物",
+                        "page": 505
+                    },
+                    {
+                        "num": 15,
+                        "title": "銅とその化合物",
+                        "page": 514
+                    },
+                    {
+                        "num": 16,
+                        "title": "銀とその化合物",
+                        "page": 519
+                    },
+                    {
+                        "num": 17,
+                        "title": "クロムマンガンとその化合物",
+                        "page": 523
+                    },
+                    {
+                        "num": 18,
+                        "title": "金属イオンの分離確認",
+                        "page": 527
+                    }
+                ]
+            },
+            {
+                "id": "part5",
+                "title": "第5章 有機化合物",
+                "start": 535,
+                "end": 689,
+                "subsections": [
+                    {
+                        "num": 1,
+                        "title": "有機化合物の特徴",
+                        "page": 535
+                    },
+                    {
+                        "num": 2,
+                        "title": "有機化合物の分類",
+                        "page": 538
+                    },
+                    {
+                        "num": 3,
+                        "title": "有機化合物の構造決定",
+                        "page": 541
+                    },
+                    {
+                        "num": 4,
+                        "title": "アルカンとシクロアルカン",
+                        "page": 549
+                    },
+                    {
+                        "num": 5,
+                        "title": "アルケン",
+                        "page": 559
+                    },
+                    {
+                        "num": 6,
+                        "title": "アルキン",
+                        "page": 569
+                    },
+                    {
+                        "num": 7,
+                        "title": "石油と天然ガスと石炭",
+                        "page": 576
+                    },
+                    {
+                        "num": 8,
+                        "title": "アルコールとエーテル",
+                        "page": 580
+                    },
+                    {
+                        "num": 9,
+                        "title": "アルデヒドとケトン",
+                        "page": 589
+                    },
+                    {
+                        "num": 10,
+                        "title": "カルボン酸",
+                        "page": 597
+                    },
+                    {
+                        "num": 11,
+                        "title": "エステル",
+                        "page": 614
+                    },
+                    {
+                        "num": 12,
+                        "title": "油脂",
+                        "page": 619
+                    },
+                    {
+                        "num": 13,
+                        "title": "セッケンと合成洗剤",
+                        "page": 626
+                    },
+                    {
+                        "num": 14,
+                        "title": "芳香族炭化水素",
+                        "page": 632
+                    },
+                    {
+                        "num": 15,
+                        "title": "フェノール類",
+                        "page": 648
+                    },
+                    {
+                        "num": 16,
+                        "title": "芳香族カルボン酸",
+                        "page": 656
+                    },
+                    {
+                        "num": 17,
+                        "title": "芳香族アミン",
+                        "page": 670
+                    },
+                    {
+                        "num": 18,
+                        "title": "有機化合物の分離",
+                        "page": 684
+                    }
+                ]
+            },
+            {
+                "id": "part6",
+                "title": "第6章 高分子化合物",
+                "start": 690,
+                "end": 822,
+                "subsections": [
+                    {
+                        "num": 1,
+                        "title": "天然高分子の分類と特徴",
+                        "page": 690
+                    },
+                    {
+                        "num": 2,
+                        "title": "単糖類と二糖類",
+                        "page": 697
+                    },
+                    {
+                        "num": 3,
+                        "title": "多糖類",
+                        "page": 712
+                    },
+                    {
+                        "num": 4,
+                        "title": "アミノ酸",
+                        "page": 724
+                    },
+                    {
+                        "num": 5,
+                        "title": "タンパク質",
+                        "page": 737
+                    },
+                    {
+                        "num": 6,
+                        "title": "核酸",
+                        "page": 769
+                    },
+                    {
+                        "num": 7,
+                        "title": "脂質",
+                        "page": 778
+                    },
+                    {
+                        "num": 8,
+                        "title": "合成繊維",
+                        "page": 784
+                    },
+                    {
+                        "num": 9,
+                        "title": "合成樹脂",
+                        "page": 793
+                    },
+                    {
+                        "num": 10,
+                        "title": "ゴム",
+                        "page": 805
+                    },
+                    {
+                        "num": 11,
+                        "title": "イオン交換樹脂",
+                        "page": 813
+                    },
+                    {
+                        "num": 12,
+                        "title": "機能性高分子",
+                        "page": 817
+                    }
+                ]
+            },
+            {
+                "id": "index",
+                "title": "索引",
+                "start": 823,
+                "end": 836,
+                "subsections": [
+                    {
+                        "num": 0,
+                        "title": "索引",
+                        "page": 823
+                    }
+                ]
+            }
+        ],
+        get sections() {
+            return this.chapters.map(ch => ({
+                id: ch.id, title: ch.title, start: ch.start, end: ch.end,
+                pages: ch.end - ch.start + 1
+            }));
+        },
+        pageQrs: {}
+    },
+

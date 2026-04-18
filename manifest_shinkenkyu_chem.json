@@ -1,0 +1,20 @@
+{
+  "name": "化学の新研究 改訂版 Viewer",
+  "short_name": "化学の新研究 改訂版",
+  "start_url": "./shinkenkyu_chem_viewer.html",
+  "display": "fullscreen",
+  "background_color": "#1a1a1a",
+  "theme_color": "#1e3c72",
+  "icons": [
+    {
+      "src": "images/icons/icon-shinkenkyu_chem-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "images/icons/icon-shinkenkyu_chem-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
