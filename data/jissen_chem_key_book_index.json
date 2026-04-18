@@ -1,0 +1,24 @@
+{
+  "title": "実戦化学 重要問題集（2025版）章立て",
+  "source_dir_hint": "D:\\Files\\(2025版)実戦化学重要問題集",
+  "book_index": [
+    { "chapter": 1, "category": ["化学基礎"], "title": "物質の構成粒子", "book_page": 3, "pdf_page": 3 },
+    { "chapter": 2, "category": ["化学基礎"], "title": "物質量と化学反応式", "book_page": 10, "pdf_page": 10 },
+    { "chapter": 3, "category": ["化学基礎", "化学"], "title": "化学結合と結晶", "book_page": 16, "pdf_page": 16 },
+    { "chapter": 4, "category": ["化学基礎", "化学"], "title": "物質の三態・気体の法則", "book_page": 25, "pdf_page": 25 },
+    { "chapter": 5, "category": ["化学"], "title": "溶液", "book_page": 34, "pdf_page": 34 },
+    { "chapter": 6, "category": ["化学"], "title": "化学反応とエネルギー", "book_page": 44, "pdf_page": 44 },
+    { "chapter": 7, "category": ["化学"], "title": "反応の速さと化学平衡", "book_page": 50, "pdf_page": 50 },
+    { "chapter": 8, "category": ["化学基礎", "化学"], "title": "酸と塩基の反応", "book_page": 62, "pdf_page": 62 },
+    { "chapter": 9, "category": ["化学基礎", "化学"], "title": "酸化・還元と電池・電気分解", "book_page": 72, "pdf_page": 72 },
+    { "chapter": 10, "category": ["化学"], "title": "非金属元素（周期表を含む）", "book_page": 82, "pdf_page": 82 },
+    { "chapter": 11, "category": ["化学"], "title": "金属元素", "book_page": 92, "pdf_page": 92 },
+    { "chapter": 12, "category": ["化学"], "title": "無機物質の性質・反応", "book_page": 101, "pdf_page": 101 },
+    { "chapter": 13, "category": ["化学"], "title": "脂肪族化合物（有機化合物の分類を含む）", "book_page": 109, "pdf_page": 109 },
+    { "chapter": 14, "category": ["化学"], "title": "芳香族化合物", "book_page": 118, "pdf_page": 118 },
+    { "chapter": 15, "category": ["化学"], "title": "有機化合物の構造と性質・反応", "book_page": 126, "pdf_page": 126 },
+    { "chapter": 16, "category": ["化学"], "title": "天然高分子化合物", "book_page": 138, "pdf_page": 138 },
+    { "chapter": 17, "category": ["化学"], "title": "合成高分子化合物", "book_page": 148, "pdf_page": 148 },
+    { "chapter": 18, "category": ["化学基礎", "化学"], "title": "巻末補充問題", "book_page": 157, "pdf_page": 157 }
+  ]
+}

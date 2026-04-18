@@ -5582,6 +5582,82 @@ const hsData = {
         pageQrs: {}
     },
 
+    jissen_chem_key: {
+        id: "jissen_chem_key",
+        title: "実戦化学 重要問題集",
+        totalPages: 190,
+        imagesPath: "images/jissen_chem_key/",
+        printImagesPath: "images/jissen_chem_key_bw/",
+        coverImage: "images/jissen_chem_key_cover.jpg",
+        qrBase: "",
+        chapters: [
+            { id: "intro", title: "はじめに・目次", start: 1, end: 2, subsections: [
+                { num: 0, title: "冒頭・目次", page: 1 }
+            ] },
+            { id: "ch1", title: "第1章 物質の構成粒子", start: 3, end: 9, subsections: [
+                { num: 1, title: "物質の構成粒子", page: 3 }
+            ] },
+            { id: "ch2", title: "第2章 物質量と化学反応式", start: 10, end: 15, subsections: [
+                { num: 2, title: "物質量と化学反応式", page: 10 }
+            ] },
+            { id: "ch3", title: "第3章 化学結合と結晶", start: 16, end: 24, subsections: [
+                { num: 3, title: "化学結合と結晶", page: 16 }
+            ] },
+            { id: "ch4", title: "第4章 物質の三態・気体の法則", start: 25, end: 33, subsections: [
+                { num: 4, title: "物質の三態・気体の法則", page: 25 }
+            ] },
+            { id: "ch5", title: "第5章 溶液", start: 34, end: 43, subsections: [
+                { num: 5, title: "溶液", page: 34 }
+            ] },
+            { id: "ch6", title: "第6章 化学反応とエネルギー", start: 44, end: 49, subsections: [
+                { num: 6, title: "化学反応とエネルギー", page: 44 }
+            ] },
+            { id: "ch7", title: "第7章 反応の速さと化学平衡", start: 50, end: 61, subsections: [
+                { num: 7, title: "反応の速さと化学平衡", page: 50 }
+            ] },
+            { id: "ch8", title: "第8章 酸と塩基の反応", start: 62, end: 71, subsections: [
+                { num: 8, title: "酸と塩基の反応", page: 62 }
+            ] },
+            { id: "ch9", title: "第9章 酸化・還元と電池・電気分解", start: 72, end: 81, subsections: [
+                { num: 9, title: "酸化・還元と電池・電気分解", page: 72 }
+            ] },
+            { id: "ch10", title: "第10章 非金属元素（周期表を含む）", start: 82, end: 91, subsections: [
+                { num: 10, title: "非金属元素（周期表を含む）", page: 82 }
+            ] },
+            { id: "ch11", title: "第11章 金属元素", start: 92, end: 100, subsections: [
+                { num: 11, title: "金属元素", page: 92 }
+            ] },
+            { id: "ch12", title: "第12章 無機物質の性質・反応", start: 101, end: 108, subsections: [
+                { num: 12, title: "無機物質の性質・反応", page: 101 }
+            ] },
+            { id: "ch13", title: "第13章 脂肪族化合物（有機化合物の分類を含む）", start: 109, end: 117, subsections: [
+                { num: 13, title: "脂肪族化合物（有機化合物の分類を含む）", page: 109 }
+            ] },
+            { id: "ch14", title: "第14章 芳香族化合物", start: 118, end: 125, subsections: [
+                { num: 14, title: "芳香族化合物", page: 118 }
+            ] },
+            { id: "ch15", title: "第15章 有機化合物の構造と性質・反応", start: 126, end: 137, subsections: [
+                { num: 15, title: "有機化合物の構造と性質・反応", page: 126 }
+            ] },
+            { id: "ch16", title: "第16章 天然高分子化合物", start: 138, end: 147, subsections: [
+                { num: 16, title: "天然高分子化合物", page: 138 }
+            ] },
+            { id: "ch17", title: "第17章 合成高分子化合物", start: 148, end: 156, subsections: [
+                { num: 17, title: "合成高分子化合物", page: 148 }
+            ] },
+            { id: "ch18", title: "第18章 巻末補充問題", start: 157, end: 190, subsections: [
+                { num: 18, title: "巻末補充問題", page: 157 }
+            ] }
+        ],
+        get sections() {
+            return this.chapters.map(ch => ({
+                id: ch.id, title: ch.title, start: ch.start, end: ch.end,
+                pages: ch.end - ch.start + 1
+            }));
+        },
+        pageQrs: {}
+    },
+
     hijii_dokkai: {
         id: "hijii_dokkai",
         title: "読解のための英文法が面白いほどわかる本",
