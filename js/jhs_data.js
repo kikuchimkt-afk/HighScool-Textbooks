@@ -212,6 +212,104 @@ const jhsData = {
             }));
         },
         pageQrs: {}
+    },
+    jhs_iwork_math2: {
+        id: "jhs_iwork_math2",
+        title: "iワーク 中2数学",
+        totalPages: 473,
+        imagesPath: "images/jhs_iwork_math2/",
+        printImagesPath: null,
+        spreadEvenLeftBySection: true,
+        coverImage: "images/jhs_iwork_math2_cover.png",
+        qrBase: "",
+        chapters: [
+            { id: "cover", title: "表紙", start: 1, end: 1, subsections: [] },
+            { id: "main", title: "中2数学（本冊）", start: 2, end: 233, subsections: [
+                { num: 1, title: "式の加法，減法", page: 9 },
+                { num: 2, title: "単項式・多項式の計算", page: 13 },
+                { num: 3, title: "文字式の利用", page: 21 },
+                { num: 4, title: "連立方程式の解法(1)", page: 41 },
+                { num: 5, title: "連立方程式の解法(2)", page: 47 },
+                { num: 6, title: "連立方程式の利用(1)", page: 53 },
+                { num: 7, title: "連立方程式の利用(2)", page: 59 },
+                { num: 8, title: "一次関数とグラフ", page: 79 },
+                { num: 9, title: "一次関数の式", page: 87 },
+                { num: 10, title: "一次関数と方程式", page: 93 },
+                { num: 11, title: "一次関数の利用", page: 97 },
+                { num: 12, title: "直線と図形", page: 101 },
+                { num: 13, title: "角と平行線，多角形の角", page: 119 },
+                { num: 14, title: "角の大きさの求め方", page: 127 },
+                { num: 15, title: "証明", page: 131 },
+                { num: 16, title: "二等辺三角形", page: 145 },
+                { num: 17, title: "直角三角形", page: 151 },
+                { num: 18, title: "平行四辺形", page: 155 },
+                { num: 19, title: "特別な平行四辺形", page: 161 },
+                { num: 20, title: "平行線と面積", page: 165 },
+                { num: 21, title: "方程式と図形", page: 169 },
+                { num: 22, title: "確率", page: 185 },
+                { num: 23, title: "確率の利用", page: 191 },
+                { num: 24, title: "箱ひげ図", page: 197 }
+            ] },
+            { id: "main_answers", title: "中2数学 解答解説", start: 234, end: 353, subsections: [] },
+            { id: "plus", title: "iワークプラス", start: 354, end: 430, subsections: [] },
+            { id: "plus_answers", title: "iワークプラス 解答解説", start: 431, end: 473, subsections: [] }
+        ],
+        get sections() {
+            return this.chapters.map(ch => ({
+                id: ch.id, title: ch.title, start: ch.start, end: ch.end,
+                pages: ch.end - ch.start + 1
+            }));
+        },
+        pageQrs: {}
+    },
+    jhs_iwork_math3: {
+        id: "jhs_iwork_math3",
+        title: "iワーク 中3数学",
+        totalPages: 526,
+        imagesPath: "images/jhs_iwork_math3/",
+        printImagesPath: null,
+        spreadEvenLeftBySection: true,
+        coverImage: "images/jhs_iwork_math3_cover.png",
+        qrBase: "",
+        chapters: [
+            { id: "cover", title: "表紙", start: 1, end: 1, subsections: [] },
+            { id: "main", title: "中3数学（本冊）", start: 2, end: 257, subsections: [
+                { num: 1, title: "式の展開", page: 9 },
+                { num: 2, title: "因数分解", page: 21 },
+                { num: 3, title: "いろいろな因数分解", page: 27 },
+                { num: 4, title: "式の計算の利用", page: 31 },
+                { num: 5, title: "平方根", page: 45 },
+                { num: 6, title: "根号をふくむ式の計算(1)", page: 53 },
+                { num: 7, title: "根号をふくむ式の計算(2)", page: 59 },
+                { num: 8, title: "二次方程式とその解き方", page: 79 },
+                { num: 9, title: "二次方程式の解き方", page: 83 },
+                { num: 10, title: "二次方程式の利用", page: 91 },
+                { num: 11, title: "関数 y=ax² とグラフ", page: 111 },
+                { num: 12, title: "いろいろな事象と関数の利用", page: 119 },
+                { num: 13, title: "2乗に比例する関数と図形", page: 125 },
+                { num: 14, title: "相似な図形", page: 143 },
+                { num: 15, title: "平行線と線分の比", page: 149 },
+                { num: 16, title: "相似な図形の計量", page: 157 },
+                { num: 17, title: "相似の利用", page: 161 },
+                { num: 18, title: "円周角の定理", page: 177 },
+                { num: 19, title: "三平方の定理", page: 195 },
+                { num: 20, title: "三平方の定理の利用(1)", page: 203 },
+                { num: 21, title: "三平方の定理の利用(2)", page: 209 },
+                { num: 22, title: "空間図形と三平方の定理(1)", page: 213 },
+                { num: 23, title: "空間図形と三平方の定理(2)", page: 221 },
+                { num: 24, title: "標本調査", page: 237 }
+            ] },
+            { id: "main_answers", title: "中3数学 解答解説", start: 258, end: 401, subsections: [] },
+            { id: "plus", title: "iワークプラス", start: 402, end: 478, subsections: [] },
+            { id: "plus_answers", title: "iワークプラス 解答解説", start: 479, end: 526, subsections: [] }
+        ],
+        get sections() {
+            return this.chapters.map(ch => ({
+                id: ch.id, title: ch.title, start: ch.start, end: ch.end,
+                pages: ch.end - ch.start + 1
+            }));
+        },
+        pageQrs: {}
     }
 };
 
