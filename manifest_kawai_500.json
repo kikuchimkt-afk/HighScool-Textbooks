@@ -1,0 +1,20 @@
+{
+  "name": "やっておきたい英語長文500 Viewer",
+  "short_name": "長文500",
+  "start_url": "./kawai_500_viewer.html",
+  "display": "fullscreen",
+  "background_color": "#1a1a1a",
+  "theme_color": "#1e3c72",
+  "icons": [
+    {
+      "src": "images/icons/icon-kawai_500-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "images/icons/icon-kawai_500-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

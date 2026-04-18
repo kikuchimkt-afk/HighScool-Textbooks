@@ -1,0 +1,299 @@
+{
+  "source_dir": "D:\\pdf\\Files\\(河合塾）やっておきたい英語長文1000",
+  "table_of_contents": [
+    {
+      "id": 1,
+      "title": "動物の感情",
+      "source": "同志社大",
+      "page": 6
+    },
+    {
+      "id": 2,
+      "title": "グローバル化の恩恵",
+      "source": "金沢大",
+      "page": 18
+    },
+    {
+      "id": 3,
+      "title": "医学の起源",
+      "source": "慶應義塾大",
+      "page": 30
+    },
+    {
+      "id": 4,
+      "title": "創発",
+      "source": "東京外国語大",
+      "page": 42
+    },
+    {
+      "id": 5,
+      "title": "移民抑制の是非",
+      "source": "青山学院大",
+      "page": 55
+    },
+    {
+      "id": 6,
+      "title": "商品としての時間",
+      "source": "慶應義塾大",
+      "page": 67
+    },
+    {
+      "id": 7,
+      "title": "人格形成に影響を及ぼす因子",
+      "source": "東京医科歯科大",
+      "page": 81
+    },
+    {
+      "id": 8,
+      "title": "演繹と帰納",
+      "source": "早稲田大",
+      "page": 95
+    },
+    {
+      "id": 9,
+      "title": "過食と拒食",
+      "source": "東京大",
+      "page": 110
+    },
+    {
+      "id": 10,
+      "title": "規範文法",
+      "source": "一橋大",
+      "page": 126
+    }
+  ],
+  "page_mapping": [
+    {
+      "pdf_page": 1,
+      "book_page": null,
+      "problem_number": null,
+      "description": "表紙・タイトル"
+    },
+    {
+      "pdf_page": 2,
+      "book_page": 2,
+      "problem_number": 1,
+      "title": "動物の感情"
+    },
+    {
+      "pdf_page": 3,
+      "book_page": 3,
+      "problem_number": 1
+    },
+    {
+      "pdf_page": 4,
+      "book_page": 4,
+      "problem_number": 1
+    },
+    {
+      "pdf_page": 5,
+      "book_page": 5,
+      "problem_number": 1
+    },
+    {
+      "pdf_page": 6,
+      "book_page": 6,
+      "problem_number": 2,
+      "title": "グローバル化の恩恵"
+    },
+    {
+      "pdf_page": 7,
+      "book_page": 7,
+      "problem_number": 2
+    },
+    {
+      "pdf_page": 8,
+      "book_page": 8,
+      "problem_number": 2
+    },
+    {
+      "pdf_page": 9,
+      "book_page": 9,
+      "problem_number": 2
+    },
+    {
+      "pdf_page": 10,
+      "book_page": 10,
+      "problem_number": 3,
+      "title": "医学の起源"
+    },
+    {
+      "pdf_page": 11,
+      "book_page": 11,
+      "problem_number": 3
+    },
+    {
+      "pdf_page": 12,
+      "book_page": 12,
+      "problem_number": 3
+    },
+    {
+      "pdf_page": 13,
+      "book_page": 13,
+      "problem_number": 3
+    },
+    {
+      "pdf_page": 14,
+      "book_page": 14,
+      "problem_number": 4,
+      "title": "創発"
+    },
+    {
+      "pdf_page": 15,
+      "book_page": 15,
+      "problem_number": 4
+    },
+    {
+      "pdf_page": 16,
+      "book_page": 16,
+      "problem_number": 4
+    },
+    {
+      "pdf_page": 17,
+      "book_page": 17,
+      "problem_number": 4
+    },
+    {
+      "pdf_page": 18,
+      "book_page": 18,
+      "problem_number": 5,
+      "title": "移民抑制の是非"
+    },
+    {
+      "pdf_page": 19,
+      "book_page": 19,
+      "problem_number": 5
+    },
+    {
+      "pdf_page": 20,
+      "book_page": 20,
+      "problem_number": 5
+    },
+    {
+      "pdf_page": 21,
+      "book_page": 21,
+      "problem_number": 6,
+      "title": "商品としての時間"
+    },
+    {
+      "pdf_page": 22,
+      "book_page": 22,
+      "problem_number": 6
+    },
+    {
+      "pdf_page": 23,
+      "book_page": 23,
+      "problem_number": 6
+    },
+    {
+      "pdf_page": 24,
+      "book_page": 24,
+      "problem_number": 6
+    },
+    {
+      "pdf_page": 25,
+      "book_page": 25,
+      "problem_number": 7,
+      "title": "人格形成に影響を及ぼす因子"
+    },
+    {
+      "pdf_page": 26,
+      "book_page": 26,
+      "problem_number": 7
+    },
+    {
+      "pdf_page": 27,
+      "book_page": 27,
+      "problem_number": 7
+    },
+    {
+      "pdf_page": 28,
+      "book_page": 28,
+      "problem_number": 7
+    },
+    {
+      "pdf_page": 29,
+      "book_page": 29,
+      "problem_number": 8,
+      "title": "演繹と帰納"
+    },
+    {
+      "pdf_page": 30,
+      "book_page": 30,
+      "problem_number": 8
+    },
+    {
+      "pdf_page": 31,
+      "book_page": 31,
+      "problem_number": 8
+    },
+    {
+      "pdf_page": 32,
+      "book_page": 32,
+      "problem_number": 8
+    },
+    {
+      "pdf_page": 33,
+      "book_page": 33,
+      "problem_number": 8
+    },
+    {
+      "pdf_page": 34,
+      "book_page": 34,
+      "problem_number": 9,
+      "title": "過食と拒食"
+    },
+    {
+      "pdf_page": 35,
+      "book_page": 35,
+      "problem_number": 9
+    },
+    {
+      "pdf_page": 36,
+      "book_page": 36,
+      "problem_number": 9
+    },
+    {
+      "pdf_page": 37,
+      "book_page": 37,
+      "problem_number": 9
+    },
+    {
+      "pdf_page": 38,
+      "book_page": 38,
+      "problem_number": 9
+    },
+    {
+      "pdf_page": 39,
+      "book_page": 39,
+      "problem_number": 10,
+      "title": "規範文法"
+    },
+    {
+      "pdf_page": 40,
+      "book_page": 40,
+      "problem_number": 10
+    },
+    {
+      "pdf_page": 41,
+      "book_page": 41,
+      "problem_number": 10
+    },
+    {
+      "pdf_page": 42,
+      "book_page": 42,
+      "problem_number": 10
+    },
+    {
+      "pdf_page": 43,
+      "book_page": 43,
+      "problem_number": 10
+    },
+    {
+      "pdf_page": 44,
+      "book_page": null,
+      "problem_number": null,
+      "description": "白紙ページ"
+    }
+  ]
+}

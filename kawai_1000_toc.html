@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>やっておきたい英語長文1000 | 目次</title>
+    <meta name="description" content="やっておきたい英語長文1000 目次一覧">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/kawai_1000_32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="icons/kawai_1000_180.png">
+    <link rel="manifest" href="manifest_kawai_1000.json">
+    <meta name="theme-color" content="#000000">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Inter', 'Noto Sans JP', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #000;
+            min-height: 100vh; color: #f5f5f7;
+        }
+        .bg-layer {
+            position: fixed; inset: 0; z-index: 0;
+        }
+        .bg-layer img {
+            width: 100%; height: 100%; object-fit: cover;
+            filter: brightness(0.5) saturate(1.2);
+        }
+        .bg-overlay {
+            position: fixed; inset: 0; z-index: 1;
+            background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.7) 100%);
+        }
+        .toc-page { position: relative; z-index: 2; }
+        .toc-header {
+            text-align: center; padding: 3rem 1.5rem 1.5rem;
+        }
+        .toc-back {
+            display: inline-flex; align-items: center; gap: 6px;
+            color: rgba(255,255,255,0.4); text-decoration: none;
+            font-size: 0.85rem; margin-bottom: 1.5rem;
+            transition: color 0.25s; font-weight: 400;
+        }
+        .toc-back:hover { color: rgba(255,255,255,0.8); }
+        .toc-header h1 {
+            font-size: 2.2rem; font-weight: 700;
+            letter-spacing: -0.03em; margin-bottom: 0.3rem;
+            background: linear-gradient(135deg, #fff, rgba(255,255,255,0.6));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .toc-header p {
+            font-size: 0.9rem; color: rgba(255,255,255,0.35);
+            font-weight: 300;
+        }
+        .toc-container {
+            max-width: 720px; margin: 0 auto; padding: 0 1rem 4rem;
+        }
+        .toc-cover {
+            display: block; max-width: 180px; margin: 0 auto 2rem;
+            border-radius: 14px;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+        }
+        .toc-chapter {
+            margin-bottom: 0.6rem;
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(40px) saturate(1.5);
+            -webkit-backdrop-filter: blur(40px) saturate(1.5);
+            border: 1px solid rgba(255,255,255,0.07);
+            border-radius: 16px; overflow: hidden;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.15),
+                        inset 0 1px 0 rgba(255,255,255,0.05);
+        }
+        /* --- Accordion --- */
+        .toc-accordion { border: none; }
+        .toc-accordion summary { list-style: none; cursor: pointer; }
+        .toc-accordion summary::-webkit-details-marker { display: none; }
+        .toc-accordion summary::marker { display: none; content: ''; }
+        .toc-chapter-link {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 0.85rem 1.2rem; text-decoration: none; color: #f5f5f7;
+            font-weight: 600; font-size: 0.95rem;
+            transition: background 0.25s;
+            letter-spacing: -0.01em;
+        }
+        .toc-chapter-link:hover {
+            background: rgba(255,255,255,0.06);
+        }
+        .toc-chapter-panel-link {
+            flex: 1;
+            min-width: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-decoration: none;
+            color: inherit;
+            font-weight: inherit;
+            font-size: inherit;
+            letter-spacing: inherit;
+            border-radius: 6px;
+            margin: -2px -4px;
+            padding: 2px 4px;
+        }
+        .toc-chapter-panel-link:hover {
+            background: rgba(255,255,255,0.08);
+        }
+        .toc-chapter-meta {
+            display: flex; align-items: center; gap: 8px;
+        }
+        .toc-chevron {
+            font-size: 0.65rem; color: rgba(255,255,255,0.3);
+            transition: transform 0.3s ease;
+            display: inline-block;
+        }
+        .toc-accordion[open] .toc-chevron {
+            transform: rotate(90deg);
+        }
+        .toc-chapter-pages {
+            font-size: 0.75rem; color: rgba(255,255,255,0.3);
+            font-weight: 400; white-space: nowrap;
+        }
+        .toc-subsections {
+            border-top: 1px solid rgba(255,255,255,0.06);
+            padding: 0.2rem 0;
+            animation: tocSlideDown 0.25s ease;
+        }
+        @keyframes tocSlideDown {
+            from { opacity: 0; max-height: 0; }
+            to { opacity: 1; max-height: 2000px; }
+        }
+        .toc-sub-link {
+            display: flex; align-items: center; gap: 8px;
+            padding: 0.45rem 1.2rem 0.45rem 1.6rem;
+            text-decoration: none; color: rgba(255,255,255,0.65);
+            font-size: 0.84rem; transition: all 0.25s;
+            font-weight: 400;
+        }
+        .toc-sub-link:hover {
+            background: rgba(255,255,255,0.05);
+            color: rgba(255,255,255,0.9);
+        }
+        .toc-sub-num {
+            min-width: 26px; text-align: right; font-weight: 500;
+            color: rgba(160,140,255,0.7); font-size: 0.82rem;
+            font-variant-numeric: tabular-nums;
+        }
+        .toc-sub-title { flex: 1; }
+        .toc-sub-page {
+            font-size: 0.72rem; color: rgba(255,255,255,0.2);
+            white-space: nowrap; font-variant-numeric: tabular-nums;
+        }
+        .toc-footer {
+            text-align: center; padding: 2rem 1rem;
+            font-size: 0.7rem; color: rgba(255,255,255,0.2);
+        }
+        @media (max-width: 600px) {
+            .toc-header h1 { font-size: 1.6rem; }
+            .toc-header { padding: 2rem 1rem 1rem; }
+            .toc-sub-link { padding-left: 1rem; font-size: 0.8rem; }
+            .toc-chapter-link { font-size: 0.9rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-layer">
+        <img src="images/portal_bg.png" alt="" loading="eager">
+    </div>
+    <div class="bg-overlay"></div>
+    <div class="toc-page">
+        <div class="toc-header">
+            <a href="index.html" class="toc-back">← ポータルに戻る</a>
+            <h1>やっておきたい英語長文1000</h1>
+            <p>全188ページ</p>
+        </div>
+        <div class="toc-container">
+            <img src="images/kawai_1000_cover.jpg" alt="やっておきたい英語長文1000 表紙" class="toc-cover">
+            
+        <div class="toc-chapter">
+            <details class="toc-accordion">
+                <summary class="toc-chapter-link">
+                    <a href="kawai_1000_viewer.html?book=kawai_1000&section=p1&page=2" class="toc-chapter-panel-link">
+                        <span class="toc-chapter-title">1. 動物の感情 [同志社大]</span>
+                        <span class="toc-chapter-meta">
+                            <span class="toc-chapter-pages">本p.2–5 · 解答p.6</span>
+                        </span>
+                    </a>
+                    <span class="toc-chevron" aria-hidden="true">▶</span>
+                </summary>
+                <div class="toc-subsections">
+                    <a href="kawai_1000_viewer.html?book=kawai_1000&section=p1&page=2" class="toc-sub-link">
+                        <span class="toc-sub-num">問</span>
+                        <span class="toc-sub-title">問題</span>
+                        <span class="toc-sub-page">本p.2</span>
+                    </a>
+                    <a href="kawai_1000_viewer.html?book=kawai_1000&section=answers&page=50" class="toc-sub-link">
+                        <span class="toc-sub-num">答</span>
+                        <span class="toc-sub-title">解答・解説</span>
+                        <span class="toc-sub-page">解答p.6</span>
+                    </a>
+                </div>
+            </details>
+        </div>
+        <div class="toc-chapter">
+            <details class="toc-accordion">
+                <summary class="toc-chapter-link">
+                    <a href="kawai_1000_viewer.html?book=kawai_1000&section=p2&page=6" class="toc-chapter-panel-link">
+                        <span class="toc-chapter-title">2. グローバル化の恩恵 [金沢大]</span>
+                        <span class="toc-chapter-meta">
+                            <span class="toc-chapter-pages">本p.6–9 · 解答p.18</span>
+                        </span>
+                    </a>
+                    <span class="toc-chevron" aria-hidden="true">▶</span>
+                </summary>
+                <div class="toc-subsections">
+                    <a href="kawai_1000_viewer.html?book=kawai_1000&section=p2&page=6" class="toc-sub-link">
+                        <span class="toc-sub-num">問</span>
+                        <span class="toc-sub-title">問題</span>
+                        <span class="toc-sub-page">本p.6</span>
+                    </a>
+                    <a href="kawai_1000_viewer.html?book=kawai_1000&section=answers&page=62" class="toc-sub-link">
+                        <span class="toc-sub-num">答</span>
+                        <span class="toc-sub-title">解答・解説</span>
+                        <span class="toc-sub-page">解答p.18</span>
+                    </a>
+                </div>
+            </details>
+        </div>
+        <div class="toc-chapter">
+            <details class="toc-accordion">
+                <summary class="toc-chapter-link">
+                    <a href="kawai_1000_viewer.html?book=kawai_1000&section=p3&page=10" class="toc-chapter-panel-link">
+                        <span class="toc-chapter-title">3. 医学の起源 [慶應義塾大]</span>
+                        <span class="toc-chapter-meta">
+                            <span class="toc-chapter-pages">本p.10–13 · 解答p.30</span>
+                        </span>
+                    </a>
+                    <span class="toc-chevron" aria-hidden="true">▶</span>
+                </summary>
+                <div class="toc-subsections">
+                    <a href="kawai_1000_viewer.html?book=kawai_1000&section=p3&page=10" class="toc-sub-link">
+                        <span class="toc-sub-num">問</span>
+                        <span class="toc-sub-title">問題</span>
+                        <span class="toc-sub-page">本p.10</span>
+                    </a>
+                    <a href="kawai_1000_viewer.html?book=kawai_1000&section=answers&page=74" class="toc-sub-link">
+                        <span class="toc-sub-num">答</span>
+                        <span class="toc-sub-title">解答・解説</span>
+                        <span class="toc-sub-page">解答p.30</span>
+                    </a>
+                </div>
+            </details>
+        </div>
+        <div class="toc-chapter">
+            <details class="toc-accordion">
+                <summary class="toc-chapter-link">
+                    <a href="kawai_1000_viewer.html?book=kawai_1000&section=p4&page=14" class="toc-chapter-panel-link">
+                        <span class="toc-chapter-title">4. 創発 [東京外国語大]</span>
+                        <span class="toc-chapter-meta">
+                            <span class="toc-chapter-pages">本p.14–17 · 解答p.42</span>
+                        </span>
+                    </a>
+                    <span class="toc-chevron" aria-hidden="true">▶</span>
+                </summary>
+                <div class="toc-subsections">
+                    <a href="kawai_1000_viewer.html?book=kawai_1000&section=p4&page=14" class="toc-sub-link">
+                        <span class="toc-sub-num">問</span>
+                        <span class="toc-sub-title">問題</span>
+                        <span class="toc-sub-page">本p.14</span>
+                    </a>
+                    <a href="kawai_1000_viewer.html?book=kawai_1000&section=answers&page=86" class="toc-sub-link">
+                        <span class="toc-sub-num">答</span>
+                        <span class="toc-sub-title">解答・解説</span>
+                        <span class="toc-sub-page">解答p.42</span>
+                    </a>
+                </div>
+            </details>
+        </div>
+        <div class="toc-chapter">
+            <details class="toc-accordion">
+                <summary class="toc-chapter-link">
+                    <a href="kawai_1000_viewer.html?book=kawai_1000&section=p5&page=18" class="toc-chapter-panel-link">
+                        <span class="toc-chapter-title">5. 移民抑制の是非 [青山学院大]</span>
+                        <span class="toc-chapter-meta">
+                            <span class="toc-chapter-pages">本p.18–20 · 解答p.55</span>
+                        </span>
+                    </a>
+                    <span class="toc-chevron" aria-hidden="true">▶</span>
+                </summary>
+                <div class="toc-subsections">
+                    <a href="kawai_1000_viewer.html?book=kawai_1000&section=p5&page=18" class="toc-sub-link">
+                        <span class="toc-sub-num">問</span>
+                        <span class="toc-sub-title">問題</span>
+                        <span class="toc-sub-page">本p.18</span>
+                    </a>
+                    <a href="kawai_1000_viewer.html?book=kawai_1000&section=answers&page=99" class="toc-sub-link">
+                        <span class="toc-sub-num">答</span>
+                        <span class="toc-sub-title">解答・解説</span>
+                        <span class="toc-sub-page">解答p.55</span>
+                    </a>
+                </div>
+            </details>
+        </div>
+        <div class="toc-chapter">
+            <details class="toc-accordion">
+                <summary class="toc-chapter-link">
+                    <a href="kawai_1000_viewer.html?book=kawai_1000&section=p6&page=21" class="toc-chapter-panel-link">
+                        <span class="toc-chapter-title">6. 商品としての時間 [慶應義塾大]</span>
+                        <span class="toc-chapter-meta">
+                            <span class="toc-chapter-pages">本p.21–24 · 解答p.67</span>
+                        </span>
+                    </a>
+                    <span class="toc-chevron" aria-hidden="true">▶</span>
+                </summary>
+                <div class="toc-subsections">
+                    <a href="kawai_1000_viewer.html?book=kawai_1000&section=p6&page=21" class="toc-sub-link">
+                        <span class="toc-sub-num">問</span>
+                        <span class="toc-sub-title">問題</span>
+                        <span class="toc-sub-page">本p.21</span>
+                    </a>
+                    <a href="kawai_1000_viewer.html?book=kawai_1000&section=answers&page=111" class="toc-sub-link">
+                        <span class="toc-sub-num">答</span>
+                        <span class="toc-sub-title">解答・解説</span>
+                        <span class="toc-sub-page">解答p.67</span>
+                    </a>
+                </div>
+            </details>
+        </div>
+        <div class="toc-chapter">
+            <details class="toc-accordion">
+                <summary class="toc-chapter-link">
+                    <a href="kawai_1000_viewer.html?book=kawai_1000&section=p7&page=25" class="toc-chapter-panel-link">
+                        <span class="toc-chapter-title">7. 人格形成に影響を及ぼす因子 [東京医科歯科大]</span>
+                        <span class="toc-chapter-meta">
+                            <span class="toc-chapter-pages">本p.25–28 · 解答p.81</span>
+                        </span>
+                    </a>
+                    <span class="toc-chevron" aria-hidden="true">▶</span>
+                </summary>
+                <div class="toc-subsections">
+                    <a href="kawai_1000_viewer.html?book=kawai_1000&section=p7&page=25" class="toc-sub-link">
+                        <span class="toc-sub-num">問</span>
+                        <span class="toc-sub-title">問題</span>
+                        <span class="toc-sub-page">本p.25</span>
+                    </a>
+                    <a href="kawai_1000_viewer.html?book=kawai_1000&section=answers&page=125" class="toc-sub-link">
+                        <span class="toc-sub-num">答</span>
+                        <span class="toc-sub-title">解答・解説</span>
+                        <span class="toc-sub-page">解答p.81</span>
+                    </a>
+                </div>
+            </details>
+        </div>
+        <div class="toc-chapter">
+            <details class="toc-accordion">
+                <summary class="toc-chapter-link">
+                    <a href="kawai_1000_viewer.html?book=kawai_1000&section=p8&page=29" class="toc-chapter-panel-link">
+                        <span class="toc-chapter-title">8. 演繹と帰納 [早稲田大]</span>
+                        <span class="toc-chapter-meta">
+                            <span class="toc-chapter-pages">本p.29–33 · 解答p.95</span>
+                        </span>
+                    </a>
+                    <span class="toc-chevron" aria-hidden="true">▶</span>
+                </summary>
+                <div class="toc-subsections">
+                    <a href="kawai_1000_viewer.html?book=kawai_1000&section=p8&page=29" class="toc-sub-link">
+                        <span class="toc-sub-num">問</span>
+                        <span class="toc-sub-title">問題</span>
+                        <span class="toc-sub-page">本p.29</span>
+                    </a>
+                    <a href="kawai_1000_viewer.html?book=kawai_1000&section=answers&page=139" class="toc-sub-link">
+                        <span class="toc-sub-num">答</span>
+                        <span class="toc-sub-title">解答・解説</span>
+                        <span class="toc-sub-page">解答p.95</span>
+                    </a>
+                </div>
+            </details>
+        </div>
+        <div class="toc-chapter">
+            <details class="toc-accordion">
+                <summary class="toc-chapter-link">
+                    <a href="kawai_1000_viewer.html?book=kawai_1000&section=p9&page=34" class="toc-chapter-panel-link">
+                        <span class="toc-chapter-title">9. 過食と拒食 [東京大]</span>
+                        <span class="toc-chapter-meta">
+                            <span class="toc-chapter-pages">本p.34–38 · 解答p.110</span>
+                        </span>
+                    </a>
+                    <span class="toc-chevron" aria-hidden="true">▶</span>
+                </summary>
+                <div class="toc-subsections">
+                    <a href="kawai_1000_viewer.html?book=kawai_1000&section=p9&page=34" class="toc-sub-link">
+                        <span class="toc-sub-num">問</span>
+                        <span class="toc-sub-title">問題</span>
+                        <span class="toc-sub-page">本p.34</span>
+                    </a>
+                    <a href="kawai_1000_viewer.html?book=kawai_1000&section=answers&page=154" class="toc-sub-link">
+                        <span class="toc-sub-num">答</span>
+                        <span class="toc-sub-title">解答・解説</span>
+                        <span class="toc-sub-page">解答p.110</span>
+                    </a>
+                </div>
+            </details>
+        </div>
+        <div class="toc-chapter">
+            <details class="toc-accordion">
+                <summary class="toc-chapter-link">
+                    <a href="kawai_1000_viewer.html?book=kawai_1000&section=p10&page=39" class="toc-chapter-panel-link">
+                        <span class="toc-chapter-title">10. 規範文法 [一橋大]</span>
+                        <span class="toc-chapter-meta">
+                            <span class="toc-chapter-pages">本p.39–44 · 解答p.126</span>
+                        </span>
+                    </a>
+                    <span class="toc-chevron" aria-hidden="true">▶</span>
+                </summary>
+                <div class="toc-subsections">
+                    <a href="kawai_1000_viewer.html?book=kawai_1000&section=p10&page=39" class="toc-sub-link">
+                        <span class="toc-sub-num">問</span>
+                        <span class="toc-sub-title">問題</span>
+                        <span class="toc-sub-page">本p.39</span>
+                    </a>
+                    <a href="kawai_1000_viewer.html?book=kawai_1000&section=answers&page=170" class="toc-sub-link">
+                        <span class="toc-sub-num">答</span>
+                        <span class="toc-sub-title">解答・解説</span>
+                        <span class="toc-sub-page">解答p.126</span>
+                    </a>
+                </div>
+            </details>
+        </div>
+        <div class="toc-chapter">
+            <details class="toc-accordion">
+                <summary class="toc-chapter-link">
+                    <a href="kawai_1000_viewer.html?book=kawai_1000&section=answers&page=45" class="toc-chapter-panel-link">
+                        <span class="toc-chapter-title">全解答・解説</span>
+                        <span class="toc-chapter-meta">
+                            <span class="toc-chapter-pages">解答編 全144頁</span>
+                        </span>
+                    </a>
+                    <span class="toc-chevron" aria-hidden="true">▶</span>
+                </summary>
+                <div class="toc-subsections">
+                    <a href="kawai_1000_viewer.html?book=kawai_1000&section=answers&page=50" class="toc-sub-link">
+                        <span class="toc-sub-num">1</span>
+                        <span class="toc-sub-title">動物の感情</span>
+                        <span class="toc-sub-page">解答p.6</span>
+                    </a>
+                    <a href="kawai_1000_viewer.html?book=kawai_1000&section=answers&page=62" class="toc-sub-link">
+                        <span class="toc-sub-num">2</span>
+                        <span class="toc-sub-title">グローバル化の恩恵</span>
+                        <span class="toc-sub-page">解答p.18</span>
+                    </a>
+                    <a href="kawai_1000_viewer.html?book=kawai_1000&section=answers&page=74" class="toc-sub-link">
+                        <span class="toc-sub-num">3</span>
+                        <span class="toc-sub-title">医学の起源</span>
+                        <span class="toc-sub-page">解答p.30</span>
+                    </a>
+                    <a href="kawai_1000_viewer.html?book=kawai_1000&section=answers&page=86" class="toc-sub-link">
+                        <span class="toc-sub-num">4</span>
+                        <span class="toc-sub-title">創発</span>
+                        <span class="toc-sub-page">解答p.42</span>
+                    </a>
+                    <a href="kawai_1000_viewer.html?book=kawai_1000&section=answers&page=99" class="toc-sub-link">
+                        <span class="toc-sub-num">5</span>
+                        <span class="toc-sub-title">移民抑制の是非</span>
+                        <span class="toc-sub-page">解答p.55</span>
+                    </a>
+                    <a href="kawai_1000_viewer.html?book=kawai_1000&section=answers&page=111" class="toc-sub-link">
+                        <span class="toc-sub-num">6</span>
+                        <span class="toc-sub-title">商品としての時間</span>
+                        <span class="toc-sub-page">解答p.67</span>
+                    </a>
+                    <a href="kawai_1000_viewer.html?book=kawai_1000&section=answers&page=125" class="toc-sub-link">
+                        <span class="toc-sub-num">7</span>
+                        <span class="toc-sub-title">人格形成に影響を及ぼす因子</span>
+                        <span class="toc-sub-page">解答p.81</span>
+                    </a>
+                    <a href="kawai_1000_viewer.html?book=kawai_1000&section=answers&page=139" class="toc-sub-link">
+                        <span class="toc-sub-num">8</span>
+                        <span class="toc-sub-title">演繹と帰納</span>
+                        <span class="toc-sub-page">解答p.95</span>
+                    </a>
+                    <a href="kawai_1000_viewer.html?book=kawai_1000&section=answers&page=154" class="toc-sub-link">
+                        <span class="toc-sub-num">9</span>
+                        <span class="toc-sub-title">過食と拒食</span>
+                        <span class="toc-sub-page">解答p.110</span>
+                    </a>
+                    <a href="kawai_1000_viewer.html?book=kawai_1000&section=answers&page=170" class="toc-sub-link">
+                        <span class="toc-sub-num">10</span>
+                        <span class="toc-sub-title">規範文法</span>
+                        <span class="toc-sub-page">解答p.126</span>
+                    </a>
+                </div>
+            </details>
+        </div>
+        </div>
+        <div class="toc-footer">© 2026 ECCベストワン藍住・北島中央</div>
+    </div>
+    <script>
+        // 同時に1つだけ開くアコーディオン制御
+        document.querySelectorAll('.toc-accordion').forEach(det => {
+            det.addEventListener('toggle', () => {
+                if (det.open) {
+                    document.querySelectorAll('.toc-accordion').forEach(other => {
+                        if (other !== det) other.open = false;
+                    });
+                }
+            });
+        });
+        document.querySelectorAll('.toc-chapter-panel-link').forEach(a => {
+            a.addEventListener('click', e => e.stopPropagation(), true);
+        });
+    </script>
+</body>
+</html>

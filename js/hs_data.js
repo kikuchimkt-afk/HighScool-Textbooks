@@ -2010,6 +2010,978 @@ const hsData = {
         pageQrs: {}
     },
 
+    kawai_300: {
+        id: "kawai_300",
+        title: "やっておきたい英語長文300",
+        totalPages: 214,
+        imagesPath: "images/kawai_300/",
+        printImagesPath: "images/kawai_300_bw/",
+        problemImageStartPage: 63,
+        coverImage: "images/kawai_300_cover.jpg",
+        qrBase: "",
+        chapters: [
+              { id: "p1", title: "1. 本能と学習 [東北学院大]", start: 2, end: 3, bookPageStart: 2, subsections: [
+                  { num: "答", title: "解答・解説", page: 68 },
+              ] },
+              { id: "p2", title: "2. 燃料電池 [岡山理科大]", start: 4, end: 6, bookPageStart: 4, subsections: [
+                  { num: "答", title: "解答・解説", page: 72 },
+              ] },
+              { id: "p3", title: "3. カルチャーショック [札幌学院大]", start: 7, end: 9, bookPageStart: 7, subsections: [
+                  { num: "答", title: "解答・解説", page: 77 },
+              ] },
+              { id: "p4", title: "4. 脳の大きさ [法政大]", start: 10, end: 11, bookPageStart: 10, subsections: [
+                  { num: "答", title: "解答・解説", page: 82 },
+              ] },
+              { id: "p5", title: "5. 読書 [徳島大]", start: 12, end: 14, bookPageStart: 12, subsections: [
+                  { num: "答", title: "解答・解説", page: 87 },
+              ] },
+              { id: "p6", title: "6. よりよい親となるために [信州大]", start: 15, end: 16, bookPageStart: 15, subsections: [
+                  { num: "答", title: "解答・解説", page: 92 },
+              ] },
+              { id: "p7", title: "7. 辛抱強く待つこと [東京学芸大]", start: 17, end: 18, bookPageStart: 17, subsections: [
+                  { num: "答", title: "解答・解説", page: 97 },
+              ] },
+              { id: "p8", title: "8. 笑いの効用 [愛知学院大]", start: 19, end: 20, bookPageStart: 19, subsections: [
+                  { num: "答", title: "解答・解説", page: 102 },
+              ] },
+              { id: "p9", title: "9. うそとゴシップ [京都府立大]", start: 21, end: 22, bookPageStart: 21, subsections: [
+                  { num: "答", title: "解答・解説", page: 107 },
+              ] },
+              { id: "p10", title: "10. 動物の知能 [西南学院大]", start: 23, end: 25, bookPageStart: 23, subsections: [
+                  { num: "答", title: "解答・解説", page: 111 },
+              ] },
+              { id: "p11", title: "11. 旅行 [聖心女子大]", start: 26, end: 27, bookPageStart: 26, subsections: [
+                  { num: "答", title: "解答・解説", page: 117 },
+              ] },
+              { id: "p12", title: "12. 公用語 [専修大]", start: 28, end: 29, bookPageStart: 28, subsections: [
+                  { num: "答", title: "解答・解説", page: 122 },
+              ] },
+              { id: "p13", title: "13. イギリス人とアメリカ人 [熊本県立大]", start: 30, end: 31, bookPageStart: 30, subsections: [
+                  { num: "答", title: "解答・解説", page: 126 },
+              ] },
+              { id: "p14", title: "14. 脳とコンピュータ [東京農工大]", start: 32, end: 33, bookPageStart: 32, subsections: [
+                  { num: "答", title: "解答・解説", page: 131 },
+              ] },
+              { id: "p15", title: "15. 人と違う道を選択すること [成蹊大]", start: 34, end: 35, bookPageStart: 34, subsections: [
+                  { num: "答", title: "解答・解説", page: 135 },
+              ] },
+              { id: "p16", title: "16. 健全な競争 [和歌山大]", start: 36, end: 36, bookPageStart: 36, subsections: [
+                  { num: "答", title: "解答・解説", page: 140 },
+              ] },
+              { id: "p17", title: "17. 孤独感（欠） [福岡女子大]", start: 37, end: 37, bookPageStart: 37, subsections: [
+                  { num: "答", title: "解答・解説", page: 145 },
+              ] },
+              { id: "p18", title: "18. 恐竜の子孫（欠） [九州大]", start: 37, end: 37, bookPageStart: 37, subsections: [
+                  { num: "答", title: "解答・解説", page: 150 },
+              ] },
+              { id: "p19", title: "19. ストレス [大阪女子大]", start: 38, end: 39, bookPageStart: 38, subsections: [
+                  { num: "答", title: "解答・解説", page: 154 },
+              ] },
+              { id: "p20", title: "20. インターネットの影響 [宮崎大]", start: 40, end: 41, bookPageStart: 40, subsections: [
+                  { num: "答", title: "解答・解説", page: 159 },
+              ] },
+              { id: "p21", title: "21. テレビの影響 [センター試験]", start: 42, end: 43, bookPageStart: 42, subsections: [
+                  { num: "答", title: "解答・解説", page: 164 },
+              ] },
+              { id: "p22", title: "22. マニュアル思考の限界 [新潟大]", start: 44, end: 46, bookPageStart: 44, subsections: [
+                  { num: "答", title: "解答・解説", page: 169 },
+              ] },
+              { id: "p23", title: "23. 心臓発作 [近畿大]", start: 47, end: 49, bookPageStart: 47, subsections: [
+                  { num: "答", title: "解答・解説", page: 175 },
+              ] },
+              { id: "p24", title: "24. 睡眠 [福岡女子大]", start: 50, end: 51, bookPageStart: 50, subsections: [
+                  { num: "答", title: "解答・解説", page: 180 },
+              ] },
+              { id: "p25", title: "25. 日本人の礼儀正しさ [日本女子大]", start: 52, end: 53, bookPageStart: 52, subsections: [
+                  { num: "答", title: "解答・解説", page: 185 },
+              ] },
+              { id: "p26", title: "26. 人の話を聞くこと [宮崎大]", start: 54, end: 55, bookPageStart: 54, subsections: [
+                  { num: "答", title: "解答・解説", page: 189 },
+              ] },
+              { id: "p27", title: "27. ライト兄弟 [摂南大]", start: 56, end: 57, bookPageStart: 56, subsections: [
+                  { num: "答", title: "解答・解説", page: 195 },
+              ] },
+              { id: "p28", title: "28. 読みとつづりの学習（欠） [実践女子大]", start: 58, end: 58, bookPageStart: 58, subsections: [
+                  { num: "答", title: "解答・解説", page: 201 },
+              ] },
+              { id: "p29", title: "29. 動植物に対する人間の姿勢 [愛媛大]", start: 59, end: 60, bookPageStart: 59, subsections: [
+                  { num: "答", title: "解答・解説", page: 206 },
+              ] },
+              { id: "p30", title: "30. 語彙力と成功の関係 [宮崎大]", start: 61, end: 62, bookPageStart: 61, subsections: [
+                  { num: "答", title: "解答・解説", page: 211 },
+              ] },
+              { id: "answers", title: "全解答・解説", start: 63, end: 214, subsections: [
+                  { num: "1", title: "本能と学習", page: 68 },
+                  { num: "2", title: "燃料電池", page: 72 },
+                  { num: "3", title: "カルチャーショック", page: 77 },
+                  { num: "4", title: "脳の大きさ", page: 82 },
+                  { num: "5", title: "読書", page: 87 },
+                  { num: "6", title: "よりよい親となるために", page: 92 },
+                  { num: "7", title: "辛抱強く待つこと", page: 97 },
+                  { num: "8", title: "笑いの効用", page: 102 },
+                  { num: "9", title: "うそとゴシップ", page: 107 },
+                  { num: "10", title: "動物の知能", page: 111 },
+                  { num: "11", title: "旅行", page: 117 },
+                  { num: "12", title: "公用語", page: 122 },
+                  { num: "13", title: "イギリス人とアメリカ人", page: 126 },
+                  { num: "14", title: "脳とコンピュータ", page: 131 },
+                  { num: "15", title: "人と違う道を選択すること", page: 135 },
+                  { num: "16", title: "健全な競争", page: 140 },
+                  { num: "17", title: "孤独感（欠）", page: 145 },
+                  { num: "18", title: "恐竜の子孫（欠）", page: 150 },
+                  { num: "19", title: "ストレス", page: 154 },
+                  { num: "20", title: "インターネットの影響", page: 159 },
+                  { num: "21", title: "テレビの影響", page: 164 },
+                  { num: "22", title: "マニュアル思考の限界", page: 169 },
+                  { num: "23", title: "心臓発作", page: 175 },
+                  { num: "24", title: "睡眠", page: 180 },
+                  { num: "25", title: "日本人の礼儀正しさ", page: 185 },
+                  { num: "26", title: "人の話を聞くこと", page: 189 },
+                  { num: "27", title: "ライト兄弟", page: 195 },
+                  { num: "28", title: "読みとつづりの学習（欠）", page: 201 },
+                  { num: "29", title: "動植物に対する人間の姿勢", page: 206 },
+                  { num: "30", title: "語彙力と成功の関係", page: 211 }
+              ] }
+          ],
+        get sections() {
+            return this.chapters.map(ch => ({
+                id: ch.id, title: ch.title, start: ch.start, end: ch.end,
+                pages: ch.end - ch.start + 1,
+                ...(ch.bookPageStart != null ? { bookPageStart: ch.bookPageStart } : {})
+            }));
+        },
+        pageQrs: {
+            67: 2,
+            68: 2,
+            69: 2,
+            70: 2,
+            71: 4,
+            72: 4,
+            73: 4,
+            74: 4,
+            75: 4,
+            76: 7,
+            77: 7,
+            78: 7,
+            79: 7,
+            80: 7,
+            81: 10,
+            82: 10,
+            83: 10,
+            84: 10,
+            85: 10,
+            86: 12,
+            87: 12,
+            88: 12,
+            89: 12,
+            90: 12,
+            91: 15,
+            92: 15,
+            93: 15,
+            94: 15,
+            95: 15,
+            96: 17,
+            97: 17,
+            98: 17,
+            99: 17,
+            100: 17,
+            101: 19,
+            102: 19,
+            103: 19,
+            104: 19,
+            105: 19,
+            106: 21,
+            107: 21,
+            108: 21,
+            109: 21,
+            110: 23,
+            111: 23,
+            112: 23,
+            113: 23,
+            114: 23,
+            115: 23,
+            116: 26,
+            117: 26,
+            118: 26,
+            119: 26,
+            120: 26,
+            121: 28,
+            122: 28,
+            123: 28,
+            124: 28,
+            125: 30,
+            126: 30,
+            127: 30,
+            128: 30,
+            129: 30,
+            130: 32,
+            131: 32,
+            132: 32,
+            133: 32,
+            134: 34,
+            135: 34,
+            136: 34,
+            137: 34,
+            138: 34,
+            139: 36,
+            140: 36,
+            141: 36,
+            142: 36,
+            143: 36,
+            144: 37,
+            145: 37,
+            146: 37,
+            147: 37,
+            148: 37,
+            149: 37,
+            150: 37,
+            151: 37,
+            152: 37,
+            153: 38,
+            154: 38,
+            155: 38,
+            156: 38,
+            157: 38,
+            158: 40,
+            159: 40,
+            160: 40,
+            161: 40,
+            162: 40,
+            163: 42,
+            164: 42,
+            165: 42,
+            166: 42,
+            167: 42,
+            168: 44,
+            169: 44,
+            170: 44,
+            171: 44,
+            172: 44,
+            173: 44,
+            174: 47,
+            175: 47,
+            176: 47,
+            177: 47,
+            178: 47,
+            179: 50,
+            180: 50,
+            181: 50,
+            182: 50,
+            183: 50,
+            184: 52,
+            185: 52,
+            186: 52,
+            187: 52,
+            188: 54,
+            189: 54,
+            190: 54,
+            191: 54,
+            192: 54,
+            193: 54,
+            194: 56,
+            195: 56,
+            196: 56,
+            197: 56,
+            198: 56,
+            199: 56,
+            200: 58,
+            201: 58,
+            202: 58,
+            203: 58,
+            204: 58,
+            205: 59,
+            206: 59,
+            207: 59,
+            208: 59,
+            209: 59,
+            210: 61,
+            211: 61,
+            212: 61,
+            213: 61,
+            214: 61,
+        }
+    },
+
+    kawai_500: {
+        id: "kawai_500",
+        title: "やっておきたい英語長文500",
+        totalPages: 192,
+        imagesPath: "images/kawai_500/",
+        printImagesPath: "images/kawai_500_bw/",
+        problemImageStartPage: 49,
+        coverImage: "images/kawai_500_cover.jpg",
+        qrBase: "",
+        chapters: [
+              { id: "p1", title: "1. 適度なストレス [龍谷大]", start: 2, end: 3, bookPageStart: 2, subsections: [
+                  { num: "答", title: "解答・解説", page: 54 },
+              ] },
+              { id: "p2", title: "2. カモノハシ [東北大]", start: 4, end: 6, bookPageStart: 4, subsections: [
+                  { num: "答", title: "解答・解説", page: 60 },
+              ] },
+              { id: "p3", title: "3. 緑の革命 [神戸学院大]", start: 7, end: 8, bookPageStart: 7, subsections: [
+                  { num: "答", title: "解答・解説", page: 68 },
+              ] },
+              { id: "p4", title: "4. 電子メールの影響 [愛知県立大]", start: 9, end: 10, bookPageStart: 9, subsections: [
+                  { num: "答", title: "解答・解説", page: 75 },
+              ] },
+              { id: "p5", title: "5. 観光と環境 [東工大]", start: 11, end: 13, bookPageStart: 11, subsections: [
+                  { num: "答", title: "解答・解説", page: 82 },
+              ] },
+              { id: "p6", title: "6. 視覚と認識 [神戸大]", start: 14, end: 15, bookPageStart: 14, subsections: [
+                  { num: "答", title: "解答・解説", page: 90 },
+              ] },
+              { id: "p7", title: "7. エイズの治療薬 [茨城大]", start: 16, end: 17, bookPageStart: 16, subsections: [
+                  { num: "答", title: "解答・解説", page: 97 },
+              ] },
+              { id: "p8", title: "8. 名前の持つ魔力 [熊本県立大]", start: 18, end: 19, bookPageStart: 18, subsections: [
+                  { num: "答", title: "解答・解説", page: 104 },
+              ] },
+              { id: "p9", title: "9. 動物実験 [北海道大]", start: 20, end: 21, bookPageStart: 20, subsections: [
+                  { num: "答", title: "解答・解説", page: 110 },
+              ] },
+              { id: "p10", title: "10. 赤ちゃんを左側に抱く理由 [和歌山大]", start: 22, end: 23, bookPageStart: 22, subsections: [
+                  { num: "答", title: "解答・解説", page: 117 },
+              ] },
+              { id: "p11", title: "11. 睡眠 [福島大]", start: 24, end: 25, bookPageStart: 24, subsections: [
+                  { num: "答", title: "解答・解説", page: 123 },
+              ] },
+              { id: "p12", title: "12. 触れることの大切さ [岩手大]", start: 26, end: 27, bookPageStart: 26, subsections: [
+                  { num: "答", title: "解答・解説", page: 130 },
+              ] },
+              { id: "p13", title: "13. 移動の意味 [立教大]", start: 28, end: 29, bookPageStart: 28, subsections: [
+                  { num: "答", title: "解答・解説", page: 137 },
+              ] },
+              { id: "p14", title: "14. 左脳と右脳 [専修大]", start: 30, end: 31, bookPageStart: 30, subsections: [
+                  { num: "答", title: "解答・解説", page: 144 },
+              ] },
+              { id: "p15", title: "15. 妻の介護 [大阪電通大]", start: 32, end: 33, bookPageStart: 32, subsections: [
+                  { num: "答", title: "解答・解説", page: 150 },
+              ] },
+              { id: "p16", title: "16. 環境に優しい暮らし方 [茨城大]", start: 34, end: 35, bookPageStart: 34, subsections: [
+                  { num: "答", title: "解答・解説", page: 156 },
+              ] },
+              { id: "p17", title: "17. 脳の拡大 [立教大]", start: 36, end: 38, bookPageStart: 36, subsections: [
+                  { num: "答", title: "解答・解説", page: 162 },
+              ] },
+              { id: "p18", title: "18. ホッキョクグマ [滋賀県立大]", start: 39, end: 41, bookPageStart: 39, subsections: [
+                  { num: "答", title: "解答・解説", page: 168 },
+              ] },
+              { id: "p19", title: "19. ラジオの役割 [熊本大]", start: 42, end: 43, bookPageStart: 42, subsections: [
+                  { num: "答", title: "解答・解説", page: 175 },
+              ] },
+              { id: "p20", title: "20. 言語の持つ制約 [一橋大]", start: 44, end: 45, bookPageStart: 44, subsections: [
+                  { num: "答", title: "解答・解説", page: 182 },
+              ] },
+              { id: "answers", title: "全解答・解説", start: 49, end: 192, subsections: [
+                  { num: "1", title: "適度なストレス", page: 54 },
+                  { num: "2", title: "カモノハシ", page: 60 },
+                  { num: "3", title: "緑の革命", page: 68 },
+                  { num: "4", title: "電子メールの影響", page: 75 },
+                  { num: "5", title: "観光と環境", page: 82 },
+                  { num: "6", title: "視覚と認識", page: 90 },
+                  { num: "7", title: "エイズの治療薬", page: 97 },
+                  { num: "8", title: "名前の持つ魔力", page: 104 },
+                  { num: "9", title: "動物実験", page: 110 },
+                  { num: "10", title: "赤ちゃんを左側に抱く理由", page: 117 },
+                  { num: "11", title: "睡眠", page: 123 },
+                  { num: "12", title: "触れることの大切さ", page: 130 },
+                  { num: "13", title: "移動の意味", page: 137 },
+                  { num: "14", title: "左脳と右脳", page: 144 },
+                  { num: "15", title: "妻の介護", page: 150 },
+                  { num: "16", title: "環境に優しい暮らし方", page: 156 },
+                  { num: "17", title: "脳の拡大", page: 162 },
+                  { num: "18", title: "ホッキョクグマ", page: 168 },
+                  { num: "19", title: "ラジオの役割", page: 175 },
+                  { num: "20", title: "言語の持つ制約", page: 182 }
+              ] }
+          ],
+        get sections() {
+            return this.chapters.map(ch => ({
+                id: ch.id, title: ch.title, start: ch.start, end: ch.end,
+                pages: ch.end - ch.start + 1,
+                ...(ch.bookPageStart != null ? { bookPageStart: ch.bookPageStart } : {})
+            }));
+        },
+        pageQrs: {
+            53: 2,
+            54: 2,
+            55: 2,
+            56: 2,
+            57: 2,
+            58: 2,
+            59: 4,
+            60: 4,
+            61: 4,
+            62: 4,
+            63: 4,
+            64: 4,
+            65: 4,
+            66: 4,
+            67: 7,
+            68: 7,
+            69: 7,
+            70: 7,
+            71: 7,
+            72: 7,
+            73: 7,
+            74: 9,
+            75: 9,
+            76: 9,
+            77: 9,
+            78: 9,
+            79: 9,
+            80: 9,
+            81: 11,
+            82: 11,
+            83: 11,
+            84: 11,
+            85: 11,
+            86: 11,
+            87: 11,
+            88: 11,
+            89: 14,
+            90: 14,
+            91: 14,
+            92: 14,
+            93: 14,
+            94: 14,
+            95: 14,
+            96: 16,
+            97: 16,
+            98: 16,
+            99: 16,
+            100: 16,
+            101: 16,
+            102: 16,
+            103: 18,
+            104: 18,
+            105: 18,
+            106: 18,
+            107: 18,
+            108: 18,
+            109: 20,
+            110: 20,
+            111: 20,
+            112: 20,
+            113: 20,
+            114: 20,
+            115: 20,
+            116: 22,
+            117: 22,
+            118: 22,
+            119: 22,
+            120: 22,
+            121: 22,
+            122: 24,
+            123: 24,
+            124: 24,
+            125: 24,
+            126: 24,
+            127: 24,
+            128: 24,
+            129: 26,
+            130: 26,
+            131: 26,
+            132: 26,
+            133: 26,
+            134: 26,
+            135: 26,
+            136: 28,
+            137: 28,
+            138: 28,
+            139: 28,
+            140: 28,
+            141: 28,
+            142: 28,
+            143: 30,
+            144: 30,
+            145: 30,
+            146: 30,
+            147: 30,
+            148: 30,
+            149: 32,
+            150: 32,
+            151: 32,
+            152: 32,
+            153: 32,
+            154: 32,
+            155: 34,
+            156: 34,
+            157: 34,
+            158: 34,
+            159: 34,
+            160: 34,
+            161: 36,
+            162: 36,
+            163: 36,
+            164: 36,
+            165: 36,
+            166: 36,
+            167: 39,
+            168: 39,
+            169: 39,
+            170: 39,
+            171: 39,
+            172: 39,
+            173: 39,
+            174: 42,
+            175: 42,
+            176: 42,
+            177: 42,
+            178: 42,
+            179: 42,
+            180: 42,
+            181: 44,
+            182: 44,
+            183: 44,
+            184: 44,
+            185: 44,
+            186: 44,
+            187: 44,
+            188: 44,
+            189: 44,
+            190: 44,
+            191: 44,
+            192: 44,
+        }
+    },
+
+    kawai_700: {
+        id: "kawai_700",
+        title: "やっておきたい英語長文700",
+        totalPages: 204,
+        imagesPath: "images/kawai_700/",
+        printImagesPath: "images/kawai_700_bw/",
+        problemImageStartPage: 51,
+        coverImage: "images/kawai_700_cover.jpg",
+        qrBase: "",
+        chapters: [
+              { id: "p1", title: "1. グローバル化 [同志社大]", start: 2, end: 4, bookPageStart: 2, subsections: [
+                  { num: "答", title: "解答・解説", page: 56 },
+              ] },
+              { id: "p2", title: "2. 食糧問題 [三重大]", start: 5, end: 7, bookPageStart: 5, subsections: [
+                  { num: "答", title: "解答・解説", page: 65 },
+              ] },
+              { id: "p3", title: "3. 自宅教育 [同志社大]", start: 8, end: 11, bookPageStart: 8, subsections: [
+                  { num: "答", title: "解答・解説", page: 73 },
+              ] },
+              { id: "p4", title: "4. 高齢化社会 [早稲田大]", start: 12, end: 14, bookPageStart: 12, subsections: [
+                  { num: "答", title: "解答・解説", page: 84 },
+              ] },
+              { id: "p5", title: "5. インターネット [旭川医科大]", start: 15, end: 17, bookPageStart: 15, subsections: [
+                  { num: "答", title: "解答・解説", page: 92 },
+              ] },
+              { id: "p6", title: "6. 言語の遍在性 [明治大]", start: 18, end: 20, bookPageStart: 18, subsections: [
+                  { num: "答", title: "解答・解説", page: 102 },
+              ] },
+              { id: "p7", title: "7. 英語の将来 [明治学院大]", start: 21, end: 24, bookPageStart: 21, subsections: [
+                  { num: "答", title: "解答・解説", page: 112 },
+              ] },
+              { id: "p8", title: "8. イランでの旅 [東京大]", start: 25, end: 28, bookPageStart: 25, subsections: [
+                  { num: "答", title: "解答・解説", page: 123 },
+              ] },
+              { id: "p9", title: "9. 文化と社会 [同志社大]", start: 29, end: 31, bookPageStart: 29, subsections: [
+                  { num: "答", title: "解答・解説", page: 135 },
+              ] },
+              { id: "p10", title: "10. 環境と経済 [大阪大]", start: 32, end: 34, bookPageStart: 32, subsections: [
+                  { num: "答", title: "解答・解説", page: 145 },
+              ] },
+              { id: "p11", title: "11. 太陽エネルギー [佐賀大]", start: 35, end: 37, bookPageStart: 35, subsections: [
+                  { num: "答", title: "解答・解説", page: 155 },
+              ] },
+              { id: "p12", title: "12. 地球温暖化 [青山学院大]", start: 38, end: 40, bookPageStart: 38, subsections: [
+                  { num: "答", title: "解答・解説", page: 165 },
+              ] },
+              { id: "p13", title: "13. 遺伝子 [青山学院大]", start: 41, end: 44, bookPageStart: 41, subsections: [
+                  { num: "答", title: "解答・解説", page: 174 },
+              ] },
+              { id: "p14", title: "14. 脳死 [中央大]", start: 45, end: 47, bookPageStart: 45, subsections: [
+                  { num: "答", title: "解答・解説", page: 185 },
+              ] },
+              { id: "p15", title: "15. 20世紀最大の発見 [千葉大]", start: 48, end: 50, bookPageStart: 48, subsections: [
+                  { num: "答", title: "解答・解説", page: 194 },
+              ] },
+              { id: "answers", title: "全解答・解説", start: 51, end: 204, subsections: [
+                  { num: "1", title: "グローバル化", page: 56 },
+                  { num: "2", title: "食糧問題", page: 65 },
+                  { num: "3", title: "自宅教育", page: 73 },
+                  { num: "4", title: "高齢化社会", page: 84 },
+                  { num: "5", title: "インターネット", page: 92 },
+                  { num: "6", title: "言語の遍在性", page: 102 },
+                  { num: "7", title: "英語の将来", page: 112 },
+                  { num: "8", title: "イランでの旅", page: 123 },
+                  { num: "9", title: "文化と社会", page: 135 },
+                  { num: "10", title: "環境と経済", page: 145 },
+                  { num: "11", title: "太陽エネルギー", page: 155 },
+                  { num: "12", title: "地球温暖化", page: 165 },
+                  { num: "13", title: "遺伝子", page: 174 },
+                  { num: "14", title: "脳死", page: 185 },
+                  { num: "15", title: "20世紀最大の発見", page: 194 }
+              ] }
+          ],
+        get sections() {
+            return this.chapters.map(ch => ({
+                id: ch.id, title: ch.title, start: ch.start, end: ch.end,
+                pages: ch.end - ch.start + 1,
+                ...(ch.bookPageStart != null ? { bookPageStart: ch.bookPageStart } : {})
+            }));
+        },
+        pageQrs: {
+            56: 2,
+            57: 2,
+            58: 2,
+            59: 2,
+            60: 2,
+            61: 2,
+            62: 2,
+            63: 2,
+            64: 2,
+            65: 5,
+            66: 5,
+            67: 5,
+            68: 5,
+            69: 5,
+            70: 5,
+            71: 5,
+            72: 5,
+            73: 8,
+            74: 8,
+            75: 8,
+            76: 8,
+            77: 8,
+            78: 8,
+            79: 8,
+            80: 8,
+            81: 8,
+            82: 8,
+            83: 8,
+            84: 12,
+            85: 12,
+            86: 12,
+            87: 12,
+            88: 12,
+            89: 12,
+            90: 12,
+            91: 12,
+            92: 15,
+            93: 15,
+            94: 15,
+            95: 15,
+            96: 15,
+            97: 15,
+            98: 15,
+            99: 15,
+            100: 15,
+            101: 15,
+            102: 18,
+            103: 18,
+            104: 18,
+            105: 18,
+            106: 18,
+            107: 18,
+            108: 18,
+            109: 18,
+            110: 18,
+            111: 18,
+            112: 21,
+            113: 21,
+            114: 21,
+            115: 21,
+            116: 21,
+            117: 21,
+            118: 21,
+            119: 21,
+            120: 21,
+            121: 21,
+            122: 21,
+            123: 25,
+            124: 25,
+            125: 25,
+            126: 25,
+            127: 25,
+            128: 25,
+            129: 25,
+            130: 25,
+            131: 25,
+            132: 25,
+            133: 25,
+            134: 25,
+            135: 29,
+            136: 29,
+            137: 29,
+            138: 29,
+            139: 29,
+            140: 29,
+            141: 29,
+            142: 29,
+            143: 29,
+            144: 29,
+            145: 32,
+            146: 32,
+            147: 32,
+            148: 32,
+            149: 32,
+            150: 32,
+            151: 32,
+            152: 32,
+            153: 32,
+            154: 32,
+            155: 35,
+            156: 35,
+            157: 35,
+            158: 35,
+            159: 35,
+            160: 35,
+            161: 35,
+            162: 35,
+            163: 35,
+            164: 35,
+            165: 38,
+            166: 38,
+            167: 38,
+            168: 38,
+            169: 38,
+            170: 38,
+            171: 38,
+            172: 38,
+            173: 38,
+            174: 41,
+            175: 41,
+            176: 41,
+            177: 41,
+            178: 41,
+            179: 41,
+            180: 41,
+            181: 41,
+            182: 41,
+            183: 41,
+            184: 41,
+            185: 45,
+            186: 45,
+            187: 45,
+            188: 45,
+            189: 45,
+            190: 45,
+            191: 45,
+            192: 45,
+            193: 45,
+            194: 48,
+            195: 48,
+            196: 48,
+            197: 48,
+            198: 48,
+            199: 48,
+            200: 48,
+            201: 48,
+            202: 48,
+            203: 48,
+            204: 48,
+        }
+    },
+
+    kawai_1000: {
+        id: "kawai_1000",
+        title: "やっておきたい英語長文1000",
+        totalPages: 188,
+        imagesPath: "images/kawai_1000/",
+        printImagesPath: "images/kawai_1000_bw/",
+        problemImageStartPage: 45,
+        coverImage: "images/kawai_1000_cover.jpg",
+        qrBase: "",
+        chapters: [
+              { id: "p1", title: "1. 動物の感情 [同志社大]", start: 2, end: 5, bookPageStart: 2, subsections: [
+                  { num: "答", title: "解答・解説", page: 50 },
+              ] },
+              { id: "p2", title: "2. グローバル化の恩恵 [金沢大]", start: 6, end: 9, bookPageStart: 6, subsections: [
+                  { num: "答", title: "解答・解説", page: 62 },
+              ] },
+              { id: "p3", title: "3. 医学の起源 [慶應義塾大]", start: 10, end: 13, bookPageStart: 10, subsections: [
+                  { num: "答", title: "解答・解説", page: 74 },
+              ] },
+              { id: "p4", title: "4. 創発 [東京外国語大]", start: 14, end: 17, bookPageStart: 14, subsections: [
+                  { num: "答", title: "解答・解説", page: 86 },
+              ] },
+              { id: "p5", title: "5. 移民抑制の是非 [青山学院大]", start: 18, end: 20, bookPageStart: 18, subsections: [
+                  { num: "答", title: "解答・解説", page: 99 },
+              ] },
+              { id: "p6", title: "6. 商品としての時間 [慶應義塾大]", start: 21, end: 24, bookPageStart: 21, subsections: [
+                  { num: "答", title: "解答・解説", page: 111 },
+              ] },
+              { id: "p7", title: "7. 人格形成に影響を及ぼす因子 [東京医科歯科大]", start: 25, end: 28, bookPageStart: 25, subsections: [
+                  { num: "答", title: "解答・解説", page: 125 },
+              ] },
+              { id: "p8", title: "8. 演繹と帰納 [早稲田大]", start: 29, end: 33, bookPageStart: 29, subsections: [
+                  { num: "答", title: "解答・解説", page: 139 },
+              ] },
+              { id: "p9", title: "9. 過食と拒食 [東京大]", start: 34, end: 38, bookPageStart: 34, subsections: [
+                  { num: "答", title: "解答・解説", page: 154 },
+              ] },
+              { id: "p10", title: "10. 規範文法 [一橋大]", start: 39, end: 44, bookPageStart: 39, subsections: [
+                  { num: "答", title: "解答・解説", page: 170 },
+              ] },
+              { id: "answers", title: "全解答・解説", start: 45, end: 188, subsections: [
+                  { num: "1", title: "動物の感情", page: 50 },
+                  { num: "2", title: "グローバル化の恩恵", page: 62 },
+                  { num: "3", title: "医学の起源", page: 74 },
+                  { num: "4", title: "創発", page: 86 },
+                  { num: "5", title: "移民抑制の是非", page: 99 },
+                  { num: "6", title: "商品としての時間", page: 111 },
+                  { num: "7", title: "人格形成に影響を及ぼす因子", page: 125 },
+                  { num: "8", title: "演繹と帰納", page: 139 },
+                  { num: "9", title: "過食と拒食", page: 154 },
+                  { num: "10", title: "規範文法", page: 170 }
+              ] }
+          ],
+        get sections() {
+            return this.chapters.map(ch => ({
+                id: ch.id, title: ch.title, start: ch.start, end: ch.end,
+                pages: ch.end - ch.start + 1,
+                ...(ch.bookPageStart != null ? { bookPageStart: ch.bookPageStart } : {})
+            }));
+        },
+        pageQrs: {
+            50: 2,
+            51: 2,
+            52: 2,
+            53: 2,
+            54: 2,
+            55: 2,
+            56: 2,
+            57: 2,
+            58: 2,
+            59: 2,
+            60: 2,
+            61: 2,
+            62: 6,
+            63: 6,
+            64: 6,
+            65: 6,
+            66: 6,
+            67: 6,
+            68: 6,
+            69: 6,
+            70: 6,
+            71: 6,
+            72: 6,
+            73: 6,
+            74: 10,
+            75: 10,
+            76: 10,
+            77: 10,
+            78: 10,
+            79: 10,
+            80: 10,
+            81: 10,
+            82: 10,
+            83: 10,
+            84: 10,
+            85: 10,
+            86: 14,
+            87: 14,
+            88: 14,
+            89: 14,
+            90: 14,
+            91: 14,
+            92: 14,
+            93: 14,
+            94: 14,
+            95: 14,
+            96: 14,
+            97: 14,
+            98: 14,
+            99: 18,
+            100: 18,
+            101: 18,
+            102: 18,
+            103: 18,
+            104: 18,
+            105: 18,
+            106: 18,
+            107: 18,
+            108: 18,
+            109: 18,
+            110: 18,
+            111: 21,
+            112: 21,
+            113: 21,
+            114: 21,
+            115: 21,
+            116: 21,
+            117: 21,
+            118: 21,
+            119: 21,
+            120: 21,
+            121: 21,
+            122: 21,
+            123: 21,
+            124: 21,
+            125: 25,
+            126: 25,
+            127: 25,
+            128: 25,
+            129: 25,
+            130: 25,
+            131: 25,
+            132: 25,
+            133: 25,
+            134: 25,
+            135: 25,
+            136: 25,
+            137: 25,
+            138: 25,
+            139: 29,
+            140: 29,
+            141: 29,
+            142: 29,
+            143: 29,
+            144: 29,
+            145: 29,
+            146: 29,
+            147: 29,
+            148: 29,
+            149: 29,
+            150: 29,
+            151: 29,
+            152: 29,
+            153: 29,
+            154: 34,
+            155: 34,
+            156: 34,
+            157: 34,
+            158: 34,
+            159: 34,
+            160: 34,
+            161: 34,
+            162: 34,
+            163: 34,
+            164: 34,
+            165: 34,
+            166: 34,
+            167: 34,
+            168: 34,
+            169: 34,
+            170: 39,
+            171: 39,
+            172: 39,
+            173: 39,
+            174: 39,
+            175: 39,
+            176: 39,
+            177: 39,
+            178: 39,
+            179: 39,
+            180: 39,
+            181: 39,
+            182: 39,
+            183: 39,
+            184: 39,
+            185: 39,
+            186: 39,
+            187: 39,
+            188: 39,
+        }
+    },
+
     hijii_dokkai: {
         id: "hijii_dokkai",
         title: "読解のための英文法が面白いほどわかる本",
@@ -4060,6 +5032,469 @@ const hsData = {
             { id: "chap5", title: "有機化合物", start: 87, end: 106, subsections: [] },
             { id: "chap6", title: "人間生活と物質", start: 107, end: 123, subsections: [] },
             { id: "chap7", title: "資料・索引", start: 124, end: 141, subsections: [] }
+        ],
+        get sections() {
+            return this.chapters.map(ch => ({
+                id: ch.id, title: ch.title, start: ch.start, end: ch.end,
+                pages: ch.end - ch.start + 1
+            }));
+        },
+        pageQrs: {}
+    },
+
+    shinkenkyu_chem: {
+        id: "shinkenkyu_chem",
+        title: "化学の新研究 改訂版",
+        totalPages: 836,
+        imagesPath: "images/shinkenkyu_chem/",
+        printImagesPath: "images/shinkenkyu_chem/",
+        coverImage: "images/shinkenkyu_chem_cover.jpg",
+        qrBase: "",
+        chapters: [
+            {
+                "id": "intro",
+                "title": "まえがき・目次",
+                "start": 1,
+                "end": 11,
+                "subsections": [
+                    {
+                        "num": 0,
+                        "title": "まえがき・目次",
+                        "page": 1
+                    }
+                ]
+            },
+            {
+                "id": "part1",
+                "title": "第1章 物質の構成",
+                "start": 12,
+                "end": 113,
+                "subsections": [
+                    {
+                        "num": 1,
+                        "title": "物質の構成",
+                        "page": 12
+                    },
+                    {
+                        "num": 2,
+                        "title": "原子とイオン",
+                        "page": 27
+                    },
+                    {
+                        "num": 3,
+                        "title": "化学結合",
+                        "page": 48
+                    },
+                    {
+                        "num": 4,
+                        "title": "原子量分子量と物質量",
+                        "page": 95
+                    },
+                    {
+                        "num": 5,
+                        "title": "化学反応式の量的関係",
+                        "page": 106
+                    }
+                ]
+            },
+            {
+                "id": "part2",
+                "title": "第2章 物質の状態と溶液",
+                "start": 114,
+                "end": 212,
+                "subsections": [
+                    {
+                        "num": 1,
+                        "title": "粒子の熱運動と拡散",
+                        "page": 114
+                    },
+                    {
+                        "num": 2,
+                        "title": "物質の三態と状態変化",
+                        "page": 120
+                    },
+                    {
+                        "num": 3,
+                        "title": "液体の蒸気圧と沸騰",
+                        "page": 128
+                    },
+                    {
+                        "num": 4,
+                        "title": "気体の性質",
+                        "page": 134
+                    },
+                    {
+                        "num": 5,
+                        "title": "混合気体と蒸気圧",
+                        "page": 140
+                    },
+                    {
+                        "num": 6,
+                        "title": "理想気体と実在気体",
+                        "page": 148
+                    },
+                    {
+                        "num": 7,
+                        "title": "溶解のしくみ",
+                        "page": 154
+                    },
+                    {
+                        "num": 8,
+                        "title": "固体の溶解度",
+                        "page": 160
+                    },
+                    {
+                        "num": 9,
+                        "title": "気体の溶解度",
+                        "page": 170
+                    },
+                    {
+                        "num": 10,
+                        "title": "溶液の濃度",
+                        "page": 177
+                    },
+                    {
+                        "num": 11,
+                        "title": "希薄溶液の性質",
+                        "page": 180
+                    },
+                    {
+                        "num": 12,
+                        "title": "浸透圧",
+                        "page": 194
+                    },
+                    {
+                        "num": 13,
+                        "title": "コロイド溶液",
+                        "page": 199
+                    }
+                ]
+            },
+            {
+                "id": "part3",
+                "title": "第3章 化学反応と平衡",
+                "start": 213,
+                "end": 398,
+                "subsections": [
+                    {
+                        "num": 1,
+                        "title": "化学反応と熱",
+                        "page": 213
+                    },
+                    {
+                        "num": 2,
+                        "title": "ヘスの法則と結合エネルギー",
+                        "page": 222
+                    },
+                    {
+                        "num": 3,
+                        "title": "化学反応の速さ",
+                        "page": 234
+                    },
+                    {
+                        "num": 4,
+                        "title": "化学平衡",
+                        "page": 255
+                    },
+                    {
+                        "num": 5,
+                        "title": "酸と塩基",
+                        "page": 282
+                    },
+                    {
+                        "num": 6,
+                        "title": "中和反応と塩",
+                        "page": 305
+                    },
+                    {
+                        "num": 7,
+                        "title": "酸化還元反応",
+                        "page": 337
+                    },
+                    {
+                        "num": 8,
+                        "title": "電池と電気分解",
+                        "page": 359
+                    }
+                ]
+            },
+            {
+                "id": "part4",
+                "title": "第4章 無機物質",
+                "start": 399,
+                "end": 534,
+                "subsections": [
+                    {
+                        "num": 1,
+                        "title": "水素と希ガス",
+                        "page": 399
+                    },
+                    {
+                        "num": 2,
+                        "title": "ハロゲンとその化合物",
+                        "page": 404
+                    },
+                    {
+                        "num": 3,
+                        "title": "酸素硫黄とその化合物",
+                        "page": 412
+                    },
+                    {
+                        "num": 4,
+                        "title": "窒素リンとその化合物",
+                        "page": 427
+                    },
+                    {
+                        "num": 5,
+                        "title": "炭素ケイ素とその化合物",
+                        "page": 440
+                    },
+                    {
+                        "num": 6,
+                        "title": "気体の製法と性質",
+                        "page": 458
+                    },
+                    {
+                        "num": 7,
+                        "title": "アルカリ金属とその化合物",
+                        "page": 464
+                    },
+                    {
+                        "num": 8,
+                        "title": "アルカリ土類金属とその化合物",
+                        "page": 472
+                    },
+                    {
+                        "num": 9,
+                        "title": "アルミニウムとその化合物",
+                        "page": 480
+                    },
+                    {
+                        "num": 10,
+                        "title": "亜鉛水銀とその化合物",
+                        "page": 486
+                    },
+                    {
+                        "num": 11,
+                        "title": "スズ鉛とその性質",
+                        "page": 491
+                    },
+                    {
+                        "num": 12,
+                        "title": "遷移元素の特徴",
+                        "page": 496
+                    },
+                    {
+                        "num": 13,
+                        "title": "錯イオンと錯塩",
+                        "page": 499
+                    },
+                    {
+                        "num": 14,
+                        "title": "鉄とその化合物",
+                        "page": 505
+                    },
+                    {
+                        "num": 15,
+                        "title": "銅とその化合物",
+                        "page": 514
+                    },
+                    {
+                        "num": 16,
+                        "title": "銀とその化合物",
+                        "page": 519
+                    },
+                    {
+                        "num": 17,
+                        "title": "クロムマンガンとその化合物",
+                        "page": 523
+                    },
+                    {
+                        "num": 18,
+                        "title": "金属イオンの分離確認",
+                        "page": 527
+                    }
+                ]
+            },
+            {
+                "id": "part5",
+                "title": "第5章 有機化合物",
+                "start": 535,
+                "end": 689,
+                "subsections": [
+                    {
+                        "num": 1,
+                        "title": "有機化合物の特徴",
+                        "page": 535
+                    },
+                    {
+                        "num": 2,
+                        "title": "有機化合物の分類",
+                        "page": 538
+                    },
+                    {
+                        "num": 3,
+                        "title": "有機化合物の構造決定",
+                        "page": 541
+                    },
+                    {
+                        "num": 4,
+                        "title": "アルカンとシクロアルカン",
+                        "page": 549
+                    },
+                    {
+                        "num": 5,
+                        "title": "アルケン",
+                        "page": 559
+                    },
+                    {
+                        "num": 6,
+                        "title": "アルキン",
+                        "page": 569
+                    },
+                    {
+                        "num": 7,
+                        "title": "石油と天然ガスと石炭",
+                        "page": 576
+                    },
+                    {
+                        "num": 8,
+                        "title": "アルコールとエーテル",
+                        "page": 580
+                    },
+                    {
+                        "num": 9,
+                        "title": "アルデヒドとケトン",
+                        "page": 589
+                    },
+                    {
+                        "num": 10,
+                        "title": "カルボン酸",
+                        "page": 597
+                    },
+                    {
+                        "num": 11,
+                        "title": "エステル",
+                        "page": 614
+                    },
+                    {
+                        "num": 12,
+                        "title": "油脂",
+                        "page": 619
+                    },
+                    {
+                        "num": 13,
+                        "title": "セッケンと合成洗剤",
+                        "page": 626
+                    },
+                    {
+                        "num": 14,
+                        "title": "芳香族炭化水素",
+                        "page": 632
+                    },
+                    {
+                        "num": 15,
+                        "title": "フェノール類",
+                        "page": 648
+                    },
+                    {
+                        "num": 16,
+                        "title": "芳香族カルボン酸",
+                        "page": 656
+                    },
+                    {
+                        "num": 17,
+                        "title": "芳香族アミン",
+                        "page": 670
+                    },
+                    {
+                        "num": 18,
+                        "title": "有機化合物の分離",
+                        "page": 684
+                    }
+                ]
+            },
+            {
+                "id": "part6",
+                "title": "第6章 高分子化合物",
+                "start": 690,
+                "end": 822,
+                "subsections": [
+                    {
+                        "num": 1,
+                        "title": "天然高分子の分類と特徴",
+                        "page": 690
+                    },
+                    {
+                        "num": 2,
+                        "title": "単糖類と二糖類",
+                        "page": 697
+                    },
+                    {
+                        "num": 3,
+                        "title": "多糖類",
+                        "page": 712
+                    },
+                    {
+                        "num": 4,
+                        "title": "アミノ酸",
+                        "page": 724
+                    },
+                    {
+                        "num": 5,
+                        "title": "タンパク質",
+                        "page": 737
+                    },
+                    {
+                        "num": 6,
+                        "title": "核酸",
+                        "page": 769
+                    },
+                    {
+                        "num": 7,
+                        "title": "脂質",
+                        "page": 778
+                    },
+                    {
+                        "num": 8,
+                        "title": "合成繊維",
+                        "page": 784
+                    },
+                    {
+                        "num": 9,
+                        "title": "合成樹脂",
+                        "page": 793
+                    },
+                    {
+                        "num": 10,
+                        "title": "ゴム",
+                        "page": 805
+                    },
+                    {
+                        "num": 11,
+                        "title": "イオン交換樹脂",
+                        "page": 813
+                    },
+                    {
+                        "num": 12,
+                        "title": "機能性高分子",
+                        "page": 817
+                    }
+                ]
+            },
+            {
+                "id": "index",
+                "title": "索引",
+                "start": 823,
+                "end": 836,
+                "subsections": [
+                    {
+                        "num": 0,
+                        "title": "索引",
+                        "page": 823
+                    }
+                ]
+            }
         ],
         get sections() {
             return this.chapters.map(ch => ({

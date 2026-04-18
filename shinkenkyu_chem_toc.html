@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>化学の新研究 改訂版 | 目次</title>
+    <meta name="description" content="化学の新研究 改訂版 目次一覧">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/shinkenkyu_chem_32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="icons/shinkenkyu_chem_180.png">
+    <link rel="manifest" href="manifest_shinkenkyu_chem.json">
+    <meta name="theme-color" content="#000000">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Inter', 'Noto Sans JP', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #000;
+            min-height: 100vh; color: #f5f5f7;
+        }
+        .bg-layer {
+            position: fixed; inset: 0; z-index: 0;
+        }
+        .bg-layer img {
+            width: 100%; height: 100%; object-fit: cover;
+            filter: brightness(0.5) saturate(1.2);
+        }
+        .bg-overlay {
+            position: fixed; inset: 0; z-index: 1;
+            background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.7) 100%);
+        }
+        .toc-page { position: relative; z-index: 2; }
+        .toc-header {
+            text-align: center; padding: 3rem 1.5rem 1.5rem;
+        }
+        .toc-back {
+            display: inline-flex; align-items: center; gap: 6px;
+            color: rgba(255,255,255,0.4); text-decoration: none;
+            font-size: 0.85rem; margin-bottom: 1.5rem;
+            transition: color 0.25s; font-weight: 400;
+        }
+        .toc-back:hover { color: rgba(255,255,255,0.8); }
+        .toc-header h1 {
+            font-size: 2.2rem; font-weight: 700;
+            letter-spacing: -0.03em; margin-bottom: 0.3rem;
+            background: linear-gradient(135deg, #fff, rgba(255,255,255,0.6));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .toc-header p {
+            font-size: 0.9rem; color: rgba(255,255,255,0.35);
+            font-weight: 300;
+        }
+        .toc-container {
+            max-width: 720px; margin: 0 auto; padding: 0 1rem 4rem;
+        }
+        .toc-cover {
+            display: block; max-width: 180px; margin: 0 auto 2rem;
+            border-radius: 14px;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+        }
+        .toc-chapter {
+            margin-bottom: 0.6rem;
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(40px) saturate(1.5);
+            -webkit-backdrop-filter: blur(40px) saturate(1.5);
+            border: 1px solid rgba(255,255,255,0.07);
+            border-radius: 16px; overflow: hidden;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.15),
+                        inset 0 1px 0 rgba(255,255,255,0.05);
+        }
+        .toc-accordion { border: none; }
+        .toc-accordion summary { list-style: none; cursor: pointer; }
+        .toc-accordion summary::-webkit-details-marker { display: none; }
+        .toc-accordion summary::marker { display: none; content: ''; }
+        .toc-chapter-link {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 0.85rem 1.2rem; text-decoration: none; color: #f5f5f7;
+            font-weight: 600; font-size: 0.95rem;
+            transition: background 0.25s;
+            letter-spacing: -0.01em;
+        }
+        .toc-chapter-link:hover {
+            background: rgba(255,255,255,0.06);
+        }
+        .toc-chapter-meta {
+            display: flex; align-items: center; gap: 8px;
+        }
+        .toc-chevron {
+            font-size: 0.65rem; color: rgba(255,255,255,0.3);
+            transition: transform 0.3s ease;
+            display: inline-block;
+        }
+        .toc-accordion[open] .toc-chevron {
+            transform: rotate(90deg);
+        }
+        .toc-chapter-pages {
+            font-size: 0.75rem; color: rgba(255,255,255,0.3);
+            font-weight: 400; white-space: nowrap;
+        }
+        .toc-subsections {
+            border-top: 1px solid rgba(255,255,255,0.06);
+            padding: 0.2rem 0;
+            animation: tocSlideDown 0.25s ease;
+        }
+        @keyframes tocSlideDown {
+            from { opacity: 0; max-height: 0; }
+            to { opacity: 1; max-height: 2000px; }
+        }
+        .toc-sub-link {
+            display: flex; align-items: center; gap: 8px;
+            padding: 0.45rem 1.2rem 0.45rem 1.6rem;
+            text-decoration: none; color: rgba(255,255,255,0.65);
+            font-size: 0.84rem; transition: all 0.25s;
+            font-weight: 400;
+        }
+        .toc-sub-link:hover {
+            background: rgba(255,255,255,0.05);
+            color: rgba(255,255,255,0.9);
+        }
+        .toc-sub-num {
+            min-width: 26px; text-align: right; font-weight: 500;
+            color: rgba(160,140,255,0.7); font-size: 0.82rem;
+            font-variant-numeric: tabular-nums;
+        }
+        .toc-sub-title { flex: 1; }
+        .toc-sub-page {
+            font-size: 0.72rem; color: rgba(255,255,255,0.2);
+            white-space: nowrap; font-variant-numeric: tabular-nums;
+        }
+        .toc-footer {
+            text-align: center; padding: 2rem 1rem;
+            font-size: 0.7rem; color: rgba(255,255,255,0.2);
+        }
+        @media (max-width: 600px) {
+            .toc-header h1 { font-size: 1.6rem; }
+            .toc-header { padding: 2rem 1rem 1rem; }
+            .toc-sub-link { padding-left: 1rem; font-size: 0.8rem; }
+            .toc-chapter-link { font-size: 0.9rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-layer">
+        <img src="images/portal_bg.png" alt="" loading="eager">
+    </div>
+    <div class="bg-overlay"></div>
+    <div class="toc-page">
+        <div class="toc-header">
+            <a href="index.html" class="toc-back">← ポータルに戻る</a>
+            <h1>化学の新研究 改訂版</h1>
+            <p>全836ページ</p>
+        </div>
+        <div class="toc-container">
+            <img src="images/shinkenkyu_chem_cover.jpg" alt="化学の新研究 改訂版 表紙" class="toc-cover">
+        <div class="toc-chapter">
+            <details class="toc-accordion">
+                <summary class="toc-chapter-link">
+                    <span class="toc-chapter-title">まえがき・目次</span>
+                    <span class="toc-chapter-meta">
+                        <span class="toc-chapter-pages">p.1–11</span>
+                        <span class="toc-chevron">▶</span>
+                    </span>
+                </summary>
+                <div class="toc-subsections">
+                    <a href="shinkenkyu_chem_viewer.html?book=shinkenkyu_chem&page=1" class="toc-sub-link">
+                        <span class="toc-sub-num">0</span>
+                        <span class="toc-sub-title">まえがき・目次</span>
+                        <span class="toc-sub-page">p.1</span>
+                    </a>
+                </div>
+            </details>
+        </div>
+        <div class="toc-chapter">
+            <details class="toc-accordion">
+                <summary class="toc-chapter-link">
+                    <span class="toc-chapter-title">第1章 物質の構成</span>
+                    <span class="toc-chapter-meta">
+                        <span class="toc-chapter-pages">p.12–113</span>
+                        <span class="toc-chevron">▶</span>
+                    </span>
+                </summary>
+                <div class="toc-subsections">
+                    <a href="shinkenkyu_chem_viewer.html?book=shinkenkyu_chem&page=12" class="toc-sub-link">
+                        <span class="toc-sub-num">1</span>
+                        <span class="toc-sub-title">物質の構成</span>
+                        <span class="toc-sub-page">p.12</span>
+                    </a>
+                    <a href="shinkenkyu_chem_viewer.html?book=shinkenkyu_chem&page=27" class="toc-sub-link">
+                        <span class="toc-sub-num">2</span>
+                        <span class="toc-sub-title">原子とイオン</span>
+                        <span class="toc-sub-page">p.27</span>
+                    </a>
+                    <a href="shinkenkyu_chem_viewer.html?book=shinkenkyu_chem&page=48" class="toc-sub-link">
+                        <span class="toc-sub-num">3</span>
+                        <span class="toc-sub-title">化学結合</span>
+                        <span class="toc-sub-page">p.48</span>
+                    </a>
+                    <a href="shinkenkyu_chem_viewer.html?book=shinkenkyu_chem&page=95" class="toc-sub-link">
+                        <span class="toc-sub-num">4</span>
+                        <span class="toc-sub-title">原子量分子量と物質量</span>
+                        <span class="toc-sub-page">p.95</span>
+                    </a>
+                    <a href="shinkenkyu_chem_viewer.html?book=shinkenkyu_chem&page=106" class="toc-sub-link">
+                        <span class="toc-sub-num">5</span>
+                        <span class="toc-sub-title">化学反応式の量的関係</span>
+                        <span class="toc-sub-page">p.106</span>
+                    </a>
+                </div>
+            </details>
+        </div>
+        <div class="toc-chapter">
+            <details class="toc-accordion">
+                <summary class="toc-chapter-link">
+                    <span class="toc-chapter-title">第2章 物質の状態と溶液</span>
+                    <span class="toc-chapter-meta">
+                        <span class="toc-chapter-pages">p.114–212</span>
+                        <span class="toc-chevron">▶</span>
+                    </span>
+                </summary>
+                <div class="toc-subsections">
+                    <a href="shinkenkyu_chem_viewer.html?book=shinkenkyu_chem&page=114" class="toc-sub-link">
+                        <span class="toc-sub-num">1</span>
+                        <span class="toc-sub-title">粒子の熱運動と拡散</span>
+                        <span class="toc-sub-page">p.114</span>
+                    </a>
+                    <a href="shinkenkyu_chem_viewer.html?book=shinkenkyu_chem&page=120" class="toc-sub-link">
+                        <span class="toc-sub-num">2</span>
+                        <span class="toc-sub-title">物質の三態と状態変化</span>
+                        <span class="toc-sub-page">p.120</span>
+                    </a>
+                    <a href="shinkenkyu_chem_viewer.html?book=shinkenkyu_chem&page=128" class="toc-sub-link">
+                        <span class="toc-sub-num">3</span>
+                        <span class="toc-sub-title">液体の蒸気圧と沸騰</span>
+                        <span class="toc-sub-page">p.128</span>
+                    </a>
+                    <a href="shinkenkyu_chem_viewer.html?book=shinkenkyu_chem&page=134" class="toc-sub-link">
+                        <span class="toc-sub-num">4</span>
+                        <span class="toc-sub-title">気体の性質</span>
+                        <span class="toc-sub-page">p.134</span>
+                    </a>
+                    <a href="shinkenkyu_chem_viewer.html?book=shinkenkyu_chem&page=140" class="toc-sub-link">
+                        <span class="toc-sub-num">5</span>
+                        <span class="toc-sub-title">混合気体と蒸気圧</span>
+                        <span class="toc-sub-page">p.140</span>
+                    </a>
+                    <a href="shinkenkyu_chem_viewer.html?book=shinkenkyu_chem&page=148" class="toc-sub-link">
+                        <span class="toc-sub-num">6</span>
+                        <span class="toc-sub-title">理想気体と実在気体</span>
+                        <span class="toc-sub-page">p.148</span>
+                    </a>
+                    <a href="shinkenkyu_chem_viewer.html?book=shinkenkyu_chem&page=154" class="toc-sub-link">
+                        <span class="toc-sub-num">7</span>
+                        <span class="toc-sub-title">溶解のしくみ</span>
+                        <span class="toc-sub-page">p.154</span>
+                    </a>
+                    <a href="shinkenkyu_chem_viewer.html?book=shinkenkyu_chem&page=160" class="toc-sub-link">
+                        <span class="toc-sub-num">8</span>
+                        <span class="toc-sub-title">固体の溶解度</span>
+                        <span class="toc-sub-page">p.160</span>
+                    </a>
+                    <a href="shinkenkyu_chem_viewer.html?book=shinkenkyu_chem&page=170" class="toc-sub-link">
+                        <span class="toc-sub-num">9</span>
+                        <span class="toc-sub-title">気体の溶解度</span>
+                        <span class="toc-sub-page">p.170</span>
+                    </a>
+                    <a href="shinkenkyu_chem_viewer.html?book=shinkenkyu_chem&page=177" class="toc-sub-link">
+                        <span class="toc-sub-num">10</span>
+                        <span class="toc-sub-title">溶液の濃度</span>
+                        <span class="toc-sub-page">p.177</span>
+                    </a>
+                    <a href="shinkenkyu_chem_viewer.html?book=shinkenkyu_chem&page=180" class="toc-sub-link">
+                        <span class="toc-sub-num">11</span>
+                        <span class="toc-sub-title">希薄溶液の性質</span>
+                        <span class="toc-sub-page">p.180</span>
+                    </a>
+                    <a href="shinkenkyu_chem_viewer.html?book=shinkenkyu_chem&page=194" class="toc-sub-link">
+                        <span class="toc-sub-num">12</span>
+                        <span class="toc-sub-title">浸透圧</span>
+                        <span class="toc-sub-page">p.194</span>
+                    </a>
+                    <a href="shinkenkyu_chem_viewer.html?book=shinkenkyu_chem&page=199" class="toc-sub-link">
+                        <span class="toc-sub-num">13</span>
+                        <span class="toc-sub-title">コロイド溶液</span>
+                        <span class="toc-sub-page">p.199</span>
+                    </a>
+                </div>
+            </details>
+        </div>
+        <div class="toc-chapter">
+            <details class="toc-accordion">
+                <summary class="toc-chapter-link">
+                    <span class="toc-chapter-title">第3章 化学反応と平衡</span>
+                    <span class="toc-chapter-meta">
+                        <span class="toc-chapter-pages">p.213–398</span>
+                        <span class="toc-chevron">▶</span>
+                    </span>
+                </summary>
+                <div class="toc-subsections">
+                    <a href="shinkenkyu_chem_viewer.html?book=shinkenkyu_chem&page=213" class="toc-sub-link">
+                        <span class="toc-sub-num">1</span>
+                        <span class="toc-sub-title">化学反応と熱</span>
+                        <span class="toc-sub-page">p.213</span>
+                    </a>
+                    <a href="shinkenkyu_chem_viewer.html?book=shinkenkyu_chem&page=222" class="toc-sub-link">
+                        <span class="toc-sub-num">2</span>
+                        <span class="toc-sub-title">ヘスの法則と結合エネルギー</span>
+                        <span class="toc-sub-page">p.222</span>
+                    </a>
+                    <a href="shinkenkyu_chem_viewer.html?book=shinkenkyu_chem&page=234" class="toc-sub-link">
+                        <span class="toc-sub-num">3</span>
+                        <span class="toc-sub-title">化学反応の速さ</span>
+                        <span class="toc-sub-page">p.234</span>
+                    </a>
+                    <a href="shinkenkyu_chem_viewer.html?book=shinkenkyu_chem&page=255" class="toc-sub-link">
+                        <span class="toc-sub-num">4</span>
+                        <span class="toc-sub-title">化学平衡</span>
+                        <span class="toc-sub-page">p.255</span>
+                    </a>
+                    <a href="shinkenkyu_chem_viewer.html?book=shinkenkyu_chem&page=282" class="toc-sub-link">
+                        <span class="toc-sub-num">5</span>
+                        <span class="toc-sub-title">酸と塩基</span>
+                        <span class="toc-sub-page">p.282</span>
+                    </a>
+                    <a href="shinkenkyu_chem_viewer.html?book=shinkenkyu_chem&page=305" class="toc-sub-link">
+                        <span class="toc-sub-num">6</span>
+                        <span class="toc-sub-title">中和反応と塩</span>
+                        <span class="toc-sub-page">p.305</span>
+                    </a>
+                    <a href="shinkenkyu_chem_viewer.html?book=shinkenkyu_chem&page=337" class="toc-sub-link">
+                        <span class="toc-sub-num">7</span>
+                        <span class="toc-sub-title">酸化還元反応</span>
+                        <span class="toc-sub-page">p.337</span>
+                    </a>
+                    <a href="shinkenkyu_chem_viewer.html?book=shinkenkyu_chem&page=359" class="toc-sub-link">
+                        <span class="toc-sub-num">8</span>
+                        <span class="toc-sub-title">電池と電気分解</span>
+                        <span class="toc-sub-page">p.359</span>
+                    </a>
+                </div>
+            </details>
+        </div>
+        <div class="toc-chapter">
+            <details class="toc-accordion">
+                <summary class="toc-chapter-link">
+                    <span class="toc-chapter-title">第4章 無機物質</span>
+                    <span class="toc-chapter-meta">
+                        <span class="toc-chapter-pages">p.399–534</span>
+                        <span class="toc-chevron">▶</span>
+                    </span>
+                </summary>
+                <div class="toc-subsections">
+                    <a href="shinkenkyu_chem_viewer.html?book=shinkenkyu_chem&page=399" class="toc-sub-link">
+                        <span class="toc-sub-num">1</span>
+                        <span class="toc-sub-title">水素と希ガス</span>
+                        <span class="toc-sub-page">p.399</span>
+                    </a>
+                    <a href="shinkenkyu_chem_viewer.html?book=shinkenkyu_chem&page=404" class="toc-sub-link">
+                        <span class="toc-sub-num">2</span>
+                        <span class="toc-sub-title">ハロゲンとその化合物</span>
+                        <span class="toc-sub-page">p.404</span>
+                    </a>
+                    <a href="shinkenkyu_chem_viewer.html?book=shinkenkyu_chem&page=412" class="toc-sub-link">
+                        <span class="toc-sub-num">3</span>
+                        <span class="toc-sub-title">酸素硫黄とその化合物</span>
+                        <span class="toc-sub-page">p.412</span>
+                    </a>
+                    <a href="shinkenkyu_chem_viewer.html?book=shinkenkyu_chem&page=427" class="toc-sub-link">
+                        <span class="toc-sub-num">4</span>
+                        <span class="toc-sub-title">窒素リンとその化合物</span>
+                        <span class="toc-sub-page">p.427</span>
+                    </a>
+                    <a href="shinkenkyu_chem_viewer.html?book=shinkenkyu_chem&page=440" class="toc-sub-link">
+                        <span class="toc-sub-num">5</span>
+                        <span class="toc-sub-title">炭素ケイ素とその化合物</span>
+                        <span class="toc-sub-page">p.440</span>
+                    </a>
+                    <a href="shinkenkyu_chem_viewer.html?book=shinkenkyu_chem&page=458" class="toc-sub-link">
+                        <span class="toc-sub-num">6</span>
+                        <span class="toc-sub-title">気体の製法と性質</span>
+                        <span class="toc-sub-page">p.458</span>
+                    </a>
+                    <a href="shinkenkyu_chem_viewer.html?book=shinkenkyu_chem&page=464" class="toc-sub-link">
+                        <span class="toc-sub-num">7</span>
+                        <span class="toc-sub-title">アルカリ金属とその化合物</span>
+                        <span class="toc-sub-page">p.464</span>
+                    </a>
+                    <a href="shinkenkyu_chem_viewer.html?book=shinkenkyu_chem&page=472" class="toc-sub-link">
+                        <span class="toc-sub-num">8</span>
+                        <span class="toc-sub-title">アルカリ土類金属とその化合物</span>
+                        <span class="toc-sub-page">p.472</span>
+                    </a>
+                    <a href="shinkenkyu_chem_viewer.html?book=shinkenkyu_chem&page=480" class="toc-sub-link">
+                        <span class="toc-sub-num">9</span>
+                        <span class="toc-sub-title">アルミニウムとその化合物</span>
+                        <span class="toc-sub-page">p.480</span>
+                    </a>
+                    <a href="shinkenkyu_chem_viewer.html?book=shinkenkyu_chem&page=486" class="toc-sub-link">
+                        <span class="toc-sub-num">10</span>
+                        <span class="toc-sub-title">亜鉛水銀とその化合物</span>
+                        <span class="toc-sub-page">p.486</span>
+                    </a>
+                    <a href="shinkenkyu_chem_viewer.html?book=shinkenkyu_chem&page=491" class="toc-sub-link">
+                        <span class="toc-sub-num">11</span>
+                        <span class="toc-sub-title">スズ鉛とその性質</span>
+                        <span class="toc-sub-page">p.491</span>
+                    </a>
+                    <a href="shinkenkyu_chem_viewer.html?book=shinkenkyu_chem&page=496" class="toc-sub-link">
+                        <span class="toc-sub-num">12</span>
+                        <span class="toc-sub-title">遷移元素の特徴</span>
+                        <span class="toc-sub-page">p.496</span>
+                    </a>
+                    <a href="shinkenkyu_chem_viewer.html?book=shinkenkyu_chem&page=499" class="toc-sub-link">
+                        <span class="toc-sub-num">13</span>
+                        <span class="toc-sub-title">錯イオンと錯塩</span>
+                        <span class="toc-sub-page">p.499</span>
+                    </a>
+                    <a href="shinkenkyu_chem_viewer.html?book=shinkenkyu_chem&page=505" class="toc-sub-link">
+                        <span class="toc-sub-num">14</span>
+                        <span class="toc-sub-title">鉄とその化合物</span>
+                        <span class="toc-sub-page">p.505</span>
+                    </a>
+                    <a href="shinkenkyu_chem_viewer.html?book=shinkenkyu_chem&page=514" class="toc-sub-link">
+                        <span class="toc-sub-num">15</span>
+                        <span class="toc-sub-title">銅とその化合物</span>
+                        <span class="toc-sub-page">p.514</span>
+                    </a>
+                    <a href="shinkenkyu_chem_viewer.html?book=shinkenkyu_chem&page=519" class="toc-sub-link">
+                        <span class="toc-sub-num">16</span>
+                        <span class="toc-sub-title">銀とその化合物</span>
+                        <span class="toc-sub-page">p.519</span>
+                    </a>
+                    <a href="shinkenkyu_chem_viewer.html?book=shinkenkyu_chem&page=523" class="toc-sub-link">
+                        <span class="toc-sub-num">17</span>
+                        <span class="toc-sub-title">クロムマンガンとその化合物</span>
+                        <span class="toc-sub-page">p.523</span>
+                    </a>
+                    <a href="shinkenkyu_chem_viewer.html?book=shinkenkyu_chem&page=527" class="toc-sub-link">
+                        <span class="toc-sub-num">18</span>
+                        <span class="toc-sub-title">金属イオンの分離確認</span>
+                        <span class="toc-sub-page">p.527</span>
+                    </a>
+                </div>
+            </details>
+        </div>
+        <div class="toc-chapter">
+            <details class="toc-accordion">
+                <summary class="toc-chapter-link">
+                    <span class="toc-chapter-title">第5章 有機化合物</span>
+                    <span class="toc-chapter-meta">
+                        <span class="toc-chapter-pages">p.535–689</span>
+                        <span class="toc-chevron">▶</span>
+                    </span>
+                </summary>
+                <div class="toc-subsections">
+                    <a href="shinkenkyu_chem_viewer.html?book=shinkenkyu_chem&page=535" class="toc-sub-link">
+                        <span class="toc-sub-num">1</span>
+                        <span class="toc-sub-title">有機化合物の特徴</span>
+                        <span class="toc-sub-page">p.535</span>
+                    </a>
+                    <a href="shinkenkyu_chem_viewer.html?book=shinkenkyu_chem&page=538" class="toc-sub-link">
+                        <span class="toc-sub-num">2</span>
+                        <span class="toc-sub-title">有機化合物の分類</span>
+                        <span class="toc-sub-page">p.538</span>
+                    </a>
+                    <a href="shinkenkyu_chem_viewer.html?book=shinkenkyu_chem&page=541" class="toc-sub-link">
+                        <span class="toc-sub-num">3</span>
+                        <span class="toc-sub-title">有機化合物の構造決定</span>
+                        <span class="toc-sub-page">p.541</span>
+                    </a>
+                    <a href="shinkenkyu_chem_viewer.html?book=shinkenkyu_chem&page=549" class="toc-sub-link">
+                        <span class="toc-sub-num">4</span>
+                        <span class="toc-sub-title">アルカンとシクロアルカン</span>
+                        <span class="toc-sub-page">p.549</span>
+                    </a>
+                    <a href="shinkenkyu_chem_viewer.html?book=shinkenkyu_chem&page=559" class="toc-sub-link">
+                        <span class="toc-sub-num">5</span>
+                        <span class="toc-sub-title">アルケン</span>
+                        <span class="toc-sub-page">p.559</span>
+                    </a>
+                    <a href="shinkenkyu_chem_viewer.html?book=shinkenkyu_chem&page=569" class="toc-sub-link">
+                        <span class="toc-sub-num">6</span>
+                        <span class="toc-sub-title">アルキン</span>
+                        <span class="toc-sub-page">p.569</span>
+                    </a>
+                    <a href="shinkenkyu_chem_viewer.html?book=shinkenkyu_chem&page=576" class="toc-sub-link">
+                        <span class="toc-sub-num">7</span>
+                        <span class="toc-sub-title">石油と天然ガスと石炭</span>
+                        <span class="toc-sub-page">p.576</span>
+                    </a>
+                    <a href="shinkenkyu_chem_viewer.html?book=shinkenkyu_chem&page=580" class="toc-sub-link">
+                        <span class="toc-sub-num">8</span>
+                        <span class="toc-sub-title">アルコールとエーテル</span>
+                        <span class="toc-sub-page">p.580</span>
+                    </a>
+                    <a href="shinkenkyu_chem_viewer.html?book=shinkenkyu_chem&page=589" class="toc-sub-link">
+                        <span class="toc-sub-num">9</span>
+                        <span class="toc-sub-title">アルデヒドとケトン</span>
+                        <span class="toc-sub-page">p.589</span>
+                    </a>
+                    <a href="shinkenkyu_chem_viewer.html?book=shinkenkyu_chem&page=597" class="toc-sub-link">
+                        <span class="toc-sub-num">10</span>
+                        <span class="toc-sub-title">カルボン酸</span>
+                        <span class="toc-sub-page">p.597</span>
+                    </a>
+                    <a href="shinkenkyu_chem_viewer.html?book=shinkenkyu_chem&page=614" class="toc-sub-link">
+                        <span class="toc-sub-num">11</span>
+                        <span class="toc-sub-title">エステル</span>
+                        <span class="toc-sub-page">p.614</span>
+                    </a>
+                    <a href="shinkenkyu_chem_viewer.html?book=shinkenkyu_chem&page=619" class="toc-sub-link">
+                        <span class="toc-sub-num">12</span>
+                        <span class="toc-sub-title">油脂</span>
+                        <span class="toc-sub-page">p.619</span>
+                    </a>
+                    <a href="shinkenkyu_chem_viewer.html?book=shinkenkyu_chem&page=626" class="toc-sub-link">
+                        <span class="toc-sub-num">13</span>
+                        <span class="toc-sub-title">セッケンと合成洗剤</span>
+                        <span class="toc-sub-page">p.626</span>
+                    </a>
+                    <a href="shinkenkyu_chem_viewer.html?book=shinkenkyu_chem&page=632" class="toc-sub-link">
+                        <span class="toc-sub-num">14</span>
+                        <span class="toc-sub-title">芳香族炭化水素</span>
+                        <span class="toc-sub-page">p.632</span>
+                    </a>
+                    <a href="shinkenkyu_chem_viewer.html?book=shinkenkyu_chem&page=648" class="toc-sub-link">
+                        <span class="toc-sub-num">15</span>
+                        <span class="toc-sub-title">フェノール類</span>
+                        <span class="toc-sub-page">p.648</span>
+                    </a>
+                    <a href="shinkenkyu_chem_viewer.html?book=shinkenkyu_chem&page=656" class="toc-sub-link">
+                        <span class="toc-sub-num">16</span>
+                        <span class="toc-sub-title">芳香族カルボン酸</span>
+                        <span class="toc-sub-page">p.656</span>
+                    </a>
+                    <a href="shinkenkyu_chem_viewer.html?book=shinkenkyu_chem&page=670" class="toc-sub-link">
+                        <span class="toc-sub-num">17</span>
+                        <span class="toc-sub-title">芳香族アミン</span>
+                        <span class="toc-sub-page">p.670</span>
+                    </a>
+                    <a href="shinkenkyu_chem_viewer.html?book=shinkenkyu_chem&page=684" class="toc-sub-link">
+                        <span class="toc-sub-num">18</span>
+                        <span class="toc-sub-title">有機化合物の分離</span>
+                        <span class="toc-sub-page">p.684</span>
+                    </a>
+                </div>
+            </details>
+        </div>
+        <div class="toc-chapter">
+            <details class="toc-accordion">
+                <summary class="toc-chapter-link">
+                    <span class="toc-chapter-title">第6章 高分子化合物</span>
+                    <span class="toc-chapter-meta">
+                        <span class="toc-chapter-pages">p.690–822</span>
+                        <span class="toc-chevron">▶</span>
+                    </span>
+                </summary>
+                <div class="toc-subsections">
+                    <a href="shinkenkyu_chem_viewer.html?book=shinkenkyu_chem&page=690" class="toc-sub-link">
+                        <span class="toc-sub-num">1</span>
+                        <span class="toc-sub-title">天然高分子の分類と特徴</span>
+                        <span class="toc-sub-page">p.690</span>
+                    </a>
+                    <a href="shinkenkyu_chem_viewer.html?book=shinkenkyu_chem&page=697" class="toc-sub-link">
+                        <span class="toc-sub-num">2</span>
+                        <span class="toc-sub-title">単糖類と二糖類</span>
+                        <span class="toc-sub-page">p.697</span>
+                    </a>
+                    <a href="shinkenkyu_chem_viewer.html?book=shinkenkyu_chem&page=712" class="toc-sub-link">
+                        <span class="toc-sub-num">3</span>
+                        <span class="toc-sub-title">多糖類</span>
+                        <span class="toc-sub-page">p.712</span>
+                    </a>
+                    <a href="shinkenkyu_chem_viewer.html?book=shinkenkyu_chem&page=724" class="toc-sub-link">
+                        <span class="toc-sub-num">4</span>
+                        <span class="toc-sub-title">アミノ酸</span>
+                        <span class="toc-sub-page">p.724</span>
+                    </a>
+                    <a href="shinkenkyu_chem_viewer.html?book=shinkenkyu_chem&page=737" class="toc-sub-link">
+                        <span class="toc-sub-num">5</span>
+                        <span class="toc-sub-title">タンパク質</span>
+                        <span class="toc-sub-page">p.737</span>
+                    </a>
+                    <a href="shinkenkyu_chem_viewer.html?book=shinkenkyu_chem&page=769" class="toc-sub-link">
+                        <span class="toc-sub-num">6</span>
+                        <span class="toc-sub-title">核酸</span>
+                        <span class="toc-sub-page">p.769</span>
+                    </a>
+                    <a href="shinkenkyu_chem_viewer.html?book=shinkenkyu_chem&page=778" class="toc-sub-link">
+                        <span class="toc-sub-num">7</span>
+                        <span class="toc-sub-title">脂質</span>
+                        <span class="toc-sub-page">p.778</span>
+                    </a>
+                    <a href="shinkenkyu_chem_viewer.html?book=shinkenkyu_chem&page=784" class="toc-sub-link">
+                        <span class="toc-sub-num">8</span>
+                        <span class="toc-sub-title">合成繊維</span>
+                        <span class="toc-sub-page">p.784</span>
+                    </a>
+                    <a href="shinkenkyu_chem_viewer.html?book=shinkenkyu_chem&page=793" class="toc-sub-link">
+                        <span class="toc-sub-num">9</span>
+                        <span class="toc-sub-title">合成樹脂</span>
+                        <span class="toc-sub-page">p.793</span>
+                    </a>
+                    <a href="shinkenkyu_chem_viewer.html?book=shinkenkyu_chem&page=805" class="toc-sub-link">
+                        <span class="toc-sub-num">10</span>
+                        <span class="toc-sub-title">ゴム</span>
+                        <span class="toc-sub-page">p.805</span>
+                    </a>
+                    <a href="shinkenkyu_chem_viewer.html?book=shinkenkyu_chem&page=813" class="toc-sub-link">
+                        <span class="toc-sub-num">11</span>
+                        <span class="toc-sub-title">イオン交換樹脂</span>
+                        <span class="toc-sub-page">p.813</span>
+                    </a>
+                    <a href="shinkenkyu_chem_viewer.html?book=shinkenkyu_chem&page=817" class="toc-sub-link">
+                        <span class="toc-sub-num">12</span>
+                        <span class="toc-sub-title">機能性高分子</span>
+                        <span class="toc-sub-page">p.817</span>
+                    </a>
+                </div>
+            </details>
+        </div>
+        <div class="toc-chapter">
+            <details class="toc-accordion">
+                <summary class="toc-chapter-link">
+                    <span class="toc-chapter-title">索引</span>
+                    <span class="toc-chapter-meta">
+                        <span class="toc-chapter-pages">p.823–836</span>
+                        <span class="toc-chevron">▶</span>
+                    </span>
+                </summary>
+                <div class="toc-subsections">
+                    <a href="shinkenkyu_chem_viewer.html?book=shinkenkyu_chem&page=823" class="toc-sub-link">
+                        <span class="toc-sub-num">0</span>
+                        <span class="toc-sub-title">索引</span>
+                        <span class="toc-sub-page">p.823</span>
+                    </a>
+                </div>
+            </details>
+        </div>
+        </div>
+        <div class="toc-footer">© 2026 ECCベストワン藍住・北島中央</div>
+    </div>
+    <script>
+        document.querySelectorAll('.toc-accordion').forEach(det => {
+            det.addEventListener('toggle', () => {
+                if (det.open) {
+                    document.querySelectorAll('.toc-accordion').forEach(other => {
+                        if (other !== det) other.open = false;
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+{
+  "name": "やっておきたい英語長文300 Viewer",
+  "short_name": "長文300",
+  "start_url": "./kawai_300_viewer.html",
+  "display": "fullscreen",
+  "background_color": "#1a1a1a",
+  "theme_color": "#1e3c72",
+  "icons": [
+    {
+      "src": "images/icons/icon-kawai_300-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "images/icons/icon-kawai_300-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
