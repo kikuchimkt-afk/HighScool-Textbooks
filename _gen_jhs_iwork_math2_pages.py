@@ -6,6 +6,9 @@ Requires: PyMuPDF (fitz), Pillow
 
 Default PDF source: D:\\Files\\(2025)iワーク\\中2数学\\
 Override: set JHS_MATH2_PDF_DIR to the folder containing the four PDFs.
+
+表紙・ファビコンを PDF 先頭ページから揃える: _gen_jhs_iwork_math2_cover_and_icons.py を先に実行し、
+images/jhs_iwork_math2_cover.png と page_0001.png・icons を更新してから本スクリプトを回す。
 """
 from __future__ import annotations
 
