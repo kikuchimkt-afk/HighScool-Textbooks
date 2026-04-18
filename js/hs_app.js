@@ -644,8 +644,14 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    /** iワーク中学: モノクロ別exportがなく viewer と同じ PNG を印刷に使う */
+    const jhsViewerPrint =
+        bookData.id && String(bookData.id).startsWith('jhs_iwork_');
+    const hasDedicatedPrintBw =
+        bookData.printImagesPath != null && bookData.printImagesPath !== '';
+
     if (printBtn) {
-        if (bookData.printImagesPath === null) {
+        if (!hasDedicatedPrintBw && !jhsViewerPrint) {
             printBtn.style.display = 'none';
         } else {
             printBtn.addEventListener('click', () => {
@@ -786,18 +792,56 @@ document.addEventListener('DOMContentLoaded', () => {
     const answerImg = document.getElementById('answer-img');
     const answerBody = document.getElementById('answer-modal-body');
 
-    // 解答ページ範囲（bookDataから動的取得）
-    const answersSection = bookData.chapters ? bookData.chapters.find(ch => ch.id === 'answers') : null;
+    // 解答ページ範囲（bookDataから動的取得）— 高校は answers、iワーク中学は main_answers
+    const answersSection = bookData.chapters
+        ? bookData.chapters.find(ch => ch.id === 'answers' || ch.id === 'main_answers')
+        : null;
     const ANSWER_START = answersSection ? answersSection.start : TOTAL_PAGES;
     const ANSWER_END = answersSection ? answersSection.end : TOTAL_PAGES;
     const CONTENT_END = ANSWER_START - 1; // 本編最終ページ
     let answerCurrentPage = ANSWER_START;
     let answerZoom = 1;
+    let activeAnswerStart = ANSWER_START;
+    let activeAnswerEnd = ANSWER_END;
 
-    /** 問題編のどの章にいるか（answers 章は除外）。範囲外・章間の空白は start が最大の章に寄せる */
+    /**
+     * iワーク中学（本編↔本編解答・プラス↔プラス解答）の解答レンジ。
+     * それ以外の書籍は null（従来の estimate に委ねる）
+     */
+    function getAnswerBoundsForViewPage(viewPage) {
+        if (!bookData.chapters) return null;
+        const main = bookData.chapters.find(c => c.id === 'main');
+        const mainAns = bookData.chapters.find(c => c.id === 'main_answers');
+        const plus = bookData.chapters.find(c => c.id === 'plus');
+        const plusAns = bookData.chapters.find(c => c.id === 'plus_answers');
+        if (!main || !mainAns) return null;
+
+        if (viewPage >= mainAns.start && viewPage <= mainAns.end) {
+            return { start: mainAns.start, end: mainAns.end, probStart: main.start, probEnd: main.end };
+        }
+        if (plus && plusAns && viewPage >= plusAns.start && viewPage <= plusAns.end) {
+            return { start: plusAns.start, end: plusAns.end, probStart: plus.start, probEnd: plus.end };
+        }
+        if (viewPage >= main.start && viewPage <= main.end) {
+            return { start: mainAns.start, end: mainAns.end, probStart: main.start, probEnd: main.end };
+        }
+        if (plus && plusAns && viewPage >= plus.start && viewPage <= plus.end) {
+            return { start: plusAns.start, end: plusAns.end, probStart: plus.start, probEnd: plus.end };
+        }
+        if (viewPage < main.start) {
+            return { start: mainAns.start, end: mainAns.end, probStart: main.start, probEnd: main.end };
+        }
+        if (plus && viewPage > main.end && viewPage < plus.start) {
+            return { start: mainAns.start, end: mainAns.end, probStart: main.start, probEnd: main.end };
+        }
+        return { start: mainAns.start, end: mainAns.end, probStart: main.start, probEnd: main.end };
+    }
+
+    /** 問題編のどの章にいるか（解答章は除外）。範囲外・章間の空白は start が最大の章に寄せる */
     function findProblemChapterForPage(viewPage) {
         if (!bookData.chapters) return null;
-        const probChapters = bookData.chapters.filter(ch => ch.id !== 'answers');
+        const skip = new Set(['answers', 'main_answers', 'plus_answers', 'cover']);
+        const probChapters = bookData.chapters.filter(ch => !skip.has(ch.id));
         const exact = probChapters.find(ch => viewPage >= ch.start && viewPage <= ch.end);
         if (exact) return exact;
         const cap = answersSection ? Math.min(viewPage, answersSection.start - 1) : viewPage;
@@ -808,7 +852,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function estimateAnswerPage(viewPage) {
         if (bookData.chapters) {
-            const ansChap = bookData.chapters.find(ch => ch.id === 'answers');
+            const ansChap = bookData.chapters.find(
+                ch => ch.id === 'answers' || ch.id === 'main_answers'
+            );
+
+            const iworkBounds = getAnswerBoundsForViewPage(viewPage);
+            if (iworkBounds) {
+                if (viewPage >= iworkBounds.start && viewPage <= iworkBounds.end) return viewPage;
+                if (
+                    viewPage >= iworkBounds.probStart &&
+                    viewPage <= iworkBounds.probEnd &&
+                    iworkBounds.probEnd > iworkBounds.probStart
+                ) {
+                    const ratio =
+                        (viewPage - iworkBounds.probStart) /
+                        (iworkBounds.probEnd - iworkBounds.probStart);
+                    return Math.min(
+                        iworkBounds.end,
+                        Math.max(
+                            iworkBounds.start,
+                            Math.round(
+                                iworkBounds.start +
+                                    ratio * (iworkBounds.end - iworkBounds.start)
+                            )
+                        )
+                    );
+                }
+            }
 
             // 河合「やっておきたい英語長文」系: 各問題章の subsections は
             // [{ num: "答", title: "解答・解説", page: <解答PDFのグローバル頁> }] のみ。
@@ -823,7 +893,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // 詳細なサブセクション（Lessonごとのページ指定）がある場合はそれを利用
             const mainChap = bookData.chapters.find(ch => viewPage >= ch.start && viewPage <= ch.end);
-            if (mainChap && mainChap.subsections && ansChap && ansChap.subsections) {
+            if (mainChap && mainChap.subsections && ansChap && ansChap.subsections && ansChap.subsections.length) {
                 let qSubIdx = -1;
                 for (let i = 0; i < mainChap.subsections.length; i++) {
                     if (viewPage >= mainChap.subsections[i].page) {
@@ -843,8 +913,10 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        // すでに解答編を表示中ならそのまま
-        if (viewPage >= ANSWER_START) return viewPage;
+        // すでに解答編を表示中ならそのまま（高校の answers 章。中学 iワークは上の iworkBounds で処理）
+        if (!getAnswerBoundsForViewPage(viewPage) && viewPage >= ANSWER_START && viewPage <= ANSWER_END) {
+            return viewPage;
+        }
 
         // サブセクションがない従来の本（数学など）用：比率計算による推測
         const questionStart = bookData.id === 'polaris1' ? 2 : 6;
@@ -854,13 +926,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function loadAnswerPage(page) {
-        answerCurrentPage = Math.max(ANSWER_START, Math.min(ANSWER_END, page));
+        answerCurrentPage = Math.max(activeAnswerStart, Math.min(activeAnswerEnd, page));
         answerZoom = 1;
         answerImg.style.transform = `scale(1)`;
         answerImg.src = getImageSrc(answerCurrentPage);
         answerTitle.textContent = `解答 P.${answerCurrentPage}`;
-        answerPrev.disabled = (answerCurrentPage <= ANSWER_START);
-        answerNext.disabled = (answerCurrentPage >= ANSWER_END);
+        answerPrev.disabled = (answerCurrentPage <= activeAnswerStart);
+        answerNext.disabled = (answerCurrentPage >= activeAnswerEnd);
         // スクロール位置をリセット
         if (answerBody) answerBody.scrollTop = 0;
     }
@@ -877,6 +949,14 @@ document.addEventListener('DOMContentLoaded', () => {
             answerBtn.style.display = 'none';
         } else {
             answerBtn.addEventListener('click', () => {
+                const b = getAnswerBoundsForViewPage(currentPage);
+                if (b) {
+                    activeAnswerStart = b.start;
+                    activeAnswerEnd = b.end;
+                } else {
+                    activeAnswerStart = ANSWER_START;
+                    activeAnswerEnd = ANSWER_END;
+                }
                 const estimated = estimateAnswerPage(currentPage);
                 loadAnswerPage(estimated);
                 answerOverlay.style.display = 'flex';
