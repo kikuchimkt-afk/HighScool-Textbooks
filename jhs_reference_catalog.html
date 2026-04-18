@@ -123,14 +123,18 @@
             <button type="button" class="tab-btn active" data-cat="all">すべて</button>
             <button type="button" class="tab-btn" data-cat="jmath">数学</button>
             <button type="button" class="tab-btn" data-cat="jsci">理科</button>
+            <button type="button" class="tab-btn" data-cat="jeng">英語</button>
         </div>
 
         <div class="grid" id="grid"></div>
     </div>
 
     <script>
-        const CAT_LABEL = { jmath: '数学', jsci: '理科' };
+        const CAT_LABEL = { jmath: '数学', jsci: '理科', jeng: '英語' };
         const books = [
+            { id: 'jhs_iwork_english3', cat: 'jeng', title: 'iワーク 中3英語', desc: '開隆堂「SUNSHINE ENGLISH COURSE 3」本冊・解答・iワークプラス', cover: 'images/jhs_iwork_english3_cover.jpg', toc: 'jhs_iwork_english3_toc.html' },
+            { id: 'jhs_iwork_english2', cat: 'jeng', title: 'iワーク 中2英語', desc: '開隆堂「SUNSHINE ENGLISH COURSE 2」本冊・解答・iワークプラス', cover: 'images/jhs_iwork_english2_cover.jpg', toc: 'jhs_iwork_english2_toc.html' },
+            { id: 'jhs_iwork_english1', cat: 'jeng', title: 'iワーク 中1英語', desc: '啓林館「SUNSHINE ENGLISH COURSE 1」本冊・解答・iワークプラス', cover: 'images/jhs_iwork_english1_cover.jpg', toc: 'jhs_iwork_english1_toc.html' },
             { id: 'jhs_iwork_math1', cat: 'jmath', title: 'iワーク 中1数学', desc: '啓林館「未来へひろがる数学1」本冊・解答・iワークプラス', cover: 'images/jhs_iwork_math1_cover.png', toc: 'jhs_iwork_math1_toc.html' },
             { id: 'jhs_iwork_math2', cat: 'jmath', title: 'iワーク 中2数学', desc: '啓林館「未来へひろがる数学2」本冊・解答・iワークプラス', cover: 'images/jhs_iwork_math2_cover.png', toc: 'jhs_iwork_math2_toc.html' },
             { id: 'jhs_iwork_math3', cat: 'jmath', title: 'iワーク 中3数学', desc: '啓林館「未来へひろがる数学3」本冊・解答・iワークプラス', cover: 'images/jhs_iwork_math3_cover.png', toc: 'jhs_iwork_math3_toc.html' },

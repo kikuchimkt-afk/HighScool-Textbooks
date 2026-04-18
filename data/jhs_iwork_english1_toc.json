@@ -1,0 +1,60 @@
+{
+  "book_info": {
+    "title": "iワーク 中1英語",
+    "book_id": "jhs_iwork_english1",
+    "source_dir_hint": "D:\\Files\\(2025)iワーク\\中1英語",
+    "note": "提供 TOC は抜粋。未登録ユニットは随時追加予定。",
+    "columns": {
+      "guide_page": "本冊（ワーク）のページ",
+      "textbook_page": "教科書の参照ページ"
+    }
+  },
+  "table_of_contents": [
+    {
+      "unit_group": "言語活動⓪",
+      "items": [
+        { "id": 1, "title": "新出単語・重要表現", "content": "", "guide_page": "4", "textbook_page": "7-20" },
+        { "id": 2, "title": "Get Ready 1, 2　町の中の会話を聞こう / 英語すごろくをしよう", "content": "", "guide_page": "5", "textbook_page": "8-11" }
+      ]
+    },
+    {
+      "unit_group": "PROGRAM 1: 友だちを作ろう",
+      "items": [
+        { "id": 10, "title": "① Scenes 1 / Part 1", "content": "be動詞の am と are（肯定文と否定文）", "guide_page": "14", "textbook_page": "22-23, 24" },
+        { "id": 11, "title": "② Scenes 2 / Part 2 / Action / 英語早わかり / Step 1 発表上手になろう", "content": "be動詞の am と are（疑問文）／「どこ」とたずねる文", "guide_page": "16", "textbook_page": "22-23, 25, 28" },
+        { "id": 12, "title": "定期テスト対策A", "content": "", "guide_page": "18", "textbook_page": "21-28" }
+      ]
+    },
+    {
+      "unit_group": "PROGRAM 2: 1-Bの生徒たち",
+      "items": [
+        { "id": 16, "title": "① Scenes 1 / Part 1", "content": "一般動詞（肯定文と否定文）/ 複数形", "guide_page": "24", "textbook_page": "30-31, 32" },
+        { "id": 17, "title": "② Scenes 2 / Part 2 / Action / 英語早わかり", "content": "一般動詞（疑問文）／「いつ」とたずねる文", "guide_page": "26", "textbook_page": "30-31, 33-35" }
+      ]
+    },
+    {
+      "unit_group": "PROGRAM 5: Pajama Day",
+      "items": [
+        { "id": 44, "title": "① Scenes 1 / Part 1", "content": "三人称・単数・現在（肯定文と否定文）", "guide_page": "68", "textbook_page": "62-63, 65" },
+        { "id": 45, "title": "② Scenes 2 / Part 2 / Review / Action / 英語早わかり", "content": "三人称・単数・現在（疑問文）", "guide_page": "70", "textbook_page": "62-63, 66-69" }
+      ]
+    },
+    {
+      "unit_group": "PROGRAM 9: A Trip to Finland",
+      "items": [
+        { "id": 88, "title": "① Scenes 1 / Part 1", "content": "一般動詞の過去形（規則動詞）", "guide_page": "134", "textbook_page": "110-111, 113" },
+        { "id": 89, "title": "② Scenes 2 / Part 2", "content": "一般動詞の過去形（不規則動詞）", "guide_page": "136", "textbook_page": "110-111, 114" },
+        { "id": 90, "title": "③ Scenes 3 / Part 3 / Review & Retell / Action / 英語早わかり", "content": "一般動詞の過去形（否定文 / 疑問文）", "guide_page": "138", "textbook_page": "110-111, 115-118" }
+      ]
+    },
+    {
+      "unit_group": "付録",
+      "items": [
+        { "id": null, "title": "Word Web", "content": "", "guide_page": "173", "textbook_page": "141-144" },
+        { "id": null, "title": "不規則動詞活用表", "content": "", "guide_page": "177", "textbook_page": "" },
+        { "id": null, "title": "重要例文のまとめ", "content": "", "guide_page": "178", "textbook_page": "" },
+        { "id": null, "title": "資料", "content": "", "guide_page": "180", "textbook_page": "" }
+      ]
+    }
+  ]
+}

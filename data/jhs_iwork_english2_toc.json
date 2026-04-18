@@ -1,0 +1,205 @@
+{
+  "book_info": {
+    "title": "iワーク 中2英語",
+    "book_id": "jhs_iwork_english2",
+    "textbook": "中学2年 英語 開隆堂版準拠",
+    "source_dir_hint": "D:\\Files\\(2025)iワーク\\中2英語",
+    "columns": {
+      "workbook_page": "本冊（ワーク）のページ",
+      "textbook_page": "教科書の参照ページ"
+    }
+  },
+  "table_of_contents": [
+    {
+      "unit_name": "中1の復習",
+      "items": [
+        { "id": 1, "title": "中1の復習", "details": "", "workbook_page": "4", "textbook_page": "" },
+        { "id": 2, "title": "中1の復習", "details": "", "workbook_page": "6", "textbook_page": "" },
+        { "id": 3, "title": "中1の復習", "details": "", "workbook_page": "8", "textbook_page": "" },
+        { "id": 4, "title": "中1の復習", "details": "", "workbook_page": "10", "textbook_page": "" },
+        { "id": 5, "title": "中1の復習", "details": "", "workbook_page": "12", "textbook_page": "" }
+      ]
+    },
+    {
+      "unit_name": "PROGRAM 1: New Start",
+      "items": [
+        { "id": 6,  "title": "新出単語・重要表現",                                                "details": "",                             "workbook_page": "13", "textbook_page": "7-18" },
+        { "id": 7,  "title": "①Scenes / Part",                                                 "details": "未来表現（be going to ~）",     "workbook_page": "14", "textbook_page": "8-9, 11" },
+        { "id": 8,  "title": "②Scenes / Part",                                                 "details": "未来表現（will）",              "workbook_page": "16", "textbook_page": "8-9, 12" },
+        { "id": 9,  "title": "③Scenes / Part / Review&Retell / Action / 英語早わかり / Step 1 確かな表現で言いかえよう", "details": "動名詞", "workbook_page": "18", "textbook_page": "8-9, 13-16, 18" },
+        { "id": 10, "title": "定期テスト対策A",                                                  "details": "",                             "workbook_page": "20", "textbook_page": "7-18" },
+        { "id": 11, "title": "定期テスト対策B",                                                  "details": "",                             "workbook_page": "22", "textbook_page": "7-18" },
+        { "id": 12, "title": "新出単語・重要表現の総チェック",                                     "details": "",                             "workbook_page": "24", "textbook_page": "7-18" }
+      ]
+    },
+    {
+      "unit_name": "PROGRAM 2: Koshien Project In Africa",
+      "items": [
+        { "id": 13, "title": "新出単語・重要表現",                                        "details": "",                                  "workbook_page": "25", "textbook_page": "19-28" },
+        { "id": 14, "title": "①Scenes / Part",                                         "details": "接続詞（that）",                    "workbook_page": "26", "textbook_page": "20-21, 23" },
+        { "id": 15, "title": "②Scenes / Part",                                         "details": "接続詞（when）",                    "workbook_page": "28", "textbook_page": "20-21, 24" },
+        { "id": 16, "title": "③Scenes / Part / Review&Retell / Action / 英語早わかり",  "details": "接続詞（if / because）",           "workbook_page": "30", "textbook_page": "20-21, 25-28" },
+        { "id": 17, "title": "定期テスト対策A",                                          "details": "",                                  "workbook_page": "32", "textbook_page": "19-28" },
+        { "id": 18, "title": "定期テスト対策B",                                          "details": "",                                  "workbook_page": "34", "textbook_page": "19-28" },
+        { "id": 19, "title": "重要文法の整理①（接続詞）",                                 "details": "",                                  "workbook_page": "36", "textbook_page": "" },
+        { "id": 20, "title": "新出単語・重要表現の総チェック",                              "details": "",                                  "workbook_page": "38", "textbook_page": "19-28" }
+      ]
+    },
+    {
+      "unit_name": "言語活動①",
+      "items": [
+        { "id": 21, "title": "新出単語・重要表現",                                                       "details": "",                      "workbook_page": "39", "textbook_page": "29-30" },
+        { "id": 22, "title": "Power-Up 1 / Step 2　天気予報を聞こう / 魅力を伝えるためのコツを知ろう",  "details": "天気予報の表現",          "workbook_page": "40", "textbook_page": "29-30" },
+        { "id": 23, "title": "定期テスト対策A / 定期テスト対策B",                                       "details": "",                      "workbook_page": "41", "textbook_page": "29-30" },
+        { "id": 24, "title": "リスニング・英作文・読解トレーニング①（天気予報）",                        "details": "",                      "workbook_page": "42", "textbook_page": "" },
+        { "id": 25, "title": "新出単語・重要表現の総チェック",                                           "details": "",                      "workbook_page": "44", "textbook_page": "29-30" }
+      ]
+    },
+    {
+      "unit_name": "PROGRAM 3: Taste of Culture",
+      "items": [
+        { "id": 26, "title": "新出単語・重要表現",                                        "details": "",                              "workbook_page": "45", "textbook_page": "31-40" },
+        { "id": 27, "title": "①Scenes / Part",                                         "details": "不定詞（名詞的用法）",           "workbook_page": "46", "textbook_page": "32-33, 35" },
+        { "id": 28, "title": "②Scenes / Part",                                         "details": "不定詞（副詞的用法）",           "workbook_page": "48", "textbook_page": "32-33, 36" },
+        { "id": 29, "title": "③Scenes / Part / Review&Retell / Action / 英語早わかり",  "details": "不定詞（形容詞的用法）",        "workbook_page": "50", "textbook_page": "32-33, 37-40" },
+        { "id": 30, "title": "定期テスト対策A",                                          "details": "",                              "workbook_page": "52", "textbook_page": "31-40" },
+        { "id": 31, "title": "定期テスト対策B",                                          "details": "",                              "workbook_page": "54", "textbook_page": "31-40" },
+        { "id": 32, "title": "新出単語・重要表現の総チェック",                              "details": "",                              "workbook_page": "56", "textbook_page": "31-40" }
+      ]
+    },
+    {
+      "unit_name": "言語活動②",
+      "items": [
+        { "id": 33, "title": "新出単語・重要表現",                                                "details": "",                          "workbook_page": "57", "textbook_page": "41-50" },
+        { "id": 34, "title": "Our Project 4　海外でヒットするラーメンのCMを作ろう",               "details": "CM台本を作る",              "workbook_page": "58", "textbook_page": "41-45" },
+        { "id": 35, "title": "Reading 1　The Three Dolls ①",                               "details": "未来表現（復習）",            "workbook_page": "59", "textbook_page": "46" },
+        { "id": 36, "title": "Reading 1　The Three Dolls ②",                               "details": "接続詞（復習）",              "workbook_page": "60", "textbook_page": "47" },
+        { "id": 37, "title": "Reading 1　The Three Dolls ③",                               "details": "不定詞（復習）",              "workbook_page": "61", "textbook_page": "48-49" },
+        { "id": 38, "title": "Power-Up 2　電話をかけよう",                                    "details": "電話の表現",                "workbook_page": "62", "textbook_page": "50" },
+        { "id": 39, "title": "定期テスト対策A",                                               "details": "",                          "workbook_page": "63", "textbook_page": "41-50" },
+        { "id": 40, "title": "定期テスト対策B",                                               "details": "",                          "workbook_page": "65", "textbook_page": "41-50" },
+        { "id": 41, "title": "リスニング・英作文・読解トレーニング②（旅行計画）",                 "details": "",                          "workbook_page": "66", "textbook_page": "" },
+        { "id": 42, "title": "新出単語・重要表現の総チェック",                                   "details": "",                          "workbook_page": "68", "textbook_page": "41-50" }
+      ]
+    },
+    {
+      "unit_name": "PROGRAM 4: Leave Only Footprints",
+      "items": [
+        { "id": 43, "title": "新出単語・重要表現",                                                     "details": "",                          "workbook_page": "69", "textbook_page": "51-60" },
+        { "id": 44, "title": "①Scenes / Part",                                                      "details": "感情の原因を表す不定詞",    "workbook_page": "70", "textbook_page": "52-53, 55" },
+        { "id": 45, "title": "②Scenes / Part",                                                      "details": "must",                      "workbook_page": "72", "textbook_page": "52-53, 56" },
+        { "id": 46, "title": "③Scenes / Part 3 / Review&Retell / Action / 英語早わかり",             "details": "have[has] to ~",           "workbook_page": "74", "textbook_page": "52-53, 57-60" },
+        { "id": 47, "title": "定期テスト対策A",                                                       "details": "",                          "workbook_page": "76", "textbook_page": "51-60" },
+        { "id": 48, "title": "定期テスト対策B",                                                       "details": "",                          "workbook_page": "78", "textbook_page": "51-60" },
+        { "id": 49, "title": "重要文法の整理②（不定詞, 動名詞）",                                      "details": "",                          "workbook_page": "80", "textbook_page": "" },
+        { "id": 50, "title": "重要文法の整理③（助動詞, 未来）",                                        "details": "",                          "workbook_page": "82", "textbook_page": "" },
+        { "id": 51, "title": "新出単語・重要表現の総チェック",                                          "details": "",                          "workbook_page": "84", "textbook_page": "51-60" }
+      ]
+    },
+    {
+      "unit_name": "言語活動③",
+      "items": [
+        { "id": 52, "title": "新出単語・重要表現",                                                          "details": "",                              "workbook_page": "85", "textbook_page": "61, 64" },
+        { "id": 53, "title": "Power-Up 3 / Step 3　レストランで食事をしよう / わかりやすい見出しをつけよう", "details": "レストランで使う表現",              "workbook_page": "86", "textbook_page": "61, 64" },
+        { "id": 54, "title": "定期テスト対策A / 定期テスト対策B",                                          "details": "",                              "workbook_page": "87", "textbook_page": "61, 64" },
+        { "id": 55, "title": "リスニング・英作文・読解トレーニング③（買い物）",                              "details": "",                              "workbook_page": "88", "textbook_page": "" },
+        { "id": 56, "title": "新出単語・重要表現の総チェック",                                              "details": "",                              "workbook_page": "90", "textbook_page": "61, 64" }
+      ]
+    },
+    {
+      "unit_name": "PROGRAM 5: Work Experience",
+      "items": [
+        { "id": 57, "title": "新出単語・重要表現",                                                         "details": "",                             "workbook_page": "91",  "textbook_page": "65-74" },
+        { "id": 58, "title": "①Scenes / Part",                                                          "details": "how to ~",                     "workbook_page": "92",  "textbook_page": "66-67, 69" },
+        { "id": 59, "title": "②Scenes / Part",                                                          "details": "動詞（lookなど）+形容詞[名詞]", "workbook_page": "94",  "textbook_page": "66-67, 70" },
+        { "id": 60, "title": "③Scenes / Part / Review&Retell / Action / 英語早わかり",                  "details": "動詞+人+もの",                 "workbook_page": "96",  "textbook_page": "66-67, 71-74" },
+        { "id": 61, "title": "定期テスト対策A",                                                           "details": "",                             "workbook_page": "98",  "textbook_page": "65-74" },
+        { "id": 62, "title": "定期テスト対策B",                                                           "details": "",                             "workbook_page": "100", "textbook_page": "65-74" },
+        { "id": 63, "title": "重要文法の整理④（文型 第1〜第4）",                                           "details": "",                             "workbook_page": "102", "textbook_page": "" },
+        { "id": 64, "title": "新出単語・重要表現の総チェック",                                              "details": "",                             "workbook_page": "104", "textbook_page": "65-74" }
+      ]
+    },
+    {
+      "unit_name": "PROGRAM 6: High-Tech Nature",
+      "items": [
+        { "id": 65, "title": "新出単語・重要表現",                                        "details": "",                             "workbook_page": "105", "textbook_page": "75-84" },
+        { "id": 66, "title": "①Scenes / Part",                                         "details": "比較級",                       "workbook_page": "106", "textbook_page": "76-77, 79" },
+        { "id": 67, "title": "②Scenes / Part",                                         "details": "最上級",                       "workbook_page": "108", "textbook_page": "76-77, 80" },
+        { "id": 68, "title": "③Scenes / Part / Review&Retell / Action / 英語早わかり",  "details": "as ~ as ...",                  "workbook_page": "110", "textbook_page": "76-77, 81-84" },
+        { "id": 69, "title": "定期テスト対策A",                                          "details": "",                             "workbook_page": "112", "textbook_page": "75-84" },
+        { "id": 70, "title": "定期テスト対策B",                                          "details": "",                             "workbook_page": "114", "textbook_page": "75-84" },
+        { "id": 71, "title": "新出単語・重要表現の総チェック",                              "details": "",                             "workbook_page": "116", "textbook_page": "75-84" }
+      ]
+    },
+    {
+      "unit_name": "言語活動④",
+      "items": [
+        { "id": 72, "title": "新出単語・重要表現",                                                    "details": "",                                           "workbook_page": "117", "textbook_page": "85-95" },
+        { "id": 73, "title": "Power-Up 4　メールで近況報告をしよう",                                  "details": "近況報告で使う表現",                         "workbook_page": "118", "textbook_page": "85" },
+        { "id": 74, "title": "Step 4　相手にわかりやすい説明をしよう",                                "details": "説明をするときに使う表現",                    "workbook_page": "119", "textbook_page": "86" },
+        { "id": 75, "title": "Our Project 5　日本のおすすめスポットを紹介しよう",                      "details": "おすすめスポットの場所とそこでできること",     "workbook_page": "120", "textbook_page": "87-91" },
+        { "id": 76, "title": "Reading 2　Friendship beyond Time and Borders ①",                  "details": "過去形（復習）",                             "workbook_page": "121", "textbook_page": "92" },
+        { "id": 77, "title": "Reading 2　Friendship beyond Time and Borders ②",                  "details": "動詞+人+もの（復習）",                      "workbook_page": "122", "textbook_page": "93" },
+        { "id": 78, "title": "Reading 2　Friendship beyond Time and Borders ③",                  "details": "助動詞（復習）",                            "workbook_page": "123", "textbook_page": "94-95" },
+        { "id": 79, "title": "定期テスト対策A",                                                    "details": "",                                           "workbook_page": "124", "textbook_page": "85-95" },
+        { "id": 80, "title": "定期テスト対策B",                                                    "details": "",                                           "workbook_page": "125", "textbook_page": "85-95" },
+        { "id": 81, "title": "リスニング・英作文・読解トレーニング④（思い出）",                        "details": "",                                           "workbook_page": "126", "textbook_page": "" },
+        { "id": 82, "title": "新出単語・重要表現の総チェック",                                        "details": "",                                           "workbook_page": "128", "textbook_page": "85-95" }
+      ]
+    },
+    {
+      "unit_name": "PROGRAM 7: Unique Animals",
+      "items": [
+        { "id": 83, "title": "新出単語・重要表現",                                        "details": "",                              "workbook_page": "129", "textbook_page": "97-106" },
+        { "id": 84, "title": "①Scenes / Part",                                         "details": "like ~ better than ...",        "workbook_page": "130", "textbook_page": "98-99, 101" },
+        { "id": 85, "title": "②Scenes / Part",                                         "details": "like ~ the best",               "workbook_page": "132", "textbook_page": "98-99, 102" },
+        { "id": 86, "title": "③Scenes / Part / Review&Retell / Action / 英語早わかり",  "details": "teach + 人 + how to ~",        "workbook_page": "134", "textbook_page": "98-99, 103-106" },
+        { "id": 87, "title": "定期テスト対策A",                                          "details": "",                              "workbook_page": "136", "textbook_page": "97-106" },
+        { "id": 88, "title": "定期テスト対策B",                                          "details": "",                              "workbook_page": "138", "textbook_page": "97-106" },
+        { "id": 89, "title": "重要文法の整理⑤（比較）",                                   "details": "",                              "workbook_page": "140", "textbook_page": "" },
+        { "id": 90, "title": "新出単語・重要表現の総チェック",                              "details": "",                              "workbook_page": "142", "textbook_page": "97-106" }
+      ]
+    },
+    {
+      "unit_name": "PROGRAM 8: A Hope for Lasting Peace",
+      "items": [
+        { "id": 91, "title": "新出単語・重要表現",                                        "details": "",                                       "workbook_page": "143", "textbook_page": "107-116" },
+        { "id": 92, "title": "①Scenes / Part",                                         "details": "受け身の文",                             "workbook_page": "144", "textbook_page": "108-109, 111" },
+        { "id": 93, "title": "②Scenes / Part",                                         "details": "by ~ をつける受け身の文",                "workbook_page": "146", "textbook_page": "108-109, 112" },
+        { "id": 94, "title": "③Scenes / Part / Review&Retell / Action / 英語早わかり",  "details": "by 以外の前置詞を使う受け身の文",        "workbook_page": "148", "textbook_page": "108-109, 113-116" },
+        { "id": 95, "title": "定期テスト対策A",                                          "details": "",                                       "workbook_page": "150", "textbook_page": "107-116" },
+        { "id": 96, "title": "定期テスト対策B",                                          "details": "",                                       "workbook_page": "152", "textbook_page": "107-116" },
+        { "id": 97, "title": "重要文法の整理⑥（受け身）",                                 "details": "",                                       "workbook_page": "154", "textbook_page": "" },
+        { "id": 98, "title": "新出単語・重要表現の総チェック",                              "details": "",                                       "workbook_page": "156", "textbook_page": "107-116" }
+      ]
+    },
+    {
+      "unit_name": "言語活動⑤",
+      "items": [
+        { "id": 99,  "title": "新出単語・重要表現",                                          "details": "",                                                       "workbook_page": "157", "textbook_page": "117-128" },
+        { "id": 100, "title": "Power-Up 5　飛行機のアナウンスを聞こう",                    "details": "到着時刻, 天気, 気温を知らせる表現",                      "workbook_page": "158", "textbook_page": "117" },
+        { "id": 101, "title": "Step 5　説得力のある説明をしよう",                          "details": "客観的な事実を述べる（better than）、具体的な理由を述べる（because）", "workbook_page": "159", "textbook_page": "118" },
+        { "id": 102, "title": "Our Project 6　My Heroの魅力を伝えよう",                  "details": "人物紹介（受け身の文）",                                  "workbook_page": "160", "textbook_page": "119-123" },
+        { "id": 103, "title": "Reading 3　Apollo 13 ①",                               "details": "過去進行形（復習）",                                     "workbook_page": "161", "textbook_page": "124-125" },
+        { "id": 104, "title": "Reading 3　Apollo 13 ②",                               "details": "助動詞（復習）",                                        "workbook_page": "162", "textbook_page": "126" },
+        { "id": 105, "title": "Reading 3　Apollo 13 ③",                               "details": "動詞（lookなど）+形容詞[名詞]（復習）",                 "workbook_page": "163", "textbook_page": "127-128" },
+        { "id": 106, "title": "定期テスト対策A",                                          "details": "",                                                       "workbook_page": "164", "textbook_page": "117-128" },
+        { "id": 107, "title": "定期テスト対策B",                                          "details": "",                                                       "workbook_page": "165", "textbook_page": "117-128" },
+        { "id": 108, "title": "リスニング・英作文・読解トレーニング⑤（旅行）",               "details": "",                                                       "workbook_page": "166", "textbook_page": "" },
+        { "id": 109, "title": "新出単語・重要表現の総チェック",                              "details": "",                                                       "workbook_page": "168", "textbook_page": "117-128" }
+      ]
+    },
+    {
+      "unit_name": "付録",
+      "items": [
+        { "id": "★", "title": "Word Web (1)",       "details": "", "workbook_page": "169", "textbook_page": "129-132" },
+        { "id": "★", "title": "Word Web (2)",       "details": "", "workbook_page": "170", "textbook_page": "129-132" },
+        { "id": "★", "title": "Word Web (3)",       "details": "", "workbook_page": "171", "textbook_page": "129-132" },
+        { "id": "★", "title": "重要例文のまとめ",    "details": "", "workbook_page": "172", "textbook_page": "" },
+        { "id": "★", "title": "不規則動詞活用表",    "details": "", "workbook_page": "174", "textbook_page": "" },
+        { "id": "★", "title": "比較変化表",          "details": "", "workbook_page": "175", "textbook_page": "" },
+        { "id": "★", "title": "資料",                "details": "", "workbook_page": "176", "textbook_page": "" }
+      ]
+    }
+  ]
+}

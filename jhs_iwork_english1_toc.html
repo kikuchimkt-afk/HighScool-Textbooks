@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iワーク 中1英語 | 目次</title>
+    <meta name="description" content="iワーク 中1英語 目次">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/jhs_iwork_english1_32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="icons/jhs_iwork_english1_180.png">
+    <link rel="manifest" href="manifest_jhs_iwork_english1.json">
+    <meta name="theme-color" content="#000000">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Inter', 'Noto Sans JP', -apple-system, BlinkMacSystemFont, sans-serif; background: #000; min-height: 100vh; color: #f5f5f7; }
+        .bg-layer { position: fixed; inset: 0; z-index: 0; }
+        .bg-layer img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.5) saturate(1.2); }
+        .bg-overlay { position: fixed; inset: 0; z-index: 1; background: linear-gradient(180deg, rgba(0,0,0,0.3), rgba(0,0,0,0.7)); }
+        .toc-page { position: relative; z-index: 2; }
+        .toc-header { text-align: center; padding: 3rem 1.5rem 1.5rem; }
+        .toc-back { display: inline-flex; align-items: center; gap: 6px; color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.85rem; margin-bottom: 1.5rem; transition: color 0.25s; font-weight: 400; }
+        .toc-back:hover { color: rgba(255,255,255,0.8); }
+        .toc-header h1 { font-size: 2rem; font-weight: 700; letter-spacing: -0.03em; margin-bottom: 0.3rem; background: linear-gradient(135deg, #fff, rgba(255,255,255,0.6)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .toc-header p { font-size: 0.9rem; color: rgba(255,255,255,0.35); font-weight: 300; }
+        .toc-container { max-width: 780px; margin: 0 auto; padding: 0 1rem 4rem; }
+        .toc-cover { display: block; max-width: 180px; margin: 0 auto 2rem; border-radius: 14px; box-shadow: 0 12px 40px rgba(0,0,0,0.5); }
+        .toc-section-tabs { display: flex; gap: 8px; margin-bottom: 1.5rem; flex-wrap: wrap; }
+        .toc-section-tab { padding: 6px 14px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.65); font-size: 0.8rem; cursor: pointer; text-decoration: none; transition: all 0.2s; }
+        .toc-section-tab:hover, .toc-section-tab.active { background: rgba(120,160,255,0.2); border-color: rgba(120,160,255,0.5); color: #fff; }
+        .toc-unit-block { margin-bottom: 0.8rem; border-radius: 16px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.04); }
+        .toc-unit-toggle { width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 0.8rem 1rem; background: rgba(255,255,255,0.04); color: #f5f5f7; border: none; cursor: pointer; font-size: 0.92rem; font-weight: 700; text-align: left; }
+        .toc-unit-toggle:hover { background: rgba(255,255,255,0.09); }
+        .toc-unit-arrow { color: rgba(255,255,255,0.65); transition: transform 0.2s; flex-shrink: 0; margin-left: 8px; }
+        .toc-unit-block.open .toc-unit-arrow { transform: rotate(90deg); }
+        .toc-unit-body { display: none; border-top: 1px solid rgba(255,255,255,0.06); }
+        .toc-unit-block.open .toc-unit-body { display: block; }
+        .toc-item { background: rgba(255,255,255,0.02); border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .toc-item:last-child { border-bottom: none; }
+        .toc-item-link { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; padding: 0.65rem 1rem; text-decoration: none; color: #f5f5f7; font-weight: 500; font-size: 0.86rem; line-height: 1.4; }
+        .toc-item-link:hover { background: rgba(255,255,255,0.06); }
+        .toc-item-left { display: flex; flex-direction: column; gap: 3px; }
+        .toc-item-title { display: flex; align-items: baseline; gap: 7px; }
+        .toc-item-num { min-width: 28px; color: rgba(120,160,255,0.9); font-size: 0.76rem; font-weight: 700; flex-shrink: 0; }
+        .toc-item-content { font-size: 0.76rem; color: rgba(255,220,100,0.75); padding-left: 35px; font-weight: 400; font-style: italic; }
+        .toc-item-right { text-align: right; flex-shrink: 0; }
+        .toc-item-page { font-size: 0.72rem; color: rgba(255,255,255,0.4); }
+        .toc-item-tb { display: block; font-size: 0.68rem; color: rgba(255,255,255,0.25); margin-top: 2px; }
+        .toc-section-note { font-size: 0.72rem; color: rgba(255,255,255,0.3); margin: 0 0 1rem; line-height: 1.5; }
+        .toc-section-links { display: flex; gap: 10px; margin-bottom: 1.5rem; flex-wrap: wrap; }
+        .toc-section-link { display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; border-radius: 22px; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); color: #f5f5f7; text-decoration: none; font-size: 0.82rem; font-weight: 500; transition: all 0.2s; }
+        .toc-section-link:hover { background: rgba(120,160,255,0.18); border-color: rgba(120,160,255,0.4); }
+        .toc-footer { text-align: center; padding: 2rem 1rem; font-size: 0.7rem; color: rgba(255,255,255,0.2); }
+    </style>
+</head>
+<body>
+    <div class="bg-layer"><img src="images/portal_bg.png" alt="" loading="eager"></div>
+    <div class="bg-overlay"></div>
+    <div class="toc-page">
+        <div class="toc-header">
+            <a href="index.html" class="toc-back">← ポータルに戻る</a>
+            <h1>iワーク 中1英語</h1>
+            <p>全372ページ（本冊 180 + 解答 88 + プラス 71 + プラス解答 33）</p>
+        </div>
+        <div class="toc-container">
+            <img src="images/jhs_iwork_english1_cover.jpg" alt="" class="toc-cover">
+            <div class="toc-section-links" id="section-links"></div>
+            <p class="toc-section-note">▼ 本冊の目次（提供済みユニットのみ）。教科書ページは参考表示。</p>
+            <div id="toc-root"></div>
+        </div>
+        <div class="toc-footer">© 2026 ECCベストワン藍住・北島中央</div>
+    </div>
+    <script>
+        const BOOK = "jhs_iwork_english1";
+        const VIEW = `jhs_iwork_english1_viewer.html?book=${BOOK}&section=main`;
+
+        const SECTIONS = [
+            { id: "main",         label: "本冊",          page: 2 },
+            { id: "main_answers", label: "解答解説",       page: 181 },
+            { id: "plus",         label: "iワークプラス",  page: 269 },
+            { id: "plus_answers", label: "プラス解答",     page: 340 }
+        ];
+
+        function escapeHtml(s) {
+            return String(s || "")
+                .replace(/&/g, "&amp;").replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+        }
+
+        function startPage(s) {
+            const a = String(s || "").replace(/~/g, "-").split("-")[0].trim();
+            return parseInt(a, 10) || 1;
+        }
+
+        // セクションジャンプリンク
+        const sl = document.getElementById("section-links");
+        SECTIONS.forEach(sec => {
+            const a = document.createElement("a");
+            a.className = "toc-section-link";
+            a.href = `jhs_iwork_english1_viewer.html?book=${BOOK}&section=${sec.id}&page=${sec.page}`;
+            a.innerHTML = `<span>${escapeHtml(sec.label)}</span>`;
+            sl.appendChild(a);
+        });
+
+        function renderToc(data) {
+            const host = document.getElementById("toc-root");
+            if (!host || !data.table_of_contents) return;
+            data.table_of_contents.forEach(block => {
+                const label = block.unit_group || "目次";
+                const blockEl = document.createElement("div");
+                blockEl.className = "toc-unit-block";
+                const toggle = document.createElement("button");
+                toggle.type = "button";
+                toggle.className = "toc-unit-toggle";
+                toggle.innerHTML = `<span>${escapeHtml(label)}</span><span class="toc-unit-arrow">▶</span>`;
+                toggle.addEventListener("click", () => blockEl.classList.toggle("open"));
+                blockEl.appendChild(toggle);
+
+                const body = document.createElement("div");
+                body.className = "toc-unit-body";
+                (block.items || []).forEach(item => {
+                    const p = startPage(item.guide_page);
+                    const wrap = document.createElement("div");
+                    wrap.className = "toc-item";
+                    const num = item.id != null ? String(item.id) : "・";
+                    const content = item.content ? `<div class="toc-item-content">${escapeHtml(item.content)}</div>` : "";
+                    const tb = item.textbook_page ? `<span class="toc-item-tb">教 p.${escapeHtml(String(item.textbook_page))}</span>` : "";
+                    wrap.innerHTML =
+                        `<a href="${VIEW}&page=${p}" class="toc-item-link">` +
+                        `<span class="toc-item-left">` +
+                        `<span class="toc-item-title"><span class="toc-item-num">${escapeHtml(num)}</span><span>${escapeHtml(item.title)}</span></span>` +
+                        content +
+                        `</span>` +
+                        `<span class="toc-item-right"><span class="toc-item-page">p.${escapeHtml(String(item.guide_page))}${tb}</span></span>` +
+                        `</a>`;
+                    body.appendChild(wrap);
+                });
+                blockEl.appendChild(body);
+                host.appendChild(blockEl);
+            });
+        }
+
+        fetch(`data/${BOOK}_toc.json`)
+            .then(r => { if (!r.ok) throw new Error("fetch failed"); return r.json(); })
+            .then(renderToc)
+            .catch(() => {
+                const host = document.getElementById("toc-root");
+                if (host) host.innerHTML = `<p class="toc-section-note">data/${BOOK}_toc.json を読み込めませんでした。Webサーバ経由で開いてください。</p>`;
+            });
+    </script>
+</body>
+</html>
