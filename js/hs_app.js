@@ -768,14 +768,36 @@ document.addEventListener('DOMContentLoaded', () => {
     let answerCurrentPage = ANSWER_START;
     let answerZoom = 1;
 
+    /** 問題編のどの章にいるか（answers 章は除外）。範囲外・章間の空白は start が最大の章に寄せる */
+    function findProblemChapterForPage(viewPage) {
+        if (!bookData.chapters) return null;
+        const probChapters = bookData.chapters.filter(ch => ch.id !== 'answers');
+        const exact = probChapters.find(ch => viewPage >= ch.start && viewPage <= ch.end);
+        if (exact) return exact;
+        const cap = answersSection ? Math.min(viewPage, answersSection.start - 1) : viewPage;
+        const candidates = probChapters.filter(ch => ch.start <= cap);
+        if (!candidates.length) return null;
+        return candidates.reduce((a, b) => (a.start >= b.start ? a : b));
+    }
+
     function estimateAnswerPage(viewPage) {
-        // 詳細なサブセクション（Lessonごとのページ指定）がある場合はそれを利用
         if (bookData.chapters) {
-            const mainChap = bookData.chapters.find(ch => viewPage >= ch.start && viewPage <= ch.end);
             const ansChap = bookData.chapters.find(ch => ch.id === 'answers');
-            
+
+            // 河合「やっておきたい英語長文」系: 各問題章の subsections は
+            // [{ num: "答", title: "解答・解説", page: <解答PDFのグローバル頁> }] のみ。
+            // TOC と同じく、その page をそのまま使う（従来ロジックは page を問題側と誤認する）。
+            const probChap = findProblemChapterForPage(viewPage);
+            if (probChap && probChap.subsections && probChap.subsections.length) {
+                const kawaiAns = probChap.subsections.find(s => s.num === '答');
+                if (kawaiAns && typeof kawaiAns.page === 'number') {
+                    return kawaiAns.page;
+                }
+            }
+
+            // 詳細なサブセクション（Lessonごとのページ指定）がある場合はそれを利用
+            const mainChap = bookData.chapters.find(ch => viewPage >= ch.start && viewPage <= ch.end);
             if (mainChap && mainChap.subsections && ansChap && ansChap.subsections) {
-                // 現在のページがどのサブセクション（Lesson等）に属するか特定
                 let qSubIdx = -1;
                 for (let i = 0; i < mainChap.subsections.length; i++) {
                     if (viewPage >= mainChap.subsections[i].page) {
@@ -784,22 +806,23 @@ document.addEventListener('DOMContentLoaded', () => {
                         break;
                     }
                 }
-                
+
                 if (qSubIdx !== -1) {
                     const qSub = mainChap.subsections[qSubIdx];
-                    // 解答側の対応するサブセクションを番号で検索
                     const aSub = ansChap.subsections.find(s => s.num === qSub.num);
                     if (aSub) {
-                        return aSub.page; // 正確な解答ページへ直接ジャンプ！
+                        return aSub.page;
                     }
                 }
             }
         }
 
+        // すでに解答編を表示中ならそのまま
+        if (viewPage >= ANSWER_START) return viewPage;
+
         // サブセクションがない従来の本（数学など）用：比率計算による推測
         const questionStart = bookData.id === 'polaris1' ? 2 : 6;
         if (viewPage < questionStart) return ANSWER_START;
-        if (viewPage >= ANSWER_START) return viewPage;
         const ratio = (viewPage - questionStart) / (CONTENT_END - questionStart);
         return Math.min(ANSWER_END, Math.max(ANSWER_START, Math.round(ANSWER_START + ratio * (ANSWER_END - ANSWER_START))));
     }
