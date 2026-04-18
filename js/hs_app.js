@@ -9,7 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const initialPage = parseInt(urlParams.get('page')) || 1;
 
     // Book data
-    const bookData = hsData[bookId];
+    const dataMap = Object.assign({}, (typeof hsData !== 'undefined' ? hsData : {}), (typeof jhsData !== 'undefined' ? jhsData : {}));
+    const bookData = dataMap[bookId];
     if (!bookData) {
         document.body.innerHTML = '<h1 style="color:#fff;text-align:center;padding:4rem;">参考書データが見つかりません</h1>';
         return;
