@@ -211,8 +211,16 @@ document.addEventListener('DOMContentLoaded', () => {
         let resolvedLeftPage = pageNum;
 
         if (viewMode === 'spread') {
-            // 数学の横書き参考書：偶数ページが左、奇数ページが右になります
-            resolvedLeftPage = pageNum % 2 === 0 ? pageNum : pageNum - 1;
+            // 既定: 偶数ページが左、奇数ページが右
+            // bookData.spreadEvenLeftBySection = true の場合、
+            // セクション内ローカルページで「偶数左」にそろえる。
+            if (bookData.spreadEvenLeftBySection) {
+                const secForSpread = getSectionForPage(pageNum) || sections[0];
+                const desiredParity = (secForSpread.start + 1) % 2; // local偶数になるglobal parity
+                resolvedLeftPage = (pageNum % 2 === desiredParity) ? pageNum : pageNum - 1;
+            } else {
+                resolvedLeftPage = pageNum % 2 === 0 ? pageNum : pageNum - 1;
+            }
             
             if (resolvedLeftPage >= 1) {
                 imagesToPreload.push(getImageSrc(resolvedLeftPage));
@@ -456,8 +464,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const jumpClose = document.getElementById('page-jump-close');
     const jumpChapters = document.getElementById('page-jump-chapters');
 
-    // Populate section buttons
-    sections.forEach(sec => {
+    // Populate section/subsection buttons
+    const jumpSource = bookData.chapters || sections;
+    jumpSource.forEach(sec => {
         const btn = document.createElement('button');
         btn.textContent = `${sec.title} (p.${sec.start})`;
         btn.dataset.page = sec.start;
@@ -466,6 +475,22 @@ document.addEventListener('DOMContentLoaded', () => {
             loadPage(parseInt(btn.dataset.page));
         });
         jumpChapters.appendChild(btn);
+
+        if (sec.subsections && sec.subsections.length) {
+            sec.subsections.forEach(sub => {
+                const subBtn = document.createElement('button');
+                subBtn.textContent = `  - ${sub.num}. ${sub.title} (p.${sub.page})`;
+                subBtn.dataset.page = sub.page;
+                subBtn.style.paddingLeft = '1.6rem';
+                subBtn.style.fontWeight = '400';
+                subBtn.style.fontSize = '0.84rem';
+                subBtn.addEventListener('click', () => {
+                    closePageJump();
+                    loadPage(parseInt(subBtn.dataset.page));
+                });
+                jumpChapters.appendChild(subBtn);
+            });
+        }
     });
 
     jumpInput.max = TOTAL_PAGES;

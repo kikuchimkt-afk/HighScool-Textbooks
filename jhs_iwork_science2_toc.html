@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iワーク 中2理科 | 目次</title>
+    <meta name="description" content="iワーク 中2理科 目次一覧">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/jhs_iwork_science2_32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="icons/jhs_iwork_science2_180.png">
+    <link rel="manifest" href="manifest_jhs_iwork_science2.json">
+    <meta name="theme-color" content="#000000">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Inter', 'Noto Sans JP', -apple-system, BlinkMacSystemFont, sans-serif; background: #000; min-height: 100vh; color: #f5f5f7; }
+        .bg-layer { position: fixed; inset: 0; z-index: 0; }
+        .bg-layer img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.5) saturate(1.2); }
+        .bg-overlay { position: fixed; inset: 0; z-index: 1; background: linear-gradient(180deg, rgba(0,0,0,0.3), rgba(0,0,0,0.7)); }
+        .toc-page { position: relative; z-index: 2; }
+        .toc-header { text-align: center; padding: 3rem 1.5rem 1.5rem; }
+        .toc-back { display: inline-flex; align-items: center; gap: 6px; color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.85rem; margin-bottom: 1.5rem; transition: color 0.25s; font-weight: 400; }
+        .toc-back:hover { color: rgba(255,255,255,0.8); }
+        .toc-header h1 { font-size: 2.2rem; font-weight: 700; letter-spacing: -0.03em; margin-bottom: 0.3rem; background: linear-gradient(135deg, #fff, rgba(255,255,255,0.6)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .toc-header p { font-size: 0.9rem; color: rgba(255,255,255,0.35); font-weight: 300; }
+        .toc-container { max-width: 760px; margin: 0 auto; padding: 0 1rem 4rem; }
+        .toc-cover { display: block; max-width: 180px; margin: 0 auto 2rem; border-radius: 14px; box-shadow: 0 12px 40px rgba(0,0,0,0.5); }
+        .toc-unit-block { margin-bottom: 0.8rem; border-radius: 16px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.04); }
+        .toc-unit-toggle { width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 0.8rem 1rem; background: rgba(255,255,255,0.04); color: #f5f5f7; border: none; cursor: pointer; font-size: 0.92rem; font-weight: 700; }
+        .toc-unit-toggle:hover { background: rgba(255,255,255,0.09); }
+        .toc-unit-arrow { color: rgba(255,255,255,0.65); transition: transform 0.2s; }
+        .toc-unit-block.open .toc-unit-arrow { transform: rotate(90deg); }
+        .toc-unit-body { display: none; border-top: 1px solid rgba(255,255,255,0.06); }
+        .toc-unit-block.open .toc-unit-body { display: block; }
+        .toc-chapter { background: rgba(255,255,255,0.02); border-bottom: 1px solid rgba(255,255,255,0.06); }
+        .toc-chapter:last-child { border-bottom: none; }
+        .toc-chapter-link { display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 1rem; text-decoration: none; color: #f5f5f7; font-weight: 600; font-size: 0.9rem; }
+        .toc-chapter-link:hover { background: rgba(255,255,255,0.06); }
+        .toc-chapter-pages { font-size: 0.75rem; color: rgba(255,255,255,0.38); }
+        .toc-subsections { border-top: 1px solid rgba(255,255,255,0.06); padding: 0.2rem 0; }
+        .toc-sub-link { display: flex; align-items: center; gap: 8px; padding: 0.4rem 1rem 0.4rem 1.5rem; text-decoration: none; color: rgba(255,255,255,0.72); font-size: 0.82rem; }
+        .toc-sub-link:hover { background: rgba(255,255,255,0.05); color: #fff; }
+        .toc-sub-num { min-width: 26px; text-align: right; color: rgba(160,140,255,0.8); font-size: 0.78rem; font-weight: 600; }
+        .toc-sub-title { flex: 1; }
+        .toc-sub-page { font-size: 0.72rem; color: rgba(255,255,255,0.35); white-space: nowrap; }
+        .toc-unit-static { margin: 1rem 0 0.6rem; font-size: 0.85rem; color: rgba(170, 210, 255, 0.95); font-weight: 700; }
+        .toc-footer { text-align: center; padding: 2rem 1rem; font-size: 0.7rem; color: rgba(255,255,255,0.2); }
+    </style>
+</head>
+<body>
+    <div class="bg-layer"><img src="images/portal_bg.png" alt="" loading="eager"></div>
+    <div class="bg-overlay"></div>
+    <div class="toc-page">
+        <div class="toc-header">
+            <a href="index.html" class="toc-back">← ポータルに戻る</a>
+            <h1>iワーク 中2理科</h1>
+            <p>全426ページ</p>
+        </div>
+        <div class="toc-container">
+            <img src="images/jhs_iwork_science2_cover.jpg" alt="iワーク 中2理科 表紙" class="toc-cover">
+            <div class="toc-chapter"><a href="jhs_iwork_science2_viewer.html?book=jhs_iwork_science2&section=cover&page=1" class="toc-chapter-link"><span class="toc-chapter-title">表紙</span><span class="toc-chapter-pages">p.1-1</span></a></div>
+            <div id="toc-dynamic"></div>
+            <div class="toc-unit-static">解答・副教材</div>
+            <div class="toc-chapter"><a href="jhs_iwork_science2_viewer.html?book=jhs_iwork_science2&section=main_answers&page=234" class="toc-chapter-link"><span class="toc-chapter-title">本冊 解答解説</span><span class="toc-chapter-pages">p.234-307</span></a></div>
+            <div class="toc-chapter"><a href="jhs_iwork_science2_viewer.html?book=jhs_iwork_science2&section=plus&page=308" class="toc-chapter-link"><span class="toc-chapter-title">副教材 iワークプラス</span><span class="toc-chapter-pages">p.308-401</span></a></div>
+            <div class="toc-chapter"><a href="jhs_iwork_science2_viewer.html?book=jhs_iwork_science2&section=plus_answers&page=402" class="toc-chapter-link"><span class="toc-chapter-title">iワークプラス 解答解説</span><span class="toc-chapter-pages">p.402-426</span></a></div>
+        </div>
+        <div class="toc-footer">© 2026 ECCベストワン藍住・北島中央</div>
+    </div>
+    <script>
+        const tocSource = {"contents": [{"unit": "1年の復習", "chapters": [{"no": 1, "title": "いろいろな生物とその共通点", "workbook_page": "4-7"}, {"no": 2, "title": "活きている地球", "workbook_page": "8-11"}, {"no": 3, "title": "身のまわりの物質", "workbook_page": "12-15"}, {"no": 4, "title": "光・音・力による現象", "workbook_page": "16-19"}]}, {"unit": "生命（生物の体のつくりとはたらき）", "chapters": [{"no": 5, "title": "生物の体をつくるもの", "sections": ["生物と細胞"], "workbook_page": "20-23"}, {"no": 6, "title": "光合成と呼吸", "sections": ["光合成", "光合成と呼吸"], "workbook_page": "24-27"}, {"no": 7, "title": "根と茎のつくり", "sections": ["根と茎のつくりとはたらき"], "workbook_page": "30-33"}, {"no": 8, "title": "葉のつくりとはたらき", "sections": ["葉の細胞のつくり", "吸い上げた水のゆくえ"], "workbook_page": "34-37"}, {"no": 9, "title": "栄養分をとり入れるしくみ", "sections": ["栄養分をとり入れるしくみ"], "workbook_page": "40-43"}, {"no": 10, "title": "動物の呼吸", "sections": ["呼吸と排出", "物質を運ぶしくみ"], "workbook_page": "44-47"}, {"no": 11, "title": "動物の行動のしくみ", "sections": ["感覚器官", "神経系", "運動器官"], "workbook_page": "48-51"}]}, {"unit": "地球（地球の大気と天気の変化）", "chapters": [{"no": 12, "title": "大気の中ではたらく力", "sections": ["圧力", "大気圧"], "workbook_page": "72-75"}, {"no": 13, "title": "気象観測", "sections": ["大気のようす"], "workbook_page": "76-79"}, {"no": 14, "title": "雲のでき方", "sections": ["大気中の水の変化"], "workbook_page": "82-85"}, {"no": 15, "title": "空気中にふくまれる水蒸気の量", "sections": ["空気中にふくまれる水蒸気の量", "空気の湿りけ"], "workbook_page": "86-89"}, {"no": 16, "title": "気圧配置と天気の変化", "sections": ["風がふくしくみ", "気団と前線", "日本付近の低気圧と前線"], "workbook_page": "94-97"}, {"no": 17, "title": "大気の動き", "sections": ["前線の通過と天気の変化", "地球規模での大気の動き"], "workbook_page": "98-101"}, {"no": 18, "title": "日本の天気", "sections": ["陸と海の間の大気の動き", "日本の四季の天気"], "workbook_page": "104-107"}]}, {"unit": "物質（化学変化と原子・分子）", "chapters": [{"no": 19, "title": "物質の分解", "sections": ["物質を加熱したときの変化", "水溶液に電流を流したときの変化"], "workbook_page": "124-127"}, {"no": 20, "title": "物質の成り立ち", "sections": ["物質のもとになる粒子", "物質を表す記号"], "workbook_page": "128-131"}, {"no": 21, "title": "物質どうしが結びつく変化", "sections": ["物質どうしが結びつく変化"], "workbook_page": "136-139"}, {"no": 22, "title": "酸化と還元", "sections": ["物質が酸素と結びつく変化", "酸化物から酸素をとり除く変化"], "workbook_page": "140-143"}, {"no": 23, "title": "化学変化と熱の出入り", "sections": ["化学変化と熱の出入り"], "workbook_page": "144-147"}, {"no": 24, "title": "化学変化の前後の物質の質量", "sections": ["化学変化の前後の物質の質量"], "workbook_page": "152-155"}, {"no": 25, "title": "反応する物質どうしの質量の割合", "sections": ["反応する物質どうしの質量の割合"], "workbook_page": "156-159"}]}, {"unit": "エネルギー（電流とその利用）", "chapters": [{"no": 26, "title": "回路と電流・電圧", "sections": ["回路", "回路と電流・電圧"], "workbook_page": "180-183"}, {"no": 27, "title": "電圧と電流の関係", "sections": ["電圧と電流の関係"], "workbook_page": "186-189"}, {"no": 28, "title": "電流のはたらきを表す量", "sections": ["電気エネルギー"], "workbook_page": "192-195"}, {"no": 29, "title": "電流の正体", "sections": ["静電気", "電流の正体"], "workbook_page": "200-203"}, {"no": 30, "title": "電流がつくる磁界", "sections": ["電流がつくる磁界", "電流が磁界から受ける力"], "workbook_page": "204-207"}, {"no": 31, "title": "発電機のしくみ", "sections": ["電磁誘導と発電", "直流と交流"], "workbook_page": "208-211"}]}, {"other": "元素周期表", "workbook_page": "232"}]};
+        function parseWorkbookStart(range) { const s = String(range || ""); return parseInt((s.split("-")[0] || "").trim(), 10); }
+        function toGlobalPage(workbookStart) { return workbookStart + 1; }
+        const host = document.getElementById("toc-dynamic");
+        tocSource.contents.forEach((item, unitIndex) => {
+            if (item.unit) {
+                const block = document.createElement("div");
+                block.className = "toc-unit-block" + (unitIndex < 2 ? " open" : "");
+                const toggle = document.createElement("button");
+                toggle.type = "button";
+                toggle.className = "toc-unit-toggle";
+                toggle.innerHTML = `<span>${item.unit}</span><span class="toc-unit-arrow">▶</span>`;
+                toggle.addEventListener("click", () => block.classList.toggle("open"));
+                block.appendChild(toggle);
+                const body = document.createElement("div");
+                body.className = "toc-unit-body";
+                item.chapters.forEach((ch) => {
+                    const wbStart = parseWorkbookStart(ch.workbook_page);
+                    if (!wbStart) return;
+                    const gp = toGlobalPage(wbStart);
+                    const wrap = document.createElement("div");
+                    wrap.className = "toc-chapter";
+                    wrap.innerHTML = `<a href="jhs_iwork_science2_viewer.html?book=jhs_iwork_science2&section=main&page=${gp}" class="toc-chapter-link"><span class="toc-chapter-title">${ch.no}. ${ch.title}</span><span class="toc-chapter-pages">p.${ch.workbook_page}</span></a>`;
+                    if (ch.sections && ch.sections.length) {
+                        const subs = document.createElement("div");
+                        subs.className = "toc-subsections";
+                        ch.sections.forEach((sec, i) => {
+                            const a = document.createElement("a");
+                            a.className = "toc-sub-link";
+                            a.href = `jhs_iwork_science2_viewer.html?book=jhs_iwork_science2&section=main&page=${gp}`;
+                            a.innerHTML = `<span class="toc-sub-num">${ch.no}.${i + 1}</span><span class="toc-sub-title">${sec}</span><span class="toc-sub-page">p.${ch.workbook_page}</span>`;
+                            subs.appendChild(a);
+                        });
+                        wrap.appendChild(subs);
+                    }
+                    body.appendChild(wrap);
+                });
+                block.appendChild(body);
+                host.appendChild(block);
+            } else if (item.other) {
+                const wbStart = parseWorkbookStart(item.workbook_page);
+                const gp = toGlobalPage(wbStart);
+                const wrap = document.createElement("div");
+                wrap.className = "toc-chapter";
+                wrap.innerHTML = `<a href="jhs_iwork_science2_viewer.html?book=jhs_iwork_science2&section=main&page=${gp}" class="toc-chapter-link"><span class="toc-chapter-title">${item.other}</span><span class="toc-chapter-pages">p.${item.workbook_page}</span></a>`;
+                host.appendChild(wrap);
+            }
+        });
+    </script>
+</body>
+</html>
