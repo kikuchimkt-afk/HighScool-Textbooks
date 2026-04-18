@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>高校参考書 ビューア ポータル</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Inter', 'Noto Sans JP', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #000;
+            min-height: 100vh;
+            color: #f5f5f7;
+            overflow-x: hidden;
+        }
+
+        /* === Background === */
+        .bg-layer {
+            position: fixed; inset: 0; z-index: 0;
+        }
+        .bg-layer img {
+            width: 100%; height: 100%; object-fit: cover;
+            filter: brightness(0.6) saturate(1.2);
+        }
+        .bg-overlay {
+            position: fixed; inset: 0; z-index: 1;
+            background: radial-gradient(ellipse at 30% 20%, rgba(120,80,220,0.08) 0%, transparent 60%),
+                        radial-gradient(ellipse at 70% 80%, rgba(0,180,180,0.06) 0%, transparent 50%);
+        }
+
+        /* === Password Gate === */
+        .gate-overlay {
+            position: fixed; inset: 0; z-index: 9999;
+            display: flex; align-items: center; justify-content: center;
+            background: rgba(0,0,0,0.85);
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+        }
+        .gate-box {
+            background: rgba(255,255,255,0.06);
+            backdrop-filter: blur(60px) saturate(1.8);
+            -webkit-backdrop-filter: blur(60px) saturate(1.8);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 24px;
+            padding: 3rem 2.5rem;
+            text-align: center;
+            max-width: 380px; width: 90%;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.4),
+                        inset 0 1px 0 rgba(255,255,255,0.08);
+        }
+        .gate-icon {
+            font-size: 3rem; margin-bottom: 1rem;
+            filter: grayscale(0.3);
+        }
+        .gate-box h2 {
+            font-size: 1.4rem; font-weight: 600;
+            letter-spacing: -0.02em; margin-bottom: 0.3rem;
+        }
+        .gate-box p {
+            color: rgba(255,255,255,0.45); font-size: 0.85rem;
+            margin-bottom: 1.5rem; font-weight: 300;
+        }
+        .gate-input {
+            width: 100%; padding: 0.85rem 1.2rem;
+            border-radius: 14px;
+            border: 1px solid rgba(255,255,255,0.12);
+            background: rgba(255,255,255,0.06);
+            color: #fff; font-size: 1rem; text-align: center;
+            outline: none; margin-bottom: 0.8rem;
+            font-family: inherit; letter-spacing: 4px;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        .gate-input::placeholder {
+            color: rgba(255,255,255,0.2); letter-spacing: 1px;
+        }
+        .gate-input:focus {
+            border-color: rgba(120,120,255,0.4);
+            box-shadow: 0 0 0 4px rgba(120,120,255,0.08);
+        }
+        .gate-btn {
+            width: 100%; padding: 0.85rem;
+            border: none; border-radius: 14px;
+            background: rgba(255,255,255,0.12);
+            color: #fff; font-size: 0.95rem; font-weight: 500;
+            cursor: pointer; transition: all 0.3s;
+            font-family: inherit; letter-spacing: 0.02em;
+        }
+        .gate-btn:hover {
+            background: rgba(255,255,255,0.2);
+            transform: scale(1.01);
+        }
+        .gate-btn:active { transform: scale(0.98); }
+        .gate-error {
+            color: #ff6b6b; margin-top: 0.8rem;
+            font-size: 0.85rem; display: none; font-weight: 400;
+        }
+
+        /* === Portal Content === */
+        .portal-content {
+            display: none; position: relative; z-index: 2;
+            flex-direction: column; align-items: center;
+            min-height: 100vh;
+        }
+        .portal-content.visible {
+            display: flex;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        /* === Header === */
+        .header {
+            text-align: center;
+            padding: 5rem 2rem 2rem;
+        }
+        .header-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 100px;
+            padding: 0.35rem 1rem;
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.5);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+        }
+        .header h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            margin-bottom: 0.8rem;
+            background: linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.6) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .header p {
+            font-size: 1.15rem;
+            color: rgba(255,255,255,0.4);
+            font-weight: 300;
+            letter-spacing: 0.01em;
+        }
+
+        /* === Library Grid === */
+        .library-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 1.5rem;
+            width: 100%;
+            max-width: 1100px;
+            padding: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        /* === Book Card (Frosted Glass) === */
+        .book-card {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(40px) saturate(1.6);
+            -webkit-backdrop-filter: blur(40px) saturate(1.6);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            box-shadow: 0 4px 24px rgba(0,0,0,0.2),
+                        inset 0 1px 0 rgba(255,255,255,0.06);
+            display: flex;
+            flex-direction: column;
+        }
+        .book-card:hover {
+            transform: translateY(-6px) scale(1.01);
+            background: rgba(255,255,255,0.08);
+            border-color: rgba(255,255,255,0.15);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.35),
+                        0 0 0 1px rgba(255,255,255,0.08),
+                        inset 0 1px 0 rgba(255,255,255,0.1);
+        }
+        .book-card-link {
+            text-decoration: none; color: inherit;
+        }
+        .book-card-cover {
+            width: 100%; height: 220px;
+            object-fit: contain;
+            display: block;
+            background: rgba(255,255,255,0.03);
+            padding: 16px;
+            transition: transform 0.4s ease;
+        }
+        .book-card:hover .book-card-cover {
+            transform: scale(1.03);
+        }
+        .book-card-body {
+            padding: 1rem 1.2rem 0.8rem;
+        }
+        .book-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+            letter-spacing: -0.01em;
+        }
+        .book-desc {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.4);
+            line-height: 1.5;
+            font-weight: 300;
+        }
+        .book-card-actions {
+            padding: 0.5rem 1rem 1rem;
+            margin-top: auto;
+        }
+        .btn-qr {
+            width: 100%;
+            padding: 0.55rem 0.8rem;
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            background: rgba(255,255,255,0.04);
+            color: rgba(255,255,255,0.55);
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.25s;
+            font-family: inherit;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+        .btn-qr:hover {
+            background: rgba(255,255,255,0.1);
+            color: #fff;
+            border-color: rgba(255,255,255,0.2);
+        }
+
+        /* === QR Modal (Frosted Glass) === */
+        .qr-modal-overlay {
+            position: fixed; inset: 0; z-index: 1000;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            display: none;
+            align-items: center; justify-content: center;
+        }
+        .qr-modal-overlay.active { display: flex; }
+        .qr-modal {
+            background: rgba(30,30,30,0.7);
+            backdrop-filter: blur(60px) saturate(1.5);
+            -webkit-backdrop-filter: blur(60px) saturate(1.5);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 24px;
+            padding: 2rem;
+            max-width: 400px; width: 90%;
+            text-align: center;
+            box-shadow: 0 24px 80px rgba(0,0,0,0.5),
+                        inset 0 1px 0 rgba(255,255,255,0.08);
+            animation: modalIn 0.3s ease-out;
+        }
+        .qr-modal h3 {
+            margin: 0 0 0.3rem;
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: #f5f5f7;
+            letter-spacing: -0.01em;
+        }
+        .qr-modal .qr-subtitle {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.35);
+            margin-bottom: 1.2rem;
+            font-weight: 300;
+        }
+        .qr-modal img {
+            display: block; margin: 0 auto 1rem;
+            border-radius: 12px;
+            background: #fff;
+            padding: 8px;
+        }
+        .qr-url-box {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 0.7rem 1rem;
+            font-size: 0.75rem;
+            word-break: break-all;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 1rem;
+            text-align: left;
+            font-family: 'SF Mono', 'Menlo', monospace;
+        }
+        .qr-actions { display: flex; gap: 8px; justify-content: center; }
+        .qr-actions button {
+            padding: 0.6rem 1.4rem;
+            border: none;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.25s;
+            font-family: inherit;
+        }
+        .btn-copy {
+            background: rgba(255,255,255,0.12);
+            color: #fff;
+        }
+        .btn-copy:hover { background: rgba(255,255,255,0.2); }
+        .btn-close-qr {
+            background: rgba(255,255,255,0.06);
+            color: rgba(255,255,255,0.5);
+        }
+        .btn-close-qr:hover { background: rgba(255,255,255,0.1); color: #fff; }
+
+        /* === Toast === */
+        .copy-toast {
+            position: fixed; bottom: 2rem; left: 50%;
+            transform: translateX(-50%);
+            background: rgba(40,40,40,0.9);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: #fff;
+            padding: 0.7rem 1.5rem;
+            border-radius: 14px;
+            font-size: 0.85rem;
+            z-index: 2000;
+            display: none;
+            animation: fadeInOut 2s ease;
+        }
+
+        /* === Logout === */
+        .logout-btn {
+            position: fixed; top: 20px; right: 20px; z-index: 100;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.08);
+            color: rgba(255,255,255,0.35);
+            border-radius: 10px;
+            padding: 0.4rem 0.8rem;
+            font-size: 0.72rem;
+            cursor: pointer;
+            transition: all 0.25s;
+            font-family: inherit;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .logout-btn:hover {
+            background: rgba(255,60,60,0.12);
+            color: rgba(255,100,100,0.8);
+            border-color: rgba(255,100,100,0.2);
+        }
+
+        /* === Animations === */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes fadeInOut {
+            0%   { opacity: 0; transform: translateX(-50%) translateY(10px); }
+            15%  { opacity: 1; transform: translateX(-50%) translateY(0); }
+            85%  { opacity: 1; }
+            100% { opacity: 0; }
+        }
+        @keyframes modalIn {
+            from { opacity: 0; transform: scale(0.95) translateY(10px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        /* === Tabs === */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-bottom: 2rem;
+        }
+        .tab-btn {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.6);
+            padding: 0.6rem 2rem;
+            border-radius: 100px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            outline: none;
+        }
+        .tab-btn:hover {
+            background: rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.9);
+        }
+        .tab-btn.active {
+            background: rgba(255, 255, 255, 0.15);
+            color: #fff;
+            border-color: rgba(255, 255, 255, 0.4);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* === Responsive === */
+        @media (max-width: 640px) {
+            .header { padding: 3rem 1.5rem 1.5rem; }
+            .header h1 { font-size: 2.2rem; }
+            .header p { font-size: 0.95rem; }
+            .library-grid {
+                grid-template-columns: 1fr;
+                padding: 1rem;
+                gap: 1rem;
+            }
+            .book-card-cover { height: 180px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Background -->
+<div class="bg-layer">
+    <img src="images/portal_bg.png" alt="" loading="eager">
+</div>
+<div class="bg-overlay"></div>
+
+<!-- パスワードゲート -->
+<div class="gate-overlay" id="gate-overlay">
+    <div class="gate-box">
+        <div class="gate-icon">🔐</div>
+        <h2>管理者ログイン</h2>
+        <p>教師用ポータルにアクセスするには<br>パスワードを入力してください</p>
+        <input type="password" class="gate-input" id="gate-input" placeholder="••••••••" autocomplete="off">
+        <button class="gate-btn" id="gate-btn">ログイン</button>
+        <div class="gate-error" id="gate-error">パスワードが正しくありません</div>
+    </div>
+</div>
+
+<!-- ポータル本体 -->
+<div class="portal-content" id="portal-content">
+    <button class="logout-btn" id="logout-btn">ログアウト</button>
+    <header class="header">
+        <div class="header-badge">Digital Textbook Viewer</div>
+        <h1>高校参考書<br>電子ビューア</h1>
+        <p>教科書・問題集のページイメージ閲覧システム</p>
+    </header>
+
+    <div class="tabs" id="category-tabs">
+        <button class="tab-btn active" data-cat="all">すべて</button>
+        <button class="tab-btn" data-cat="eng">英語</button>
+        <button class="tab-btn" data-cat="math">数学</button>
+        <button class="tab-btn" data-cat="chem">化学</button>
+    </div>
+
+    <div class="library-grid" id="library-grid">
+        <!-- JS で動的生成 -->
+    </div>
+</div>
+
+<!-- QR モーダル -->
+<div class="qr-modal-overlay" id="qr-modal-overlay">
+    <div class="qr-modal">
+        <h3 id="qr-modal-title">書籍名</h3>
+        <p class="qr-subtitle">生徒に配布するQRコード / URL</p>
+        <img id="qr-modal-img" src="" width="200" height="200" alt="QR Code">
+        <div class="qr-url-box" id="qr-modal-url"></div>
+        <div class="qr-actions">
+            <button class="btn-copy" id="qr-copy-btn">📋 URLをコピー</button>
+            <button class="btn-close-qr" id="qr-close-btn">閉じる</button>
+        </div>
+    </div>
+</div>
+
+<div class="copy-toast" id="copy-toast">✅ URLをコピーしました</div>
+
+<script>
+(() => {
+    const PASS_HASH = '55448833';
+    const SESSION_KEY = 'hs_portal_auth';
+
+    const gateOverlay = document.getElementById('gate-overlay');
+    const gateInput = document.getElementById('gate-input');
+    const gateBtn = document.getElementById('gate-btn');
+    const gateError = document.getElementById('gate-error');
+    const portalContent = document.getElementById('portal-content');
+    const logoutBtn = document.getElementById('logout-btn');
+
+    function isAuthed() {
+        return sessionStorage.getItem(SESSION_KEY) === 'true';
+    }
+
+    function showPortal() {
+        gateOverlay.style.display = 'none';
+        portalContent.classList.add('visible');
+    }
+
+    function showGate() {
+        gateOverlay.style.display = 'flex';
+        portalContent.classList.remove('visible');
+        sessionStorage.removeItem(SESSION_KEY);
+    }
+
+    function tryLogin() {
+        const val = gateInput.value.trim();
+        if (val === PASS_HASH) {
+            sessionStorage.setItem(SESSION_KEY, 'true');
+            showPortal();
+        } else {
+            gateError.style.display = 'block';
+            gateInput.value = '';
+            gateInput.focus();
+            setTimeout(() => gateError.style.display = 'none', 2500);
+        }
+    }
+
+    gateBtn.addEventListener('click', tryLogin);
+    gateInput.addEventListener('keydown', e => { if (e.key === 'Enter') tryLogin(); });
+    logoutBtn.addEventListener('click', showGate);
+
+    if (isAuthed()) {
+        showPortal();
+    }
+
+    // === 書籍リスト ===
+    const books = [
+        { id: 'random_check_standard', cat: 'eng', title: 'ランダム総点検 英文法・語法 標準レベル編', desc: '英文法・語法の最終チェック問題集', cover: 'images/random_check_standard_cover.jpg', toc: 'random_check_standard_toc.html' },
+        { id: 'random_check_basic', cat: 'eng', title: 'ランダム総点検 英文法・語法 基礎レベル編', desc: '英文法・語法の最終チェック問題集', cover: 'images/random_check_basic_cover.jpg', toc: 'random_check_basic_toc.html' },
+        { id: 'tanki_math1a', cat: 'math', title: '短期集中ゼミ 基礎からの数学I+A', desc: '基礎から学べる短期完成問題集', cover: 'images/tanki_math1a_cover.jpg', toc: 'tanki_math1a_toc.html' },
+        { id: 'tanki_math2b', cat: 'math', title: '短期集中ゼミ 基礎からの数学II+B', desc: '基礎から学べる短期完成問題集', cover: 'images/tanki_math2b_cover.jpg', toc: 'tanki_math2b_toc.html' },
+        { id: 'superquick_math1a', cat: 'math', title: 'SuperQuick 数IA', desc: '入試に必要な内容を厳選したスーパー問題集', cover: 'images/superquick_math1a_cover.jpg', toc: 'superquick_math1a_toc.html' },
+        { id: 'sundai_math1a', cat: 'math', title: '短期攻略 共通テスト数学Ⅰ・A', desc: '共通テスト特有の思考力・判断力を効率よく鍛える', cover: 'images/sundai_math1a_cover.jpg', toc: 'sundai_math1a_toc.html' },
+        { id: 'sundai_math2bc', cat: 'math', title: '短期攻略 共通テスト数学II・B・C', desc: '共通テスト特有の思考力・判断力を効率よく鍛える', cover: 'images/sundai_math2bc_cover.jpg', toc: 'sundai_math2bc_toc.html' },
+        { id: 'superquick_math2bc', cat: 'math', title: 'SuperQuick 数IIBC', desc: '数II・数B・数Cの入試問題集（全197項目）', cover: 'images/superquick_math2bc_cover.jpg', toc: 'superquick_math2bc_toc.html' },
+        { id: 'speedcheck_chem', cat: 'chem', title: 'スピードチェック 理論化学', desc: '99の最重要ポイントで理論化学を完全攻略', cover: 'images/speedcheck_chem_cover.jpg', toc: 'speedcheck_chem_toc.html' },
+        { id: 'speedcheck_chem_basic', cat: 'chem', title: 'スピードチェック 化学基礎', desc: '57の最重要ポイントで化学基礎を完全攻略', cover: 'images/speedcheck_chem_basic_cover.jpg', toc: 'speedcheck_chem_basic_toc.html' },
+        { id: 'leadlight_chem', cat: 'chem', title: 'リードLightノート 化学基礎 (新課程)', desc: '基礎知識の整理と定着に最適な書き込み式ノート', cover: 'images/leadlight_chem_cover.jpg', toc: 'leadlight_chem_toc.html' },
+        { id: 'leadlight_chem_adv', cat: 'chem', title: 'リードLightノート 化学 (新課程)', desc: '理系化学の基礎から標準までを網羅する問題集', cover: 'images/leadlight_chem_adv_cover.jpg', toc: 'leadlight_chem_adv_toc.html' },
+        { id: 'excel_chem', cat: 'chem', title: 'エクセル化学 総合版 (新課程)', desc: '高校化学・化学基礎を完全網羅した総合問題集', cover: 'images/excel_chem_cover.jpg', toc: 'excel_chem_toc.html' },
+        { id: 'chart_chem', cat: 'chem', title: 'チャート式 新化学 (新課程)', desc: '網羅型でわかりやすい化学の決定版。辞書代わりに使える最強の参考書', cover: 'images/chart_chem_cover.jpg', toc: 'chart_chem_toc.html' },
+        { id: 'canpass_chem', cat: 'chem', title: '国公立標準問題集 CanPass化学', desc: '国公立大の記述式問題対策に最適な良問集', cover: 'images/canpass_chem_cover.jpg', toc: 'canpass_chem_toc.html' },
+        { id: 'rikeishiyasui_chem', cat: 'chem', title: '理解しやすい化学・化学基礎', desc: '化学のすべてがわかる充実の読み物', cover: 'images/rikeishiyasui_chem_cover.jpg', toc: 'rikeishiyasui_chem_toc.html' },
+        { id: 'kagaku_zuroku', cat: 'chem', title: '化学図録', desc: '写真・図解で化学を視覚的に理解する資料集', cover: 'images/kagaku_zuroku_cover.jpg', toc: 'kagaku_zuroku_toc.html' },
+        { id: 'hyojun_chem', cat: 'chem', title: '化学の新標準演習 (新課程)', desc: '基礎から応用まで網羅する標準問題集', cover: 'images/hyojun_chem_cover.jpg', toc: 'hyojun_chem_toc.html' },
+        { id: 'polaris1', cat: 'eng', title: '英語長文ポラリス1', desc: '大学入試対応の英語長文読解問題集', cover: 'images/polaris1_cover.jpg', toc: 'polaris1_toc.html' },
+        { id: 'polaris2', cat: 'eng', title: '英語長文ポラリス2', desc: '標準レベルの英語長文読解問題集', cover: 'images/polaris2_cover.jpg', toc: 'polaris2_toc.html' },
+        { id: 'rules1', cat: 'eng', title: '関正生の英語長文 Rules 1', desc: '入試基礎レベルからの英語長文読解問題集', cover: 'images/rules1_cover.jpg', toc: 'rules1_toc.html' },
+        { id: 'rules2', cat: 'eng', title: '関正生の英語長文 Rules 2', desc: '共通テストレベルの英語長文読解問題集', cover: 'images/rules2_cover.jpg', toc: 'rules2_toc.html' },
+        { id: 'rules3', cat: 'eng', title: '関正生の英語長文 Rules 3', desc: '入試標準〜難関レベルの英語長文読解問題集', cover: 'images/rules3_cover.jpg', toc: 'rules3_toc.html' },
+        { id: 'solution1', cat: 'eng', title: '肘井学の読解のための英文法 Solution 1', desc: '英語長文読解のための基礎英文法', cover: 'images/solution1_cover.jpg', toc: 'solution1_toc.html' },
+        { id: 'solution2', cat: 'eng', title: '肘井学の読解のための英文法 Solution 2', desc: '英語長文読解のための標準英文法', cover: 'images/solution2_cover.jpg', toc: 'solution2_toc.html' },
+        { id: 'solution3', cat: 'eng', title: '肘井学の読解のための英文法 Solution 3', desc: '英語長文読解のための最新テーマ別難関英文法', cover: 'images/solution3_cover.jpg', toc: 'solution3_toc.html' },
+        { id: 'jyuko_jo', cat: 'eng', title: '英文熟考［改訂版］上', desc: '読解のための基礎と文法構造', cover: 'images/jyuko_jo_cover.jpg', toc: 'jyuko_jo_toc.html' },
+        { id: 'jyuko_ge', cat: 'eng', title: '英文熟考［改訂版］下', desc: '読解のための発展と文法構造', cover: 'images/jyuko_ge_cover.jpg', toc: 'jyuko_ge_toc.html' },
+        { id: 'hijii_dokkai', cat: 'eng', title: '読解のための英文法が面白いほどわかる本', desc: '英文解釈の基礎と構文の発見をマスター', cover: 'images/hijii_dokkai_cover.jpg', toc: 'hijii_dokkai_toc.html' },
+        { id: 'hijii_zero', cat: 'eng', title: 'ゼロから英語長文が面白いほどわかる本', desc: '基礎〜応用レベルの英語長文読解問題集', cover: 'images/hijii_zero_cover.jpg', toc: 'hijii_zero_toc.html' }
+    ];
+
+    const grid = document.getElementById('library-grid');
+    const tabs = document.querySelectorAll('.tab-btn');
+
+    // === QR モーダル ===
+    const qrOverlay = document.getElementById('qr-modal-overlay');
+    const qrTitle = document.getElementById('qr-modal-title');
+    const qrImg = document.getElementById('qr-modal-img');
+    const qrUrl = document.getElementById('qr-modal-url');
+    const qrCopyBtn = document.getElementById('qr-copy-btn');
+    const qrCloseBtn = document.getElementById('qr-close-btn');
+    const copyToast = document.getElementById('copy-toast');
+
+    let currentQrUrl = '';
+
+    function renderBooks(filterCat) {
+        grid.innerHTML = '';
+        const filtered = filterCat === 'all' ? books : books.filter(b => b.cat === filterCat);
+        
+        filtered.forEach((book, i) => {
+            const card = document.createElement('div');
+            card.className = 'book-card';
+            card.style.animationDelay = `${i * 0.05}s`;
+            card.innerHTML = `
+                <a href="${book.toc}" class="book-card-link">
+                    <img src="${book.cover}" alt="${book.title} 表紙" class="book-card-cover">
+                    <div class="book-card-body">
+                        <div class="book-title">${book.title}</div>
+                        <div class="book-desc">${book.desc}</div>
+                    </div>
+                </a>
+                <div class="book-card-actions">
+                    <button class="btn-qr" data-toc="${book.toc}" data-title="${book.title}">📱 QR / URL を表示</button>
+                </div>
+            `;
+            grid.appendChild(card);
+        });
+
+        // Rebind QR Modal Event
+        document.querySelectorAll('.btn-qr').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                const tocPath = btn.dataset.toc;
+                const title = btn.dataset.title;
+                const baseUrl = window.location.origin + window.location.pathname.replace(/[^\/]*$/, '');
+                const fullUrl = baseUrl + tocPath;
+                currentQrUrl = fullUrl;
+
+                qrTitle.textContent = title;
+                qrUrl.textContent = fullUrl;
+                qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(fullUrl)}`;
+                qrOverlay.classList.add('active');
+            });
+        });
+    }
+
+    tabs.forEach(tab => {
+        tab.addEventListener('click', (e) => {
+            tabs.forEach(t => t.classList.remove('active'));
+            e.target.classList.add('active');
+            renderBooks(e.target.dataset.cat);
+        });
+    });
+
+    renderBooks('all'); // 初期描画
+
+    qrCloseBtn.addEventListener('click', () => qrOverlay.classList.remove('active'));
+    qrOverlay.addEventListener('click', (e) => { if (e.target === qrOverlay) qrOverlay.classList.remove('active'); });
+
+    qrCopyBtn.addEventListener('click', () => {
+        navigator.clipboard.writeText(currentQrUrl).then(() => {
+            copyToast.style.display = 'block';
+            setTimeout(() => copyToast.style.display = 'none', 2200);
+        }).catch(() => {
+            const ta = document.createElement('textarea');
+            ta.value = currentQrUrl;
+            document.body.appendChild(ta);
+            ta.select();
+            document.execCommand('copy');
+            document.body.removeChild(ta);
+            copyToast.style.display = 'block';
+            setTimeout(() => copyToast.style.display = 'none', 2200);
+        });
+    });
+})();
+</script>
+</body>
+</html>
