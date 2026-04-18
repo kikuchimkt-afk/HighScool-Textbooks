@@ -77,11 +77,17 @@
             color: #eee;
         }
         #status { font-size: 0.72rem; color: #8b8; margin-left: auto; }
-        main {
+        .tool-row { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; flex: 1 1 100%; }
+        .zoom-btns { display: inline-flex; align-items: center; gap: 4px; }
+        #zoom-label { min-width: 3.2rem; text-align: center; font-size: 0.78rem; color: #ccc; }
+        #main-wrap {
             flex: 1;
             overflow: auto;
             -webkit-overflow-scrolling: touch;
+        }
+        main {
             padding: 10px;
+            transform-origin: top left;
         }
         .page-block {
             margin-bottom: 16px;
@@ -127,9 +133,19 @@
 <body>
     <header>
         <h1>書き込み試作 · やっておきたい英語長文300 · 問題1（本p.2–3）</h1>
-        <p class="hint">リポジトリのルートで <code style="background:#333;padding:2px 6px;border-radius:4px;">npx serve</code> などで開いてください（<code style="background:#333;padding:2px 6px;border-radius:4px;">/annotate-kawai300-p1/</code>）。データはこの端末の IndexedDB のみに保存されます（目安 ~数MB以下想定）。</p>
+        <p class="hint">リポジトリのルートで <code style="background:#333;padding:2px 6px;border-radius:4px;">npx serve</code> などで開いてください。拡大は ± ボタン（50〜250%、端末に記憶）。図形はドラッグで確定。データは IndexedDB のみ（目安 ~数MB以下）。</p>
         <div class="toolbar">
             <label class="toggle"><input type="checkbox" id="draw-mode" checked><span>ペンで書く</span></label>
+            <label>ツール
+                <select id="tool-mode">
+                    <option value="pen" selected>ペン</option>
+                    <option value="highlighter">蛍光ペン</option>
+                    <option value="eraser">消しゴム</option>
+                    <option value="line">直線</option>
+                    <option value="rect">四角</option>
+                    <option value="ellipse">楕円</option>
+                </select>
+            </label>
             <label>色 <input type="color" id="pen-color" value="#e11d48"></label>
             <label>太さ
                 <select id="pen-width">
@@ -138,6 +154,12 @@
                     <option value="8">太</option>
                 </select>
             </label>
+            <div class="zoom-btns" aria-label="表示倍率">
+                <button type="button" id="btn-zoom-out" title="縮小">−</button>
+                <span id="zoom-label">100%</span>
+                <button type="button" id="btn-zoom-in" title="拡大">＋</button>
+                <button type="button" id="btn-zoom-reset" title="100%">等倍</button>
+            </div>
             <button type="button" id="btn-undo">戻す</button>
             <button type="button" id="btn-clear-page">このページ消去</button>
             <span style="font-size:0.7rem;color:#777;">※消去・戻すの対象は、直前にタップしたページです。</span>
@@ -146,7 +168,9 @@
             <span id="status"></span>
         </div>
     </header>
-    <main id="main"></main>
+    <div id="main-wrap">
+        <main id="main"></main>
+    </div>
     <script src="app.js"></script>
 </body>
 </html>

@@ -1,12 +1,13 @@
 /**
  * 軽量書き込み試作 — 河合 英語長文300 問題1のみ（PDF p.2–3）
- * ストロークは画像の論理ピクセル座標で保持し、表示サイズ変更時に再描画。
+ * ストロークは画像の論理ピクセル座標。拡大・蛍光・消しゴム・図形対応。
  */
 (function () {
     const DB_NAME = 'annotate-kawai300-p1';
     const DB_VER = 1;
     const STORE = 'pages';
     const DOC_KEY = 'kawai300-p1';
+    const ZOOM_KEY = 'annotate-kawai300-p1-zoom';
 
     const PAGES = [
         { pdfPage: 2, label: '問題1 · PDF p.2（本誌目安 p.2）' },
@@ -17,6 +18,7 @@
 
     const mainEl = document.getElementById('main');
     const drawModeEl = document.getElementById('draw-mode');
+    const toolModeEl = document.getElementById('tool-mode');
     const colorEl = document.getElementById('pen-color');
     const widthEl = document.getElementById('pen-width');
     const btnUndo = document.getElementById('btn-undo');
@@ -24,16 +26,64 @@
     const btnExport = document.getElementById('btn-export');
     const importFile = document.getElementById('import-file');
     const statusEl = document.getElementById('status');
+    const btnZoomIn = document.getElementById('btn-zoom-in');
+    const btnZoomOut = document.getElementById('btn-zoom-out');
+    const btnZoomReset = document.getElementById('btn-zoom-reset');
+    const zoomLabel = document.getElementById('zoom-label');
 
     /** @type {Map<number, { history: object[][], img: HTMLImageElement, canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D, stage: HTMLElement }>} */
     const state = new Map();
 
     let db = null;
     let activePdfPage = PAGES[0].pdfPage;
+    let viewZoom = 1;
+
+    try {
+        const z = Number(localStorage.getItem(ZOOM_KEY));
+        if (!Number.isNaN(z) && z >= 0.5 && z <= 2.5) viewZoom = z;
+    } catch (_) { /* ignore */ }
 
     function pad4(n) {
         return String(n).padStart(4, '0');
     }
+
+    function getTool() {
+        return toolModeEl ? toolModeEl.value : 'pen';
+    }
+
+    function hexToRgba(hex, alpha) {
+        const h = (hex || '#ffff00').replace('#', '');
+        const r = parseInt(h.slice(0, 2), 16) || 255;
+        const g = parseInt(h.slice(2, 4), 16) || 255;
+        const b = parseInt(h.slice(4, 6), 16) || 0;
+        return `rgba(${r},${g},${b},${alpha})`;
+    }
+
+    function applyViewZoom() {
+        const z = Math.min(2.5, Math.max(0.5, Math.round(viewZoom * 100) / 100));
+        viewZoom = z;
+        mainEl.style.transform = z === 1 ? 'none' : `scale(${z})`;
+        mainEl.style.transformOrigin = 'top left';
+        mainEl.style.width = z === 1 ? '100%' : `${100 / z}%`;
+        zoomLabel.textContent = `${Math.round(z * 100)}%`;
+        try {
+            localStorage.setItem(ZOOM_KEY, String(z));
+        } catch (_) { /* ignore */ }
+    }
+
+    btnZoomIn.addEventListener('click', () => {
+        viewZoom = Math.min(2.5, viewZoom + 0.1);
+        applyViewZoom();
+    });
+    btnZoomOut.addEventListener('click', () => {
+        viewZoom = Math.max(0.5, viewZoom - 0.1);
+        applyViewZoom();
+    });
+    btnZoomReset.addEventListener('click', () => {
+        viewZoom = 1;
+        applyViewZoom();
+    });
+    applyViewZoom();
 
     function openDb() {
         return new Promise((resolve, reject) => {
@@ -104,7 +154,103 @@
         canvas.height = h;
     }
 
-    /** 確定ストローク＋描画中の一筆を描く（キャンバス解像度は変えない） */
+    function normalizeBox(x0, y0, x1, y1) {
+        return {
+            x: Math.min(x0, x1),
+            y: Math.min(y0, y1),
+            w: Math.abs(x1 - x0),
+            h: Math.abs(y1 - y0),
+        };
+    }
+
+    /** 確定オブジェクトおよび描画中プレビューを描画 */
+    function drawMarking(ctx, st) {
+        if (!st) return;
+
+        if (st.type === 'line') {
+            if (Math.abs(st.x1 - st.x0) + Math.abs(st.y1 - st.y0) < 0.5) return;
+            ctx.save();
+            ctx.lineCap = 'round';
+            ctx.strokeStyle = st.color;
+            ctx.lineWidth = st.width;
+            ctx.beginPath();
+            ctx.moveTo(st.x0, st.y0);
+            ctx.lineTo(st.x1, st.y1);
+            ctx.stroke();
+            ctx.restore();
+            return;
+        }
+
+        if (st.type === 'rect') {
+            const r = normalizeBox(st.x0, st.y0, st.x1, st.y1);
+            if (r.w < 0.5 || r.h < 0.5) return;
+            ctx.save();
+            ctx.strokeStyle = st.color;
+            ctx.lineWidth = st.width;
+            ctx.strokeRect(r.x, r.y, r.w, r.h);
+            ctx.restore();
+            return;
+        }
+
+        if (st.type === 'ellipse') {
+            const r = normalizeBox(st.x0, st.y0, st.x1, st.y1);
+            if (r.w < 0.5 || r.h < 0.5) return;
+            const cx = r.x + r.w / 2;
+            const cy = r.y + r.h / 2;
+            const rx = Math.max(r.w / 2 - st.width / 2, 0.5);
+            const ry = Math.max(r.h / 2 - st.width / 2, 0.5);
+            ctx.save();
+            ctx.strokeStyle = st.color;
+            ctx.lineWidth = st.width;
+            ctx.beginPath();
+            ctx.ellipse(cx, cy, rx, ry, 0, 0, Math.PI * 2);
+            ctx.stroke();
+            ctx.restore();
+            return;
+        }
+
+        if (st.type === 'erase') {
+            if (!st.points || st.points.length < 2) return;
+            ctx.save();
+            ctx.globalCompositeOperation = 'destination-out';
+            ctx.lineCap = 'round';
+            ctx.lineJoin = 'round';
+            ctx.strokeStyle = 'rgba(0,0,0,1)';
+            ctx.lineWidth = st.width || 20;
+            ctx.beginPath();
+            ctx.moveTo(st.points[0].x, st.points[0].y);
+            for (let i = 1; i < st.points.length; i++) {
+                ctx.lineTo(st.points[i].x, st.points[i].y);
+            }
+            ctx.stroke();
+            ctx.restore();
+            return;
+        }
+
+        /* path: type==='path' または従来データ（points のみ） */
+        if (st.points && st.points.length >= 2) {
+            ctx.save();
+            ctx.lineCap = 'round';
+            ctx.lineJoin = 'round';
+            if (st.highlighter) {
+                ctx.globalCompositeOperation = 'multiply';
+                ctx.strokeStyle = hexToRgba(st.color, 0.42);
+                ctx.lineWidth = Math.max(st.width * 1.35, 4);
+            } else {
+                ctx.globalCompositeOperation = 'source-over';
+                ctx.strokeStyle = st.color;
+                ctx.lineWidth = st.width;
+            }
+            ctx.beginPath();
+            ctx.moveTo(st.points[0].x, st.points[0].y);
+            for (let i = 1; i < st.points.length; i++) {
+                ctx.lineTo(st.points[i].x, st.points[i].y);
+            }
+            ctx.stroke();
+            ctx.restore();
+        }
+    }
+
     function paintStrokes(pdfPage, partial) {
         const s = state.get(pdfPage);
         if (!s) return;
@@ -116,32 +262,23 @@
         const hist = s.history;
         const strokes = hist[hist.length - 1] || [];
         for (const st of strokes) {
-            drawStroke(ctx, st);
+            drawMarking(ctx, normalizeLegacyStroke(st));
         }
-        if (partial && partial.points && partial.points.length >= 2) {
-            drawStroke(ctx, partial);
+        if (partial) {
+            drawMarking(ctx, partial);
         }
+    }
+
+    /** 旧形式 { points, color, width } → path として扱う */
+    function normalizeLegacyStroke(st) {
+        if (!st || st.type) return st;
+        if (st.points) return { type: 'path', points: st.points, color: st.color, width: st.width };
+        return st;
     }
 
     function redraw(pdfPage) {
         syncCanvasPixels(pdfPage);
         paintStrokes(pdfPage);
-    }
-
-    function drawStroke(ctx, st) {
-        if (!st.points || st.points.length < 2) return;
-        ctx.save();
-        ctx.lineCap = 'round';
-        ctx.lineJoin = 'round';
-        ctx.strokeStyle = st.color;
-        ctx.lineWidth = st.width;
-        ctx.beginPath();
-        ctx.moveTo(st.points[0].x, st.points[0].y);
-        for (let i = 1; i < st.points.length; i++) {
-            ctx.lineTo(st.points[i].x, st.points[i].y);
-        }
-        ctx.stroke();
-        ctx.restore();
     }
 
     function fitCanvasToImage(img, canvas) {
@@ -154,6 +291,15 @@
         const pdfPage = parseInt(canvas.dataset.pdfPage, 10);
         syncCanvasPixels(pdfPage);
         paintStrokes(pdfPage);
+    }
+
+    function lineWidthForCanvas(canvas) {
+        const nw = Math.max(canvas.width, 1);
+        const base = parseInt(widthEl.value, 10) * Math.max(0.8, nw / 900);
+        const tool = getTool();
+        if (tool === 'eraser') return base * 2.8;
+        if (tool === 'highlighter') return base * 2.2;
+        return base;
     }
 
     function setupCanvasDrawing(pdfPage, canvas) {
@@ -169,30 +315,87 @@
             };
         }
 
+        function shapeStroke(c) {
+            return {
+                type: c.shape,
+                x0: c.x0,
+                y0: c.y0,
+                x1: c.x1,
+                y1: c.y1,
+                color: c.color,
+                width: c.width,
+            };
+        }
+
         function start(ev) {
             if (!drawModeEl.checked) return;
             if (ev.pointerType === 'mouse' && ev.buttons !== 1) return;
             canvas.setPointerCapture(ev.pointerId);
             const p = posFromEvent(ev);
-            const nw = Math.max(canvas.width, 1);
-            const lineW = parseInt(widthEl.value, 10) * Math.max(0.8, nw / 900);
-            current = {
-                color: colorEl.value,
-                width: lineW,
-                points: [p],
-            };
+            const tool = getTool();
+
+            if (tool === 'line' || tool === 'rect' || tool === 'ellipse') {
+                const w = lineWidthForCanvas(canvas);
+                current = {
+                    kind: 'shape',
+                    shape: tool,
+                    x0: p.x,
+                    y0: p.y,
+                    x1: p.x,
+                    y1: p.y,
+                    color: colorEl.value,
+                    width: w,
+                };
+            } else {
+                current = {
+                    kind: 'path',
+                    tool,
+                    color: colorEl.value,
+                    width: lineWidthForCanvas(canvas),
+                    points: [p],
+                };
+            }
             ev.preventDefault();
         }
 
         function move(ev) {
             if (!current) return;
             const p = posFromEvent(ev);
+
+            if (current.kind === 'shape') {
+                current.x1 = p.x;
+                current.y1 = p.y;
+                paintStrokes(pdfPage, shapeStroke(current));
+                ev.preventDefault();
+                return;
+            }
+
             const last = current.points[current.points.length - 1];
             const dx = p.x - last.x;
             const dy = p.y - last.y;
             if (dx * dx + dy * dy < 2) return;
             current.points.push(p);
-            paintStrokes(pdfPage, current);
+
+            let partial;
+            if (current.tool === 'eraser') {
+                partial = { type: 'erase', points: current.points, width: current.width };
+            } else if (current.tool === 'highlighter') {
+                partial = {
+                    type: 'path',
+                    points: current.points,
+                    color: current.color,
+                    width: current.width,
+                    highlighter: true,
+                };
+            } else {
+                partial = {
+                    type: 'path',
+                    points: current.points,
+                    color: current.color,
+                    width: current.width,
+                };
+            }
+            paintStrokes(pdfPage, partial);
             ev.preventDefault();
         }
 
@@ -201,14 +404,45 @@
             try {
                 canvas.releasePointerCapture(ev.pointerId);
             } catch (_) { /* ignore */ }
-            if (current.points.length >= 2) {
+
+            if (current.kind === 'shape') {
+                const dx = current.x1 - current.x0;
+                const dy = current.y1 - current.y0;
+                if (dx * dx + dy * dy >= 9) {
+                    const s = state.get(pdfPage);
+                    const prev = s.history[s.history.length - 1] || [];
+                    const stroke = shapeStroke(current);
+                    s.history.push([...prev, stroke]);
+                    if (s.history.length > 40) s.history.shift();
+                    savePageData(pdfPage, s.history).then(updateStatus).catch((e) => console.error(e));
+                }
+            } else if (current.points && current.points.length >= 2) {
                 const s = state.get(pdfPage);
                 const prev = s.history[s.history.length - 1] || [];
-                const stroke = JSON.parse(JSON.stringify(current));
+                let stroke;
+                if (current.tool === 'eraser') {
+                    stroke = { type: 'erase', points: JSON.parse(JSON.stringify(current.points)), width: current.width };
+                } else if (current.tool === 'highlighter') {
+                    stroke = {
+                        type: 'path',
+                        points: JSON.parse(JSON.stringify(current.points)),
+                        color: current.color,
+                        width: current.width,
+                        highlighter: true,
+                    };
+                } else {
+                    stroke = {
+                        type: 'path',
+                        points: JSON.parse(JSON.stringify(current.points)),
+                        color: current.color,
+                        width: current.width,
+                    };
+                }
                 s.history.push([...prev, stroke]);
                 if (s.history.length > 40) s.history.shift();
                 savePageData(pdfPage, s.history).then(updateStatus).catch((e) => console.error(e));
             }
+
             current = null;
             paintStrokes(pdfPage);
             ev.preventDefault();
